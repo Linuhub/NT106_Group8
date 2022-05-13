@@ -18,6 +18,6 @@ namespace projectNT106
     }
     internal class AnswerList
     {
-        public 
+        
     }
 }

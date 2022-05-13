@@ -56,7 +56,7 @@ namespace projectNT106
             imgs.ImageSize = new Size(25, 25);
 
             String[] paths = { };
-            paths = Directory.GetFiles("D:/UIT/HK4/NT106/Project/icon");
+            paths = Directory.GetFiles("D:/UIT/HK4/NT106/Project/NT106_Group8/icon");
 
             try
             {
