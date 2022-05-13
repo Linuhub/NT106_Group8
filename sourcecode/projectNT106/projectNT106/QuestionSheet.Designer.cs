@@ -32,20 +32,20 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QuestionSheet));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnExit = new System.Windows.Forms.Button();
             this.btnInstruction = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.roundedButton4 = new projectNT106.Graph.RoundedButton();
             this.roundedButton3 = new projectNT106.Graph.RoundedButton();
             this.roundedButton2 = new projectNT106.Graph.RoundedButton();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             this.roundedButton1 = new projectNT106.Graph.RoundedButton();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -73,16 +73,6 @@
             this.panel1.Size = new System.Drawing.Size(201, 91);
             this.panel1.TabIndex = 2;
             // 
-            // btnExit
-            // 
-            this.btnExit.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnExit.Location = new System.Drawing.Point(0, 43);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(201, 48);
-            this.btnExit.TabIndex = 1;
-            this.btnExit.Text = "Thoát";
-            this.btnExit.UseVisualStyleBackColor = true;
-            // 
             // btnInstruction
             // 
             this.btnInstruction.Dock = System.Windows.Forms.DockStyle.Top;
@@ -92,6 +82,16 @@
             this.btnInstruction.TabIndex = 0;
             this.btnInstruction.Text = "Hướng dẫn";
             this.btnInstruction.UseVisualStyleBackColor = true;
+            // 
+            // btnExit
+            // 
+            this.btnExit.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnExit.Location = new System.Drawing.Point(0, 43);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(201, 48);
+            this.btnExit.TabIndex = 1;
+            this.btnExit.Text = "Thoát";
+            this.btnExit.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -151,26 +151,14 @@
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(13, 59);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(1451, 471);
-            this.textBox3.TabIndex = 0;
-            // 
-            // timer1
-            // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
             // roundedButton4
             // 
             this.roundedButton4.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.roundedButton4.FlatAppearance.BorderSize = 0;
             this.roundedButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.roundedButton4.Location = new System.Drawing.Point(1245, 579);
+            this.roundedButton4.Location = new System.Drawing.Point(1144, 560);
             this.roundedButton4.Name = "roundedButton4";
-            this.roundedButton4.Size = new System.Drawing.Size(219, 174);
+            this.roundedButton4.Size = new System.Drawing.Size(219, 164);
             this.roundedButton4.TabIndex = 4;
             this.roundedButton4.Text = "D";
             this.roundedButton4.UseVisualStyleBackColor = false;
@@ -181,9 +169,9 @@
             this.roundedButton3.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.roundedButton3.FlatAppearance.BorderSize = 0;
             this.roundedButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.roundedButton3.Location = new System.Drawing.Point(861, 594);
+            this.roundedButton3.Location = new System.Drawing.Point(814, 560);
             this.roundedButton3.Name = "roundedButton3";
-            this.roundedButton3.Size = new System.Drawing.Size(228, 173);
+            this.roundedButton3.Size = new System.Drawing.Size(228, 164);
             this.roundedButton3.TabIndex = 3;
             this.roundedButton3.Text = "C";
             this.roundedButton3.UseVisualStyleBackColor = false;
@@ -194,7 +182,7 @@
             this.roundedButton2.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.roundedButton2.FlatAppearance.BorderSize = 0;
             this.roundedButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.roundedButton2.Location = new System.Drawing.Point(416, 603);
+            this.roundedButton2.Location = new System.Drawing.Point(465, 560);
             this.roundedButton2.Name = "roundedButton2";
             this.roundedButton2.Size = new System.Drawing.Size(221, 164);
             this.roundedButton2.TabIndex = 2;
@@ -202,18 +190,30 @@
             this.roundedButton2.UseVisualStyleBackColor = false;
             this.roundedButton2.Click += new System.EventHandler(this.QuestionSheet_Click);
             // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(13, 59);
+            this.textBox3.Multiline = true;
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(1451, 471);
+            this.textBox3.TabIndex = 0;
+            // 
             // roundedButton1
             // 
             this.roundedButton1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.roundedButton1.FlatAppearance.BorderSize = 0;
             this.roundedButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.roundedButton1.Location = new System.Drawing.Point(13, 598);
+            this.roundedButton1.Location = new System.Drawing.Point(127, 560);
             this.roundedButton1.Name = "roundedButton1";
             this.roundedButton1.Size = new System.Drawing.Size(220, 164);
             this.roundedButton1.TabIndex = 1;
             this.roundedButton1.Text = "A";
             this.roundedButton1.UseVisualStyleBackColor = false;
             this.roundedButton1.Click += new System.EventHandler(this.QuestionSheet_Click);
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // groupBox2
             // 

@@ -92,6 +92,12 @@
     <Compile Include="RankingServer.Designer.cs">
       <DependentUpon>RankingServer.cs</DependentUpon>
     </Compile>
+    <Compile Include="ResultClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ResultClient.Designer.cs">
+      <DependentUpon>ResultClient.cs</DependentUpon>
+    </Compile>
     <Compile Include="Room.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,6 +128,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RankingServer.resx">
       <DependentUpon>RankingServer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResultClient.resx">
+      <DependentUpon>ResultClient.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Room.resx">
       <DependentUpon>Room.cs</DependentUpon>
