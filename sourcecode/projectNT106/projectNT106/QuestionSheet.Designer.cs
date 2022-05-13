@@ -129,9 +129,11 @@
             // progressBar1
             // 
             this.progressBar1.Location = new System.Drawing.Point(7, 249);
+            this.progressBar1.MarqueeAnimationSpeed = 10;
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(1238, 5);
             this.progressBar1.Step = 1;
+            this.progressBar1.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
             this.progressBar1.TabIndex = 7;
             // 
             // groupBox1

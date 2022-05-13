@@ -44,7 +44,7 @@ namespace projectNT106
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            progressBar1.PerformStep();
+            progressBar1.PerformLayout();
         }
     }
 }
