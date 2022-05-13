@@ -16,5 +16,11 @@ namespace projectNT106
         {
             InitializeComponent();
         }
+
+        private void btnInstruction_Click(object sender, EventArgs e)
+        {
+            Form review = new ReviewAnwser();
+            review.ShowDialog();
+        }
     }
 }

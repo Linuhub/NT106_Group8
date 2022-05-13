@@ -30,7 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ResultClient));
             this.gradientPanel1 = new projectNT106.GradientPanel();
-            this.panel4 = new System.Windows.Forms.Panel();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.textBox4 = new System.Windows.Forms.TextBox();
             this.btnInstruction = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -60,7 +64,7 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.gradientPanel1.SuspendLayout();
-            this.panel4.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             this.panel2.SuspendLayout();
@@ -84,7 +88,9 @@
             this.gradientPanel1.Angle = 90F;
             this.gradientPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.gradientPanel1.BottomColor = System.Drawing.Color.Transparent;
-            this.gradientPanel1.Controls.Add(this.panel4);
+            this.gradientPanel1.Controls.Add(this.groupBox2);
+            this.gradientPanel1.Controls.Add(this.btnInstruction);
+            this.gradientPanel1.Controls.Add(this.button1);
             this.gradientPanel1.Controls.Add(this.panel3);
             this.gradientPanel1.Controls.Add(this.panel2);
             this.gradientPanel1.Controls.Add(this.panel1);
@@ -98,31 +104,67 @@
             this.gradientPanel1.TabIndex = 1;
             this.gradientPanel1.TopColor = System.Drawing.Color.Transparent;
             // 
-            // panel4
+            // groupBox2
             // 
-            this.panel4.Controls.Add(this.btnInstruction);
-            this.panel4.Controls.Add(this.button1);
-            this.panel4.Location = new System.Drawing.Point(1307, 65);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(201, 91);
-            this.panel4.TabIndex = 18;
+            this.groupBox2.Controls.Add(this.textBox5);
+            this.groupBox2.Controls.Add(this.label7);
+            this.groupBox2.Controls.Add(this.label9);
+            this.groupBox2.Controls.Add(this.textBox4);
+            this.groupBox2.Location = new System.Drawing.Point(1220, 25);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(244, 94);
+            this.groupBox2.TabIndex = 21;
+            this.groupBox2.TabStop = false;
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(133, 16);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.ReadOnly = true;
+            this.textBox5.Size = new System.Drawing.Size(100, 26);
+            this.textBox5.TabIndex = 18;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(29, 57);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(83, 20);
+            this.label7.TabIndex = 19;
+            this.label7.Text = "ID phòng: ";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(6, 22);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(106, 20);
+            this.label9.TabIndex = 17;
+            this.label9.Text = "ID người chơi:";
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(133, 51);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.ReadOnly = true;
+            this.textBox4.Size = new System.Drawing.Size(100, 26);
+            this.textBox4.TabIndex = 20;
             // 
             // btnInstruction
             // 
-            this.btnInstruction.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnInstruction.Location = new System.Drawing.Point(0, 0);
+            this.btnInstruction.Location = new System.Drawing.Point(970, 789);
             this.btnInstruction.Name = "btnInstruction";
-            this.btnInstruction.Size = new System.Drawing.Size(201, 37);
+            this.btnInstruction.Size = new System.Drawing.Size(118, 66);
             this.btnInstruction.TabIndex = 0;
             this.btnInstruction.Text = "Xem lại bài thi";
             this.btnInstruction.UseVisualStyleBackColor = true;
+            this.btnInstruction.Click += new System.EventHandler(this.btnInstruction_Click);
             // 
             // button1
             // 
-            this.button1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.button1.Location = new System.Drawing.Point(0, 43);
+            this.button1.Location = new System.Drawing.Point(1128, 789);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(201, 48);
+            this.button1.Size = new System.Drawing.Size(118, 66);
             this.button1.TabIndex = 1;
             this.button1.Text = "Thoát";
             this.button1.UseVisualStyleBackColor = true;
@@ -361,7 +403,7 @@
             this.groupBox1.Controls.Add(this.textBox3);
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Location = new System.Drawing.Point(375, 648);
+            this.groupBox1.Location = new System.Drawing.Point(206, 652);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(746, 224);
             this.groupBox1.TabIndex = 16;
@@ -413,7 +455,8 @@
             this.Name = "ResultClient";
             this.Text = "ResultClient";
             this.gradientPanel1.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             this.panel2.ResumeLayout(false);
@@ -464,8 +507,12 @@
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button btnInstruction;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox textBox4;
     }
 }

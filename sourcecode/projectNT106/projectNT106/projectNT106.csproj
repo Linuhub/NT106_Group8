@@ -98,6 +98,12 @@
     <Compile Include="ResultClient.Designer.cs">
       <DependentUpon>ResultClient.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReviewAnwser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReviewAnwser.Designer.cs">
+      <DependentUpon>ReviewAnwser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Room.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -131,6 +137,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ResultClient.resx">
       <DependentUpon>ResultClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReviewAnwser.resx">
+      <DependentUpon>ReviewAnwser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Room.resx">
       <DependentUpon>Room.cs</DependentUpon>
