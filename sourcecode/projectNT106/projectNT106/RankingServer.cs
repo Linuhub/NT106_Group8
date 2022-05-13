@@ -19,28 +19,12 @@ namespace projectNT106
 
         private void RankingServer_Load(object sender, EventArgs e)
         {
+            listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
         }
 
         private void gradientPanel1_Paint(object sender, PaintEventArgs e)
         {
-
-        }
-
-        private void panel3_Paint(object sender, PaintEventArgs e)
-        {
-            panel3.BackColor = Color.FromArgb(100, 0, 0, 0);
-
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-            panel2.BackColor = Color.FromArgb(100, 0, 0, 0);
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-            panel1.BackColor = Color.FromArgb(100, 0, 0, 0);
+            gradientPanel1.BackColor = Color.FromArgb(100, 0, 0, 0);
 
         }
     }

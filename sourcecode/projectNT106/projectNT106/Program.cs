@@ -16,7 +16,7 @@ namespace projectNT106
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new HomeClient());
+            Application.Run(new HomeServer());
         }
     }
 }

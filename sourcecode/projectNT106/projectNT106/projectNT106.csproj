@@ -86,6 +86,12 @@
     <Compile Include="QuestionSheet.Designer.cs">
       <DependentUpon>QuestionSheet.cs</DependentUpon>
     </Compile>
+    <Compile Include="QuestionSource.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QuestionSource.Designer.cs">
+      <DependentUpon>QuestionSource.cs</DependentUpon>
+    </Compile>
     <Compile Include="RankingServer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -131,6 +137,9 @@
     </Compile>
     <EmbeddedResource Include="QuestionSheet.resx">
       <DependentUpon>QuestionSheet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QuestionSource.resx">
+      <DependentUpon>QuestionSource.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RankingServer.resx">
       <DependentUpon>RankingServer.cs</DependentUpon>
