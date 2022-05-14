@@ -8,20 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace projectNT106
+namespace ProjectClient
 {
     public partial class QuestionSheet : Form
     {
         bool _isBoxOptionOpen = false;
+
         public QuestionSheet()
         {
             InitializeComponent();
         }
 
-        private void QuestionSheet_Load(object sender, EventArgs e)
-        {
-            panel1.Hide();
-        }
+        
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
@@ -29,7 +27,7 @@ namespace projectNT106
             {
                 panel1.Hide();
                 _isBoxOptionOpen = false;
-            } 
+            }
             else
             {
                 panel1.Show();
@@ -37,25 +35,45 @@ namespace projectNT106
             }
         }
 
-        private void QuestionSheet_Click(object sender, EventArgs e)
+
+        private void QuestionSheet_Load_1(object sender, EventArgs e)
+        {
+            panel1.Hide();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            Form result = new ResultClient();
+            result.ShowDialog();
+        }
+
+        private void timer1_Tick_1(object sender, EventArgs e)
+        {
+            progressBar1.PerformStep();
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
         {
             timer1.Start();
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e)
         {
-            progressBar1.PerformStep();
-        }
-
-        private void progressBar1_Click(object sender, EventArgs e)
-        {
+            timer1.Start();
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button4_Click(object sender, EventArgs e)
         {
-            Form result = new ResultClient();
-            result.ShowDialog();
+            timer1.Start();
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            timer1.Start();
+
         }
     }
 }

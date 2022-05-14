@@ -24,7 +24,7 @@ namespace projectNT106
 
         private void btnCreateRoom_Click(object sender, EventArgs e)
         {
-            Form creRoom = new CreateRoom(false);
+            Form creRoom = new CreateRoom();
             creRoom.Show();
         }
 

@@ -1,4 +1,4 @@
-﻿namespace projectNT106
+﻿namespace ProjectClient
 {
     partial class ResultClient
     {
@@ -29,32 +29,13 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ResultClient));
-            this.gradientPanel1 = new projectNT106.GradientPanel();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.btnInstruction = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.pictureBox9 = new System.Windows.Forms.PictureBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.roundedPanel3 = new projectNT106.Graph.RoundedPanel();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.roundedPanel2 = new projectNT106.Graph.RoundedPanel();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.roundedPanel1 = new projectNT106.Graph.RoundedPanel();
+            this.label4 = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -63,186 +44,98 @@
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.gradientPanel1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
-            this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
-            this.roundedPanel3.SuspendLayout();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.pictureBox9 = new System.Windows.Forms.PictureBox();
+            this.btnInstruction = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            this.roundedPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.roundedPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
+            this.panel3.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // gradientPanel1
+            // pictureBox6
             // 
-            this.gradientPanel1.Angle = 90F;
-            this.gradientPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.gradientPanel1.BottomColor = System.Drawing.Color.Transparent;
-            this.gradientPanel1.Controls.Add(this.groupBox2);
-            this.gradientPanel1.Controls.Add(this.btnInstruction);
-            this.gradientPanel1.Controls.Add(this.button1);
-            this.gradientPanel1.Controls.Add(this.panel3);
-            this.gradientPanel1.Controls.Add(this.panel2);
-            this.gradientPanel1.Controls.Add(this.panel1);
-            this.gradientPanel1.Controls.Add(this.roundedPanel3);
-            this.gradientPanel1.Controls.Add(this.roundedPanel2);
-            this.gradientPanel1.Controls.Add(this.roundedPanel1);
-            this.gradientPanel1.Controls.Add(this.groupBox1);
-            this.gradientPanel1.Location = new System.Drawing.Point(-1, -13);
-            this.gradientPanel1.Name = "gradientPanel1";
-            this.gradientPanel1.Size = new System.Drawing.Size(1548, 929);
-            this.gradientPanel1.TabIndex = 1;
-            this.gradientPanel1.TopColor = System.Drawing.Color.Transparent;
+            this.pictureBox6.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
+            this.pictureBox6.Location = new System.Drawing.Point(896, -28);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(153, 131);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox6.TabIndex = 30;
+            this.pictureBox6.TabStop = false;
             // 
-            // groupBox2
+            // label3
             // 
-            this.groupBox2.Controls.Add(this.textBox5);
-            this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Controls.Add(this.label9);
-            this.groupBox2.Controls.Add(this.textBox4);
-            this.groupBox2.Location = new System.Drawing.Point(1220, 25);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(244, 94);
-            this.groupBox2.TabIndex = 21;
-            this.groupBox2.TabStop = false;
+            this.label3.Location = new System.Drawing.Point(892, 248);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(163, 46);
+            this.label3.TabIndex = 26;
+            this.label3.Text = "1873";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox5
+            // pictureBox3
             // 
-            this.textBox5.Location = new System.Drawing.Point(133, 16);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.ReadOnly = true;
-            this.textBox5.Size = new System.Drawing.Size(100, 26);
-            this.textBox5.TabIndex = 18;
+            this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.BackgroundImage")));
+            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox3.Location = new System.Drawing.Point(892, 128);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(163, 117);
+            this.pictureBox3.TabIndex = 22;
+            this.pictureBox3.TabStop = false;
             // 
-            // label7
+            // pictureBox5
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(29, 57);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(83, 20);
-            this.label7.TabIndex = 19;
-            this.label7.Text = "ID phòng: ";
+            this.pictureBox5.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.Location = new System.Drawing.Point(154, -20);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(168, 123);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox5.TabIndex = 31;
+            this.pictureBox5.TabStop = false;
             // 
-            // label9
+            // label2
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(6, 22);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(106, 20);
-            this.label9.TabIndex = 17;
-            this.label9.Text = "ID người chơi:";
+            this.label2.Location = new System.Drawing.Point(154, 239);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(163, 46);
+            this.label2.TabIndex = 27;
+            this.label2.Text = "1210";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox4
+            // pictureBox2
             // 
-            this.textBox4.Location = new System.Drawing.Point(133, 51);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.ReadOnly = true;
-            this.textBox4.Size = new System.Drawing.Size(100, 26);
-            this.textBox4.TabIndex = 20;
-            // 
-            // btnInstruction
-            // 
-            this.btnInstruction.Location = new System.Drawing.Point(970, 789);
-            this.btnInstruction.Name = "btnInstruction";
-            this.btnInstruction.Size = new System.Drawing.Size(118, 66);
-            this.btnInstruction.TabIndex = 0;
-            this.btnInstruction.Text = "Xem lại bài thi";
-            this.btnInstruction.UseVisualStyleBackColor = true;
-            this.btnInstruction.Click += new System.EventHandler(this.btnInstruction_Click);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(1128, 789);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(118, 66);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Thoát";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.Transparent;
-            this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel3.Controls.Add(this.label6);
-            this.panel3.Controls.Add(this.pictureBox9);
-            this.panel3.Location = new System.Drawing.Point(944, 353);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(312, 256);
-            this.panel3.TabIndex = 6;
-            // 
-            // label6
-            // 
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label6.Location = new System.Drawing.Point(71, 34);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(158, 81);
-            this.label6.TabIndex = 3;
-            this.label6.Text = "Số câu đúng: 17/20\r\nĐiểm: 1780\r\n";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // pictureBox9
-            // 
-            this.pictureBox9.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox9.Image")));
-            this.pictureBox9.Location = new System.Drawing.Point(26, -58);
-            this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(245, 253);
-            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox9.TabIndex = 0;
-            this.pictureBox9.TabStop = false;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.Transparent;
-            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel2.Controls.Add(this.label5);
-            this.panel2.Controls.Add(this.pictureBox8);
-            this.panel2.Location = new System.Drawing.Point(581, 353);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(312, 256);
-            this.panel2.TabIndex = 5;
-            // 
-            // label5
-            // 
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label5.Location = new System.Drawing.Point(61, 29);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(176, 91);
-            this.label5.TabIndex = 3;
-            this.label5.Text = "Số câu đúng: 17/20\r\nĐiểm: 1780\r\n";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // pictureBox8
-            // 
-            this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
-            this.pictureBox8.Location = new System.Drawing.Point(26, -58);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(245, 253);
-            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox8.TabIndex = 0;
-            this.pictureBox8.TabStop = false;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.Transparent;
-            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.pictureBox7);
-            this.panel1.Location = new System.Drawing.Point(206, 353);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(312, 256);
-            this.panel1.TabIndex = 4;
+            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox2.Location = new System.Drawing.Point(154, 119);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(163, 117);
+            this.pictureBox2.TabIndex = 23;
+            this.pictureBox2.TabStop = false;
             // 
             // label4
             // 
@@ -255,134 +148,23 @@
             this.label4.Text = "Số câu đúng: 17/20\r\nĐiểm: 1780\r\n";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // pictureBox7
-            // 
-            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
-            this.pictureBox7.Location = new System.Drawing.Point(26, -58);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(245, 253);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox7.TabIndex = 0;
-            this.pictureBox7.TabStop = false;
-            // 
-            // roundedPanel3
-            // 
-            this.roundedPanel3.Angle = 90F;
-            this.roundedPanel3.BottomColor = System.Drawing.Color.Wheat;
-            this.roundedPanel3.Controls.Add(this.pictureBox6);
-            this.roundedPanel3.Controls.Add(this.label3);
-            this.roundedPanel3.Controls.Add(this.pictureBox3);
-            this.roundedPanel3.Location = new System.Drawing.Point(998, -12);
-            this.roundedPanel3.Name = "roundedPanel3";
-            this.roundedPanel3.Size = new System.Drawing.Size(200, 349);
-            this.roundedPanel3.TabIndex = 2;
-            this.roundedPanel3.TopColor = System.Drawing.Color.Chocolate;
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
-            this.pictureBox6.Location = new System.Drawing.Point(27, -17);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(153, 131);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox6.TabIndex = 2;
-            this.pictureBox6.TabStop = false;
-            // 
-            // label3
-            // 
-            this.label3.Location = new System.Drawing.Point(13, 289);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(163, 46);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "1873";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.BackgroundImage")));
-            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox3.Location = new System.Drawing.Point(17, 137);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(163, 117);
-            this.pictureBox3.TabIndex = 0;
-            this.pictureBox3.TabStop = false;
-            // 
-            // roundedPanel2
-            // 
-            this.roundedPanel2.Angle = 90F;
-            this.roundedPanel2.BottomColor = System.Drawing.Color.FloralWhite;
-            this.roundedPanel2.Controls.Add(this.pictureBox5);
-            this.roundedPanel2.Controls.Add(this.label2);
-            this.roundedPanel2.Controls.Add(this.pictureBox2);
-            this.roundedPanel2.Location = new System.Drawing.Point(262, -24);
-            this.roundedPanel2.Name = "roundedPanel2";
-            this.roundedPanel2.Size = new System.Drawing.Size(200, 361);
-            this.roundedPanel2.TabIndex = 2;
-            this.roundedPanel2.TopColor = System.Drawing.Color.Silver;
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(12, -9);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(168, 123);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox5.TabIndex = 2;
-            this.pictureBox5.TabStop = false;
-            // 
-            // label2
-            // 
-            this.label2.Location = new System.Drawing.Point(17, 301);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(163, 46);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "1210";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox2.Location = new System.Drawing.Point(21, 149);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(163, 117);
-            this.pictureBox2.TabIndex = 0;
-            this.pictureBox2.TabStop = false;
-            // 
-            // roundedPanel1
-            // 
-            this.roundedPanel1.Angle = 90F;
-            this.roundedPanel1.BottomColor = System.Drawing.Color.Cornsilk;
-            this.roundedPanel1.Controls.Add(this.pictureBox4);
-            this.roundedPanel1.Controls.Add(this.label1);
-            this.roundedPanel1.Controls.Add(this.pictureBox1);
-            this.roundedPanel1.Location = new System.Drawing.Point(630, -12);
-            this.roundedPanel1.Name = "roundedPanel1";
-            this.roundedPanel1.Size = new System.Drawing.Size(204, 349);
-            this.roundedPanel1.TabIndex = 0;
-            this.roundedPanel1.TopColor = System.Drawing.Color.Gold;
-            // 
             // pictureBox4
             // 
             this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(47, 15);
+            this.pictureBox4.Location = new System.Drawing.Point(547, -1);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(115, 87);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox4.TabIndex = 2;
+            this.pictureBox4.TabIndex = 32;
             this.pictureBox4.TabStop = false;
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(17, 289);
+            this.label1.Location = new System.Drawing.Point(521, 248);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(163, 46);
-            this.label1.TabIndex = 1;
+            this.label1.TabIndex = 28;
             this.label1.Text = "2502";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -391,10 +173,10 @@
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(17, 137);
+            this.pictureBox1.Location = new System.Drawing.Point(521, 128);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(163, 117);
-            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabIndex = 24;
             this.pictureBox1.TabStop = false;
             // 
             // groupBox1
@@ -403,10 +185,10 @@
             this.groupBox1.Controls.Add(this.textBox3);
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Location = new System.Drawing.Point(206, 652);
+            this.groupBox1.Location = new System.Drawing.Point(97, 580);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(746, 224);
-            this.groupBox1.TabIndex = 16;
+            this.groupBox1.TabIndex = 36;
             this.groupBox1.TabStop = false;
             // 
             // label8
@@ -446,73 +228,230 @@
             this.textBox2.TabIndex = 14;
             this.textBox2.Text = "Số câu đúng";
             // 
+            // pictureBox7
+            // 
+            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
+            this.pictureBox7.Location = new System.Drawing.Point(26, -58);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(245, 253);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox7.TabIndex = 0;
+            this.pictureBox7.TabStop = false;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.pictureBox7);
+            this.panel1.Location = new System.Drawing.Point(86, 287);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(312, 256);
+            this.panel1.TabIndex = 33;
+            // 
+            // label5
+            // 
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label5.Location = new System.Drawing.Point(73, 29);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(176, 91);
+            this.label5.TabIndex = 3;
+            this.label5.Text = "Số câu đúng: 17/20\r\nĐiểm: 1780\r\n";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
+            this.pictureBox8.Location = new System.Drawing.Point(38, -58);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(245, 253);
+            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox8.TabIndex = 0;
+            this.pictureBox8.TabStop = false;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.Transparent;
+            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel2.Controls.Add(this.label5);
+            this.panel2.Controls.Add(this.pictureBox8);
+            this.panel2.Location = new System.Drawing.Point(461, 287);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(312, 256);
+            this.panel2.TabIndex = 34;
+            // 
+            // label6
+            // 
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label6.Location = new System.Drawing.Point(71, 34);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(158, 81);
+            this.label6.TabIndex = 3;
+            this.label6.Text = "Số câu đúng: 17/20\r\nĐiểm: 1780\r\n";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pictureBox9
+            // 
+            this.pictureBox9.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox9.Image")));
+            this.pictureBox9.Location = new System.Drawing.Point(26, -58);
+            this.pictureBox9.Name = "pictureBox9";
+            this.pictureBox9.Size = new System.Drawing.Size(245, 253);
+            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox9.TabIndex = 0;
+            this.pictureBox9.TabStop = false;
+            // 
+            // btnInstruction
+            // 
+            this.btnInstruction.Location = new System.Drawing.Point(849, 717);
+            this.btnInstruction.Name = "btnInstruction";
+            this.btnInstruction.Size = new System.Drawing.Size(118, 66);
+            this.btnInstruction.TabIndex = 25;
+            this.btnInstruction.Text = "Xem lại bài thi";
+            this.btnInstruction.UseVisualStyleBackColor = true;
+            this.btnInstruction.Click += new System.EventHandler(this.btnInstruction_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(993, 717);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(118, 66);
+            this.button1.TabIndex = 29;
+            this.button1.Text = "Thoát";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.Transparent;
+            this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel3.Controls.Add(this.label6);
+            this.panel3.Controls.Add(this.pictureBox9);
+            this.panel3.Location = new System.Drawing.Point(824, 287);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(312, 256);
+            this.panel3.TabIndex = 35;
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(133, 16);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.ReadOnly = true;
+            this.textBox5.Size = new System.Drawing.Size(100, 26);
+            this.textBox5.TabIndex = 18;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(29, 57);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(83, 20);
+            this.label7.TabIndex = 19;
+            this.label7.Text = "ID phòng: ";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(6, 22);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(106, 20);
+            this.label9.TabIndex = 17;
+            this.label9.Text = "ID người chơi:";
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(133, 51);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.ReadOnly = true;
+            this.textBox4.Size = new System.Drawing.Size(100, 26);
+            this.textBox4.TabIndex = 20;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.textBox5);
+            this.groupBox2.Controls.Add(this.label7);
+            this.groupBox2.Controls.Add(this.label9);
+            this.groupBox2.Controls.Add(this.textBox4);
+            this.groupBox2.Location = new System.Drawing.Point(1088, 9);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(244, 94);
+            this.groupBox2.TabIndex = 37;
+            this.groupBox2.TabStop = false;
+            // 
             // ResultClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1544, 916);
-            this.Controls.Add(this.gradientPanel1);
+            this.ClientSize = new System.Drawing.Size(1409, 838);
+            this.Controls.Add(this.pictureBox6);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.pictureBox3);
+            this.Controls.Add(this.pictureBox5);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.pictureBox4);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.btnInstruction);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.groupBox2);
             this.Name = "ResultClient";
             this.Text = "ResultClient";
-            this.gradientPanel1.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
-            this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
-            this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            this.roundedPanel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            this.roundedPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            this.roundedPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
+            this.panel3.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
+        private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.PictureBox pictureBox7;
+        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.PictureBox pictureBox9;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.PictureBox pictureBox6;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private Graph.RoundedPanel roundedPanel3;
-        private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private Graph.RoundedPanel roundedPanel1;
-        private GradientPanel gradientPanel1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label8;
-        private Graph.RoundedPanel roundedPanel2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnInstruction;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.GroupBox groupBox2;
     }
 }

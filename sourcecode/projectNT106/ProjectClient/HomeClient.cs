@@ -8,19 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace projectNT106
+namespace ProjectClient
 {
     public partial class HomeClient : Form
     {
         bool isEnterRoom = false;
+
         public HomeClient()
         {
             InitializeComponent();
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void btnEnterRoom_Click(object sender, EventArgs e)
@@ -43,8 +39,9 @@ namespace projectNT106
 
         private void btnCreateRoom_Click(object sender, EventArgs e)
         {
-            Form createRoom = new CreateRoom(true);
+            Form createRoom = new CreateRoom();
             createRoom.ShowDialog();
         }
+
     }
 }

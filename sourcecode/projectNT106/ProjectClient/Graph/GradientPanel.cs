@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace projectNT106
+namespace ProjectClient.Graph
 {
     public class GradientPanel : Panel
     {

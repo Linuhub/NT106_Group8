@@ -12,10 +12,8 @@ namespace projectNT106
 {
     public partial class CreateRoom : Form
     {
-        bool _isUser = false;
-        public CreateRoom(bool isUser)
+        public CreateRoom()
         {
-            _isUser = isUser;
             InitializeComponent();
         }
 
@@ -26,24 +24,15 @@ namespace projectNT106
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
-            if (_isUser)
-            {
-                Form questionSheet = new QuestionSheet();
-                questionSheet.ShowDialog();
-            }
-            else
-            {
-                Form room = new Room();
-                room.Show();
-            }
+            
+            Form room = new Room();
+            room.Show();
+        
         }
 
         private void CreateRoom_Load(object sender, EventArgs e)
         {
-            if (_isUser)
-            {
-                txtUserID.Enabled = true;
-            }
+            
         }
     }
 }

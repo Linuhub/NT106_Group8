@@ -1,6 +1,6 @@
-﻿namespace projectNT106
+﻿namespace ProjectClient
 {
-    partial class ReviewAnwser
+    partial class ReviewAnswer
     {
         /// <summary>
         /// Required designer variable.
@@ -28,8 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReviewAnwser));
-            this.gradientPanel1 = new projectNT106.GradientPanel();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReviewAnswer));
             this.panel2 = new System.Windows.Forms.Panel();
             this.button3 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -39,33 +38,15 @@
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
-            this.circularButton1 = new projectNT106.Graph.CircularButton();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.gradientPanel1.SuspendLayout();
+            this.button4 = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // gradientPanel1
-            // 
-            this.gradientPanel1.Angle = 0F;
-            this.gradientPanel1.BottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.gradientPanel1.Controls.Add(this.panel2);
-            this.gradientPanel1.Controls.Add(this.button2);
-            this.gradientPanel1.Controls.Add(this.circularButton1);
-            this.gradientPanel1.Controls.Add(this.textBox1);
-            this.gradientPanel1.Controls.Add(this.label2);
-            this.gradientPanel1.Controls.Add(this.panel1);
-            this.gradientPanel1.Controls.Add(this.flowLayoutPanel1);
-            this.gradientPanel1.Location = new System.Drawing.Point(0, 0);
-            this.gradientPanel1.Name = "gradientPanel1";
-            this.gradientPanel1.Size = new System.Drawing.Size(1199, 594);
-            this.gradientPanel1.TabIndex = 0;
-            this.gradientPanel1.TopColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             // 
             // panel2
             // 
@@ -76,10 +57,10 @@
             this.panel2.Controls.Add(this.textBox4);
             this.panel2.Controls.Add(this.textBox3);
             this.panel2.Controls.Add(this.textBox2);
-            this.panel2.Location = new System.Drawing.Point(27, 21);
+            this.panel2.Location = new System.Drawing.Point(45, 45);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(571, 486);
-            this.panel2.TabIndex = 17;
+            this.panel2.TabIndex = 23;
             // 
             // button3
             // 
@@ -160,55 +141,40 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button2.Location = new System.Drawing.Point(809, 421);
+            this.button2.Location = new System.Drawing.Point(827, 445);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(178, 86);
-            this.button2.TabIndex = 15;
+            this.button2.TabIndex = 22;
             this.button2.Text = "Thoát";
             this.button2.UseVisualStyleBackColor = false;
-            // 
-            // circularButton1
-            // 
-            this.circularButton1.BackColor = System.Drawing.Color.DarkOrange;
-            this.circularButton1.FlatAppearance.BorderSize = 0;
-            this.circularButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.circularButton1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.circularButton1.Location = new System.Drawing.Point(972, 206);
-            this.circularButton1.Name = "circularButton1";
-            this.circularButton1.Size = new System.Drawing.Size(61, 55);
-            this.circularButton1.TabIndex = 14;
-            this.circularButton1.Text = "Khóa";
-            this.circularButton1.UseVisualStyleBackColor = false;
             // 
             // textBox1
             // 
             this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(809, 213);
+            this.textBox1.Location = new System.Drawing.Point(800, 238);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(126, 38);
-            this.textBox1.TabIndex = 13;
+            this.textBox1.TabIndex = 21;
             // 
             // label2
             // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Location = new System.Drawing.Point(622, 192);
+            this.label2.Location = new System.Drawing.Point(640, 221);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(195, 82);
-            this.label2.TabIndex = 12;
+            this.label2.Size = new System.Drawing.Size(154, 62);
+            this.label2.TabIndex = 20;
             this.label2.Text = "Số người tham gia: ";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(1029, 12);
+            this.panel1.Location = new System.Drawing.Point(1047, 36);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(158, 41);
-            this.panel1.TabIndex = 11;
+            this.panel1.TabIndex = 19;
             // 
             // label1
             // 
@@ -222,48 +188,62 @@
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.BackColor = System.Drawing.Color.Silver;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(626, 66);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(644, 90);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(10);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(540, 116);
-            this.flowLayoutPanel1.TabIndex = 10;
+            this.flowLayoutPanel1.TabIndex = 18;
             // 
-            // ReviewAnwser
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.Coral;
+            this.button4.Location = new System.Drawing.Point(965, 228);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(58, 51);
+            this.button4.TabIndex = 24;
+            this.button4.Text = "Khóa";
+            this.button4.UseVisualStyleBackColor = false;
+            // 
+            // ReviewAnswer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1199, 592);
-            this.Controls.Add(this.gradientPanel1);
-            this.Name = "ReviewAnwser";
-            this.Text = "ReviewAnwser";
-            this.Load += new System.EventHandler(this.ReviewAnwser_Load);
-            this.gradientPanel1.ResumeLayout(false);
-            this.gradientPanel1.PerformLayout();
+            this.ClientSize = new System.Drawing.Size(1219, 668);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.flowLayoutPanel1);
+            this.Name = "ReviewAnswer";
+            this.Text = "ReviewAnswer";
+            this.Load += new System.EventHandler(this.ReviewAnswer_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private GradientPanel gradientPanel1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private Graph.CircularButton circularButton1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Button button4;
     }
 }

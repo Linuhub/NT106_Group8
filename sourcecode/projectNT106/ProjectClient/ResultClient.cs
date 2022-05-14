@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace projectNT106
+namespace ProjectClient
 {
     public partial class ResultClient : Form
     {
@@ -19,7 +19,7 @@ namespace projectNT106
 
         private void btnInstruction_Click(object sender, EventArgs e)
         {
-            Form review = new ReviewAnwser();
+            Form review = new ReviewAnswer();
             review.ShowDialog();
         }
     }
