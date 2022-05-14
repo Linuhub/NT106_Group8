@@ -64,6 +64,7 @@
             this.btnManageQuestionList.TabIndex = 3;
             this.btnManageQuestionList.Text = "Quản lý bộ câu hỏi";
             this.btnManageQuestionList.UseVisualStyleBackColor = false;
+            this.btnManageQuestionList.Click += new System.EventHandler(this.btnManageQuestionList_Click);
             // 
             // label2
             // 

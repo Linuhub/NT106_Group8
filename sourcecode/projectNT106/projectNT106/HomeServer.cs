@@ -33,5 +33,11 @@ namespace projectNT106
             gradientPanel1.BackColor = Color.FromArgb(50, 0, 0, 0);
 
         }
+
+        private void btnManageQuestionList_Click(object sender, EventArgs e)
+        {
+            Form mmm = new QuestionSource();
+            mmm.Show();
+        }
     }
 }
