@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("Gói câu hỏi hình ảnh");
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("Gói câu hỏi chữ");
             this.gradientPanel1 = new projectNT106.GradientPanel();
             this.roundedPanel1 = new projectNT106.Graph.RoundedPanel();
             this.label4 = new System.Windows.Forms.Label();
@@ -132,11 +134,15 @@
             // lvQuestionList
             // 
             this.lvQuestionList.HideSelection = false;
+            this.lvQuestionList.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            listViewItem1,
+            listViewItem2});
             this.lvQuestionList.Location = new System.Drawing.Point(210, 199);
             this.lvQuestionList.Name = "lvQuestionList";
             this.lvQuestionList.Size = new System.Drawing.Size(230, 29);
             this.lvQuestionList.TabIndex = 4;
             this.lvQuestionList.UseCompatibleStateImageBehavior = false;
+            this.lvQuestionList.View = System.Windows.Forms.View.Details;
             // 
             // label1
             // 
