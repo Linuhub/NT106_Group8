@@ -78,11 +78,19 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+<<<<<<< HEAD:sourcecode/projectNT106/projectNT106/ProjectServer.csproj
+    <Compile Include="QuestionSource.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QuestionSource.Designer.cs">
+      <DependentUpon>QuestionSource.cs</DependentUpon>
+=======
     <Compile Include="QuestionSheet.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="QuestionSheet.Designer.cs">
       <DependentUpon>QuestionSheet.cs</DependentUpon>
+>>>>>>> Kien:sourcecode/projectNT106/projectNT106/projectNT106.csproj
     </Compile>
     <Compile Include="RankingServer.cs">
       <SubType>Form</SubType>
@@ -115,8 +123,13 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+<<<<<<< HEAD:sourcecode/projectNT106/projectNT106/ProjectServer.csproj
+    <EmbeddedResource Include="QuestionSource.resx">
+      <DependentUpon>QuestionSource.cs</DependentUpon>
+=======
     <EmbeddedResource Include="QuestionSheet.resx">
       <DependentUpon>QuestionSheet.cs</DependentUpon>
+>>>>>>> Kien:sourcecode/projectNT106/projectNT106/projectNT106.csproj
     </EmbeddedResource>
     <EmbeddedResource Include="RankingServer.resx">
       <DependentUpon>RankingServer.cs</DependentUpon>
