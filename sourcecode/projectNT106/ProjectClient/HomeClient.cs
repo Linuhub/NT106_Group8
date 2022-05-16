@@ -43,5 +43,9 @@ namespace ProjectClient
             createRoom.ShowDialog();
         }
 
+        private void btnJoin_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -182,6 +182,7 @@
             this.btnJoin.TabIndex = 9;
             this.btnJoin.Text = "Tham gia";
             this.btnJoin.UseVisualStyleBackColor = false;
+            this.btnJoin.Click += new System.EventHandler(this.btnJoin_Click);
             // 
             // txtUserID
             // 
