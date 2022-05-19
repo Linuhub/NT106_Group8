@@ -28,15 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("Gói câu hỏi hình ảnh");
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("Gói câu hỏi chữ");
             this.gradientPanel1 = new projectNT106.GradientPanel();
             this.roundedPanel1 = new projectNT106.Graph.RoundedPanel();
             this.label4 = new System.Windows.Forms.Label();
             this.btnCreate = new System.Windows.Forms.Button();
             this.txtRoomID = new System.Windows.Forms.TextBox();
             this.txtUserID = new System.Windows.Forms.TextBox();
-            this.lvQuestionList = new System.Windows.Forms.ListView();
             this.label1 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -45,6 +42,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.txtNumOfParticipant = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.cbQuestionPackage = new System.Windows.Forms.ComboBox();
             this.gradientPanel1.SuspendLayout();
             this.roundedPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -67,11 +65,11 @@
             this.roundedPanel1.BackColor = System.Drawing.Color.Transparent;
             this.roundedPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.roundedPanel1.BottomColor = System.Drawing.Color.Empty;
+            this.roundedPanel1.Controls.Add(this.cbQuestionPackage);
             this.roundedPanel1.Controls.Add(this.label4);
             this.roundedPanel1.Controls.Add(this.btnCreate);
             this.roundedPanel1.Controls.Add(this.txtRoomID);
             this.roundedPanel1.Controls.Add(this.txtUserID);
-            this.roundedPanel1.Controls.Add(this.lvQuestionList);
             this.roundedPanel1.Controls.Add(this.label1);
             this.roundedPanel1.Controls.Add(this.label6);
             this.roundedPanel1.Controls.Add(this.label2);
@@ -130,19 +128,6 @@
             this.txtUserID.Size = new System.Drawing.Size(230, 26);
             this.txtUserID.TabIndex = 9;
             this.txtUserID.Text = " ";
-            // 
-            // lvQuestionList
-            // 
-            this.lvQuestionList.HideSelection = false;
-            this.lvQuestionList.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1,
-            listViewItem2});
-            this.lvQuestionList.Location = new System.Drawing.Point(210, 199);
-            this.lvQuestionList.Name = "lvQuestionList";
-            this.lvQuestionList.Size = new System.Drawing.Size(230, 29);
-            this.lvQuestionList.TabIndex = 4;
-            this.lvQuestionList.UseCompatibleStateImageBehavior = false;
-            this.lvQuestionList.View = System.Windows.Forms.View.Details;
             // 
             // label1
             // 
@@ -227,6 +212,14 @@
             this.textBox2.Text = "01";
             this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // cbQuestionPackage
+            // 
+            this.cbQuestionPackage.FormattingEnabled = true;
+            this.cbQuestionPackage.Location = new System.Drawing.Point(209, 200);
+            this.cbQuestionPackage.Name = "cbQuestionPackage";
+            this.cbQuestionPackage.Size = new System.Drawing.Size(230, 28);
+            this.cbQuestionPackage.TabIndex = 10;
+            // 
             // CreateRoom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -248,7 +241,6 @@
         private GradientPanel gradientPanel1;
         private Graph.RoundedPanel roundedPanel1;
         private System.Windows.Forms.TextBox txtRoomID;
-        private System.Windows.Forms.ListView lvQuestionList;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label2;
@@ -260,5 +252,6 @@
         private System.Windows.Forms.Button btnCreate;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtUserID;
+        private System.Windows.Forms.ComboBox cbQuestionPackage;
     }
 }

@@ -11,14 +11,14 @@ namespace projectNT106
         public string Creator;
         public string RoomID = "";
         public string[] ParticipantList;
-        
+
         public Contest(string IDCreator)
         {
             Creator = IDCreator;
 
             // Random RoomID
             Random rnd = new Random();
-            int[] numRandoms = new int[4]; 
+            int[] numRandoms = new int[4];
             for (int i = 0; i < 4; i++)
             {
                 numRandoms[i] = rnd.Next(97, 122);

@@ -28,25 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem(new string[] {
             "1",
             "1210",
             "2000",
             "20",
             "13:43"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.Gold, null);
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem(new string[] {
             "2",
             "1990",
             "1940",
             "19",
             "12:08"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.Silver, null);
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem(new string[] {
             "3",
             "2341",
             "1900",
             "19",
             "15:36"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.SandyBrown, null);
-            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem(new string[] {
             "4",
             "3321",
             "1870",
@@ -54,7 +54,8 @@
             "16:07"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.LightCyan, null);
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RankingServer));
             this.gradientPanel1 = new projectNT106.GradientPanel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnCreate = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.listView1 = new System.Windows.Forms.ListView();
             this.Rank = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -71,7 +72,6 @@
             this.roundedPanel1 = new projectNT106.Graph.RoundedPanel();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.gradientPanel1.SuspendLayout();
             this.roundedPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -90,7 +90,7 @@
             this.gradientPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.gradientPanel1.BottomColor = System.Drawing.Color.Transparent;
             this.gradientPanel1.Controls.Add(this.label1);
-            this.gradientPanel1.Controls.Add(this.button1);
+            this.gradientPanel1.Controls.Add(this.btnCreate);
             this.gradientPanel1.Controls.Add(this.button2);
             this.gradientPanel1.Controls.Add(this.listView1);
             this.gradientPanel1.Controls.Add(this.roundedPanel3);
@@ -103,19 +103,31 @@
             this.gradientPanel1.TopColor = System.Drawing.Color.Transparent;
             this.gradientPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.gradientPanel1_Paint);
             // 
-            // button1
+            // label1
             // 
-            this.button1.BackColor = System.Drawing.Color.Green;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button1.Location = new System.Drawing.Point(401, 534);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(204, 86);
-            this.button1.TabIndex = 17;
-            this.button1.Text = "Tạo phòng mới";
-            this.button1.UseVisualStyleBackColor = false;
+            this.label1.Font = new System.Drawing.Font("Showcard Gothic", 28F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.PaleTurquoise;
+            this.label1.Location = new System.Drawing.Point(35, 12);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(256, 106);
+            this.label1.TabIndex = 18;
+            this.label1.Text = "Result";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // btnCreate
+            // 
+            this.btnCreate.BackColor = System.Drawing.Color.Green;
+            this.btnCreate.FlatAppearance.BorderSize = 0;
+            this.btnCreate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCreate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCreate.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnCreate.Location = new System.Drawing.Point(401, 534);
+            this.btnCreate.Name = "btnCreate";
+            this.btnCreate.Size = new System.Drawing.Size(204, 86);
+            this.btnCreate.TabIndex = 17;
+            this.btnCreate.Text = "Tạo phòng mới";
+            this.btnCreate.UseVisualStyleBackColor = false;
+            this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
             // 
             // button2
             // 
@@ -143,10 +155,10 @@
             this.listView1.HideSelection = false;
             this.listView1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1,
-            listViewItem2,
-            listViewItem3,
-            listViewItem4});
+            listViewItem5,
+            listViewItem6,
+            listViewItem7,
+            listViewItem8});
             this.listView1.Location = new System.Drawing.Point(401, 75);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(616, 385);
@@ -280,17 +292,6 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // label1
-            // 
-            this.label1.Font = new System.Drawing.Font("Showcard Gothic", 28F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.PaleTurquoise;
-            this.label1.Location = new System.Drawing.Point(35, 12);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(256, 106);
-            this.label1.TabIndex = 18;
-            this.label1.Text = "Result";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // RankingServer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -335,7 +336,7 @@
         private System.Windows.Forms.ColumnHeader Mark;
         private System.Windows.Forms.ColumnHeader NumOfTrueAnswer;
         private System.Windows.Forms.ColumnHeader Time;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnCreate;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label1;
     }

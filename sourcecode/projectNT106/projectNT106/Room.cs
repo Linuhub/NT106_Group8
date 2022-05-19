@@ -8,6 +8,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Net.Sockets;
+using System.Net;
+using System.Threading;
+using System.Collections;
 
 namespace projectNT106
 {
@@ -31,6 +35,9 @@ namespace projectNT106
 
         private void Room_Load_1(object sender, EventArgs e)
         {
+
+            labelIDRoom.Text = "ID Phòng: " + CreateRoom.IDRoom;
+
             listView1.View = View.Details;
 
             listView1.Columns.Add("Người tham gia", 250);
@@ -47,6 +54,17 @@ namespace projectNT106
                 Random rnd = new Random();
                 flowLayoutPanel1.Controls.Add(cb);
 
+            }
+
+            try
+            {
+                IPAddress ipAddr = IPAddress.Parse("127.0.0.1");
+                ChatServer mainServer = new ChatServer(ipAddr);
+                mainServer.StartListening();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
             }
         }
 
@@ -96,6 +114,218 @@ namespace projectNT106
         {
             Form ranking = new RankingServer();
             ranking.Show();
+        }
+
+        public class StatusChangedEventArgs : EventArgs
+        {
+            private string EventMsg;
+            public string EventMessage
+            {
+                get
+                {
+                    return EventMsg;
+                }
+                set
+                {
+                    EventMsg = value;
+                }
+            }
+            public StatusChangedEventArgs(string strEventMsg)
+            {
+                EventMsg = strEventMsg;
+            }
+        }
+        public delegate void StatusChangedEventHandler(object sender, StatusChangedEventArgs e);
+
+        class ChatServer
+        {
+            public static Hashtable htUsers = new Hashtable(30);
+            public static Hashtable htConnections = new Hashtable(30);
+            private IPAddress ipAddress;
+            private TcpClient tcpClient;
+            public static event StatusChangedEventHandler StatusChanged;
+            private static StatusChangedEventArgs e;
+            public ChatServer(IPAddress address)
+            {
+                ipAddress = address;
+            }
+            private Thread thrListener;
+            private TcpListener tlsClient;
+            bool ServRunning = false;
+            public static void AddUser(TcpClient tcpUser, string strUsername)
+            {
+                ChatServer.htUsers.Add(strUsername, tcpUser);
+                ChatServer.htConnections.Add(tcpUser, strUsername);
+                SendAdminMessage(htConnections[tcpUser] + " has connected.");
+            }
+            public static void RemoveUser(TcpClient tcpUser)
+            {
+                if (htConnections[tcpUser] != null)
+                {
+                    ChatServer.htUsers.Remove(ChatServer.htConnections[tcpUser]);
+                    ChatServer.htConnections.Remove(tcpUser);
+                }
+            }
+            public static void OnStatusChanged(StatusChangedEventArgs e)
+            {
+                StatusChangedEventHandler statusHandler = StatusChanged;
+                if (statusHandler != null)
+                {
+                    statusHandler(null, e);
+                }
+            }
+            public static void SendAdminMessage(string Message)
+            {
+                StreamWriter swSenderSender;
+                e = new StatusChangedEventArgs(Message);
+                OnStatusChanged(e);
+                TcpClient[] tcpClients = new TcpClient[ChatServer.htUsers.Count];
+                ChatServer.htUsers.Values.CopyTo(tcpClients, 0);
+                for (int i = 0; i < tcpClients.Length; i++)
+                {
+                    try
+                    {
+                        if (Message.Trim() == "" || tcpClients[i] == null)
+                        {
+                            continue;
+                        }
+                        swSenderSender = new StreamWriter(tcpClients[i].GetStream());
+                        swSenderSender.WriteLine(Message);
+                        swSenderSender.Flush();
+                        swSenderSender = null;
+                    }
+                    catch
+                    {
+                        RemoveUser(tcpClients[i]);
+                    }
+                }
+            }
+            public static void SendMessage(string From, string Message)
+            {
+                StreamWriter swSenderSender;
+                e = new StatusChangedEventArgs(From + ": " + Message);
+                OnStatusChanged(e);
+                TcpClient[] tcpClients = new TcpClient[ChatServer.htUsers.Count];
+                ChatServer.htUsers.Values.CopyTo(tcpClients, 0);
+                for (int i = 0; i < tcpClients.Length; i++)
+                {
+                    try
+                    {
+                        if (Message.Trim() == "" || tcpClients[i] == null)
+                        {
+                            continue;
+                        }
+                        swSenderSender = new StreamWriter(tcpClients[i].GetStream());
+                        swSenderSender.WriteLine(From + ": " + Message);
+                        swSenderSender.Flush();
+                        swSenderSender = null;
+                    }
+                    catch
+                    {
+                        RemoveUser(tcpClients[i]);
+                    }
+                }
+            }
+
+            public void StartListening()
+            {
+                IPAddress ipaLocal = ipAddress;
+                tlsClient = new TcpListener(ipaLocal, 80);
+                tlsClient.Start();
+                ServRunning = true;
+                thrListener = new Thread(KeepListening);
+                thrListener.Start();
+            }
+
+            private void KeepListening()
+            {
+                while (ServRunning == true)
+                {
+                    tcpClient = tlsClient.AcceptTcpClient();
+                    Connection newConnection = new Connection(tcpClient);
+
+                }
+            }
+        }
+
+        public class Connection
+        {
+            TcpClient tcpClient;
+            private Thread thrSender;
+            private StreamReader srReceiver;
+            private StreamWriter swSender;
+            private string currUser;
+            private string strResponse;
+            public bool _isExists = false;
+
+            public Connection(TcpClient tcpCon)
+            {
+                tcpClient = tcpCon;
+                thrSender = new Thread(AcceptClient);
+                thrSender.Start();
+            }
+
+            private void CloseConnection()
+            {
+                tcpClient.Close();
+                srReceiver.Close();
+                swSender.Close();
+            }
+
+            private void AcceptClient()
+            {
+                srReceiver = new System.IO.StreamReader(tcpClient.GetStream());
+                swSender = new System.IO.StreamWriter(tcpClient.GetStream());
+                currUser = srReceiver.ReadLine();
+                if (currUser != "")
+                {
+                    if (ChatServer.htUsers.Contains(currUser) == true)
+                    {
+                        swSender.WriteLine("0|This username already exists.");
+                        swSender.Flush();
+                        CloseConnection();
+                        _isExists = true;
+                        return;
+                    }
+                    else if (currUser == "Administrator")
+                    {
+                        swSender.WriteLine("0|This username is reserved.");
+                        swSender.Flush();
+                        CloseConnection();
+                        return;
+                    }
+                    else
+                    {
+                        swSender.WriteLine("1");
+                        swSender.Flush();
+                        ChatServer.AddUser(tcpClient, currUser);
+                    }
+                }
+                else
+                {
+                    CloseConnection();
+                    return;
+                }
+
+                try
+                {
+                    while ((strResponse = srReceiver.ReadLine()) != "")
+                    {
+                        if (strResponse == null)
+                        {
+                            ChatServer.RemoveUser(tcpClient);
+                        }
+                        else
+                        {
+                            ChatServer.SendMessage(currUser, strResponse);
+                        }
+                    }
+                }
+                catch
+                {
+                    ChatServer.RemoveUser(tcpClient);
+                }
+            }
         }
     }
 }

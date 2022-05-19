@@ -79,6 +79,7 @@
     <Compile Include="HomeClient.Designer.cs">
       <DependentUpon>HomeClient.cs</DependentUpon>
     </Compile>
+    <Compile Include="obj\Debug\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuestionSheet.cs">
@@ -105,6 +106,12 @@
     <EmbeddedResource Include="HomeClient.resx">
       <DependentUpon>HomeClient.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="obj\Debug\ProjectClient.CreateRoom.resources" />
+    <EmbeddedResource Include="obj\Debug\ProjectClient.HomeClient.resources" />
+    <EmbeddedResource Include="obj\Debug\ProjectClient.Properties.Resources.resources" />
+    <EmbeddedResource Include="obj\Debug\ProjectClient.QuestionSheet.resources" />
+    <EmbeddedResource Include="obj\Debug\ProjectClient.ResultClient.resources" />
+    <EmbeddedResource Include="obj\Debug\ProjectClient.ReviewAnswer.resources" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -123,6 +130,13 @@
     <EmbeddedResource Include="ReviewAnswer.resx">
       <DependentUpon>ReviewAnswer.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="bin\Debug\ProjectClient.exe.config" />
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferences.cache" />
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="obj\Debug\ProjectClient.csproj.AssemblyReference.cache" />
+    <None Include="obj\Debug\ProjectClient.csproj.CoreCompileInputs.cache" />
+    <None Include="obj\Debug\ProjectClient.csproj.GenerateResource.cache" />
+    <None Include="obj\Debug\ProjectClient.csproj.SuggestedBindingRedirects.cache" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -147,6 +161,17 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\ProjectClient.exe" />
+    <Content Include="bin\Debug\ProjectClient.pdb" />
+    <Content Include="obj\Debug\ProjectClient.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\ProjectClient.exe" />
+    <Content Include="obj\Debug\ProjectClient.pdb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Release\" />
+    <Folder Include="obj\Debug\TempPE\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

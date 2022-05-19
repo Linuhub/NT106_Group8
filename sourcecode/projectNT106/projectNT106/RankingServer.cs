@@ -27,5 +27,11 @@ namespace projectNT106
             gradientPanel1.BackColor = Color.FromArgb(100, 0, 0, 0);
 
         }
+
+        private void btnCreate_Click(object sender, EventArgs e)
+        {
+            Form creatroom = new CreateRoom();
+            creatroom.Show();
+        }
     }
 }
