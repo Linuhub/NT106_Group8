@@ -51,16 +51,15 @@ namespace projectNT106
                 cb.Size = new Size(30, 30);
                 cb.TextAlign = ContentAlignment.MiddleCenter;
                 cb.Appearance = Appearance.Button;
-                Random rnd = new Random();
                 flowLayoutPanel1.Controls.Add(cb);
 
             }
 
             try
             {
-                IPAddress ipAddr = IPAddress.Parse("127.0.0.1");
-                ChatServer mainServer = new ChatServer(ipAddr);
-                mainServer.StartListening();
+                CheckForIllegalCrossThreadCalls = false;
+                Thread serverThread = new Thread(new ThreadStart(StartUnsafeThread));
+                serverThread.Start();
             }
             catch (Exception ex)
             {
@@ -92,6 +91,72 @@ namespace projectNT106
             
         }
 
+        void StartUnsafeThread()
+        {
+            int bytesReceived = 0;
+            byte[] recv = new byte[1];
+            Socket clientSocket;
+            Socket listenerSocket = new Socket(
+                AddressFamily.InterNetwork,
+                SocketType.Stream,
+                ProtocolType.Tcp
+                );
+            IPEndPoint ipepServer = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 8080);
+            listenerSocket.Bind(ipepServer);
+            listenerSocket.Listen(-1);
+            clientSocket = listenerSocket.Accept();
+            MessageBox.Show("OK");
+
+
+
+            while (SocketConnected(clientSocket))
+            {
+                string text = "";
+                do
+                {
+                    bytesReceived = clientSocket.Receive(recv);
+                    text += Encoding.ASCII.GetString(recv);
+                }
+                while (text[text.Length - 1] != '\n');
+
+                string[] arr = text.Split(new[] { "," }, StringSplitOptions.None);
+                str result = new str(arr[0], int.Parse(arr[1]));
+                
+
+            }
+
+
+            listenerSocket.Close();
+
+        }
+        bool SocketConnected(Socket s)
+        {
+            bool part1 = s.Poll(1000, SelectMode.SelectRead);
+            bool part2 = (s.Available == 0);
+            if (part1 && part2)
+                return false;
+            else
+                return true;
+        }
+        class str
+        {
+            public string a;
+            public int b;
+            public string c = "\n";
+            public str(string x, int y)
+            {
+                a = x;
+                b = y;
+            }
+
+            public override string ToString()
+            {
+                string strA = a + ",";
+                string strB = b.ToString() + ",";
+                string strC = c;
+                return strA + strB + strC;
+            }
+        }
         private void roundedPanel2_Paint(object sender, PaintEventArgs e)
         {
 
