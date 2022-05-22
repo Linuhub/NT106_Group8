@@ -89,14 +89,7 @@ namespace projectNT106
 
             listView1.SmallImageList = imgs;
             
-            listView1.Items.Add("1210", 0);
-            listView1.Items.Add("3322", 1);
-            listView1.Items.Add("1213", 2);
-            listView1.Items.Add("2220", 3);
-            listView1.Items.Add("8910", 4);
-            listView1.Items.Add("3333", 5);
-            listView1.Items.Add("1111", 6);
-            listView1.Items.Add("7771", 7);
+            
         }
 
         private void roundedPanel2_Paint(object sender, PaintEventArgs e)

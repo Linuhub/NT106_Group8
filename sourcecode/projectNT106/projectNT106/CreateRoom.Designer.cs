@@ -30,6 +30,7 @@
         {
             this.gradientPanel1 = new projectNT106.GradientPanel();
             this.roundedPanel1 = new projectNT106.Graph.RoundedPanel();
+            this.cbQuestionPackage = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.btnCreate = new System.Windows.Forms.Button();
             this.txtRoomID = new System.Windows.Forms.TextBox();
@@ -42,7 +43,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.txtNumOfParticipant = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.cbQuestionPackage = new System.Windows.Forms.ComboBox();
             this.gradientPanel1.SuspendLayout();
             this.roundedPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -85,6 +85,14 @@
             this.roundedPanel1.TabIndex = 1;
             this.roundedPanel1.TopColor = System.Drawing.Color.Empty;
             // 
+            // cbQuestionPackage
+            // 
+            this.cbQuestionPackage.FormattingEnabled = true;
+            this.cbQuestionPackage.Location = new System.Drawing.Point(209, 200);
+            this.cbQuestionPackage.Name = "cbQuestionPackage";
+            this.cbQuestionPackage.Size = new System.Drawing.Size(230, 28);
+            this.cbQuestionPackage.TabIndex = 10;
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -92,9 +100,9 @@
             this.label4.ForeColor = System.Drawing.Color.Black;
             this.label4.Location = new System.Drawing.Point(47, 97);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(102, 20);
+            this.label4.Size = new System.Drawing.Size(96, 20);
             this.label4.TabIndex = 8;
-            this.label4.Text = "ID người chơi";
+            this.label4.Text = "ID người tạo";
             // 
             // btnCreate
             // 
@@ -211,14 +219,6 @@
             this.textBox2.TabIndex = 0;
             this.textBox2.Text = "01";
             this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // cbQuestionPackage
-            // 
-            this.cbQuestionPackage.FormattingEnabled = true;
-            this.cbQuestionPackage.Location = new System.Drawing.Point(209, 200);
-            this.cbQuestionPackage.Name = "cbQuestionPackage";
-            this.cbQuestionPackage.Size = new System.Drawing.Size(230, 28);
-            this.cbQuestionPackage.TabIndex = 10;
             // 
             // CreateRoom
             // 
