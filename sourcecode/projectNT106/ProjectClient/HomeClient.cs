@@ -65,9 +65,6 @@ namespace ProjectClient
             if (Connected == false)
             {
                 InitializeConnection();
-            }
-            else
-            {
                 Form room = new QuestionSheet();
                 room.Show();
             }
@@ -78,7 +75,7 @@ namespace ProjectClient
             try
             {
 
-                /*ipAddr = IPAddress.Parse("127.0.0.1");
+                ipAddr = IPAddress.Parse("192.168.1.8");
                 tcpServer = new TcpClient();
                 tcpServer.Connect(ipAddr, 80);
                 Connected = true;
@@ -86,32 +83,68 @@ namespace ProjectClient
                 if (txtUserID.Text.Length == 0)
                 {
                     MessageBox.Show("User name is empty!");
-                    this.Invoke(new Action(() =>
+                    /*this.Invoke(new Action(() =>
                     {
                         btnJoin.Enabled = true;
-                    }));
+                    }));*/
                     return;
-                }*/
-                
-                    tcpClient = new TcpClient();
-
-                    ipAddress = IPAddress.Parse("10.45.162.106");
-                    iPEndPoint = new IPEndPoint(ipAddress, 8080);
-                    tcpClient.Connect(iPEndPoint);
-
-
-                    ns = tcpClient.GetStream();
-                    //_isCOnnected = true;
-
-                
-                Byte[] data = System.Text.Encoding.ASCII.GetBytes("Hello server \n");
-                ns.Write(data, 0, data.Length);
+                }
+                swSender = new StreamWriter(tcpServer.GetStream());
+                swSender.WriteLine(txtUserID.Text);
+                swSender.Flush();
+                thrMessaging = new Thread(new ThreadStart(ReceiveMessages));
+                thrMessaging.Start();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }
+        }
 
+        private void ReceiveMessages()
+        {
+            try
+            {
+                srReceiver = new StreamReader(tcpServer.GetStream());
+                string ConResponse = srReceiver.ReadLine();
+                if (ConResponse[0] == '1')
+                {
+                    this.Invoke(new UpdateLogCallback(this.UpdateLog), new object[] { "Connected Successfully!" });
+                }
+                else
+                {
+                    string Reason = "Not Connected: ";
+                    Reason += ConResponse.Substring(2, ConResponse.Length - 2);
+                    this.Invoke(new CloseConnectionCallback(this.CloseConnection), new object[] { Reason });
+                    this.Invoke(new Action(() =>
+                    {
+                        btnJoin.Enabled = true;
+                    }));
+                    MessageBox.Show(Reason);
+
+                    return;
+                }
+                while (Connected)
+                {
+                    this.Invoke(new UpdateLogCallback(this.UpdateLog), new object[] { srReceiver.ReadLine() });
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+        private void UpdateLog(string strMessage)
+        {
+            MessageBox.Show(strMessage + "\r\n");
+        }
+        private void CloseConnection(string Reason)
+        {
+            Connected = false;
+            swSender.Close();
+            srReceiver.Close();
+            tcpServer.Close();
         }
     }
 }
+        

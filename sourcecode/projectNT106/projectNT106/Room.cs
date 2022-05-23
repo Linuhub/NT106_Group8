@@ -112,10 +112,9 @@ namespace projectNT106
             // Tạo phòng
             try
             {
-                IPAddress ipAddr = IPAddress.Parse("192.168.126.227");
+                IPAddress ipAddr = IPAddress.Parse("192.168.1.8");
                 mainServer = new Channel(ipAddr);
                 mainServer.StartListening();
-                
             }
             catch (Exception ex)
             {
@@ -168,6 +167,7 @@ namespace projectNT106
         {
             public static Hashtable htUsers = new Hashtable(30);
             public static Hashtable htConnections = new Hashtable(30);
+            public static int index = 0;
             private IPAddress ipAddress;
             private TcpClient tcpClient;
             public static event StatusChangedEventHandler StatusChanged;
@@ -183,7 +183,8 @@ namespace projectNT106
             {
                 Channel.htUsers.Add(strUsername, tcpUser);
                 Channel.htConnections.Add(tcpUser, strUsername);
-                SendAdminMessage("ADD" + htConnections[tcpUser]);
+                index++;
+                SendAdminMessage("ADD" + index.ToString() + htConnections[tcpUser]);
             }
             public static void RemoveUser(TcpClient tcpUser)
             {
