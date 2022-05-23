@@ -27,6 +27,10 @@ namespace ProjectClient
         private bool Connected;
         bool isEnterRoom = false;
 
+        private TcpClient tcpClient;
+        private IPAddress ipAddress;
+        private IPEndPoint iPEndPoint;
+        private NetworkStream ns;
         public HomeClient()
         {
             InitializeComponent();
@@ -74,7 +78,7 @@ namespace ProjectClient
             try
             {
 
-                ipAddr = IPAddress.Parse("127.0.0.1");
+                /*ipAddr = IPAddress.Parse("127.0.0.1");
                 tcpServer = new TcpClient();
                 tcpServer.Connect(ipAddr, 80);
                 Connected = true;
@@ -87,7 +91,21 @@ namespace ProjectClient
                         btnJoin.Enabled = true;
                     }));
                     return;
-                }
+                }*/
+                
+                    tcpClient = new TcpClient();
+
+                    ipAddress = IPAddress.Parse("172.30.159.71");
+                    iPEndPoint = new IPEndPoint(ipAddress, 8080);
+                    tcpClient.Connect(iPEndPoint);
+
+
+                    ns = tcpClient.GetStream();
+                    //_isCOnnected = true;
+
+                
+                Byte[] data = System.Text.Encoding.ASCII.GetBytes("Hello server \n");
+                ns.Write(data, 0, data.Length);
             }
             catch (Exception ex)
             {
