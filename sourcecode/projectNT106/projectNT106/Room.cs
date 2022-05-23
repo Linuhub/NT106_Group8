@@ -63,7 +63,19 @@ namespace projectNT106
 
             }
 
-            
+            // Đưa dữ liệu lên
+            OleDbConnection cnn;
+            OleDbDataAdapter dar;
+            DataTable dt;
+            OleDbCommandBuilder cbr;
+
+            cnn = new OleDbConnection();
+            cnn.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=DeThiLaiXe.mdb";
+            cnn.Open();
+            dar = new OleDbDataAdapter("Select * from DeThi_All", cnn);
+            dt = new DataTable();
+            dar.Fill(dt);
+
         }
 
         void AddListView(string name, int index)
@@ -138,8 +150,9 @@ namespace projectNT106
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form ranking = new RankingServer();
-            ranking.Show();
+
+            /*Form ranking = new RankingServer();
+            ranking.Show();*/
         }
 
         public class StatusChangedEventArgs : EventArgs
