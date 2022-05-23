@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace projectNT106
 {
-    internal class Contest
+    public class Contest
     {
         public string Creator;
         public string RoomID = "";
         public string[] ParticipantList;
 
-        public Contest(string IDCreator)
+        public Contest(string Room, string IDCreator)
         {
             Creator = IDCreator;
 

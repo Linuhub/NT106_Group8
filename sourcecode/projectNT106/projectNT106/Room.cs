@@ -12,17 +12,25 @@ using System.Net.Sockets;
 using System.Net;
 using System.Threading;
 using System.Collections;
+using System.Data.OleDb;
 
 namespace projectNT106
 {
     public partial class Room : Form
     {
-        public Room()
+        private string RoomID;
+        private string CreatorID;
+        public static Contest[] contests = new Contest[5];
+        public Channel mainServer;
+        public Room(string Room, string Creator)
         {
             InitializeComponent();
+            RoomID = Room;
+            CreatorID = Creator;
+           
         }
 
-        
+
         private void roundedPanel1_Paint(object sender, PaintEventArgs e)
         {
 
@@ -47,7 +55,7 @@ namespace projectNT106
             for (int i = 0; i < 20; i++)
             {
                 CheckBox cb = new CheckBox();
-                cb.Text = (i+1).ToString();
+                cb.Text = (i + 1).ToString();
                 cb.Size = new Size(30, 30);
                 cb.TextAlign = ContentAlignment.MiddleCenter;
                 cb.Appearance = Appearance.Button;
@@ -55,16 +63,15 @@ namespace projectNT106
 
             }
 
-            try
+            
+        }
+
+        void AddListView(string name, int index)
+        {
+            this.Invoke(new Action(() =>
             {
-                CheckForIllegalCrossThreadCalls = false;
-                Thread serverThread = new Thread(new ThreadStart(StartUnsafeThread));
-                serverThread.Start();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
+                listView1.Items.Add(name, index);
+            }));
         }
 
         private void populate()
@@ -81,82 +88,44 @@ namespace projectNT106
                 {
                     imgs.Images.Add(Image.FromFile(path));
                 }
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
 
             listView1.SmallImageList = imgs;
-            
-            
-        }
 
-        void StartUnsafeThread()
-        {
-            int bytesReceived = 0;
-            byte[] recv = new byte[1];
-            Socket clientSocket;
-            Socket listenerSocket = new Socket(
-                AddressFamily.InterNetwork,
-                SocketType.Stream,
-                ProtocolType.Tcp
-                );
-            IPEndPoint ipepServer = new IPEndPoint(IPAddress.Parse("10.45.162.106"), 8080);
-            listenerSocket.Bind(ipepServer);
-            listenerSocket.Listen(-1);
-            clientSocket = listenerSocket.Accept();
-            MessageBox.Show("OK");
-
-
-
-            while (SocketConnected(clientSocket))
+            for (int i = 0; i < 5; i++)
             {
-                string text = "";
-                do
+                if (contests[i] == null)
                 {
-                    bytesReceived = clientSocket.Receive(recv);
-                    text += Encoding.ASCII.GetString(recv);
+                    contests[i] = new Contest(RoomID, CreatorID);
+                    break;
                 }
-                while (text[text.Length - 1] != '\n');
+                if (i == 4)
+                {
+                    MessageBox.Show("Hết phòng!");
+                }
+            }
 
-                string[] arr = text.Split(new[] { "," }, StringSplitOptions.None);
-                str result = new str(arr[0], int.Parse(arr[1]));
+            // Tạo phòng
+            try
+            {
+                IPAddress ipAddr = IPAddress.Parse("192.168.126.227");
+                mainServer = new Channel(ipAddr);
+                mainServer.StartListening();
                 
-
             }
-
-
-            listenerSocket.Close();
-
-        }
-        bool SocketConnected(Socket s)
-        {
-            bool part1 = s.Poll(1000, SelectMode.SelectRead);
-            bool part2 = (s.Available == 0);
-            if (part1 && part2)
-                return false;
-            else
-                return true;
-        }
-        class str
-        {
-            public string a;
-            public int b;
-            public string c = "\n";
-            public str(string x, int y)
+            catch (Exception ex)
             {
-                a = x;
-                b = y;
+                MessageBox.Show(ex.ToString());
             }
 
-            public override string ToString()
-            {
-                string strA = a + ",";
-                string strB = b.ToString() + ",";
-                string strC = c;
-                return strA + strB + strC;
-            }
+
         }
+
+
         private void roundedPanel2_Paint(object sender, PaintEventArgs e)
         {
 
@@ -195,7 +164,7 @@ namespace projectNT106
         }
         public delegate void StatusChangedEventHandler(object sender, StatusChangedEventArgs e);
 
-        class ChatServer
+        public class Channel
         {
             public static Hashtable htUsers = new Hashtable(30);
             public static Hashtable htConnections = new Hashtable(30);
@@ -203,7 +172,7 @@ namespace projectNT106
             private TcpClient tcpClient;
             public static event StatusChangedEventHandler StatusChanged;
             private static StatusChangedEventArgs e;
-            public ChatServer(IPAddress address)
+            public Channel(IPAddress address)
             {
                 ipAddress = address;
             }
@@ -212,16 +181,16 @@ namespace projectNT106
             bool ServRunning = false;
             public static void AddUser(TcpClient tcpUser, string strUsername)
             {
-                ChatServer.htUsers.Add(strUsername, tcpUser);
-                ChatServer.htConnections.Add(tcpUser, strUsername);
-                SendAdminMessage(htConnections[tcpUser] + " has connected.");
+                Channel.htUsers.Add(strUsername, tcpUser);
+                Channel.htConnections.Add(tcpUser, strUsername);
+                SendAdminMessage("ADD" + htConnections[tcpUser]);
             }
             public static void RemoveUser(TcpClient tcpUser)
             {
                 if (htConnections[tcpUser] != null)
                 {
-                    ChatServer.htUsers.Remove(ChatServer.htConnections[tcpUser]);
-                    ChatServer.htConnections.Remove(tcpUser);
+                    Channel.htUsers.Remove(Channel.htConnections[tcpUser]);
+                    Channel.htConnections.Remove(tcpUser);
                 }
             }
             public static void OnStatusChanged(StatusChangedEventArgs e)
@@ -237,8 +206,8 @@ namespace projectNT106
                 StreamWriter swSenderSender;
                 e = new StatusChangedEventArgs(Message);
                 OnStatusChanged(e);
-                TcpClient[] tcpClients = new TcpClient[ChatServer.htUsers.Count];
-                ChatServer.htUsers.Values.CopyTo(tcpClients, 0);
+                TcpClient[] tcpClients = new TcpClient[Channel.htUsers.Count];
+                Channel.htUsers.Values.CopyTo(tcpClients, 0);
                 for (int i = 0; i < tcpClients.Length; i++)
                 {
                     try
@@ -249,32 +218,6 @@ namespace projectNT106
                         }
                         swSenderSender = new StreamWriter(tcpClients[i].GetStream());
                         swSenderSender.WriteLine(Message);
-                        swSenderSender.Flush();
-                        swSenderSender = null;
-                    }
-                    catch
-                    {
-                        RemoveUser(tcpClients[i]);
-                    }
-                }
-            }
-            public static void SendMessage(string From, string Message)
-            {
-                StreamWriter swSenderSender;
-                e = new StatusChangedEventArgs(From + ": " + Message);
-                OnStatusChanged(e);
-                TcpClient[] tcpClients = new TcpClient[ChatServer.htUsers.Count];
-                ChatServer.htUsers.Values.CopyTo(tcpClients, 0);
-                for (int i = 0; i < tcpClients.Length; i++)
-                {
-                    try
-                    {
-                        if (Message.Trim() == "" || tcpClients[i] == null)
-                        {
-                            continue;
-                        }
-                        swSenderSender = new StreamWriter(tcpClients[i].GetStream());
-                        swSenderSender.WriteLine(From + ": " + Message);
                         swSenderSender.Flush();
                         swSenderSender = null;
                     }
@@ -301,7 +244,7 @@ namespace projectNT106
                 {
                     tcpClient = tlsClient.AcceptTcpClient();
                     Connection newConnection = new Connection(tcpClient);
-
+                    
                 }
             }
         }
@@ -337,7 +280,7 @@ namespace projectNT106
                 currUser = srReceiver.ReadLine();
                 if (currUser != "")
                 {
-                    if (ChatServer.htUsers.Contains(currUser) == true)
+                    if (Channel.htUsers.Contains(currUser) == true)
                     {
                         swSender.WriteLine("0|This username already exists.");
                         swSender.Flush();
@@ -356,7 +299,9 @@ namespace projectNT106
                     {
                         swSender.WriteLine("1");
                         swSender.Flush();
-                        ChatServer.AddUser(tcpClient, currUser);
+                        MessageBox.Show("OK");
+                        Channel.AddUser(tcpClient, currUser);
+                        
                     }
                 }
                 else
@@ -371,19 +316,20 @@ namespace projectNT106
                     {
                         if (strResponse == null)
                         {
-                            ChatServer.RemoveUser(tcpClient);
+                            Channel.RemoveUser(tcpClient);
                         }
                         else
                         {
-                            ChatServer.SendMessage(currUser, strResponse);
+                            //Channel.SendMessage(currUser, strResponse);
                         }
                     }
                 }
                 catch
                 {
-                    ChatServer.RemoveUser(tcpClient);
+                    Channel.RemoveUser(tcpClient);
                 }
             }
         }
+        
     }
 }

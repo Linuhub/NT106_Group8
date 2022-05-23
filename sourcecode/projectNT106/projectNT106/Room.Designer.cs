@@ -127,9 +127,9 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.labelIDRoom);
-            this.panel1.Location = new System.Drawing.Point(1007, 56);
+            this.panel1.Location = new System.Drawing.Point(977, 56);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(158, 41);
+            this.panel1.Size = new System.Drawing.Size(188, 41);
             this.panel1.TabIndex = 2;
             // 
             // labelIDRoom
