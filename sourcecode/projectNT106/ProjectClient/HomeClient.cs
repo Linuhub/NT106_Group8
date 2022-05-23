@@ -95,7 +95,7 @@ namespace ProjectClient
                 
                     tcpClient = new TcpClient();
 
-                    ipAddress = IPAddress.Parse("172.30.159.71");
+                    ipAddress = IPAddress.Parse("10.45.162.106");
                     iPEndPoint = new IPEndPoint(ipAddress, 8080);
                     tcpClient.Connect(iPEndPoint);
 

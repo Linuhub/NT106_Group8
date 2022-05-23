@@ -101,7 +101,7 @@ namespace projectNT106
                 SocketType.Stream,
                 ProtocolType.Tcp
                 );
-            IPEndPoint ipepServer = new IPEndPoint(IPAddress.Parse("172.30.159.71"), 8080);
+            IPEndPoint ipepServer = new IPEndPoint(IPAddress.Parse("10.45.162.106"), 8080);
             listenerSocket.Bind(ipepServer);
             listenerSocket.Listen(-1);
             clientSocket = listenerSocket.Accept();
