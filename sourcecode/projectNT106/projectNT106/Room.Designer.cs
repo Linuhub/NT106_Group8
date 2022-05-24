@@ -38,6 +38,7 @@
             this.labelIDRoom = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.listView1 = new System.Windows.Forms.ListView();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.roundedPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -46,6 +47,7 @@
             // 
             this.roundedPanel1.Angle = 90F;
             this.roundedPanel1.BottomColor = System.Drawing.Color.Silver;
+            this.roundedPanel1.Controls.Add(this.textBox2);
             this.roundedPanel1.Controls.Add(this.button1);
             this.roundedPanel1.Controls.Add(this.button2);
             this.roundedPanel1.Controls.Add(this.circularButton1);
@@ -164,6 +166,13 @@
             this.listView1.View = System.Windows.Forms.View.SmallIcon;
             this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(719, 56);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(100, 26);
+            this.textBox2.TabIndex = 9;
+            // 
             // Room
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -193,5 +202,6 @@
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }

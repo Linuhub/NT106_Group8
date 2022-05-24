@@ -13,6 +13,7 @@ using System.Net;
 using System.Threading;
 using System.Collections;
 using System.Data.OleDb;
+using System.Windows.Threading;
 
 namespace projectNT106
 {
@@ -26,6 +27,7 @@ namespace projectNT106
         public OleDbDataAdapter dar;
         public DataTable dt;
         public OleDbCommandBuilder cbr;
+        public System.Timers.Timer time;
         public Room(string Room, string Creator)
         {
             InitializeComponent();
@@ -144,6 +146,8 @@ namespace projectNT106
 
         }
 
+        public int second = 0;
+        public int showAnswerTime = 0;
         private void button1_Click(object sender, EventArgs e)
         {
             int index = 1;
@@ -157,10 +161,28 @@ namespace projectNT106
             MessageBox.Show(dataQuestion);
             Channel.SendAdminMessage(dataQuestion);
             MessageBox.Show("Đã gửi!");
-            /*Form ranking = new RankingServer();
-            ranking.Show();*/
+                        
+            time = new System.Timers.Timer();
+            time.Interval = 1000; //1 phút
+            time.Elapsed += SendQuestion;
+            time.Start();
+            
+        }
+
+        public void SendQuestion(object sender, System.Timers.ElapsedEventArgs e)
+        {
+            Invoke(new Action(() =>
+            {
+                if (second != 60)
+                {
+                    second++;
+                    textBox2.Text = second.ToString();
+                    
+                }
+            }));
         }
     }
+
     public class StatusChangedEventArgs : EventArgs
     {
         private string EventMsg;
@@ -297,85 +319,85 @@ namespace projectNT106
     }
 
     public class Connection
+    {
+        TcpClient tcpClient;
+        private Thread thrSender;
+        private StreamReader srReceiver;
+        private StreamWriter swSender;
+        private string currUser;
+        private string strResponse;
+        public bool _isExists = false;
+
+        public Connection(TcpClient tcpCon)
         {
-            TcpClient tcpClient;
-            private Thread thrSender;
-            private StreamReader srReceiver;
-            private StreamWriter swSender;
-            private string currUser;
-            private string strResponse;
-            public bool _isExists = false;
+            tcpClient = tcpCon;
+            thrSender = new Thread(AcceptClient);
+            thrSender.Start();
+        }
 
-            public Connection(TcpClient tcpCon)
-            {
-                tcpClient = tcpCon;
-                thrSender = new Thread(AcceptClient);
-                thrSender.Start();
-            }
+        private void CloseConnection()
+        {
+            tcpClient.Close();
+            srReceiver.Close();
+            swSender.Close();
+        }
 
-            private void CloseConnection()
+        private void AcceptClient()
+        {
+            srReceiver = new System.IO.StreamReader(tcpClient.GetStream());
+            swSender = new System.IO.StreamWriter(tcpClient.GetStream());
+            currUser = srReceiver.ReadLine();
+            if (currUser != "")
             {
-                tcpClient.Close();
-                srReceiver.Close();
-                swSender.Close();
-            }
-
-            private void AcceptClient()
-            {
-                srReceiver = new System.IO.StreamReader(tcpClient.GetStream());
-                swSender = new System.IO.StreamWriter(tcpClient.GetStream());
-                currUser = srReceiver.ReadLine();
-                if (currUser != "")
+                if (Channel.htUsers.Contains(currUser) == true)
                 {
-                    if (Channel.htUsers.Contains(currUser) == true)
-                    {
-                        swSender.WriteLine("0|This username already exists.");
-                        swSender.Flush();
-                        CloseConnection();
-                        _isExists = true;
-                        return;
-                    }
-                    else if (currUser == "Administrator")
-                    {
-                        swSender.WriteLine("0|This username is reserved.");
-                        swSender.Flush();
-                        CloseConnection();
-                        return;
-                    }
-                    else
-                    {
-                        swSender.WriteLine("1");
-                        swSender.Flush();
-                        MessageBox.Show("OK");
-                        Channel.AddUser(tcpClient, currUser);
-                        
-                    }
+                    swSender.WriteLine("0|This username already exists.");
+                    swSender.Flush();
+                    CloseConnection();
+                    _isExists = true;
+                    return;
                 }
-                else
+                else if (currUser == "Administrator")
                 {
+                    swSender.WriteLine("0|This username is reserved.");
+                    swSender.Flush();
                     CloseConnection();
                     return;
                 }
-
-                try
+                else
                 {
-                    while ((strResponse = srReceiver.ReadLine()) != "")
-                    {
-                        if (strResponse == null)
-                        {
-                            Channel.RemoveUser(tcpClient);
-                        }
-                        else
-                        {
-                            Channel.SendMessage(currUser, strResponse);
-                        }
-                    }
-                }
-                catch
-                {
-                    Channel.RemoveUser(tcpClient);
+                    swSender.WriteLine("1");
+                    swSender.Flush();
+                    MessageBox.Show("OK");
+                    Channel.AddUser(tcpClient, currUser);
+                        
                 }
             }
+            else
+            {
+                CloseConnection();
+                return;
+            }
+
+            try
+            {
+                while ((strResponse = srReceiver.ReadLine()) != "")
+                {
+                    if (strResponse == null)
+                    {
+                        Channel.RemoveUser(tcpClient);
+                    }
+                    else
+                    {
+                        Channel.SendMessage(currUser, strResponse);
+                    }
+                }
+            }
+            catch
+            {
+                Channel.RemoveUser(tcpClient);
+            }
         }
+    }
         
 }
