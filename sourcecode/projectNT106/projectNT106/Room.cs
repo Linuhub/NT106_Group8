@@ -22,12 +22,16 @@ namespace projectNT106
         private string CreatorID;
         public static Contest[] contests = new Contest[5];
         public Channel mainServer;
+        public OleDbConnection cnn;
+        public OleDbDataAdapter dar;
+        public DataTable dt;
+        public OleDbCommandBuilder cbr;
         public Room(string Room, string Creator)
         {
             InitializeComponent();
             RoomID = Room;
             CreatorID = Creator;
-           
+
         }
 
 
@@ -64,10 +68,7 @@ namespace projectNT106
             }
 
             // Đưa dữ liệu lên
-            OleDbConnection cnn;
-            OleDbDataAdapter dar;
-            DataTable dt;
-            OleDbCommandBuilder cbr;
+            
 
             cnn = new OleDbConnection();
             cnn.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=DeThiLaiXe.mdb";
@@ -137,11 +138,6 @@ namespace projectNT106
         }
 
 
-        private void roundedPanel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
             flowLayoutPanel1.BackColor = Color.FromArgb(100, 0, 0, 0);
@@ -150,120 +146,157 @@ namespace projectNT106
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            int index = 1;
+            string question = "";
+            foreach (DataColumn column in dt.Columns)
+            {
+                question += dt.Rows[0][column].ToString() + '|';
+            }
+            string dataQuestion = RoomID + '|' + CreatorID + '|' 
+                                + index.ToString() + '|' + question;
+            MessageBox.Show(dataQuestion);
+            Channel.SendAdminMessage(dataQuestion);
+            MessageBox.Show("Đã gửi!");
             /*Form ranking = new RankingServer();
             ranking.Show();*/
         }
-
-        public class StatusChangedEventArgs : EventArgs
+    }
+    public class StatusChangedEventArgs : EventArgs
+    {
+        private string EventMsg;
+        public string EventMessage
         {
-            private string EventMsg;
-            public string EventMessage
+            get
             {
-                get
-                {
-                    return EventMsg;
-                }
-                set
-                {
-                    EventMsg = value;
-                }
+                return EventMsg;
             }
-            public StatusChangedEventArgs(string strEventMsg)
+            set
             {
-                EventMsg = strEventMsg;
+                EventMsg = value;
             }
         }
-        public delegate void StatusChangedEventHandler(object sender, StatusChangedEventArgs e);
-
-        public class Channel
+        public StatusChangedEventArgs(string strEventMsg)
         {
-            public static Hashtable htUsers = new Hashtable(30);
-            public static Hashtable htConnections = new Hashtable(30);
-            public static int index = 0;
-            private IPAddress ipAddress;
-            private TcpClient tcpClient;
-            public static event StatusChangedEventHandler StatusChanged;
-            private static StatusChangedEventArgs e;
-            public Channel(IPAddress address)
-            {
-                ipAddress = address;
-            }
-            private Thread thrListener;
-            private TcpListener tlsClient;
-            bool ServRunning = false;
-            public static void AddUser(TcpClient tcpUser, string strUsername)
-            {
-                Channel.htUsers.Add(strUsername, tcpUser);
-                Channel.htConnections.Add(tcpUser, strUsername);
-                index++;
-                SendAdminMessage("ADD" + index.ToString() + htConnections[tcpUser]);
-            }
-            public static void RemoveUser(TcpClient tcpUser)
-            {
-                if (htConnections[tcpUser] != null)
-                {
-                    Channel.htUsers.Remove(Channel.htConnections[tcpUser]);
-                    Channel.htConnections.Remove(tcpUser);
-                }
-            }
-            public static void OnStatusChanged(StatusChangedEventArgs e)
-            {
-                StatusChangedEventHandler statusHandler = StatusChanged;
-                if (statusHandler != null)
-                {
-                    statusHandler(null, e);
-                }
-            }
-            public static void SendAdminMessage(string Message)
-            {
-                StreamWriter swSenderSender;
-                e = new StatusChangedEventArgs(Message);
-                OnStatusChanged(e);
-                TcpClient[] tcpClients = new TcpClient[Channel.htUsers.Count];
-                Channel.htUsers.Values.CopyTo(tcpClients, 0);
-                for (int i = 0; i < tcpClients.Length; i++)
-                {
-                    try
-                    {
-                        if (Message.Trim() == "" || tcpClients[i] == null)
-                        {
-                            continue;
-                        }
-                        swSenderSender = new StreamWriter(tcpClients[i].GetStream());
-                        swSenderSender.WriteLine(Message);
-                        swSenderSender.Flush();
-                        swSenderSender = null;
-                    }
-                    catch
-                    {
-                        RemoveUser(tcpClients[i]);
-                    }
-                }
-            }
+            EventMsg = strEventMsg;
+        }
+    }
+    public delegate void StatusChangedEventHandler(object sender, StatusChangedEventArgs e);
 
-            public void StartListening()
+    public class Channel
+    {
+        public static Hashtable htUsers = new Hashtable(30);
+        public static Hashtable htConnections = new Hashtable(30);
+        public static int index = 0;
+        private IPAddress ipAddress;
+        public static TcpClient tcpClient;
+        public static event StatusChangedEventHandler StatusChanged;
+        private static StatusChangedEventArgs e;
+        public Channel(IPAddress address)
+        {
+            ipAddress = address;
+        }
+        private Thread thrListener;
+        private TcpListener tlsClient;
+        bool ServRunning = false;
+        public static void AddUser(TcpClient tcpUser, string strUsername)
+        {
+            Channel.htUsers.Add(strUsername, tcpUser);
+            Channel.htConnections.Add(tcpUser, strUsername);
+            index++;
+            SendAdminMessage("ADD" + index.ToString() + htConnections[tcpUser]);
+        }
+        public static void RemoveUser(TcpClient tcpUser)
+        {
+            if (htConnections[tcpUser] != null)
             {
-                IPAddress ipaLocal = ipAddress;
-                tlsClient = new TcpListener(ipaLocal, 80);
-                tlsClient.Start();
-                ServRunning = true;
-                thrListener = new Thread(KeepListening);
-                thrListener.Start();
+                Channel.htUsers.Remove(Channel.htConnections[tcpUser]);
+                Channel.htConnections.Remove(tcpUser);
             }
-
-            private void KeepListening()
+        }
+        public static void OnStatusChanged(StatusChangedEventArgs e)
+        {
+            StatusChangedEventHandler statusHandler = StatusChanged;
+            if (statusHandler != null)
             {
-                while (ServRunning == true)
+                statusHandler(null, e);
+            }
+        }
+        public static void SendAdminMessage(string Message)
+        {
+            StreamWriter swSenderSender;
+            e = new StatusChangedEventArgs(Message);
+            OnStatusChanged(e);
+            TcpClient[] tcpClients = new TcpClient[Channel.htUsers.Count];
+            Channel.htUsers.Values.CopyTo(tcpClients, 0);
+            for (int i = 0; i < tcpClients.Length; i++)
+            {
+                try
                 {
-                    tcpClient = tlsClient.AcceptTcpClient();
-                    Connection newConnection = new Connection(tcpClient);
+                    if (Message.Trim() == "" || tcpClients[i] == null)
+                    {
+                        continue;
+                    }
+                    swSenderSender = new StreamWriter(tcpClients[i].GetStream());
+                    swSenderSender.WriteLine(Message);
+                    swSenderSender.Flush();
+                    swSenderSender = null;
+                }
+                catch
+                {
+                    RemoveUser(tcpClients[i]);
+                }
+            }
+        }
+        public static void SendMessage(string From, string Message)
+        {
+            StreamWriter swSenderSender;
+            e = new StatusChangedEventArgs(From + ": " + Message);
+            OnStatusChanged(e);
+            TcpClient[] tcpClients = new TcpClient[Channel.htUsers.Count];
+            Channel.htUsers.Values.CopyTo(tcpClients, 0);
+            for (int i = 0; i < tcpClients.Length; i++)
+            {
+                try
+                {
+                    if (Message.Trim() == "" || tcpClients[i] == null)
+                    {
+                        continue;
+                    }
+                    swSenderSender = new StreamWriter(tcpClients[i].GetStream());
+                    swSenderSender.WriteLine(From + ": " + Message);
+                    swSenderSender.Flush();
+                    swSenderSender = null;
+                }
+                catch
+                {
+                    RemoveUser(tcpClients[i]);
+                }
+            }
+        }
+
+
+        public void StartListening()
+        {
+            IPAddress ipaLocal = ipAddress;
+            tlsClient = new TcpListener(ipaLocal, 80);
+            tlsClient.Start();
+            ServRunning = true;
+            thrListener = new Thread(KeepListening);
+            thrListener.Start();
+        }
+
+        private void KeepListening()
+        {
+            while (ServRunning == true)
+            {
+                tcpClient = tlsClient.AcceptTcpClient();
+                Connection newConnection = new Connection(tcpClient);
                     
-                }
             }
         }
+    }
 
-        public class Connection
+    public class Connection
         {
             TcpClient tcpClient;
             private Thread thrSender;
@@ -334,7 +367,7 @@ namespace projectNT106
                         }
                         else
                         {
-                            //Channel.SendMessage(currUser, strResponse);
+                            Channel.SendMessage(currUser, strResponse);
                         }
                     }
                 }
@@ -345,5 +378,4 @@ namespace projectNT106
             }
         }
         
-    }
 }
