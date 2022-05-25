@@ -31,6 +31,7 @@ namespace ProjectClient
         private IPAddress ipAddress;
         private IPEndPoint iPEndPoint;
         private NetworkStream ns;
+        string ConResponse;
         public HomeClient()
         {
             InitializeComponent();
@@ -90,6 +91,8 @@ namespace ProjectClient
                 swSender.WriteLine(txtUserID.Text);
                 swSender.Flush();
                 ReceiveMessages();
+                Form questionSheet = new QuestionSheet(ConResponse);
+                questionSheet.ShowDialog();
             }
             catch (Exception ex)
             {
@@ -103,12 +106,10 @@ namespace ProjectClient
             try
             {
                 srReceiver = new StreamReader(tcpServer.GetStream());
-                string ConResponse = srReceiver.ReadLine();
+                ConResponse = srReceiver.ReadLine();
                 if (ConResponse[0] == '1')
-                {
+                {                  
                     this.Invoke(new UpdateLogCallback(this.UpdateLog), new object[] { "Connected Successfully!" });
-                    Form questionSheet = new QuestionSheet();
-                    questionSheet.ShowDialog();
                 }
                 else
                 {
@@ -123,15 +124,7 @@ namespace ProjectClient
 
                     return;
                 }
-                //while (Connected)
-                //{
-                //    this.Invoke(new UpdateLogCallback(this.UpdateQuestionSheet), new object[] { srReceiver.ReadLine() });
-                //    txtQues = srReceiver.ReadLine();
-                //    QuesContent = txtQues.Split(new char[] { '|' });
-                //    MessageBox.Show("String: " + QuesContent[4]);
-                //    room.Show();
-                //    room.Refresh();
-                //}
+                
             }
             catch (Exception ex)
             {
@@ -146,8 +139,7 @@ namespace ProjectClient
         {
             MessageBox.Show("Update sheet: " + strMessage + "\r\n");
         }
-        public static string txtQues;
-        public static string[] QuesContent;
+        
 
         private void CloseConnection(string Reason)
         {
