@@ -31,20 +31,20 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QuestionSheet));
             this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtUserID = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtRoomID = new System.Windows.Forms.TextBox();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.btnA = new System.Windows.Forms.Button();
+            this.btnD = new System.Windows.Forms.Button();
+            this.btnB = new System.Windows.Forms.Button();
+            this.btnC = new System.Windows.Forms.Button();
+            this.txtQuestion = new System.Windows.Forms.TextBox();
             this.btnInstruction = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -66,13 +66,13 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
-            // textBox1
+            // txtUserID
             // 
-            this.textBox1.Location = new System.Drawing.Point(129, 28);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(100, 26);
-            this.textBox1.TabIndex = 14;
+            this.txtUserID.Location = new System.Drawing.Point(129, 28);
+            this.txtUserID.Name = "txtUserID";
+            this.txtUserID.ReadOnly = true;
+            this.txtUserID.Size = new System.Drawing.Size(100, 26);
+            this.txtUserID.TabIndex = 14;
             // 
             // label1
             // 
@@ -83,13 +83,13 @@
             this.label1.TabIndex = 13;
             this.label1.Text = "ID người chơi:";
             // 
-            // textBox2
+            // txtRoomID
             // 
-            this.textBox2.Location = new System.Drawing.Point(381, 25);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(100, 26);
-            this.textBox2.TabIndex = 6;
+            this.txtRoomID.Location = new System.Drawing.Point(381, 25);
+            this.txtRoomID.Name = "txtRoomID";
+            this.txtRoomID.ReadOnly = true;
+            this.txtRoomID.Size = new System.Drawing.Size(100, 26);
+            this.txtRoomID.TabIndex = 6;
             // 
             // progressBar1
             // 
@@ -102,8 +102,8 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.textBox2);
-            this.groupBox2.Controls.Add(this.textBox1);
+            this.groupBox2.Controls.Add(this.txtRoomID);
+            this.groupBox2.Controls.Add(this.txtUserID);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Location = new System.Drawing.Point(979, 17);
@@ -129,7 +129,7 @@
             // 
             this.groupBox1.Controls.Add(this.groupBox3);
             this.groupBox1.Controls.Add(this.progressBar1);
-            this.groupBox1.Controls.Add(this.textBox3);
+            this.groupBox1.Controls.Add(this.txtQuestion);
             this.groupBox1.Location = new System.Drawing.Point(12, 97);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(1470, 848);
@@ -138,10 +138,10 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.button2);
-            this.groupBox3.Controls.Add(this.button5);
-            this.groupBox3.Controls.Add(this.button3);
-            this.groupBox3.Controls.Add(this.button4);
+            this.groupBox3.Controls.Add(this.btnA);
+            this.groupBox3.Controls.Add(this.btnD);
+            this.groupBox3.Controls.Add(this.btnB);
+            this.groupBox3.Controls.Add(this.btnC);
             this.groupBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox3.Location = new System.Drawing.Point(6, 536);
             this.groupBox3.Name = "groupBox3";
@@ -149,65 +149,65 @@
             this.groupBox3.TabIndex = 12;
             this.groupBox3.TabStop = false;
             // 
-            // button2
+            // btnA
             // 
-            this.button2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(6, 94);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(308, 150);
-            this.button2.TabIndex = 8;
-            this.button2.Text = "A";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnA.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnA.FlatAppearance.BorderSize = 0;
+            this.btnA.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnA.Location = new System.Drawing.Point(6, 94);
+            this.btnA.Name = "btnA";
+            this.btnA.Size = new System.Drawing.Size(308, 150);
+            this.btnA.TabIndex = 8;
+            this.btnA.Text = "A";
+            this.btnA.UseVisualStyleBackColor = false;
+            this.btnA.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button5
+            // btnD
             // 
-            this.button5.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Location = new System.Drawing.Point(1140, 94);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(308, 150);
-            this.button5.TabIndex = 11;
-            this.button5.Text = "D";
-            this.button5.UseVisualStyleBackColor = false;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.btnD.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnD.FlatAppearance.BorderSize = 0;
+            this.btnD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnD.Location = new System.Drawing.Point(1140, 94);
+            this.btnD.Name = "btnD";
+            this.btnD.Size = new System.Drawing.Size(308, 150);
+            this.btnD.TabIndex = 11;
+            this.btnD.Text = "D";
+            this.btnD.UseVisualStyleBackColor = false;
+            this.btnD.Click += new System.EventHandler(this.button5_Click);
             // 
-            // button3
+            // btnB
             // 
-            this.button3.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Location = new System.Drawing.Point(391, 94);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(308, 150);
-            this.button3.TabIndex = 9;
-            this.button3.Text = "B";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.btnB.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnB.FlatAppearance.BorderSize = 0;
+            this.btnB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnB.Location = new System.Drawing.Point(391, 94);
+            this.btnB.Name = "btnB";
+            this.btnB.Size = new System.Drawing.Size(308, 150);
+            this.btnB.TabIndex = 9;
+            this.btnB.Text = "B";
+            this.btnB.UseVisualStyleBackColor = false;
+            this.btnB.Click += new System.EventHandler(this.button3_Click);
             // 
-            // button4
+            // btnC
             // 
-            this.button4.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Location = new System.Drawing.Point(765, 94);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(308, 150);
-            this.button4.TabIndex = 10;
-            this.button4.Text = "C";
-            this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.btnC.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnC.FlatAppearance.BorderSize = 0;
+            this.btnC.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnC.Location = new System.Drawing.Point(765, 94);
+            this.btnC.Name = "btnC";
+            this.btnC.Size = new System.Drawing.Size(308, 150);
+            this.btnC.TabIndex = 10;
+            this.btnC.Text = "C";
+            this.btnC.UseVisualStyleBackColor = false;
+            this.btnC.Click += new System.EventHandler(this.button4_Click);
             // 
-            // textBox3
+            // txtQuestion
             // 
-            this.textBox3.Location = new System.Drawing.Point(6, 28);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(1454, 502);
-            this.textBox3.TabIndex = 0;
+            this.txtQuestion.Location = new System.Drawing.Point(6, 28);
+            this.txtQuestion.Multiline = true;
+            this.txtQuestion.Name = "txtQuestion";
+            this.txtQuestion.Size = new System.Drawing.Size(1454, 502);
+            this.txtQuestion.TabIndex = 0;
             // 
             // btnInstruction
             // 
@@ -277,23 +277,23 @@
         #endregion
 
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtUserID;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtRoomID;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtQuestion;
         private System.Windows.Forms.Button btnInstruction;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnA;
+        private System.Windows.Forms.Button btnD;
+        private System.Windows.Forms.Button btnC;
+        private System.Windows.Forms.Button btnB;
         private System.Windows.Forms.GroupBox groupBox3;
     }
 }

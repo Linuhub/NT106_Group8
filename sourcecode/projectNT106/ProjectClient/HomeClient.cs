@@ -16,17 +16,17 @@ namespace ProjectClient
 {
     public partial class HomeClient : Form
     {
-        private string UserName = "Unknown";
+        public static string UserName = "";
+        public static string RoomID = "";
         private StreamWriter swSender;
         private StreamReader srReceiver;
-        private TcpClient tcpServer;
-        private delegate void UpdateLogCallback(string strMessage);
-        private delegate void CloseConnectionCallback(string strReason);
+        public static TcpClient tcpServer;
+        public delegate void UpdateLogCallback(string strMessage);
+        public delegate void CloseConnectionCallback(string strReason);
         private Thread thrMessaging;
         private IPAddress ipAddr;
-        private bool Connected;
+        public static bool Connected;
         bool isEnterRoom = false;
-
         private TcpClient tcpClient;
         private IPAddress ipAddress;
         private IPEndPoint iPEndPoint;
@@ -59,18 +59,17 @@ namespace ProjectClient
             Form createRoom = new CreateRoom();
             createRoom.ShowDialog();
         }
-
         private void btnJoin_Click(object sender, EventArgs e)
         {
             if (Connected == false)
             {
                 InitializeConnection();
-                Form room = new QuestionSheet();
-                room.Show();
-            }
-        }
+                
 
-        private void InitializeConnection()
+            }
+            else CloseConnection("");
+        }
+        public void InitializeConnection()
         {
             try
             {
@@ -80,24 +79,22 @@ namespace ProjectClient
                 tcpServer.Connect(ipAddr, 80);
                 Connected = true;
                 UserName = txtUserID.Text;
+                RoomID = txtRoomID.Text;
                 if (txtUserID.Text.Length == 0)
                 {
                     MessageBox.Show("User name is empty!");
-                    /*this.Invoke(new Action(() =>
-                    {
-                        btnJoin.Enabled = true;
-                    }));*/
+
                     return;
                 }
                 swSender = new StreamWriter(tcpServer.GetStream());
                 swSender.WriteLine(txtUserID.Text);
                 swSender.Flush();
-                thrMessaging = new Thread(new ThreadStart(ReceiveMessages));
-                thrMessaging.Start();
+                ReceiveMessages();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
+                return;
             }
         }
 
@@ -110,6 +107,8 @@ namespace ProjectClient
                 if (ConResponse[0] == '1')
                 {
                     this.Invoke(new UpdateLogCallback(this.UpdateLog), new object[] { "Connected Successfully!" });
+                    Form questionSheet = new QuestionSheet();
+                    questionSheet.ShowDialog();
                 }
                 else
                 {
@@ -124,10 +123,15 @@ namespace ProjectClient
 
                     return;
                 }
-                while (Connected)
-                {
-                    this.Invoke(new UpdateLogCallback(this.UpdateLog), new object[] { srReceiver.ReadLine() });
-                }
+                //while (Connected)
+                //{
+                //    this.Invoke(new UpdateLogCallback(this.UpdateQuestionSheet), new object[] { srReceiver.ReadLine() });
+                //    txtQues = srReceiver.ReadLine();
+                //    QuesContent = txtQues.Split(new char[] { '|' });
+                //    MessageBox.Show("String: " + QuesContent[4]);
+                //    room.Show();
+                //    room.Refresh();
+                //}
             }
             catch (Exception ex)
             {
@@ -136,8 +140,15 @@ namespace ProjectClient
         }
         private void UpdateLog(string strMessage)
         {
-            MessageBox.Show(strMessage + "\r\n");
+            MessageBox.Show("Update Client Log: " + strMessage + "\r\n");
         }
+        private void UpdateQuestionSheet(string strMessage)
+        {
+            MessageBox.Show("Update sheet: " + strMessage + "\r\n");
+        }
+        public static string txtQues;
+        public static string[] QuesContent;
+
         private void CloseConnection(string Reason)
         {
             Connected = false;
