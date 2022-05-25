@@ -148,38 +148,62 @@ namespace projectNT106
 
         public int second = 0;
         public int showAnswerTime = 0;
+        int index = 0;
         private void button1_Click(object sender, EventArgs e)
         {
-            int index = 1;
-            string question = "";
-            foreach (DataColumn column in dt.Columns)
-            {
-                question += dt.Rows[0][column].ToString() + '|';
-            }
-            string dataQuestion = RoomID + '|' + CreatorID + '|' 
-                                + index.ToString() + '|' + question;
-            MessageBox.Show(dataQuestion);
-            Channel.SendAdminMessage(dataQuestion);
-            MessageBox.Show("Đã gửi!");
-                        
+                      
             time = new System.Timers.Timer();
-            time.Interval = 1000; //1 phút
-            time.Elapsed += SendQuestion;
+            time.Interval = 1000; //1s
+            time.Elapsed += OnTimeEvent;
             time.Start();
             
         }
 
-        public void SendQuestion(object sender, System.Timers.ElapsedEventArgs e)
+        public void OnTimeEvent(object sender, System.Timers.ElapsedEventArgs e)
         {
             Invoke(new Action(() =>
             {
                 if (second != 60)
                 {
+                    if (second == 0)
+                    {
+                        second++;
+                        SendQuestion();
+                    }
                     second++;
-                    textBox2.Text = second.ToString();
-                    
+                    textBox2.Text = second.ToString();                    
+                }
+                else if (showAnswerTime != 5)
+                {
+                    showAnswerTime++;
+                    textBox2.Text = showAnswerTime.ToString();
+                }
+                else
+                {
+                    showAnswerTime = 0;
+                    second = 0;
+                    if (index == 19)
+                    {
+                        time.Stop();
+                        MessageBox.Show("Finish!");
+                    }
                 }
             }));
+        }
+    
+        public void SendQuestion()
+        {
+            string question = "";
+            foreach (DataColumn column in dt.Columns)
+            {
+                question += dt.Rows[index][column].ToString() + '|';
+            }
+            string dataQuestion = RoomID + '|' + CreatorID + '|'
+                                + index.ToString() + '|' + question;
+            MessageBox.Show(dataQuestion);
+            Channel.SendAdminMessage(dataQuestion);
+            MessageBox.Show("Đã gửi!");
+            index++;
         }
     }
 
