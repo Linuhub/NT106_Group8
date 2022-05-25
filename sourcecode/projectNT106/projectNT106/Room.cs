@@ -46,7 +46,17 @@ namespace projectNT106
         {
 
         }
-
+        private delegate void UpdateStatusCallback(string strMessage);
+        public void mainServer_StatusChanged(object sender, StatusChangedEventArgs e)
+        {
+            this.Invoke(new UpdateStatusCallback(this.UpdateStatus), new object[] { e.EventMessage });
+        }
+        private void UpdateStatus(string strMessage)
+        {
+            Random R = new Random();
+            int icon = R.Next(1, 12);
+            listView1.Items.Add("    " + strMessage, icon);
+        }
         private void Room_Load_1(object sender, EventArgs e)
         {
 
@@ -127,8 +137,10 @@ namespace projectNT106
             // Tạo phòng
             try
             {
-                IPAddress ipAddr = IPAddress.Parse("192.168.1.8");
+                ListViewItem item = new ListViewItem();
+                IPAddress ipAddr = IPAddress.Parse("192.168.127.227");
                 mainServer = new Channel(ipAddr);
+                Channel.StatusChanged += new StatusChangedEventHandler(mainServer_StatusChanged);
                 mainServer.StartListening();
             }
             catch (Exception ex)
@@ -200,8 +212,27 @@ namespace projectNT106
             }
             string dataQuestion = RoomID + '|' + CreatorID + '|'
                                 + index.ToString() + '|' + question;
-            MessageBox.Show(dataQuestion);
-            Channel.SendAdminMessage(dataQuestion);
+            StreamWriter swSender;
+            TcpClient[] tcpClients = new TcpClient[Channel.htUsers.Count];
+            Channel.htUsers.Values.CopyTo(tcpClients, 0);
+            for (int i = 0; i < tcpClients.Length; i++)
+            {
+                try
+                {
+                    if (dataQuestion.Trim() == "" || tcpClients[i] == null)
+                    {
+                        continue;
+                    }
+                    swSender = new StreamWriter(tcpClients[i].GetStream());
+                    swSender.WriteLine(dataQuestion);
+                    swSender.Flush();
+                    swSender = null;
+                }
+                catch
+                {
+                    MessageBox.Show("error");
+                }
+            }
             MessageBox.Show("Đã gửi!");
             index++;
         }
