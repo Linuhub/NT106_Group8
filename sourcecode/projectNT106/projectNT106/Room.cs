@@ -175,7 +175,7 @@ namespace projectNT106
         {
             Invoke(new Action(() =>
             {
-                if (second != 60)
+                if (second != 10)
                 {
                     if (second == 0)
                     {
@@ -233,6 +233,7 @@ namespace projectNT106
                     MessageBox.Show("error");
                 }
             }
+            MessageBox.Show(dataQuestion);
             MessageBox.Show("Đã gửi!");
             index++;
         }

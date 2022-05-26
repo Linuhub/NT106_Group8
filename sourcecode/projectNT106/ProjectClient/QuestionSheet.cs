@@ -31,6 +31,7 @@ namespace ProjectClient
         {
             InitializeComponent();
             cmt = respon;
+            button1.Hide();
         }
         private void pictureBox1_Click(object sender, EventArgs e)
         {
@@ -60,22 +61,19 @@ namespace ProjectClient
             thrMessaging = new Thread(ReceiveMessage);
             thrMessaging.Start();
         }
-        
         private void ReceiveMessage()
         {
             try
             {
                 
+                srReceiver = new StreamReader(HomeClient.tcpServer.GetStream());
+                txtQues = srReceiver.ReadLine();
                 while (HomeClient.Connected)
                 {
-                    srReceiver = new StreamReader(HomeClient.tcpServer.GetStream());
-                    //this.Invoke(new HomeClient.UpdateLogCallback(this.UpdateQuestionSheet), new object[] { srReceiver.ReadLine() });
-                    txtQues = srReceiver.ReadLine();
                     string Respon = srReceiver.ReadLine();
                     if (Respon[0] != '1')                    
                     {
-                        QuesContent = txtQues.Split(new char[] { '|' });
-                        MessageBox.Show(QuesContent.ToString());
+                        QuesContent = Respon.Split(new char[] { '|' });
                         txtUserID.Text = HomeClient.UserName;
                         txtRoomID.Text = HomeClient.RoomID;
                         txtQuestion.Text = QuesContent[4];
@@ -104,8 +102,7 @@ namespace ProjectClient
         }
         private void button1_Click_1(object sender, EventArgs e)
         {
-            Form result = new ResultClient();
-            result.ShowDialog();
+            timer1.Start();
         }
 
         private void timer1_Tick_1(object sender, EventArgs e)
@@ -116,23 +113,19 @@ namespace ProjectClient
 
         private void button2_Click(object sender, EventArgs e)
         {
-            timer1.Start();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            timer1.Start();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            timer1.Start();
 
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            timer1.Start();
 
         }
 
