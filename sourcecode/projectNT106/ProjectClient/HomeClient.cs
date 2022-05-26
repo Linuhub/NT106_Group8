@@ -75,7 +75,7 @@ namespace ProjectClient
             try
             {
 
-                ipAddr = IPAddress.Parse("192.168.1.8");
+                ipAddr = IPAddress.Parse("192.168.225.102");
                 tcpServer = new TcpClient();
                 tcpServer.Connect(ipAddr, 80);
                 Connected = true;

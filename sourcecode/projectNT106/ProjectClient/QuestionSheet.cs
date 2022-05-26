@@ -6,6 +6,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -15,8 +16,9 @@ namespace ProjectClient
     {
         private string txtQues;
         private string[] QuesContent;
-        private StreamReader srReceiver = new StreamReader(HomeClient.tcpServer.GetStream());
+        private StreamReader srReceiver;
         private StreamWriter swSender;
+        private Thread thrMessaging;
         public string cmt;
         bool _isBoxOptionOpen = false;
 
@@ -48,14 +50,17 @@ namespace ProjectClient
         {
             panel1.Hide();
             Form.CheckForIllegalCrossThreadCalls = false;
-            this.Invoke(new HomeClient.UpdateLogCallback(this.UpdateQuestionSheet), new object[] { srReceiver.ReadLine() });
+            //this.Invoke(new HomeClient.UpdateLogCallback(this.UpdateQuestionSheet), new object[] { srReceiver.ReadLine() });
             txtQues = cmt;
             if (cmt == "1")
             {
                 MessageBox.Show("Received: " + txtQues);                    
             }
-            ReceiveMessage();
+
+            thrMessaging = new Thread(ReceiveMessage);
+            thrMessaging.Start();
         }
+        
         private void ReceiveMessage()
         {
             try
@@ -63,11 +68,11 @@ namespace ProjectClient
                 
                 while (HomeClient.Connected)
                 {
-
-                    this.Invoke(new HomeClient.UpdateLogCallback(this.UpdateQuestionSheet), new object[] { srReceiver.ReadLine() });
+                    srReceiver = new StreamReader(HomeClient.tcpServer.GetStream());
+                    //this.Invoke(new HomeClient.UpdateLogCallback(this.UpdateQuestionSheet), new object[] { srReceiver.ReadLine() });
                     txtQues = srReceiver.ReadLine();
                     string Respon = srReceiver.ReadLine();
-
+                    MessageBox.Show(Respon);
                     if (Respon[0] != '1')                    
                     {
                         QuesContent = txtQues.Split(new char[] { '|' });

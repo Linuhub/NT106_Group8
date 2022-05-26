@@ -25,7 +25,7 @@ namespace ProjectClient
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
-            Form sheet = new QuestionSheet();
+            Form sheet = new QuestionSheet("ok");
             sheet.ShowDialog();
         }
     }
