@@ -72,10 +72,10 @@ namespace ProjectClient
                     //this.Invoke(new HomeClient.UpdateLogCallback(this.UpdateQuestionSheet), new object[] { srReceiver.ReadLine() });
                     txtQues = srReceiver.ReadLine();
                     string Respon = srReceiver.ReadLine();
-                    MessageBox.Show(Respon);
                     if (Respon[0] != '1')                    
                     {
                         QuesContent = txtQues.Split(new char[] { '|' });
+                        MessageBox.Show(QuesContent.ToString());
                         txtUserID.Text = HomeClient.UserName;
                         txtRoomID.Text = HomeClient.RoomID;
                         txtQuestion.Text = QuesContent[4];
