@@ -113,6 +113,7 @@ namespace ProjectClient
 
         private void button2_Click(object sender, EventArgs e)
         {
+            //txtUserID, roomID, stt câu hỏi ,thời gian trả lời câu đó (đúng thì số dương, sai thì 0)
         }
 
         private void button3_Click(object sender, EventArgs e)

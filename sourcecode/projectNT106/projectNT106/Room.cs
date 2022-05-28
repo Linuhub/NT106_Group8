@@ -21,6 +21,7 @@ namespace projectNT106
     {
         private string RoomID;
         private string CreatorID;
+        private string QuestionPack;
         public static Contest[] contests = new Contest[5];
         public Channel mainServer;
         public OleDbConnection cnn;
@@ -28,12 +29,12 @@ namespace projectNT106
         public DataTable dt;
         public OleDbCommandBuilder cbr;
         public System.Timers.Timer time;
-        public Room(string Room, string Creator)
+        public Room(string Room, string Creator, string quesPack)
         {
             InitializeComponent();
             RoomID = Room;
             CreatorID = Creator;
-
+            QuestionPack = quesPack;
         }
 
 
@@ -138,7 +139,7 @@ namespace projectNT106
             try
             {
                 ListViewItem item = new ListViewItem();
-                IPAddress ipAddr = IPAddress.Parse("192.168.225.102");
+                IPAddress ipAddr = IPAddress.Parse("10.45.162.106");
                 mainServer = new Channel(ipAddr);
                 Channel.StatusChanged += new StatusChangedEventHandler(mainServer_StatusChanged);
                 mainServer.StartListening();

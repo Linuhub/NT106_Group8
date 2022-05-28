@@ -47,7 +47,7 @@ namespace projectNT106
         private void btnCreate_Click(object sender, EventArgs e)
         {
             
-            Form room = new Room(IDRoom, txtUserID.Text);
+            Form room = new Room(IDRoom, txtUserID.Text, cbQuestionPackage.Text);
             room.Show();
         
         }
