@@ -19,7 +19,8 @@ namespace ProjectClient
         private StreamReader srReceiver;
         private StreamWriter swSender;
         private Thread thrMessaging;
-        public string cmt;
+        public string cmt; 
+        private double TimeElapsed;
         bool _isBoxOptionOpen = false;
 
         private void UpdateQuestionSheet(string strMessage)
@@ -53,10 +54,7 @@ namespace ProjectClient
             Form.CheckForIllegalCrossThreadCalls = false;
             //this.Invoke(new HomeClient.UpdateLogCallback(this.UpdateQuestionSheet), new object[] { srReceiver.ReadLine() });
             txtQues = cmt;
-            if (cmt == "1")
-            {
-                MessageBox.Show("Received: " + txtQues);                    
-            }
+            
 
             thrMessaging = new Thread(ReceiveMessage);
             thrMessaging.Start();
@@ -65,32 +63,41 @@ namespace ProjectClient
         {
             try
             {
-                
+
                 srReceiver = new StreamReader(HomeClient.tcpServer.GetStream());
                 txtQues = srReceiver.ReadLine();
                 while (HomeClient.Connected)
                 {
                     string Respon = srReceiver.ReadLine();
-                    if (Respon[0] != '1')                    
+                    if (Respon[0] != '1')
                     {
+                        Invoke(new Action(() =>
+                        {
+                            ResetTimer(timer1);
+                        }));
                         QuesContent = Respon.Split(new char[] { '|' });
+                        btnA.Enabled = true;
+                        btnB.Enabled = true;
+                        btnC.Enabled = true;
+                        btnD.Enabled = true;
+                        ResetColor();
                         txtUserID.Text = HomeClient.UserName;
                         txtRoomID.Text = HomeClient.RoomID;
                         txtQuestion.Text = QuesContent[4];
-                        btnA.Text = "A." + QuesContent[5];
-                        btnB.Text = "B." + QuesContent[6];
+                        btnA.Text = QuesContent[5];
+                        btnB.Text = QuesContent[6];
                         if (QuesContent[7] == "")
                         {
                             btnC.Text = "C.";
                             btnC.Enabled = false;
                         }
-                        else btnC.Text = "C." + QuesContent[7];
+                        else btnC.Text = QuesContent[7];
                         if (QuesContent[8] == "")
                         {
                             btnD.Text = "D.";
                             btnD.Enabled = false;
                         }
-                        else btnD.Text = "D." + QuesContent[8];
+                        else btnD.Text = QuesContent[8];
                     }
                 }
             }
@@ -102,34 +109,87 @@ namespace ProjectClient
         }
         private void button1_Click_1(object sender, EventArgs e)
         {
-            timer1.Start();
+            //timer1.Start();
         }
 
         private void timer1_Tick_1(object sender, EventArgs e)
         {
+            TimeElapsed = TimeElapsed + 1.5;
             progressBar1.PerformStep();
-
         }
-
-        private void button2_Click(object sender, EventArgs e)
+        private void ResetTimer(System.Windows.Forms.Timer timer)
         {
-            //txtUserID, roomID, stt câu hỏi ,thời gian trả lời câu đó (đúng thì số dương, sai thì 0)
+            TimeElapsed = 0;        
+            progressBar1.Value = 0;
+            timer.Stop();
+            timer.Start();
         }
-
-        private void button3_Click(object sender, EventArgs e)
+        private void SendAnswer(string ans)
         {
+            if (ans == QuesContent[9] && (TimeElapsed / 100) <= 10)
+            {
+                swSender = new StreamWriter(HomeClient.tcpServer.GetStream());
+                swSender.WriteLine("ans" + '|' + txtUserID.Text + '|' + txtRoomID.Text + '|' + QuesContent[3] + '|' + (TimeElapsed / 100).ToString());
+                swSender.Flush();
+                swSender = null;
+            }
+            else
+            {
+                swSender = new StreamWriter(HomeClient.tcpServer.GetStream());
+                swSender.WriteLine("ans" + '|' + txtUserID.Text + '|' + txtRoomID.Text + '|' + QuesContent[3] + '|' + "0");
+                swSender.Flush();
+                swSender = null;
+            }
+            //MessageBox.Show((TimeElapsed/100).ToString());
         }
-
-        private void button4_Click(object sender, EventArgs e)
+        private void ResetColor()
         {
-
+            btnA.BackColor = SystemColors.ActiveCaption;
+            btnB.BackColor = SystemColors.ActiveCaption;
+            btnC.BackColor = SystemColors.ActiveCaption;
+            btnD.BackColor = SystemColors.ActiveCaption;
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void btnA_Click(object sender, EventArgs e)
         {
-
+            btnA.BackColor = Color.SteelBlue;
+            btnA.Enabled = false;
+            btnB.Enabled = false;
+            btnC.Enabled = false;
+            btnD.Enabled = false;
+            string ans = "Đáp án: A";
+            SendAnswer(ans);
         }
 
-        
+        private void btnB_Click(object sender, EventArgs e)
+        {
+            btnB.BackColor = Color.SteelBlue;
+            btnA.Enabled = false;
+            btnB.Enabled = false;
+            btnC.Enabled = false;
+            btnD.Enabled = false;
+            string ans = "Đáp án: B";
+            SendAnswer(ans);
+        }
+        private void btnC_Click(object sender, EventArgs e)
+        {
+            btnC.BackColor = Color.SteelBlue;
+            btnA.Enabled = false;
+            btnB.Enabled = false;
+            btnC.Enabled = false;
+            btnD.Enabled = false;
+            string ans = "Đáp án: C";
+            SendAnswer(ans);
+        }
+        private void btnD_Click(object sender, EventArgs e)
+        {
+            btnD.BackColor = Color.SteelBlue;
+            btnA.Enabled = false;
+            btnB.Enabled = false;
+            btnC.Enabled = false;
+            btnD.Enabled = false;
+            string ans = "Đáp án: D";
+            SendAnswer(ans);
+        }
     }
 }

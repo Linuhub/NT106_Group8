@@ -94,10 +94,10 @@
             // progressBar1
             // 
             this.progressBar1.Location = new System.Drawing.Point(6, 525);
-            this.progressBar1.MarqueeAnimationSpeed = 1;
+            this.progressBar1.Maximum = 10000;
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(1452, 5);
-            this.progressBar1.Step = 1;
+            this.progressBar1.Step = 17;
             this.progressBar1.TabIndex = 7;
             // 
             // groupBox2
@@ -123,6 +123,7 @@
             // 
             // timer1
             // 
+            this.timer1.Interval = 1;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick_1);
             // 
             // groupBox1
@@ -160,7 +161,7 @@
             this.btnA.TabIndex = 8;
             this.btnA.Text = "A";
             this.btnA.UseVisualStyleBackColor = false;
-            this.btnA.Click += new System.EventHandler(this.button2_Click);
+            this.btnA.Click += new System.EventHandler(this.btnA_Click);
             // 
             // btnD
             // 
@@ -173,7 +174,7 @@
             this.btnD.TabIndex = 11;
             this.btnD.Text = "D";
             this.btnD.UseVisualStyleBackColor = false;
-            this.btnD.Click += new System.EventHandler(this.button5_Click);
+            this.btnD.Click += new System.EventHandler(this.btnD_Click);
             // 
             // btnB
             // 
@@ -186,7 +187,7 @@
             this.btnB.TabIndex = 9;
             this.btnB.Text = "B";
             this.btnB.UseVisualStyleBackColor = false;
-            this.btnB.Click += new System.EventHandler(this.button3_Click);
+            this.btnB.Click += new System.EventHandler(this.btnB_Click);
             // 
             // btnC
             // 
@@ -199,7 +200,7 @@
             this.btnC.TabIndex = 10;
             this.btnC.Text = "C";
             this.btnC.UseVisualStyleBackColor = false;
-            this.btnC.Click += new System.EventHandler(this.button4_Click);
+            this.btnC.Click += new System.EventHandler(this.btnC_Click);
             // 
             // txtQuestion
             // 

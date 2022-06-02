@@ -19,7 +19,9 @@ namespace projectNT106
 {
     public partial class Room : Form
     {
-        private string RoomID;
+        public static string RoomID;
+        public static string IDRoomUser = "";
+        public static string IDUser = "";
         private string CreatorID;
         private string QuestionPack;
         public static Contest[] contests = new Contest[5];
@@ -37,26 +39,26 @@ namespace projectNT106
             QuestionPack = quesPack;
         }
 
-
-        private void roundedPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
         private delegate void UpdateStatusCallback(string strMessage);
         public void mainServer_StatusChanged(object sender, StatusChangedEventArgs e)
         {
-            this.Invoke(new UpdateStatusCallback(this.UpdateStatus), new object[] { e.EventMessage });
+            this.Invoke(new UpdateStatusCallback(this.sliptID), new object[] { e.EventMessage });
+            if (RoomID == IDRoomUser)
+            {
+                this.Invoke(new UpdateStatusCallback(this.UpdateStatus), new object[] { IDUser });
+            }
         }
-        private void UpdateStatus(string strMessage)
+        public void sliptID(string message)
+        {
+            IDRoomUser = message.Substring(0, 5);
+            IDUser = message.Substring(6);
+            /* ADD1ABCDE|1234 */
+        }
+        private void UpdateStatus(string mes)
         {
             Random R = new Random();
             int icon = R.Next(1, 12);
-            listView1.Items.Add("    " + strMessage, icon);
+            listView1.Items.Add("    " + mes, icon);
         }
         private void Room_Load_1(object sender, EventArgs e)
         {
@@ -84,20 +86,12 @@ namespace projectNT106
             
 
             cnn = new OleDbConnection();
-            cnn.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=DeThiLaiXe.mdb";
+            cnn.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=DeThiLaiXe_3Part.mdb";
             cnn.Open();
-            dar = new OleDbDataAdapter("Select * from DeThi_All", cnn);
+            dar = new OleDbDataAdapter("Select * from tbl_All", cnn);
             dt = new DataTable();
             dar.Fill(dt);
 
-        }
-
-        void AddListView(string name, int index)
-        {
-            this.Invoke(new Action(() =>
-            {
-                listView1.Items.Add(name, index);
-            }));
         }
 
         private void populate()
@@ -139,7 +133,7 @@ namespace projectNT106
             try
             {
                 ListViewItem item = new ListViewItem();
-                IPAddress ipAddr = IPAddress.Parse("10.45.162.106");
+                IPAddress ipAddr = IPAddress.Parse("192.168.1.9");
                 mainServer = new Channel(ipAddr);
                 Channel.StatusChanged += new StatusChangedEventHandler(mainServer_StatusChanged);
                 mainServer.StartListening();
@@ -180,7 +174,6 @@ namespace projectNT106
                 {
                     if (second == 0)
                     {
-                        second++;
                         SendQuestion();
                     }
                     second++;
@@ -234,9 +227,12 @@ namespace projectNT106
                     MessageBox.Show("error");
                 }
             }
-            MessageBox.Show(dataQuestion);
-            MessageBox.Show("Đã gửi!");
             index++;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 
@@ -326,32 +322,32 @@ namespace projectNT106
                 }
             }
         }
-        public static void SendMessage(string From, string Message)
-        {
-            StreamWriter swSenderSender;
-            e = new StatusChangedEventArgs(From + ": " + Message);
-            OnStatusChanged(e);
-            TcpClient[] tcpClients = new TcpClient[Channel.htUsers.Count];
-            Channel.htUsers.Values.CopyTo(tcpClients, 0);
-            for (int i = 0; i < tcpClients.Length; i++)
-            {
-                try
-                {
-                    if (Message.Trim() == "" || tcpClients[i] == null)
-                    {
-                        continue;
-                    }
-                    swSenderSender = new StreamWriter(tcpClients[i].GetStream());
-                    swSenderSender.WriteLine(From + ": " + Message);
-                    swSenderSender.Flush();
-                    swSenderSender = null;
-                }
-                catch
-                {
-                    RemoveUser(tcpClients[i]);
-                }
-            }
-        }
+        //public static void SendMessage(string From, string Message)
+        //{
+        //    StreamWriter swSenderSender;
+        //    e = new StatusChangedEventArgs(From + ": " + Message);
+        //    OnStatusChanged(e);
+        //    TcpClient[] tcpClients = new TcpClient[Channel.htUsers.Count];
+        //    Channel.htUsers.Values.CopyTo(tcpClients, 0);
+        //    for (int i = 0; i < tcpClients.Length; i++)
+        //    {
+        //        try
+        //        {
+        //            if (Message.Trim() == "" || tcpClients[i] == null)
+        //            {
+        //                continue;
+        //            }
+        //            swSenderSender = new StreamWriter(tcpClients[i].GetStream());
+        //            swSenderSender.WriteLine(From + ": " + Message);
+        //            swSenderSender.Flush();
+        //            swSenderSender = null;
+        //        }
+        //        catch
+        //        {
+        //            RemoveUser(tcpClients[i]);
+        //        }
+        //    }
+        //}
 
 
         public void StartListening()
@@ -425,7 +421,6 @@ namespace projectNT106
                 {
                     swSender.WriteLine("1");
                     swSender.Flush();
-                    MessageBox.Show("OK");
                     Channel.AddUser(tcpClient, currUser);
                         
                 }
@@ -444,9 +439,9 @@ namespace projectNT106
                     {
                         Channel.RemoveUser(tcpClient);
                     }
-                    else
+                    else if (true )
                     {
-                        Channel.SendMessage(currUser, strResponse);
+                        //Channel.SendMessage(currUser, strResponse);
                     }
                 }
             }

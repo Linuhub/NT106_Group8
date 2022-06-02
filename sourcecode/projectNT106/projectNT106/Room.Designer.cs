@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.roundedPanel1 = new projectNT106.Graph.RoundedPanel();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.circularButton1 = new projectNT106.Graph.CircularButton();
@@ -38,7 +39,6 @@
             this.labelIDRoom = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.listView1 = new System.Windows.Forms.ListView();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.roundedPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -61,7 +61,13 @@
             this.roundedPanel1.Size = new System.Drawing.Size(1186, 578);
             this.roundedPanel1.TabIndex = 0;
             this.roundedPanel1.TopColor = System.Drawing.Color.DarkSlateGray;
-            this.roundedPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.roundedPanel1_Paint);
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(719, 56);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(100, 26);
+            this.textBox2.TabIndex = 9;
             // 
             // button1
             // 
@@ -90,6 +96,7 @@
             this.button2.TabIndex = 7;
             this.button2.Text = "Thoát";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // circularButton1
             // 
@@ -164,14 +171,6 @@
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.SmallIcon;
-            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(719, 56);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 26);
-            this.textBox2.TabIndex = 9;
             // 
             // Room
             // 

@@ -75,10 +75,10 @@ namespace ProjectClient
             try
             {
 
-                ipAddr = IPAddress.Parse("10.45.162.106");
+                //ipAddr = IPAddress.Parse("172.30.159.71");
+                ipAddr = IPAddress.Parse("192.168.1.9");
                 tcpServer = new TcpClient();
                 tcpServer.Connect(ipAddr, 80);
-                Connected = true;
                 UserName = txtUserID.Text;
                 RoomID = txtRoomID.Text;
                 if (txtUserID.Text.Length == 0)
@@ -90,7 +90,8 @@ namespace ProjectClient
                 swSender = new StreamWriter(tcpServer.GetStream());
                 swSender.WriteLine("ADD" + '|' + txtRoomID.Text + '|' + txtUserID.Text);
                 swSender.Flush();
-                ReceiveMessages();
+                ReceiveMessages(); 
+                Connected = true;
                 Form questionSheet = new QuestionSheet(ConResponse);
                 questionSheet.ShowDialog();
             }
