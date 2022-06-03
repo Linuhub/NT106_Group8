@@ -74,7 +74,6 @@ namespace ProjectClient
         {
             try
             {
-
                 //ipAddr = IPAddress.Parse("172.30.159.71");
                 ipAddr = IPAddress.Parse("192.168.1.9");
                 tcpServer = new TcpClient();
@@ -88,12 +87,14 @@ namespace ProjectClient
                     return;
                 }
                 swSender = new StreamWriter(tcpServer.GetStream());
-                swSender.WriteLine("ADD" + '|' + txtRoomID.Text + '|' + txtUserID.Text);
+                swSender.WriteLine("add" + '|' + txtRoomID.Text + '|' + txtUserID.Text);
                 swSender.Flush();
                 ReceiveMessages(); 
-                Connected = true;
-                Form questionSheet = new QuestionSheet(ConResponse);
-                questionSheet.ShowDialog();
+                if (Connected)
+                {
+                    Form questionSheet = new QuestionSheet(ConResponse);
+                    questionSheet.Show();
+                }
             }
             catch (Exception ex)
             {
@@ -108,9 +109,11 @@ namespace ProjectClient
             {
                 srReceiver = new StreamReader(tcpServer.GetStream());
                 ConResponse = srReceiver.ReadLine();
+                MessageBox.Show(ConResponse);
                 if (ConResponse[0] == '1')
                 {                  
                     this.Invoke(new UpdateLogCallback(this.UpdateLog), new object[] { "Connected Successfully!" });
+                    Connected = true;
                 }
                 else
                 {
@@ -135,10 +138,6 @@ namespace ProjectClient
         private void UpdateLog(string strMessage)
         {
             MessageBox.Show("Update Client Log: " + strMessage + "\r\n");
-        }
-        private void UpdateQuestionSheet(string strMessage)
-        {
-            MessageBox.Show("Update sheet: " + strMessage + "\r\n");
         }
         
 

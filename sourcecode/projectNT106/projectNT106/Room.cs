@@ -21,16 +21,19 @@ namespace projectNT106
     {
         public static string RoomID;
         public static string IDRoomUser = "";
-        public static string IDUser = "";
+        public static string IDUserTemp = "";
         private string CreatorID;
         private string QuestionPack;
-        public static Contest[] contests = new Contest[5];
+        String[] paths = { };
         public Channel mainServer;
         public OleDbConnection cnn;
         public OleDbDataAdapter dar;
         public DataTable dt;
         public OleDbCommandBuilder cbr;
         public System.Timers.Timer time;
+        public static InfoUser[] infoUsers = new InfoUser[10];
+        private delegate void UpdateStatusCallback(string strMessage);
+
         public Room(string Room, string Creator, string quesPack)
         {
             InitializeComponent();
@@ -38,27 +41,16 @@ namespace projectNT106
             CreatorID = Creator;
             QuestionPack = quesPack;
         }
-
-        private delegate void UpdateStatusCallback(string strMessage);
-        public void mainServer_StatusChanged(object sender, StatusChangedEventArgs e)
-        {
-            this.Invoke(new UpdateStatusCallback(this.sliptID), new object[] { e.EventMessage });
-            if (RoomID == IDRoomUser)
-            {
-                this.Invoke(new UpdateStatusCallback(this.UpdateStatus), new object[] { IDUser });
-            }
-        }
-        public void sliptID(string message)
-        {
-            IDRoomUser = message.Substring(0, 5);
-            IDUser = message.Substring(6);
-            /* ADD1ABCDE|1234 */
-        }
-        private void UpdateStatus(string mes)
+        public void UpdateStatus(string mes)
         {
             Random R = new Random();
             int icon = R.Next(1, 12);
             listView1.Items.Add("    " + mes, icon);
+            Room.infoUsers[Channel.htConnections.Count].setAvatar(paths[icon]); 
+        }
+        public void mainServer_StatusChanged(object sender, StatusChangedEventArgs e)
+        {                     
+            this.Invoke(new UpdateStatusCallback(this.UpdateStatus), new object[] { IDUserTemp });
         }
         private void Room_Load_1(object sender, EventArgs e)
         {
@@ -99,8 +91,8 @@ namespace projectNT106
             ImageList imgs = new ImageList();
             imgs.ImageSize = new Size(25, 25);
 
-            String[] paths = { };
             paths = Directory.GetFiles("D:/UIT/HK4/NT106/Project/NT106_Group8/icon");
+
 
             try
             {
@@ -116,18 +108,7 @@ namespace projectNT106
 
             listView1.SmallImageList = imgs;
 
-            for (int i = 0; i < 5; i++)
-            {
-                if (contests[i] == null)
-                {
-                    contests[i] = new Contest(RoomID, CreatorID);
-                    break;
-                }
-                if (i == 4)
-                {
-                    MessageBox.Show("Hết phòng!");
-                }
-            }
+            
 
             // Tạo phòng
             try
@@ -255,6 +236,7 @@ namespace projectNT106
             EventMsg = strEventMsg;
         }
     }
+    
     public delegate void StatusChangedEventHandler(object sender, StatusChangedEventArgs e);
 
     public class Channel
@@ -278,8 +260,12 @@ namespace projectNT106
             Channel.htUsers.Add(strUsername, tcpUser);
             Channel.htConnections.Add(tcpUser, strUsername);
             index++;
-            SendAdminMessage("ADD" + index.ToString() + htConnections[tcpUser]);
+            
+            Room.infoUsers[htConnections.Count] = new InfoUser(Room.RoomID, strUsername);
+             
+            SendAdminMessage(htConnections[tcpUser] + "");
         }
+        
         public static void RemoveUser(TcpClient tcpUser)
         {
             if (htConnections[tcpUser] != null)
@@ -377,10 +363,12 @@ namespace projectNT106
         private Thread thrSender;
         private StreamReader srReceiver;
         private StreamWriter swSender;
-        private string currUser;
+        private string instruction;
         private string strResponse;
+        private int indexQues;
+        private double timeAnswer;
         public bool _isExists = false;
-
+        private static StatusChangedEventArgs e;
         public Connection(TcpClient tcpCon)
         {
             tcpClient = tcpCon;
@@ -395,41 +383,59 @@ namespace projectNT106
             swSender.Close();
         }
 
+        public void sliptID(string message)
+        {
+            string[] text = message.Split('|');
+            instruction = text[0];
+            Room.IDRoomUser = text[1];
+            Room.IDUserTemp = text[2];
+            /* ADD|ABCDE|1234 */
+            try
+            {
+                indexQues = Int32.Parse(text[3]);
+                timeAnswer = Double.Parse(text[4]);
+            }
+            catch (Exception ex){}
+        }
         private void AcceptClient()
         {
             srReceiver = new System.IO.StreamReader(tcpClient.GetStream());
-            swSender = new System.IO.StreamWriter(tcpClient.GetStream());
-            currUser = srReceiver.ReadLine();
-            if (currUser != "")
+            swSender = new System.IO.StreamWriter(tcpClient.GetStream());      
+            strResponse = srReceiver.ReadLine();
+            sliptID(strResponse);
+            if (instruction == "add")
             {
-                if (Channel.htUsers.Contains(currUser) == true)
+                if (Room.IDRoomUser != Room.RoomID)
                 {
-                    swSender.WriteLine("0|This username already exists.");
+                    swSender.WriteLine("0|ID Room is not valid.");
                     swSender.Flush();
                     CloseConnection();
-                    _isExists = true;
                     return;
                 }
-                else if (currUser == "Administrator")
+                else if (Room.IDRoomUser != "")
                 {
-                    swSender.WriteLine("0|This username is reserved.");
-                    swSender.Flush();
-                    CloseConnection();
-                    return;
+                    if (Channel.htUsers.Contains(Room.IDUserTemp) == true)
+                    {
+                        swSender.WriteLine("0|This username already exists.");
+                        swSender.Flush();
+                        CloseConnection();
+                        _isExists = true;
+                        return;
+                    }
+                    else
+                    {
+                        swSender.WriteLine("1");
+                        swSender.Flush();
+                        Channel.AddUser(tcpClient, Room.IDUserTemp);
+                    }
                 }
                 else
                 {
-                    swSender.WriteLine("1");
-                    swSender.Flush();
-                    Channel.AddUser(tcpClient, currUser);
-                        
+                    CloseConnection();
+                    return;
                 }
             }
-            else
-            {
-                CloseConnection();
-                return;
-            }
+            
 
             try
             {
@@ -439,8 +445,20 @@ namespace projectNT106
                     {
                         Channel.RemoveUser(tcpClient);
                     }
-                    else if (true )
+                    else 
                     {
+                        sliptID(strResponse);
+                        if (instruction == "ans")
+                        {
+                            for (int i = 0; i < Channel.htConnections.Count; i++)
+                            {
+                                InfoUser tempUser = Room.infoUsers[i];
+                                if (Room.IDRoomUser == tempUser.getIDRoom() && Room.IDUserTemp == tempUser.getIDUser())
+                                {
+                                    tempUser.receiveUserAnswer(indexQues, timeAnswer);
+                                }
+                            }
+                        }
                         //Channel.SendMessage(currUser, strResponse);
                     }
                 }
@@ -452,4 +470,45 @@ namespace projectNT106
         }
     }
         
+    public class InfoUser
+    {
+        private static string IDUser;
+        private static string IDRoom;
+        private static string avatar;
+        private static int mark;
+        private static int rank;
+        private static double[] result = new double[21];
+        public InfoUser(string idRoom, string idUser)
+        {
+            IDRoom = idRoom;
+            IDUser = idUser;
+            avatar = "";
+            mark = 0;
+            rank = 0;
+        }
+        public string getIDRoom()
+        {
+            return IDRoom;
+        }
+        public string getIDUser()
+        {
+            return IDUser;
+        }
+        public void receiveUserAnswer(int indexQuestion, double time)
+        {
+            result[indexQuestion] = time;
+        }
+        public void calculateMark()
+        {
+            foreach (var item in result)
+            {
+                mark = (int)item / 60 * 1000;
+            }
+        }
+        public void setAvatar(string path)
+        {
+            avatar = path;
+            MessageBox.Show(avatar);
+        }
+    }
 }
