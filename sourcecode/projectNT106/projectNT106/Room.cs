@@ -46,7 +46,11 @@ namespace projectNT106
             Random R = new Random();
             int icon = R.Next(1, 12);
             listView1.Items.Add("    " + mes, icon);
-            Room.infoUsers[Channel.htConnections.Count].setAvatar(paths[icon]); 
+            Room.infoUsers[Channel.htConnections.Count - 1].setAvatar(paths[icon]);
+        }
+        private void click_checkbox()
+        {
+
         }
         public void mainServer_StatusChanged(object sender, StatusChangedEventArgs e)
         {                     
@@ -71,8 +75,9 @@ namespace projectNT106
                 cb.TextAlign = ContentAlignment.MiddleCenter;
                 cb.Appearance = Appearance.Button;
                 flowLayoutPanel1.Controls.Add(cb);
-
+                
             }
+            
 
             // Đưa dữ liệu lên
             
@@ -114,7 +119,7 @@ namespace projectNT106
             try
             {
                 ListViewItem item = new ListViewItem();
-                IPAddress ipAddr = IPAddress.Parse("192.168.1.9");
+                IPAddress ipAddr = IPAddress.Parse("192.168.210.103");
                 mainServer = new Channel(ipAddr);
                 Channel.StatusChanged += new StatusChangedEventHandler(mainServer_StatusChanged);
                 mainServer.StartListening();
@@ -185,7 +190,7 @@ namespace projectNT106
             {
                 question += dt.Rows[index][column].ToString() + '|';
             }
-            string dataQuestion = RoomID + '|' + CreatorID + '|'
+            string dataQuestion = "que" + '|' + RoomID + '|' + CreatorID + '|'
                                 + index.ToString() + '|' + question;
             StreamWriter swSender;
             TcpClient[] tcpClients = new TcpClient[Channel.htUsers.Count];
@@ -260,9 +265,21 @@ namespace projectNT106
             Channel.htUsers.Add(strUsername, tcpUser);
             Channel.htConnections.Add(tcpUser, strUsername);
             index++;
-            
-            Room.infoUsers[htConnections.Count] = new InfoUser(Room.RoomID, strUsername);
-             
+
+            Room.infoUsers[htConnections.Count - 1] = new InfoUser(Room.RoomID, strUsername);
+            int i = 0;
+            while (true)
+            {
+                if (Room.infoUsers[i] != null)
+                {
+                    MessageBox.Show(i.ToString());
+                    i++;
+                }
+                else
+                {
+                    break;
+                }
+            }
             SendAdminMessage(htConnections[tcpUser] + "");
         }
         
@@ -450,12 +467,12 @@ namespace projectNT106
                         sliptID(strResponse);
                         if (instruction == "ans")
                         {
+                            MessageBox.Show(strResponse);
                             for (int i = 0; i < Channel.htConnections.Count; i++)
                             {
-                                InfoUser tempUser = Room.infoUsers[i];
-                                if (Room.IDRoomUser == tempUser.getIDRoom() && Room.IDUserTemp == tempUser.getIDUser())
+                                if (Room.IDRoomUser == Room.infoUsers[i].getIDRoom() && Room.IDUserTemp == Room.infoUsers[i].getIDUser())
                                 {
-                                    tempUser.receiveUserAnswer(indexQues, timeAnswer);
+                                    Room.infoUsers[i].receiveUserAnswer(indexQues, timeAnswer);
                                 }
                             }
                         }
@@ -508,7 +525,6 @@ namespace projectNT106
         public void setAvatar(string path)
         {
             avatar = path;
-            MessageBox.Show(avatar);
         }
     }
 }

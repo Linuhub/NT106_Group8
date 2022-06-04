@@ -63,7 +63,6 @@ namespace ProjectClient
         {
             try
             {
-
                 srReceiver = new StreamReader(HomeClient.tcpServer.GetStream());
                 txtQues = srReceiver.ReadLine();
                 while (HomeClient.Connected)
@@ -71,33 +70,30 @@ namespace ProjectClient
                     string Respon = srReceiver.ReadLine();
                     if (Respon[0] != '1')
                     {
+                        QuesContent = Respon.Split(new char[] { '|' });
+                        if (QuesContent[0] != "que") continue;
+                        ResetButton();
                         Invoke(new Action(() =>
                         {
                             ResetTimer(timer1);
                         }));
-                        QuesContent = Respon.Split(new char[] { '|' });
-                        btnA.Enabled = true;
-                        btnB.Enabled = true;
-                        btnC.Enabled = true;
-                        btnD.Enabled = true;
-                        ResetColor();
                         txtUserID.Text = HomeClient.UserName;
                         txtRoomID.Text = HomeClient.RoomID;
-                        txtQuestion.Text = QuesContent[4];
-                        btnA.Text = QuesContent[5];
-                        btnB.Text = QuesContent[6];
-                        if (QuesContent[7] == "")
+                        txtQuestion.Text = QuesContent[5];
+                        btnA.Text = QuesContent[6];
+                        btnB.Text = QuesContent[7];
+                        if (QuesContent[8] == "")
                         {
                             btnC.Text = "C.";
                             btnC.Enabled = false;
                         }
-                        else btnC.Text = QuesContent[7];
-                        if (QuesContent[8] == "")
+                        else btnC.Text = QuesContent[8];
+                        if (QuesContent[9] == "")
                         {
                             btnD.Text = "D.";
                             btnD.Enabled = false;
                         }
-                        else btnD.Text = QuesContent[8];
+                        else btnD.Text = QuesContent[9];
                     }
                 }
             }
@@ -124,30 +120,55 @@ namespace ProjectClient
             timer.Stop();
             timer.Start();
         }
-        private void SendAnswer(string ans)
+        private bool SendAnswer(string ans)
         {
-            if (ans == QuesContent[9] && (TimeElapsed / 100) <= 10)
+            if (ans == QuesContent[9] && (progressBar1.Value < progressBar1.Maximum))
             {
                 swSender = new StreamWriter(HomeClient.tcpServer.GetStream());
-                swSender.WriteLine("ans" + '|' + txtUserID.Text + '|' + txtRoomID.Text + '|' + QuesContent[3] + '|' + (TimeElapsed / 100).ToString());
+                swSender.WriteLine("ans" + '|' + txtUserID.Text + '|' + txtRoomID.Text + '|' + QuesContent[4] + '|' + (TimeElapsed / 100).ToString());
                 swSender.Flush();
                 swSender = null;
+                return true;
             }
             else
             {
                 swSender = new StreamWriter(HomeClient.tcpServer.GetStream());
-                swSender.WriteLine("ans" + '|' + txtUserID.Text + '|' + txtRoomID.Text + '|' + QuesContent[3] + '|' + "0");
+                swSender.WriteLine("ans" + '|' + txtUserID.Text + '|' + txtRoomID.Text + '|' + QuesContent[4] + '|' + "0");
                 swSender.Flush();
                 swSender = null;
+                return false;
             }
             //MessageBox.Show((TimeElapsed/100).ToString());
         }
-        private void ResetColor()
+        private void ResetButton()
         {
+            btnA.Enabled = true;
+            btnB.Enabled = true;
+            btnC.Enabled = true;
+            btnD.Enabled = true;
             btnA.BackColor = SystemColors.ActiveCaption;
             btnB.BackColor = SystemColors.ActiveCaption;
             btnC.BackColor = SystemColors.ActiveCaption;
             btnD.BackColor = SystemColors.ActiveCaption;
+        }
+        private void ShowAnswer()
+        {
+            if (QuesContent[19] == "Đáp án: A")
+            {
+                btnA.BackColor = Color.Green;
+            }
+            else if (QuesContent[10] == "Đáp án: B")
+            {
+                btnB.BackColor = Color.Green;
+            }
+            else if (QuesContent[10] == "Đáp án: C")
+            {
+                btnC.BackColor = Color.Green;
+            }
+            else if (QuesContent[10] == "Đáp án: B")
+            {
+                btnD.BackColor = Color.Green;
+            }
         }
 
         private void btnA_Click(object sender, EventArgs e)
@@ -158,7 +179,12 @@ namespace ProjectClient
             btnC.Enabled = false;
             btnD.Enabled = false;
             string ans = "Đáp án: A";
-            SendAnswer(ans);
+            if (SendAnswer(ans))
+            {
+                btnA.BackColor = Color.Green;
+            }
+            else btnA.BackColor = Color.Red;
+            ShowAnswer();
         }
 
         private void btnB_Click(object sender, EventArgs e)
@@ -169,7 +195,12 @@ namespace ProjectClient
             btnC.Enabled = false;
             btnD.Enabled = false;
             string ans = "Đáp án: B";
-            SendAnswer(ans);
+            if (SendAnswer(ans))
+            {
+                btnA.BackColor = Color.Green;
+            }
+            else btnA.BackColor = Color.Red;
+            ShowAnswer();
         }
         private void btnC_Click(object sender, EventArgs e)
         {
@@ -179,7 +210,12 @@ namespace ProjectClient
             btnC.Enabled = false;
             btnD.Enabled = false;
             string ans = "Đáp án: C";
-            SendAnswer(ans);
+            if (SendAnswer(ans))
+            {
+                btnA.BackColor = Color.Green;
+            }
+            else btnA.BackColor = Color.Red;
+            ShowAnswer();
         }
         private void btnD_Click(object sender, EventArgs e)
         {
@@ -189,7 +225,12 @@ namespace ProjectClient
             btnC.Enabled = false;
             btnD.Enabled = false;
             string ans = "Đáp án: D";
-            SendAnswer(ans);
+            if (SendAnswer(ans))
+            {
+                btnA.BackColor = Color.Green;
+            }
+            else btnA.BackColor = Color.Red;
+            ShowAnswer();
         }
     }
 }

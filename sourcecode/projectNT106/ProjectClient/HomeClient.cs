@@ -75,7 +75,7 @@ namespace ProjectClient
             try
             {
                 //ipAddr = IPAddress.Parse("172.30.159.71");
-                ipAddr = IPAddress.Parse("192.168.1.9");
+                ipAddr = IPAddress.Parse("192.168.210.103");
                 tcpServer = new TcpClient();
                 tcpServer.Connect(ipAddr, 80);
                 UserName = txtUserID.Text;
@@ -109,7 +109,6 @@ namespace ProjectClient
             {
                 srReceiver = new StreamReader(tcpServer.GetStream());
                 ConResponse = srReceiver.ReadLine();
-                MessageBox.Show(ConResponse);
                 if (ConResponse[0] == '1')
                 {                  
                     this.Invoke(new UpdateLogCallback(this.UpdateLog), new object[] { "Connected Successfully!" });
