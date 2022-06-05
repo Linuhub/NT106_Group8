@@ -144,7 +144,8 @@ namespace projectNT106
         int index = 0;
         private void button1_Click(object sender, EventArgs e)
         {
-                      
+            button1.Enabled = false;
+            button2.Enabled = false;
             time = new System.Timers.Timer();
             time.Interval = 1000; //1s
             time.Elapsed += OnTimeEvent;
@@ -186,16 +187,44 @@ namespace projectNT106
     
         public void showResult()
         {
+            int[] ranking = new int[5];
+
             for (int i = 0; i < 5; i++)
             {
                 try
                 {
                     Room.infoUsers[i].calculateMark();
-                    MessageBox.Show(Room.infoUsers[i].getMark());   
+                    ranking[i] = int.Parse(Room.infoUsers[i].getMark());
                 }
                 catch (Exception ex) { }
             }
+
+            for (int i = 0; i < 5; i++)
+            {
+                for (int j = i; j < 5; j++)
+                {
+                    if (ranking[j] > ranking[i])
+                    {
+                        (ranking[i], ranking[j]) = (ranking[j], ranking[i]);
+                    }
+                }
+            }
             
+            for (int i = 0; i < 2; i++)
+            {
+                for (int j = 0; j < 2; j++)
+                {
+                    if (ranking[i] == int.Parse(Room.infoUsers[j].getMark()))
+                    {
+                        Room.infoUsers[j].setRank(i + 1);
+                        break;
+                    }
+                }
+            }
+            for (int i = 0; i < 5; i++)
+            {
+                MessageBox.Show(Room.infoUsers[i].getRank().ToString());
+            }
         }
         public void SendQuestion()
         {

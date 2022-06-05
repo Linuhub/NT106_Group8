@@ -58,6 +58,13 @@ namespace projectNT106
         {
             avatar = path;
         }
-
+        public void setRank(int topX)
+        {
+            rank = topX;
+        }
+        public int getRank()
+        {
+            return rank;
+        }
     }
 }
