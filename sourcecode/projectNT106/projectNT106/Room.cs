@@ -31,7 +31,7 @@ namespace projectNT106
         public DataTable dt;
         public OleDbCommandBuilder cbr;
         public System.Timers.Timer time;
-        public static InfoUser[] infoUsers = new InfoUser[10];
+        public static InforUser[] infoUsers = new InforUser[10];
         private delegate void UpdateStatusCallback(string strMessage);
 
         public Room(string Room, string Creator, string quesPack)
@@ -119,7 +119,7 @@ namespace projectNT106
             try
             {
                 ListViewItem item = new ListViewItem();
-                IPAddress ipAddr = IPAddress.Parse("192.168.210.103");
+                IPAddress ipAddr = IPAddress.Parse("127.0.0.1");
                 mainServer = new Channel(ipAddr);
                 Channel.StatusChanged += new StatusChangedEventHandler(mainServer_StatusChanged);
                 mainServer.StartListening();
@@ -174,15 +174,29 @@ namespace projectNT106
                 {
                     showAnswerTime = 0;
                     second = 0;
-                    if (index == 19)
+                    if (index == 5)
                     {
                         time.Stop();
                         MessageBox.Show("Finish!");
+                        showResult();
                     }
                 }
             }));
         }
     
+        public void showResult()
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                try
+                {
+                    Room.infoUsers[i].calculateMark();
+                    MessageBox.Show(Room.infoUsers[i].getMark());   
+                }
+                catch (Exception ex) { }
+            }
+            
+        }
         public void SendQuestion()
         {
             string question = "";
@@ -266,13 +280,12 @@ namespace projectNT106
             Channel.htConnections.Add(tcpUser, strUsername);
             index++;
 
-            Room.infoUsers[htConnections.Count - 1] = new InfoUser(Room.RoomID, strUsername);
+            Room.infoUsers[htConnections.Count - 1] = new InforUser(Room.RoomID, strUsername);
             int i = 0;
             while (true)
             {
                 if (Room.infoUsers[i] != null)
                 {
-                    MessageBox.Show(i.ToString());
                     i++;
                 }
                 else
@@ -467,7 +480,6 @@ namespace projectNT106
                         sliptID(strResponse);
                         if (instruction == "ans")
                         {
-                            MessageBox.Show(strResponse);
                             for (int i = 0; i < Channel.htConnections.Count; i++)
                             {
                                 if (Room.IDRoomUser == Room.infoUsers[i].getIDRoom() && Room.IDUserTemp == Room.infoUsers[i].getIDUser())
@@ -487,44 +499,5 @@ namespace projectNT106
         }
     }
         
-    public class InfoUser
-    {
-        private static string IDUser;
-        private static string IDRoom;
-        private static string avatar;
-        private static int mark;
-        private static int rank;
-        private static double[] result = new double[21];
-        public InfoUser(string idRoom, string idUser)
-        {
-            IDRoom = idRoom;
-            IDUser = idUser;
-            avatar = "";
-            mark = 0;
-            rank = 0;
-        }
-        public string getIDRoom()
-        {
-            return IDRoom;
-        }
-        public string getIDUser()
-        {
-            return IDUser;
-        }
-        public void receiveUserAnswer(int indexQuestion, double time)
-        {
-            result[indexQuestion] = time;
-        }
-        public void calculateMark()
-        {
-            foreach (var item in result)
-            {
-                mark = (int)item / 60 * 1000;
-            }
-        }
-        public void setAvatar(string path)
-        {
-            avatar = path;
-        }
-    }
+    
 }

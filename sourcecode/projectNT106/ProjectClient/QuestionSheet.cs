@@ -122,10 +122,10 @@ namespace ProjectClient
         }
         private bool SendAnswer(string ans)
         {
-            if (ans == QuesContent[9] && (progressBar1.Value < progressBar1.Maximum))
+            if (ans == QuesContent[10] && (progressBar1.Value < progressBar1.Maximum))
             {
                 swSender = new StreamWriter(HomeClient.tcpServer.GetStream());
-                swSender.WriteLine("ans" + '|' + txtUserID.Text + '|' + txtRoomID.Text + '|' + QuesContent[4] + '|' + (TimeElapsed / 100).ToString());
+                swSender.WriteLine("ans" + '|' + txtRoomID.Text + '|' + txtUserID.Text + '|' + QuesContent[4] + '|' + (TimeElapsed / 100).ToString());
                 swSender.Flush();
                 swSender = null;
                 return true;
@@ -133,7 +133,7 @@ namespace ProjectClient
             else
             {
                 swSender = new StreamWriter(HomeClient.tcpServer.GetStream());
-                swSender.WriteLine("ans" + '|' + txtUserID.Text + '|' + txtRoomID.Text + '|' + QuesContent[4] + '|' + "0");
+                swSender.WriteLine("ans" + '|' + txtRoomID.Text + '|' + txtUserID.Text + '|' + QuesContent[4] + '|' + "0");
                 swSender.Flush();
                 swSender = null;
                 return false;
@@ -153,7 +153,7 @@ namespace ProjectClient
         }
         private void ShowAnswer()
         {
-            if (QuesContent[19] == "Đáp án: A")
+            if (QuesContent[10] == "Đáp án: A")
             {
                 btnA.BackColor = Color.Green;
             }
@@ -173,7 +173,7 @@ namespace ProjectClient
 
         private void btnA_Click(object sender, EventArgs e)
         {
-            btnA.BackColor = Color.SteelBlue;
+            btnA.BackColor = Color.Green;
             btnA.Enabled = false;
             btnB.Enabled = false;
             btnC.Enabled = false;
@@ -189,7 +189,7 @@ namespace ProjectClient
 
         private void btnB_Click(object sender, EventArgs e)
         {
-            btnB.BackColor = Color.SteelBlue;
+            btnB.BackColor = Color.Green;
             btnA.Enabled = false;
             btnB.Enabled = false;
             btnC.Enabled = false;
@@ -197,14 +197,14 @@ namespace ProjectClient
             string ans = "Đáp án: B";
             if (SendAnswer(ans))
             {
-                btnA.BackColor = Color.Green;
+                btnB.BackColor = Color.Green;
             }
-            else btnA.BackColor = Color.Red;
+            else btnB.BackColor = Color.Red;
             ShowAnswer();
         }
         private void btnC_Click(object sender, EventArgs e)
         {
-            btnC.BackColor = Color.SteelBlue;
+            btnC.BackColor = Color.Green;
             btnA.Enabled = false;
             btnB.Enabled = false;
             btnC.Enabled = false;
@@ -212,14 +212,14 @@ namespace ProjectClient
             string ans = "Đáp án: C";
             if (SendAnswer(ans))
             {
-                btnA.BackColor = Color.Green;
+                btnC.BackColor = Color.Green;
             }
-            else btnA.BackColor = Color.Red;
+            else btnC.BackColor = Color.Red;
             ShowAnswer();
         }
         private void btnD_Click(object sender, EventArgs e)
         {
-            btnD.BackColor = Color.SteelBlue;
+            btnD.BackColor = Color.Green;
             btnA.Enabled = false;
             btnB.Enabled = false;
             btnC.Enabled = false;
@@ -227,9 +227,9 @@ namespace ProjectClient
             string ans = "Đáp án: D";
             if (SendAnswer(ans))
             {
-                btnA.BackColor = Color.Green;
+                btnD.BackColor = Color.Green;
             }
-            else btnA.BackColor = Color.Red;
+            else btnD.BackColor = Color.Red;
             ShowAnswer();
         }
     }
