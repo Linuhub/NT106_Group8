@@ -46,16 +46,21 @@ namespace projectNT106
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
-            
-            Form room = new Room(IDRoom, txtUserID.Text, cbQuestionPackage.Text);
-            room.Show();
+            if (cbQuestionPackage.SelectedItem == null)
+            {
+                MessageBox.Show("Chọn gói câu hỏi!");
+            }
+            else
+            {
+                Form room = new Room(IDRoom, txtUserID.Text, cbQuestionPackage.Text);
+                room.Show();
+            }
         
         }
 
         private void CreateRoom_Load(object sender, EventArgs e)
         {
             txtRoomID.Text = IDRoom;
-
         }
     }
 }

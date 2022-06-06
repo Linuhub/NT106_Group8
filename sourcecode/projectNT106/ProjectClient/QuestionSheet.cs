@@ -145,7 +145,7 @@ namespace ProjectClient
             QuestionList[i].Choice = ans;
             QuestionList[i].RightAns = QuesContent[10];
         }
-        private void button1_Click_1(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
             Form Result = new ResultClient();
             Result.Show();
@@ -285,5 +285,7 @@ namespace ProjectClient
             else btnD.BackColor = Color.Red;
             ShowAnswer();
         }
+
+        
     }
 }

@@ -209,7 +209,7 @@
             this.txtNumOfParticipant.Name = "txtNumOfParticipant";
             this.txtNumOfParticipant.Size = new System.Drawing.Size(230, 26);
             this.txtNumOfParticipant.TabIndex = 3;
-            this.txtNumOfParticipant.Text = "16";
+            this.txtNumOfParticipant.Text = "10";
             // 
             // textBox2
             // 

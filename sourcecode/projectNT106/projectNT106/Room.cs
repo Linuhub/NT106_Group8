@@ -14,6 +14,7 @@ using System.Threading;
 using System.Collections;
 using System.Data.OleDb;
 using System.Windows.Threading;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace projectNT106
 {
@@ -24,6 +25,7 @@ namespace projectNT106
         public static string IDUserTemp = "";
         private string CreatorID;
         private string QuestionPack;
+        public static bool isFull = false;
         String[] paths = { };
         public Channel mainServer;
         public OleDbConnection cnn;
@@ -33,6 +35,7 @@ namespace projectNT106
         public System.Timers.Timer time;
         public static InforUser[] infoUsers = new InforUser[10];
         private delegate void UpdateStatusCallback(string strMessage);
+        
 
         public Room(string Room, string Creator, string quesPack)
         {
@@ -47,14 +50,14 @@ namespace projectNT106
             int icon = R.Next(1, 12);
             listView1.Items.Add("    " + mes, icon);
             Room.infoUsers[Channel.htConnections.Count - 1].setAvatar(paths[icon]);
-        }
-        private void click_checkbox()
-        {
+            this.txtNumMember.Text = Channel.htUsers.Count.ToString();
 
         }
+       
         public void mainServer_StatusChanged(object sender, StatusChangedEventArgs e)
         {                     
             this.Invoke(new UpdateStatusCallback(this.UpdateStatus), new object[] { IDUserTemp });
+        
         }
         private void Room_Load_1(object sender, EventArgs e)
         {
@@ -85,7 +88,18 @@ namespace projectNT106
             cnn = new OleDbConnection();
             cnn.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=DeThiLaiXe_3Part.mdb";
             cnn.Open();
-            dar = new OleDbDataAdapter("Select * from tbl_All", cnn);
+            if (QuestionPack == "Câu hỏi kiến thức luật")
+            {
+                dar = new OleDbDataAdapter("select * from tbl_cauhoikienthucluat", cnn);
+            }
+            else if (QuestionPack == "Câu hỏi biển báo")
+            {
+                dar = new OleDbDataAdapter("select * from tbl_cauhoibienbao", cnn);
+            }
+            else if (QuestionPack == "Câu hỏi sa hình")
+            {
+                dar = new OleDbDataAdapter("select * from tbl_cauhoisahinh", cnn);
+            }
             dt = new DataTable();
             dar.Fill(dt);
 
@@ -123,6 +137,7 @@ namespace projectNT106
                 mainServer = new Channel(ipAddr);
                 Channel.StatusChanged += new StatusChangedEventHandler(mainServer_StatusChanged);
                 mainServer.StartListening();
+                
             }
             catch (Exception ex)
             {
@@ -132,6 +147,9 @@ namespace projectNT106
 
         }
 
+        void UpdateNumMember()
+        {
+        }
 
         private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
@@ -250,6 +268,20 @@ namespace projectNT106
                     swSender.WriteLine(dataQuestion);
                     swSender.Flush();
                     swSender = null;
+
+                    Image image = null;
+                    if (QuestionPack == "Câu hỏi biển báo")
+                    {
+                       image  = Image.FromFile("D:/UIT/HK4/NT106/Project/NT106_Group8/sourcecode/projectNT106/projectNT106/bin/Debug/Image_ThiLaiXe/bienbao/101.png");
+
+                    }
+                    else if (QuestionPack == "Câu hỏi sa hình")
+                    {
+                       image = Image.FromFile("D:/UIT/HK4/NT106/Project/NT106_Group8/sourcecode/projectNT106/projectNT106/bin/Debug/Image_ThiLaiXe/sahinh/166.png");
+
+                    }
+                    byte[] img = ImageToByteArray(image);
+                    
                 }
                 catch
                 {
@@ -258,10 +290,34 @@ namespace projectNT106
             }
             index++;
         }
-
+        public byte[] ImageToByteArray(System.Drawing.Image imageIn)
+        {
+            using (var ms = new MemoryStream())
+            {
+                imageIn.Save(ms, imageIn.RawFormat);
+                return ms.ToArray();
+            }
+        }
         private void button2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnLock_Click(object sender, EventArgs e)
+        {
+            isFull = true;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonX_Click(object sender, EventArgs e)
+        {
+            string aqr = sender.ToString().Split(',')[1];
+            string tre = aqr.Substring(7);
+            MessageBox.Show(tre);
         }
     }
 
@@ -323,6 +379,7 @@ namespace projectNT106
                 }
             }
             SendAdminMessage(htConnections[tcpUser] + "");
+            
         }
         
         public static void RemoveUser(TcpClient tcpUser)
@@ -481,12 +538,20 @@ namespace projectNT106
                         _isExists = true;
                         return;
                     }
-                    else
+                    else if (!Room.isFull)
                     {
                         swSender.WriteLine("1");
                         swSender.Flush();
                         Channel.AddUser(tcpClient, Room.IDUserTemp);
                     }
+                    else
+                    {
+                        swSender.WriteLine("0|This room is full.");
+                        swSender.Flush();
+                        CloseConnection();
+                        return;
+                    }
+                    
                 }
                 else
                 {
