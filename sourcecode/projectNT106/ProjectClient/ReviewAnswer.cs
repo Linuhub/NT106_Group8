@@ -18,19 +18,13 @@ namespace ProjectClient
         }
 
 
-        private int n = 1;
+        private int n = 0;
         private void ReviewAnswer_Load(object sender, EventArgs e)
         {
-            for (int i = 0; i < 20; i++)
-            {
-                CheckBox cb = new CheckBox();
-                cb.Text = (i + 1).ToString();
-                cb.Size = new Size(30, 30);
-                cb.TextAlign = ContentAlignment.MiddleCenter;
-                cb.Appearance = Appearance.Button;
-                Random rnd = new Random();
-                flowLayoutPanel1.Controls.Add(cb);
-            }
+            Fill();
+        }
+        private void Fill()
+        {
             ResetColor();
             txtQues.Text = QuestionSheet.QuestionList[n].QuestionText;
             txtA.Text = QuestionSheet.QuestionList[n].AnsA;
@@ -84,6 +78,41 @@ namespace ProjectClient
             {
                 txtD.BackColor = Color.Green;
             }
+        }
+
+        private void btnNum_Click(object sender, EventArgs e)
+        {
+            string txt = sender.ToString().Split(',')[1];
+            string num = txt.Substring(7);
+            n = Convert.ToInt32(num)-1;
+            Fill();
+        }
+
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            n++;
+            if (n > 19)
+            {
+                n = 0;
+                Fill();
+            }
+            else Fill();
+        }
+
+        private void btnPrev_Click(object sender, EventArgs e)
+        {
+            n--;
+            if (n < 0)
+            {
+                n = 19;
+                Fill();
+            }
+            else Fill();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

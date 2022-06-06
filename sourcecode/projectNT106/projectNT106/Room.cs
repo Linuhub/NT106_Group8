@@ -110,7 +110,7 @@ namespace projectNT106
             ImageList imgs = new ImageList();
             imgs.ImageSize = new Size(25, 25);
 
-            paths = Directory.GetFiles("D:/UIT/HK4/NT106/Project/NT106_Group8/icon");
+            paths = Directory.GetFiles("D:/LapTrinhMangCB/DoAn/NT106_Group8/icon");
 
 
             try

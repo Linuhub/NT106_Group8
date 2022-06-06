@@ -13,3 +13,17 @@ D:\UIT\HK4\NT106\Project\NT106_Group8\sourcecode\projectNT106\ProjectClient\obj\
 D:\UIT\HK4\NT106\Project\NT106_Group8\sourcecode\projectNT106\ProjectClient\obj\Debug\ProjectClient.QuestionSheet.resources
 D:\UIT\HK4\NT106\Project\NT106_Group8\sourcecode\projectNT106\ProjectClient\obj\Debug\ProjectClient.ResultClient.resources
 D:\UIT\HK4\NT106\Project\NT106_Group8\sourcecode\projectNT106\ProjectClient\obj\Debug\ProjectClient.ReviewAnswer.resources
+D:\LapTrinhMangCB\DoAn\NT106_Group8\sourcecode\projectNT106\ProjectClient\bin\Debug\ProjectClient.exe.config
+D:\LapTrinhMangCB\DoAn\NT106_Group8\sourcecode\projectNT106\ProjectClient\bin\Debug\ProjectClient.exe
+D:\LapTrinhMangCB\DoAn\NT106_Group8\sourcecode\projectNT106\ProjectClient\bin\Debug\ProjectClient.pdb
+D:\LapTrinhMangCB\DoAn\NT106_Group8\sourcecode\projectNT106\ProjectClient\obj\Debug\ProjectClient.csproj.AssemblyReference.cache
+D:\LapTrinhMangCB\DoAn\NT106_Group8\sourcecode\projectNT106\ProjectClient\obj\Debug\ProjectClient.CreateRoom.resources
+D:\LapTrinhMangCB\DoAn\NT106_Group8\sourcecode\projectNT106\ProjectClient\obj\Debug\ProjectClient.HomeClient.resources
+D:\LapTrinhMangCB\DoAn\NT106_Group8\sourcecode\projectNT106\ProjectClient\obj\Debug\ProjectClient.Properties.Resources.resources
+D:\LapTrinhMangCB\DoAn\NT106_Group8\sourcecode\projectNT106\ProjectClient\obj\Debug\ProjectClient.QuestionSheet.resources
+D:\LapTrinhMangCB\DoAn\NT106_Group8\sourcecode\projectNT106\ProjectClient\obj\Debug\ProjectClient.ResultClient.resources
+D:\LapTrinhMangCB\DoAn\NT106_Group8\sourcecode\projectNT106\ProjectClient\obj\Debug\ProjectClient.ReviewAnswer.resources
+D:\LapTrinhMangCB\DoAn\NT106_Group8\sourcecode\projectNT106\ProjectClient\obj\Debug\ProjectClient.csproj.GenerateResource.cache
+D:\LapTrinhMangCB\DoAn\NT106_Group8\sourcecode\projectNT106\ProjectClient\obj\Debug\ProjectClient.csproj.CoreCompileInputs.cache
+D:\LapTrinhMangCB\DoAn\NT106_Group8\sourcecode\projectNT106\ProjectClient\obj\Debug\ProjectClient.exe
+D:\LapTrinhMangCB\DoAn\NT106_Group8\sourcecode\projectNT106\ProjectClient\obj\Debug\ProjectClient.pdb
