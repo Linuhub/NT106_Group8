@@ -19,20 +19,48 @@ namespace ProjectClient
         private StreamReader srReceiver;
         private StreamWriter swSender;
         private Thread thrMessaging;
-        public string cmt; 
+        public string cmt;
         private double TimeElapsed;
         bool _isBoxOptionOpen = false;
+        private System.Windows.Forms.Timer aTimer;
+        private int counter = 10;
+        public static Question[] QuestionList = new Question[20];
+        private int i = -1;
+        private void RunTimer()
+        {
+            aTimer = new System.Windows.Forms.Timer();
 
+            aTimer.Tick += new EventHandler(aTimer_Tick);
+
+            aTimer.Interval = 1000; // 1 second
+
+            aTimer.Start();
+
+            LabelTimeLeft.Text = counter.ToString();
+        }
+        private void aTimer_Tick(object sender, EventArgs e)
+
+        {
+
+            counter--;
+
+            if (counter == 0)
+
+                aTimer.Stop();
+
+            LabelTimeLeft.Text = counter.ToString();
+
+        }
         private void UpdateQuestionSheet(string strMessage)
         {
             MessageBox.Show("Update sheet: " + strMessage + "\r\n");
         }
-        
+
         public QuestionSheet(string respon)
         {
             InitializeComponent();
             cmt = respon;
-            button1.Hide();
+            //button1.Hide();
         }
         private void pictureBox1_Click(object sender, EventArgs e)
         {
@@ -54,7 +82,10 @@ namespace ProjectClient
             Form.CheckForIllegalCrossThreadCalls = false;
             //this.Invoke(new HomeClient.UpdateLogCallback(this.UpdateQuestionSheet), new object[] { srReceiver.ReadLine() });
             txtQues = cmt;
-            
+            if (cmt == "1")
+            {
+                MessageBox.Show("Received: " + txtQues);
+            }
 
             thrMessaging = new Thread(ReceiveMessage);
             thrMessaging.Start();
@@ -63,6 +94,7 @@ namespace ProjectClient
         {
             try
             {
+
                 srReceiver = new StreamReader(HomeClient.tcpServer.GetStream());
                 txtQues = srReceiver.ReadLine();
                 while (HomeClient.Connected)
@@ -70,13 +102,12 @@ namespace ProjectClient
                     string Respon = srReceiver.ReadLine();
                     if (Respon[0] != '1')
                     {
-                        QuesContent = Respon.Split(new char[] { '|' });
-                        if (QuesContent[0] != "que") continue;
-                        ResetButton();
                         Invoke(new Action(() =>
                         {
                             ResetTimer(timer1);
                         }));
+                        QuesContent = Respon.Split(new char[] { '|' });
+                        ResetButton();
                         txtUserID.Text = HomeClient.UserName;
                         txtRoomID.Text = HomeClient.RoomID;
                         txtQuestion.Text = QuesContent[5];
@@ -103,29 +134,42 @@ namespace ProjectClient
             }
 
         }
+        private void AddQuestionList(int i, string ans)
+        {
+            QuestionList[i] = new Question();
+            QuestionList[i].QuestionText = QuesContent[5];
+            QuestionList[i].AnsA = QuesContent[6];
+            QuestionList[i].AnsB = QuesContent[7];
+            QuestionList[i].AnsC = QuesContent[8];
+            QuestionList[i].AnsD = QuesContent[9];
+            QuestionList[i].Choice = ans;
+            QuestionList[i].RightAns = QuesContent[10];
+        }
         private void button1_Click_1(object sender, EventArgs e)
         {
-            //timer1.Start();
+            Form Result = new ResultClient();
+            Result.Show();
         }
-
         private void timer1_Tick_1(object sender, EventArgs e)
         {
-            TimeElapsed = TimeElapsed + 1.5;
+            TimeElapsed = TimeElapsed + 15;
             progressBar1.PerformStep();
         }
         private void ResetTimer(System.Windows.Forms.Timer timer)
         {
-            TimeElapsed = 0;        
+            TimeElapsed = 0;
             progressBar1.Value = 0;
             timer.Stop();
             timer.Start();
+            counter = 10;
+            RunTimer();
         }
         private bool SendAnswer(string ans)
         {
             if (ans == QuesContent[10] && (progressBar1.Value < progressBar1.Maximum))
             {
                 swSender = new StreamWriter(HomeClient.tcpServer.GetStream());
-                swSender.WriteLine("ans" + '|' + txtRoomID.Text + '|' + txtUserID.Text + '|' + QuesContent[4] + '|' + (TimeElapsed / 100).ToString());
+                swSender.WriteLine("ans" + '|' + txtUserID.Text + '|' + txtRoomID.Text + '|' + QuesContent[4] + '|' + (TimeElapsed / 1000).ToString());
                 swSender.Flush();
                 swSender = null;
                 return true;
@@ -133,7 +177,7 @@ namespace ProjectClient
             else
             {
                 swSender = new StreamWriter(HomeClient.tcpServer.GetStream());
-                swSender.WriteLine("ans" + '|' + txtRoomID.Text + '|' + txtUserID.Text + '|' + QuesContent[4] + '|' + "0");
+                swSender.WriteLine("ans" + '|' + txtUserID.Text + '|' + txtRoomID.Text + '|' + QuesContent[4] + '|' + "0");
                 swSender.Flush();
                 swSender = null;
                 return false;
@@ -170,15 +214,17 @@ namespace ProjectClient
                 btnD.BackColor = Color.Green;
             }
         }
-
         private void btnA_Click(object sender, EventArgs e)
         {
+            //txtUserID, roomID, stt câu hỏi ,thời gian trả lời câu đó (đúng thì số dương, sai thì 0)
             btnA.BackColor = Color.Green;
             btnA.Enabled = false;
             btnB.Enabled = false;
             btnC.Enabled = false;
             btnD.Enabled = false;
             string ans = "Đáp án: A";
+            i = i + 1;
+            AddQuestionList(i, ans);
             if (SendAnswer(ans))
             {
                 btnA.BackColor = Color.Green;
@@ -195,6 +241,8 @@ namespace ProjectClient
             btnC.Enabled = false;
             btnD.Enabled = false;
             string ans = "Đáp án: B";
+            i = i + 1;
+            AddQuestionList(i, ans);
             if (SendAnswer(ans))
             {
                 btnB.BackColor = Color.Green;
@@ -202,14 +250,16 @@ namespace ProjectClient
             else btnB.BackColor = Color.Red;
             ShowAnswer();
         }
+
         private void btnC_Click(object sender, EventArgs e)
         {
-            btnC.BackColor = Color.Green;
             btnA.Enabled = false;
             btnB.Enabled = false;
             btnC.Enabled = false;
             btnD.Enabled = false;
             string ans = "Đáp án: C";
+            i = i + 1;
+            AddQuestionList(i, ans);
             if (SendAnswer(ans))
             {
                 btnC.BackColor = Color.Green;
@@ -217,6 +267,7 @@ namespace ProjectClient
             else btnC.BackColor = Color.Red;
             ShowAnswer();
         }
+
         private void btnD_Click(object sender, EventArgs e)
         {
             btnD.BackColor = Color.Green;
@@ -225,6 +276,8 @@ namespace ProjectClient
             btnC.Enabled = false;
             btnD.Enabled = false;
             string ans = "Đáp án: D";
+            i = i + 1;
+            AddQuestionList(i, ans);
             if (SendAnswer(ans))
             {
                 btnD.BackColor = Color.Green;
