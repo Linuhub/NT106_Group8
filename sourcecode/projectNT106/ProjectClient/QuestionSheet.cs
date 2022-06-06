@@ -145,11 +145,7 @@ namespace ProjectClient
             QuestionList[i].Choice = ans;
             QuestionList[i].RightAns = QuesContent[10];
         }
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            Form Result = new ResultClient();
-            Result.Show();
-        }
+
         private void timer1_Tick_1(object sender, EventArgs e)
         {
             TimeElapsed = TimeElapsed + 15;
@@ -284,6 +280,12 @@ namespace ProjectClient
             }
             else btnD.BackColor = Color.Red;
             ShowAnswer();
+        }
+
+        private void btnResult_Click(object sender, EventArgs e)
+        {
+            Form Result = new ResultClient();
+            Result.Show();
         }
     }
 }
