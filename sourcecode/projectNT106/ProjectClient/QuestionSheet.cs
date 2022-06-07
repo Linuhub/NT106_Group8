@@ -26,6 +26,10 @@ namespace ProjectClient
         private int counter = 10;
         public static Question[] QuestionList = new Question[20];
         private int i = -1;
+        public static string MyResult;
+        public static string Rank1Result;
+        public static string Rank2Result;
+        public static string Rank3Result;
         private void RunTimer()
         {
             aTimer = new System.Windows.Forms.Timer();
@@ -91,8 +95,7 @@ namespace ProjectClient
         private void ReceiveMessage()
         {
             try
-            {
-                
+            {            
                 srReceiver = new StreamReader(HomeClient.tcpServer.GetStream());
                 txtQues = srReceiver.ReadLine();
                 while (HomeClient.Connected)
@@ -128,7 +131,31 @@ namespace ProjectClient
                         else if (QuesContent[0] == "rak")
                         {
                             btnResult.Enabled = true;
-                            MessageBox.Show(Respon);
+                            //MessageBox.Show(Respon);
+                            if (QuesContent[2] == HomeClient.UserName)
+                            {
+                                MyResult = Respon;
+                                if (QuesContent[4]=="1")
+                                {
+                                    Rank1Result = Respon;
+                                }
+                                else if(QuesContent[4]=="2")
+                                {
+                                    Rank2Result = Respon;
+                                }
+                            }   
+                            else if (QuesContent[4]=="1")
+                            {
+                                Rank1Result = Respon;
+                            }
+                            else if (QuesContent[4] == "2")
+                            {
+                                Rank2Result = Respon;
+                            }
+                            else if (QuesContent[4] == "3")
+                            {
+                                Rank3Result = Respon;
+                            }
                         }
                         else continue;
                     }
@@ -301,5 +328,10 @@ namespace ProjectClient
             ShowAnswer();
         }
 
+        private void btnResult_Click(object sender, EventArgs e)
+        {
+            ResultClient ResultForm = new ResultClient();
+            ResultForm.Show();
+        }
     }
 }
