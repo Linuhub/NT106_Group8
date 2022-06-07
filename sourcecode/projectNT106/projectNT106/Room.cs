@@ -126,7 +126,7 @@ namespace projectNT106
             try
             {
                 ListViewItem item = new ListViewItem();
-                IPAddress ipAddr = IPAddress.Parse("10.45.7.171");
+                IPAddress ipAddr = IPAddress.Parse("127.0.0.1");
                 mainServer = new Channel(ipAddr);
                 Channel.StatusChanged += new StatusChangedEventHandler(mainServer_StatusChanged);
                 mainServer.StartListening();
@@ -140,9 +140,6 @@ namespace projectNT106
 
         }
 
-        void UpdateNumMember()
-        {
-        }
 
         private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
@@ -153,9 +150,11 @@ namespace projectNT106
         public int second = 0;
         public int showAnswerTime = 0;
         int index = 0;
-        private void button1_Click(object sender, EventArgs e)
+
+        // Bắt đầu thi
+        private void btnStart_Click(object sender, EventArgs e)
         {
-            button1.Enabled = false;
+            btnStart.Enabled = false;
             button2.Enabled = false;
             time = new System.Timers.Timer();
             time.Interval = 1000; //1s
@@ -164,6 +163,7 @@ namespace projectNT106
             
         }
 
+        // Xử lý thời gian
         public void OnTimeEvent(object sender, System.Timers.ElapsedEventArgs e)
         {
             Invoke(new Action(() =>
@@ -196,11 +196,13 @@ namespace projectNT106
             }));
         }
     
+        // Xử lý kết quả
         public void showResult()
         {
             int t = Channel.htUsers.Count;
             int[] ranking = new int[t];
 
+            // Tính điểm cho từng thành viên
             for (int i = 0; i < t; i++)
             {
                 try
@@ -211,6 +213,7 @@ namespace projectNT106
                 catch (Exception ex) { }
             }
 
+            // Sắp xếp lại điểm
             for (int i = 0; i < t; i++)
             {
                 for (int j = i; j < t; j++)
@@ -221,10 +224,13 @@ namespace projectNT106
                     }
                 }
             }
+            
             for (int i = 0; i < t; i++)
             {
                 MessageBox.Show(ranking[i].ToString());
             }
+
+            // Xếp hạng cho từng thành viên
             for (int i = 0; i < t; i++)
             {
                 for (int j = 0; j < t; j++)
@@ -237,14 +243,6 @@ namespace projectNT106
                 }
             }
             
-            string[] tableRank = new string[Channel.htUsers.Count];
-            for (int i = 0; i < Channel.htUsers.Count; i++)
-            {
-                tableRank[i] = "rak" + '|' + RoomID + '|' + Room.infoUsers[i].getIDUser() + '|' + 
-                                Room.infoUsers[i].getRank().ToString();
-            }
-
-
             for (int i = 0; i < Channel.htUsers.Count; i++)
             {
                 try
@@ -281,7 +279,7 @@ namespace projectNT106
                     
                     }
                 
-                    swSender.WriteLine();
+                    swSender.WriteLine(rankTopX);
                     swSender.Flush();
                     swSender = null;
                 }
@@ -296,7 +294,7 @@ namespace projectNT106
             swSender = new StreamWriter(tcpClients[index].GetStream());
             string rank = "rak" + '|' + RoomID + '|' + Room.infoUsers[index].getIDUser() + '|' +
                              Room.infoUsers[index].getMark().ToString() + '|' + Room.infoUsers[index].getRank().ToString();
-            swSender.WriteLine();
+            swSender.WriteLine(rank);
             swSender.Flush();
             swSender = null;
         }
