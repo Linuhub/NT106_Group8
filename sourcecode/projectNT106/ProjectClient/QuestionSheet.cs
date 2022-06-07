@@ -86,7 +86,8 @@ namespace ProjectClient
             {
                 MessageBox.Show("Received: " + txtQues);
             }
-
+            txtUserID.Text = HomeClient.UserName;
+            txtRoomID.Text = HomeClient.RoomID;
             thrMessaging = new Thread(ReceiveMessage);
             thrMessaging.Start();
         }
@@ -94,7 +95,7 @@ namespace ProjectClient
         {
             try
             {
-
+                
                 srReceiver = new StreamReader(HomeClient.tcpServer.GetStream());
                 txtQues = srReceiver.ReadLine();
                 while (HomeClient.Connected)
@@ -102,14 +103,14 @@ namespace ProjectClient
                     string Respon = srReceiver.ReadLine();
                     if (Respon[0] != '1')
                     {
+                        QuesContent = Respon.Split(new char[] { '|' });
+                        if (QuesContent[0] != "que") continue;
+                        ResetButton();
                         Invoke(new Action(() =>
                         {
                             ResetTimer(timer1);
                         }));
-                        QuesContent = Respon.Split(new char[] { '|' });
-                        ResetButton();
-                        txtUserID.Text = HomeClient.UserName;
-                        txtRoomID.Text = HomeClient.RoomID;
+                        
                         txtQuestion.Text = QuesContent[5];
                         btnA.Text = QuesContent[6];
                         btnB.Text = QuesContent[7];
@@ -126,6 +127,14 @@ namespace ProjectClient
                         }
                         else btnD.Text = QuesContent[9];
                     }
+                    else 
+                    {
+                        QuesContent = Respon.Split(new char[] { '|' });
+                        if (QuesContent[0] == "rak")
+                        {
+                            MessageBox.Show(Respon);
+                        }
+                    }
                 }
             }
             catch (Exception ex)
@@ -133,6 +142,12 @@ namespace ProjectClient
                 MessageBox.Show(ex.Message.ToString());
             }
 
+        }
+        public Image byteArrayToImage(byte[] byteArrayIn)
+        {
+            MemoryStream ms = new MemoryStream(byteArrayIn);
+            Image returnImage = Image.FromStream(ms);
+            return returnImage;
         }
         private void AddQuestionList(int i, string ans)
         {
@@ -145,11 +160,13 @@ namespace ProjectClient
             QuestionList[i].Choice = ans;
             QuestionList[i].RightAns = QuesContent[10];
         }
+
         private void button1_Click(object sender, EventArgs e)
         {
             Form Result = new ResultClient();
             Result.Show();
         }
+
         private void timer1_Tick_1(object sender, EventArgs e)
         {
             TimeElapsed = TimeElapsed + 15;
@@ -286,6 +303,5 @@ namespace ProjectClient
             ShowAnswer();
         }
 
-        
     }
 }

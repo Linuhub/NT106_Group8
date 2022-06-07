@@ -96,7 +96,7 @@ namespace projectNT106
             {
                 dar = new OleDbDataAdapter("select * from tbl_cauhoibienbao", cnn);
             }
-            else if (QuestionPack == "Câu hỏi sa hình")
+            else if (QuestionPack == "Câu hỏi phần sa hình")
             {
                 dar = new OleDbDataAdapter("select * from tbl_cauhoisahinh", cnn);
             }
@@ -110,7 +110,7 @@ namespace projectNT106
             ImageList imgs = new ImageList();
             imgs.ImageSize = new Size(25, 25);
 
-            paths = Directory.GetFiles("D:/LapTrinhMangCB/DoAn/NT106_Group8/icon");
+            paths = Directory.GetFiles("D:/UIT/HK4/NT106/Project/NT106_Group8/icon");
 
 
             try
@@ -205,9 +205,10 @@ namespace projectNT106
     
         public void showResult()
         {
-            int[] ranking = new int[5];
+            int t = Channel.htUsers.Count;
+            int[] ranking = new int[t];
 
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < t; i++)
             {
                 try
                 {
@@ -217,9 +218,9 @@ namespace projectNT106
                 catch (Exception ex) { }
             }
 
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < t; i++)
             {
-                for (int j = i; j < 5; j++)
+                for (int j = i; j < t; j++)
                 {
                     if (ranking[j] > ranking[i])
                     {
@@ -227,10 +228,13 @@ namespace projectNT106
                     }
                 }
             }
-            
-            for (int i = 0; i < 2; i++)
+            for (int i = 0; i < t; i++)
             {
-                for (int j = 0; j < 2; j++)
+                MessageBox.Show(ranking[i].ToString());
+            }
+            for (int i = 0; i < t; i++)
+            {
+                for (int j = 0; j < t; j++)
                 {
                     if (ranking[i] == int.Parse(Room.infoUsers[j].getMark()))
                     {
@@ -239,9 +243,33 @@ namespace projectNT106
                     }
                 }
             }
-            for (int i = 0; i < 5; i++)
+            string[] tableRank = new string[Channel.htUsers.Count];
+            for (int i = 0; i < Channel.htUsers.Count; i++)
             {
+                tableRank[i] = "rak | " + RoomID + '|' + CreatorID + '|' + 
+                                Room.infoUsers[i].getRank().ToString();
                 MessageBox.Show(Room.infoUsers[i].getRank().ToString());
+            }
+            StreamWriter swSenderSender;
+            TcpClient[] tcpClients = new TcpClient[Channel.htUsers.Count];
+            Channel.htUsers.Values.CopyTo(tcpClients, 0);
+            for (int i = 0; i < tcpClients.Length; i++)
+            {
+                try
+                {
+                    if (tcpClients[i] == null)
+                    {
+                        continue;
+                    }
+                    swSenderSender = new StreamWriter(tcpClients[i].GetStream());
+                    swSenderSender.WriteLine(tableRank[i]);
+                    swSenderSender.Flush();
+                    swSenderSender = null;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
             }
         }
         public void SendQuestion()
@@ -267,21 +295,41 @@ namespace projectNT106
                     swSender = new StreamWriter(tcpClients[i].GetStream());
                     swSender.WriteLine(dataQuestion);
                     swSender.Flush();
-                    swSender = null;
 
-                    Image image = null;
-                    if (QuestionPack == "Câu hỏi biển báo")
-                    {
-                       image  = Image.FromFile("D:/UIT/HK4/NT106/Project/NT106_Group8/sourcecode/projectNT106/projectNT106/bin/Debug/Image_ThiLaiXe/bienbao/101.png");
+                    //Image image = null;
+                    //if (QuestionPack == "Câu hỏi kiến thức luật")
+                    //{
+                    //    image = null;
+                    //}
+                    //else if (QuestionPack == "Câu hỏi biển báo")
+                    //{
+                    //    image  = Image.FromFile("D:/UIT/HK4/NT106/Project/NT106_Group8/sourcecode/projectNT106/projectNT106/bin/Debug/Image_ThiLaiXe/bienbao/101.png");
+                    //}
+                    //else if (QuestionPack == "Câu hỏi sa hình")
+                    //{
+                    //    image = Image.FromFile("D:/UIT/HK4/NT106/Project/NT106_Group8/sourcecode/projectNT106/projectNT106/bin/Debug/Image_ThiLaiXe/sahinh/166.png");
+                        
+                    //}
 
-                    }
-                    else if (QuestionPack == "Câu hỏi sa hình")
-                    {
-                       image = Image.FromFile("D:/UIT/HK4/NT106/Project/NT106_Group8/sourcecode/projectNT106/projectNT106/bin/Debug/Image_ThiLaiXe/sahinh/166.png");
 
-                    }
-                    byte[] img = ImageToByteArray(image);
-                    
+
+
+                    //try
+                    //{
+                    //    Bitmap tImage = new Bitmap(image);
+                    //    byte[] bStream = ImageToByteArray(tImage);
+
+                    //    Console.WriteLine("Connected");
+                    //    NetworkStream nStream = tcpClients[i].GetStream();
+                    //    nStream.Write(bStream, 0, bStream.Length);
+
+                    //}
+                    //catch (SocketException e1)
+                    //{
+                    //    Console.WriteLine("SocketException: " + e1);
+                    //}
+                    //swSender = null;
+
                 }
                 catch
                 {
@@ -290,7 +338,7 @@ namespace projectNT106
             }
             index++;
         }
-        public byte[] ImageToByteArray(System.Drawing.Image imageIn)
+        public byte[] ImageToByteArray(Image imageIn)
         {
             using (var ms = new MemoryStream())
             {
@@ -572,6 +620,7 @@ namespace projectNT106
                     else 
                     {
                         sliptID(strResponse);
+                        MessageBox.Show(strResponse);
                         if (instruction == "ans")
                         {
                             for (int i = 0; i < Channel.htConnections.Count; i++)

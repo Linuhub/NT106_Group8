@@ -34,7 +34,7 @@ namespace projectNT106
         {
             InitializeComponent();
             IDRoom = RandomIDRoom();
-            cbQuestionPackage.Items.Add("Câu hỏi kiến thức Luật");
+            cbQuestionPackage.Items.Add("Câu hỏi kiến thức luật");
             cbQuestionPackage.Items.Add("Câu hỏi biển báo");
             cbQuestionPackage.Items.Add("Câu hỏi phần sa hình");
         }

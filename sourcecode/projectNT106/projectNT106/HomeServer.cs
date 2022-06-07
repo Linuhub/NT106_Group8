@@ -25,7 +25,7 @@ namespace projectNT106
         private void btnCreateRoom_Click(object sender, EventArgs e)
         {
             Form creRoom = new CreateRoom();
-            creRoom.ShowDialog();
+            creRoom.Show();
         }
 
         private void gradientPanel1_Paint(object sender, PaintEventArgs e)
@@ -37,7 +37,7 @@ namespace projectNT106
         private void btnManageQuestionList_Click(object sender, EventArgs e)
         {
             Form source = new QuestionSource();
-            source.ShowDialog();
+            source.Show();
         }
     }
 }
