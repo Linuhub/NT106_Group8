@@ -82,10 +82,7 @@ namespace ProjectClient
             Form.CheckForIllegalCrossThreadCalls = false;
             //this.Invoke(new HomeClient.UpdateLogCallback(this.UpdateQuestionSheet), new object[] { srReceiver.ReadLine() });
             txtQues = cmt;
-            if (cmt == "1")
-            {
-                MessageBox.Show("Received: " + txtQues);
-            }
+            
             txtUserID.Text = HomeClient.UserName;
             txtRoomID.Text = HomeClient.RoomID;
             thrMessaging = new Thread(ReceiveMessage);
@@ -104,37 +101,37 @@ namespace ProjectClient
                     if (Respon[0] != '1')
                     {
                         QuesContent = Respon.Split(new char[] { '|' });
-                        if (QuesContent[0] != "que") continue;
-                        ResetButton();
-                        Invoke(new Action(() =>
+                        if (QuesContent[0] == "que")
                         {
-                            ResetTimer(timer1);
-                        }));
-                        
-                        txtQuestion.Text = QuesContent[5];
-                        btnA.Text = QuesContent[6];
-                        btnB.Text = QuesContent[7];
-                        if (QuesContent[8] == "")
-                        {
-                            btnC.Text = "C.";
-                            btnC.Enabled = false;
+                            ResetButton();
+                            Invoke(new Action(() =>
+                            {
+                                ResetTimer(timer1);
+                            }));
+
+                            txtQuestion.Text = QuesContent[5];
+                            btnA.Text = QuesContent[6];
+                            btnB.Text = QuesContent[7];
+                            if (QuesContent[8] == "")
+                            {
+                                btnC.Text = "C.";
+                                btnC.Enabled = false;
+                            }
+                            else btnC.Text = QuesContent[8];
+                            if (QuesContent[9] == "")
+                            {
+                                btnD.Text = "D.";
+                                btnD.Enabled = false;
+                            }
+                            else btnD.Text = QuesContent[9];
                         }
-                        else btnC.Text = QuesContent[8];
-                        if (QuesContent[9] == "")
-                        {
-                            btnD.Text = "D.";
-                            btnD.Enabled = false;
-                        }
-                        else btnD.Text = QuesContent[9];
-                    }
-                    else 
-                    {
-                        QuesContent = Respon.Split(new char[] { '|' });
-                        if (QuesContent[0] == "rak")
+                        else if (QuesContent[0] == "rak")
                         {
                             MessageBox.Show(Respon);
                         }
+                        else continue;
                     }
+                    
                 }
             }
             catch (Exception ex)
@@ -186,7 +183,7 @@ namespace ProjectClient
             if (ans == QuesContent[10] && (progressBar1.Value < progressBar1.Maximum))
             {
                 swSender = new StreamWriter(HomeClient.tcpServer.GetStream());
-                swSender.WriteLine("ans" + '|' + txtUserID.Text + '|' + txtRoomID.Text + '|' + QuesContent[4] + '|' + (TimeElapsed / 1000).ToString());
+                swSender.WriteLine("ans" + '|' + txtRoomID.Text + '|' + txtUserID.Text + '|' + QuesContent[4] + '|' + (TimeElapsed / 1000).ToString());
                 swSender.Flush();
                 swSender = null;
                 return true;
@@ -194,7 +191,7 @@ namespace ProjectClient
             else
             {
                 swSender = new StreamWriter(HomeClient.tcpServer.GetStream());
-                swSender.WriteLine("ans" + '|' + txtUserID.Text + '|' + txtRoomID.Text + '|' + QuesContent[4] + '|' + "0");
+                swSender.WriteLine("ans" + '|' + txtRoomID.Text + '|' + txtUserID.Text + '|' + QuesContent[4] + '|' + "0");
                 swSender.Flush();
                 swSender = null;
                 return false;

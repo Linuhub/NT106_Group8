@@ -608,7 +608,7 @@ namespace projectNT106
                 }
             }
             
-
+            // Lắng nghe đáp án
             try
             {
                 while ((strResponse = srReceiver.ReadLine()) != "")
@@ -620,14 +620,13 @@ namespace projectNT106
                     else 
                     {
                         sliptID(strResponse);
-                        MessageBox.Show(strResponse);
                         if (instruction == "ans")
                         {
                             for (int i = 0; i < Channel.htConnections.Count; i++)
                             {
                                 if (Room.IDRoomUser == Room.infoUsers[i].getIDRoom() && Room.IDUserTemp == Room.infoUsers[i].getIDUser())
                                 {
-                                    Room.infoUsers[i].receiveUserAnswer(indexQues, timeAnswer);
+                                    Room.infoUsers[i].receiveUserAnswer(indexQues, timeAnswer);                                 
                                 }
                             }
                         }

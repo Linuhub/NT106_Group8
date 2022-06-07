@@ -136,7 +136,6 @@ namespace ProjectClient
         }
         private void UpdateLog(string strMessage)
         {
-            MessageBox.Show("Update Client Log: " + strMessage + "\r\n");
         }
         
 
