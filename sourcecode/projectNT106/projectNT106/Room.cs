@@ -1,20 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+using System.Collections;
 using System.Data;
+using System.Data.OleDb;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Net.Sockets;
 using System.Net;
+using System.Net.Sockets;
 using System.Threading;
-using System.Collections;
-using System.Data.OleDb;
-using System.Windows.Threading;
-using System.Runtime.Serialization.Formatters.Binary;
+using System.Windows.Forms;
 
 namespace projectNT106
 {
@@ -133,7 +126,7 @@ namespace projectNT106
             try
             {
                 ListViewItem item = new ListViewItem();
-                IPAddress ipAddr = IPAddress.Parse("127.0.0.1");
+                IPAddress ipAddr = IPAddress.Parse("10.45.7.171");
                 mainServer = new Channel(ipAddr);
                 Channel.StatusChanged += new StatusChangedEventHandler(mainServer_StatusChanged);
                 mainServer.StartListening();
@@ -243,38 +236,69 @@ namespace projectNT106
                     }
                 }
             }
+            
             string[] tableRank = new string[Channel.htUsers.Count];
             for (int i = 0; i < Channel.htUsers.Count; i++)
             {
                 tableRank[i] = "rak" + '|' + RoomID + '|' + Room.infoUsers[i].getIDUser() + '|' + 
                                 Room.infoUsers[i].getRank().ToString();
-                MessageBox.Show(Room.infoUsers[i].getRank().ToString());
             }
-            StreamWriter swSenderSender;
-            TcpClient[] tcpClients = new TcpClient[Channel.htUsers.Count];
-            Channel.htUsers.Values.CopyTo(tcpClients, 0);
-            for (int i = 0; i < tcpClients.Length; i++)
+
+
+            for (int i = 0; i < Channel.htUsers.Count; i++)
             {
                 try
                 {
-                    if (tcpClients[i] == null)
-                    {
-                        continue;
-                    }
-                    swSenderSender = new StreamWriter(tcpClients[i].GetStream());
-                    for (int j = 0; j < Channel.htUsers.Count; j++)
-                    {
-                        swSenderSender.WriteLine(tableRank[j]);
-                        swSenderSender.Flush();
-                        swSenderSender = null;
-
-                    }
+                    SendTopRank();
+                    SendUserRank(i);
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.ToString());
                 }
             }
+        }
+        public void SendTopRank()
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                try
+                {
+                    StreamWriter swSender;
+                    TcpClient[] tcpClients = new TcpClient[Channel.htUsers.Count];
+                    Channel.htUsers.Values.CopyTo(tcpClients, 0);
+                    swSender = new StreamWriter(tcpClients[i].GetStream());
+                    string rankTopX = "";
+                
+                    for (int j = 0; j < Channel.htUsers.Count; j++)
+                    {
+                        if (Room.infoUsers[j].getRank() == i + 1) 
+                        {
+                            rankTopX = "rak" + '|' + RoomID + '|' + Room.infoUsers[j].getIDUser() + '|' +
+                                     Room.infoUsers[j].getMark().ToString() + '|' + Room.infoUsers[j].getRank().ToString();
+                            break;
+                        }
+                    
+                    }
+                
+                    swSender.WriteLine();
+                    swSender.Flush();
+                    swSender = null;
+                }
+                catch (Exception ex) { }
+            }
+        }
+        public void SendUserRank(int index)
+        {
+            StreamWriter swSender;
+            TcpClient[] tcpClients = new TcpClient[Channel.htUsers.Count];
+            Channel.htUsers.Values.CopyTo(tcpClients, 0);
+            swSender = new StreamWriter(tcpClients[index].GetStream());
+            string rank = "rak" + '|' + RoomID + '|' + Room.infoUsers[index].getIDUser() + '|' +
+                             Room.infoUsers[index].getMark().ToString() + '|' + Room.infoUsers[index].getRank().ToString();
+            swSender.WriteLine();
+            swSender.Flush();
+            swSender = null;
         }
         public void SendQuestion()
         {
