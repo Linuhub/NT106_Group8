@@ -127,6 +127,7 @@ namespace ProjectClient
                         }
                         else if (QuesContent[0] == "rak")
                         {
+                            btnResult.Enabled = true;
                             MessageBox.Show(Respon);
                         }
                         else continue;

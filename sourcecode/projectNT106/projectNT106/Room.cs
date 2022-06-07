@@ -193,7 +193,7 @@ namespace projectNT106
                 {
                     showAnswerTime = 0;
                     second = 0;
-                    if (index == 5)
+                    if (index == 2)
                     {
                         time.Stop();
                         MessageBox.Show("Finish!");
@@ -246,7 +246,7 @@ namespace projectNT106
             string[] tableRank = new string[Channel.htUsers.Count];
             for (int i = 0; i < Channel.htUsers.Count; i++)
             {
-                tableRank[i] = "rak | " + RoomID + '|' + CreatorID + '|' + 
+                tableRank[i] = "rak" + '|' + RoomID + '|' + Room.infoUsers[i].getIDUser() + '|' + 
                                 Room.infoUsers[i].getRank().ToString();
                 MessageBox.Show(Room.infoUsers[i].getRank().ToString());
             }
@@ -262,9 +262,13 @@ namespace projectNT106
                         continue;
                     }
                     swSenderSender = new StreamWriter(tcpClients[i].GetStream());
-                    swSenderSender.WriteLine(tableRank[i]);
-                    swSenderSender.Flush();
-                    swSenderSender = null;
+                    for (int j = 0; j < Channel.htUsers.Count; j++)
+                    {
+                        swSenderSender.WriteLine(tableRank[j]);
+                        swSenderSender.Flush();
+                        swSenderSender = null;
+
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -328,7 +332,7 @@ namespace projectNT106
                     //{
                     //    Console.WriteLine("SocketException: " + e1);
                     //}
-                    //swSender = null;
+                    swSender = null;
 
                 }
                 catch

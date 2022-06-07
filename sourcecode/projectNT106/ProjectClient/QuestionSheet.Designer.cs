@@ -38,6 +38,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.ptbImage = new System.Windows.Forms.PictureBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btnA = new System.Windows.Forms.Button();
             this.btnD = new System.Windows.Forms.Button();
@@ -51,13 +52,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.btnResult = new System.Windows.Forms.Button();
             this.LabelTimeLeft = new System.Windows.Forms.Label();
-            this.ptbImage = new System.Windows.Forms.PictureBox();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbImage)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbImage)).BeginInit();
             this.SuspendLayout();
             // 
             // txtUserID
@@ -138,6 +138,14 @@
             this.groupBox1.Size = new System.Drawing.Size(1470, 848);
             this.groupBox1.TabIndex = 16;
             this.groupBox1.TabStop = false;
+            // 
+            // ptbImage
+            // 
+            this.ptbImage.Location = new System.Drawing.Point(484, 285);
+            this.ptbImage.Name = "ptbImage";
+            this.ptbImage.Size = new System.Drawing.Size(449, 235);
+            this.ptbImage.TabIndex = 13;
+            this.ptbImage.TabStop = false;
             // 
             // groupBox3
             // 
@@ -276,11 +284,13 @@
             // 
             // btnResult
             // 
-            this.btnResult.Location = new System.Drawing.Point(513, 35);
+            this.btnResult.Enabled = false;
+            this.btnResult.Location = new System.Drawing.Point(410, 35);
             this.btnResult.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnResult.Name = "btnResult";
-            this.btnResult.Size = new System.Drawing.Size(84, 37);
+            this.btnResult.Size = new System.Drawing.Size(187, 37);
             this.btnResult.TabIndex = 24;
+            this.btnResult.Text = "Xem kết quả";
             // 
             // LabelTimeLeft
             // 
@@ -291,14 +301,6 @@
             this.LabelTimeLeft.Size = new System.Drawing.Size(26, 29);
             this.LabelTimeLeft.TabIndex = 23;
             this.LabelTimeLeft.Text = "0";
-            // 
-            // ptbImage
-            // 
-            this.ptbImage.Location = new System.Drawing.Point(484, 285);
-            this.ptbImage.Name = "ptbImage";
-            this.ptbImage.Size = new System.Drawing.Size(449, 235);
-            this.ptbImage.TabIndex = 13;
-            this.ptbImage.TabStop = false;
             // 
             // QuestionSheet
             // 
@@ -320,10 +322,10 @@
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbImage)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
