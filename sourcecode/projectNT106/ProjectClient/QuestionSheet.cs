@@ -94,7 +94,7 @@ namespace ProjectClient
             {
                 
                 srReceiver = new StreamReader(HomeClient.tcpServer.GetStream());
-                txtQues = srReceiver.ReadLine();
+                string check = srReceiver.ReadLine();
                 while (HomeClient.Connected)
                 {
                     string Respon = srReceiver.ReadLine();
@@ -124,13 +124,23 @@ namespace ProjectClient
                                 btnD.Enabled = false;
                             }
                             else btnD.Text = QuesContent[9];
+                            try
+                            {
+                                if (QuesContent[12] == "img")
+                                {
+                                    //byte[] imgBytes = srReceiver.Re;
+                                }
+                            }
                         }
                         else if (QuesContent[0] == "rak")
                         {
                             btnResult.Enabled = true;
                             MessageBox.Show(Respon);
                         }
-                        else continue;
+                        else
+                        {
+                            MessageBox.Show(Respon);
+                        }
                     }
                     
                 }

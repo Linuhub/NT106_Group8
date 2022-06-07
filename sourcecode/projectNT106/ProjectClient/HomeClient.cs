@@ -58,7 +58,7 @@ namespace ProjectClient
         private void btnCreateRoom_Click(object sender, EventArgs e)
         {
             Form createRoom = new CreateRoom();
-            createRoom.ShowDialog();
+            createRoom.Show();
         }
         private void btnJoin_Click(object sender, EventArgs e)
         {
