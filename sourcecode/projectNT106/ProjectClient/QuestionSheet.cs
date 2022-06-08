@@ -128,7 +128,7 @@ namespace ProjectClient
                             {
                                 if (QuesContent[12] == "img")
                                 {
-                                    //byte[] imgBytes = srReceiver.Re;
+                                    //byte[] bytes = 
                                 }
                             }
                         }
