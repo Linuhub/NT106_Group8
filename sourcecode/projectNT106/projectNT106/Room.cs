@@ -333,29 +333,28 @@ namespace projectNT106
                     }
                     else if (QuestionPack == "Câu hỏi biển báo")
                     {
-                        image = Image.FromFile("D:/UIT/HK4/NT106/Project/NT106_Group8/sourcecode/projectNT106/projectNT106/bin/Debug/Image_ThiLaiXe/bienbao/101.png");
+                        image = Image.FromFile("D:/LapTrinhMangCB/DoAn/NT106_Group8/sourcecode/projectNT106/projectNT106/bin/Debug/Image_ThiLaiXe/bienbao/101.png");
                     }
                     else if (QuestionPack == "Câu hỏi sa hình")
                     {
-                        image = Image.FromFile("D:/UIT/HK4/NT106/Project/NT106_Group8/sourcecode/projectNT106/projectNT106/bin/Debug/Image_ThiLaiXe/sahinh/166.png");
+                        image = Image.FromFile("D:/LapTrinhMangCB/DoAn/NT106_Group8/sourcecode/projectNT106/projectNT106/bin/Debug/Image_ThiLaiXe/sahinh/166.png");
 
                     }
 
-                    try
-                    {
-                        Bitmap tImage = new Bitmap(image);
-                        byte[] bStream = ImageToByteArray(tImage);
+                    //try
+                    //{
+                    //    Bitmap tImage = new Bitmap(image);
+                    //    byte[] bStream = ImageToByteArray(tImage);
+                    //    NetworkStream nStream = tcpClients[i].GetStream();
+                    //    nStream.Write(bStream, 0, bStream.Length);
+                    //    nStream.Flush();
+                    //    nStream = null;
 
-                        NetworkStream nStream = tcpClients[i].GetStream();
-                        nStream.Write(bStream, 0, bStream.Length);
-                        nStream.Flush();
-                        nStream = null;
-
-                    }
-                    catch (SocketException e1)
-                    {
-                        Console.WriteLine("SocketException: " + e1);
-                    }
+                    //}
+                    //catch (Exception ex)
+                    //{
+                    //    MessageBox.Show("SocketException: " + ex);
+                    //}
                     swSender = null;
 
                 }
