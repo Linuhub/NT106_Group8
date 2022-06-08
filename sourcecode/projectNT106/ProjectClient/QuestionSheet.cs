@@ -5,6 +5,8 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -92,6 +94,37 @@ namespace ProjectClient
             thrMessaging = new Thread(ReceiveMessage);
             thrMessaging.Start();
         }
+        private static Socket ConnectSocket(string server, int port)
+        {
+            Socket s = null;
+            IPHostEntry hostEntry = null;
+
+            // Get host related information.
+            hostEntry = Dns.GetHostEntry(server);
+
+            // Loop through the AddressList to obtain the supported AddressFamily. This is to avoid
+            // an exception that occurs when the host IP Address is not compatible with the address family
+            // (typical in the IPv6 case).
+            foreach (IPAddress address in hostEntry.AddressList)
+            {
+                IPEndPoint ipe = new IPEndPoint(address, port);
+                Socket tempSocket =
+                    new Socket(ipe.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
+
+                tempSocket.Connect(ipe);
+
+                if (tempSocket.Connected)
+                {
+                    s = tempSocket;
+                    break;
+                }
+                else
+                {
+                    continue;
+                }
+            }
+            return s;
+        }
         private void ReceiveMessage()
         {
             try
@@ -131,38 +164,44 @@ namespace ProjectClient
                             {
                                 if (QuesContent[12] == "img")
                                 {
-                                    //byte[] bytes = 
+                                    byte[] b = new byte[1024 * 1024 * 20];
+                                    Socket s = HomeClient.tcpServer.Client;                                    
+                                    int i = s.Receive(b);
+                                    Image img = byteArrayToImage(b);
+                                    ptbImage.Image = img;
+                                    srReceiver = null;
                                 }
                             }
+                            catch (Exception ex) { }
                         }
                         else if (QuesContent[0] == "rak")
                         {
                             btnResult.Enabled = true;
-                            //MessageBox.Show(Respon);
-                            if (QuesContent[2] == HomeClient.UserName)
-                            {
-                                MyResult = Respon;
-                                if (QuesContent[4]=="1")
-                                {
-                                    Rank1Result = Respon;
-                                }
-                                else if(QuesContent[4]=="2")
-                                {
-                                    Rank2Result = Respon;
-                                }
-                            }   
-                            else if (QuesContent[4]=="1")
-                            {
-                                Rank1Result = Respon;
-                            }
-                            else if (QuesContent[4] == "2")
-                            {
-                                Rank2Result = Respon;
-                            }
-                            else if (QuesContent[4] == "3")
-                            {
-                                Rank3Result = Respon;
-                            }
+                            MessageBox.Show(Respon);
+                            //if (QuesContent[2] == HomeClient.UserName)
+                            //{
+                            //    MyResult = Respon;
+                            //    if (QuesContent[4]=="1")
+                            //    {
+                            //        Rank1Result = Respon;
+                            //    }
+                            //    else if(QuesContent[4]=="2")
+                            //    {
+                            //        Rank2Result = Respon;
+                            //    }
+                            //}   
+                            //else if (QuesContent[4]=="1")
+                            //{
+                            //    Rank1Result = Respon;
+                            //}
+                            //else if (QuesContent[4] == "2")
+                            //{
+                            //    Rank2Result = Respon;
+                            //}
+                            //else if (QuesContent[4] == "3")
+                            //{
+                            //    Rank3Result = Respon;
+                            //}
                         }
                         else
                         {

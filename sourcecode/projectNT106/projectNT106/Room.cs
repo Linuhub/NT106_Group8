@@ -103,7 +103,7 @@ namespace projectNT106
             ImageList imgs = new ImageList();
             imgs.ImageSize = new Size(25, 25);
 
-            paths = Directory.GetFiles("D:/LapTrinhMangCB/DoAn/NT106_Group8/icon");
+            paths = Directory.GetFiles("D:/UIT/HK4/NT106/Project/NT106_Group8/icon");
 
 
             try
@@ -126,7 +126,7 @@ namespace projectNT106
             try
             {
                 ListViewItem item = new ListViewItem();
-                IPAddress ipAddr = IPAddress.Parse("127.0.0.1");
+                IPAddress ipAddr = IPAddress.Parse("192.168.46.227");
                 mainServer = new Channel(ipAddr);
                 Channel.StatusChanged += new StatusChangedEventHandler(mainServer_StatusChanged);
                 mainServer.StartListening();
@@ -166,21 +166,27 @@ namespace projectNT106
         // Xử lý thời gian
         public void OnTimeEvent(object sender, System.Timers.ElapsedEventArgs e)
         {
-            Invoke(new Action(() =>
-            {
+            
                 if (second != 10)
                 {
                     if (second == 0)
                     {
                         SendQuestion();
-                    }
+                    }                    
                     second++;
-                    textBox2.Text = second.ToString();                    
+                    Invoke(new Action(() =>
+                    {
+                        textBox2.Text = second.ToString();
+                    }));
+                    
                 }
                 else if (showAnswerTime != 5)
                 {
                     showAnswerTime++;
-                    textBox2.Text = showAnswerTime.ToString();
+                    Invoke(new Action(() =>
+                    {
+                        textBox2.Text = showAnswerTime.ToString();
+                    }));
                 }
                 else
                 {
@@ -193,7 +199,7 @@ namespace projectNT106
                         showResult();
                     }
                 }
-            }));
+            
         }
     
         // Xử lý kết quả
@@ -224,7 +230,7 @@ namespace projectNT106
                     }
                 }
             }
-            
+
             for (int i = 0; i < t; i++)
             {
                 MessageBox.Show(ranking[i].ToString());
@@ -242,12 +248,12 @@ namespace projectNT106
                     }
                 }
             }
-            
+
             for (int i = 0; i < Channel.htUsers.Count; i++)
             {
                 try
                 {
-                    SendTopRank();
+                    SendTopRank(i);
                     SendUserRank(i);
                 }
                 catch (Exception ex)
@@ -256,7 +262,7 @@ namespace projectNT106
                 }
             }
         }
-        public void SendTopRank()
+        public void SendTopRank(int index)
         {
             for (int i = 0; i < 3; i++)
             {
@@ -265,23 +271,24 @@ namespace projectNT106
                     StreamWriter swSender;
                     TcpClient[] tcpClients = new TcpClient[Channel.htUsers.Count];
                     Channel.htUsers.Values.CopyTo(tcpClients, 0);
-                    swSender = new StreamWriter(tcpClients[i].GetStream());
+                    swSender = new StreamWriter(tcpClients[index].GetStream());
                     string rankTopX = "";
-                
+
                     for (int j = 0; j < Channel.htUsers.Count; j++)
                     {
-                        if (Room.infoUsers[j].getRank() == i + 1) 
+                        if (Room.infoUsers[j].getRank() == i + 1)
                         {
                             rankTopX = "rak" + '|' + RoomID + '|' + Room.infoUsers[j].getIDUser() + '|' +
                                      Room.infoUsers[j].getMark().ToString() + '|' + Room.infoUsers[j].getRank().ToString();
+                            swSender.WriteLine(rankTopX);
+                            swSender.Flush();
+                            swSender = null;
+                            MessageBox.Show(Room.infoUsers[index].getIDUser() + rankTopX);
                             break;
                         }
-                    
+
                     }
-                
-                    swSender.WriteLine(rankTopX);
-                    swSender.Flush();
-                    swSender = null;
+
                 }
                 catch (Exception ex) { }
             }
@@ -297,6 +304,8 @@ namespace projectNT106
             swSender.WriteLine(rank);
             swSender.Flush();
             swSender = null;
+            MessageBox.Show(Room.infoUsers[index].getIDUser() + rank);
+
         }
         public void SendQuestion()
         {
@@ -325,6 +334,7 @@ namespace projectNT106
                     swSender = new StreamWriter(tcpClients[i].GetStream());
                     swSender.WriteLine(dataQuestion);
                     swSender.Flush();
+                    swSender = null;
 
                     Image image = null;
                     if (QuestionPack == "Câu hỏi kiến thức luật")
@@ -341,23 +351,6 @@ namespace projectNT106
 
                     }
 
-                    try
-                    {
-                        Bitmap tImage = new Bitmap(image);
-                        byte[] bStream = ImageToByteArray(tImage);
-
-                        NetworkStream nStream = tcpClients[i].GetStream();
-                        nStream.Write(bStream, 0, bStream.Length);
-                        nStream.Flush();
-                        nStream = null;
-
-                    }
-                    catch (SocketException e1)
-                    {
-                        Console.WriteLine("SocketException: " + e1);
-                    }
-                    swSender = null;
-
                 }
                 catch
                 {
@@ -365,6 +358,24 @@ namespace projectNT106
                 }
             }
             index++;
+        }
+        public void sendImg(TcpClient tcpClient, Image img)
+        {
+            try
+            {
+                Bitmap tImage = new Bitmap(img);
+                byte[] bStream = ImageToByteArray(tImage);
+
+                Socket s = tcpClient.Client;
+                s.Send(bStream, bStream.Length, SocketFlags.None);
+                
+
+                MessageBox.Show(img.Width.ToString());
+            }
+            catch (SocketException e1)
+            {
+                Console.WriteLine("SocketException: " + e1);
+            }
         }
         public byte[] ImageToByteArray(Image imageIn)
         {
@@ -636,7 +647,7 @@ namespace projectNT106
                     {
                         Channel.RemoveUser(tcpClient);
                     }
-                    else 
+                    else
                     {
                         sliptID(strResponse);
                         if (instruction == "ans")
@@ -645,7 +656,7 @@ namespace projectNT106
                             {
                                 if (Room.IDRoomUser == Room.infoUsers[i].getIDRoom() && Room.IDUserTemp == Room.infoUsers[i].getIDUser())
                                 {
-                                    Room.infoUsers[i].receiveUserAnswer(indexQues, timeAnswer);                                 
+                                    Room.infoUsers[i].receiveUserAnswer(indexQues, timeAnswer);
                                 }
                             }
                         }
