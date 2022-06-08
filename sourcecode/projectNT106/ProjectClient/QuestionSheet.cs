@@ -173,10 +173,6 @@ namespace ProjectClient
                                     srReceiver = null;
                                 }
                             }
-                            catch(Exception ex)
-                            {
-
-                            }
                             catch (Exception ex) { }
                         }
                         else if (QuesContent[0] == "rak")
