@@ -143,7 +143,7 @@
             // 
             // labelRank2Point
             // 
-            this.labelRank2Point.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelRank2Point.Font = new System.Drawing.Font("HYWenHei-85W", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelRank2Point.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.labelRank2Point.Location = new System.Drawing.Point(56, 27);
             this.labelRank2Point.Name = "labelRank2Point";
@@ -266,7 +266,7 @@
             // 
             // labelRank1Point
             // 
-            this.labelRank1Point.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelRank1Point.Font = new System.Drawing.Font("HYWenHei-85W", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelRank1Point.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.labelRank1Point.Location = new System.Drawing.Point(65, 23);
             this.labelRank1Point.Name = "labelRank1Point";
@@ -300,7 +300,7 @@
             // 
             // labelRank3Point
             // 
-            this.labelRank3Point.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelRank3Point.Font = new System.Drawing.Font("HYWenHei-85W", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelRank3Point.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.labelRank3Point.Location = new System.Drawing.Point(56, 27);
             this.labelRank3Point.Name = "labelRank3Point";
@@ -322,24 +322,27 @@
             // 
             // btnInstruction
             // 
+            this.btnInstruction.BackColor = System.Drawing.Color.LightSkyBlue;
             this.btnInstruction.Location = new System.Drawing.Point(755, 574);
             this.btnInstruction.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnInstruction.Name = "btnInstruction";
             this.btnInstruction.Size = new System.Drawing.Size(105, 53);
             this.btnInstruction.TabIndex = 25;
             this.btnInstruction.Text = "Xem lại bài thi";
-            this.btnInstruction.UseVisualStyleBackColor = true;
+            this.btnInstruction.UseVisualStyleBackColor = false;
             this.btnInstruction.Click += new System.EventHandler(this.btnInstruction_Click);
             // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.Color.LightCoral;
             this.button1.Location = new System.Drawing.Point(883, 574);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(105, 53);
             this.button1.TabIndex = 29;
             this.button1.Text = "Thoát";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // panel3
             // 
@@ -407,6 +410,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightCyan;
             this.ClientSize = new System.Drawing.Size(1252, 670);
             this.Controls.Add(this.pictureBox6);
             this.Controls.Add(this.labelRank3ID);

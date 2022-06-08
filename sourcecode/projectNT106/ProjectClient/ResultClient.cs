@@ -46,9 +46,8 @@ namespace ProjectClient
                 txtMyPoint.Text = "Điểm\r\n" + MyResultInfo[3];
                 txtMyRank.Text = "Xếp hạng: " + MyResultInfo[4];
                 txtTotalRightAns.Text = "Số câu đúng: " + QuestionSheet.TotalRightAns;
-            }
-            
-            MessageBox.Show("Nhận: " + QuestionSheet.Rank1Result);
+            }        
+            //MessageBox.Show("Nhận: " + QuestionSheet.Rank1Result);
             if (QuestionSheet.Rank1Result == "")
             {
                 labelRank1ID.Text = "...";
@@ -82,6 +81,11 @@ namespace ProjectClient
                 labelRank3ID.Text = Rank3Info[2];
                 labelRank3Point.Text = "Điểm: " + Rank3Info[3];
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

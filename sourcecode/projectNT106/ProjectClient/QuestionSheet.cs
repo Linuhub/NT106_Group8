@@ -178,13 +178,15 @@ namespace ProjectClient
                         else if (QuesContent[0] == "rak")
                         {
                             btnResult.Enabled = true;
-                            MessageBox.Show(HomeClient.UserName + " rev:" + Respon);
+                            //MessageBox.Show(HomeClient.UserName + " rev:" + Respon);
                             if (QuesContent[2] == HomeClient.UserName)
                             {
                                 MyResult = Respon;
+                                //MessageBox.Show(HomeClient.UserName + " rev:" + MyResult);
                                 if (QuesContent[4] == "1")
                                 {
                                     Rank1Result = Respon;
+                                    //MessageBox.Show(HomeClient.UserName + " rev:" + Rank1Result);
                                 }
                                 else if (QuesContent[4] == "2")
                                 {
