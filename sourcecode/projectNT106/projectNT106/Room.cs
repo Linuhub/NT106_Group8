@@ -103,7 +103,7 @@ namespace projectNT106
             ImageList imgs = new ImageList();
             imgs.ImageSize = new Size(25, 25);
 
-            paths = Directory.GetFiles("D:/LapTrinhMangCB/DoAn/NT106_Group8/icon");
+            paths = Directory.GetFiles("D:/UIT/HK4/NT106/Project/NT106_Group8/icon");
 
 
             try
@@ -126,7 +126,7 @@ namespace projectNT106
             try
             {
                 ListViewItem item = new ListViewItem();
-                IPAddress ipAddr = IPAddress.Parse("127.0.0.1")
+                IPAddress ipAddr = IPAddress.Parse("127.0.0.1");
 
                 mainServer = new Channel(ipAddr);
                 Channel.StatusChanged += new StatusChangedEventHandler(mainServer_StatusChanged);
@@ -169,7 +169,7 @@ namespace projectNT106
         {
             Invoke(new Action(() =>
             {
-                if (second != 30)
+                if (second != 10)
                 {
                     if (second == 0)
                     {
@@ -229,32 +229,19 @@ namespace projectNT106
                     swSender = new StreamWriter(tcpClients[i].GetStream());
                     swSender.WriteLine(dataQuestion);
                     swSender.Flush();
-                    swSender = null;
                     index++;
-                    Image image = null;
-                    if (QuestionPack == "Câu hỏi kiến thức luật")
+
+                    if (QuestionPack == "Câu hỏi biển báo")
                     {
-                        image = null;
-                    }
-                    else if (QuestionPack == "Câu hỏi biển báo")
-                    {
-                        image = Image.FromFile("D:/UIT/HK4/NT106/Project/NT106_Group8/sourcecode/projectNT106/projectNT106/bin/Debug/Image_ThiLaiXe/bienbao/" + dt.Rows[index - 1][dt.Columns[0]].ToString() + ".png");
-                        TcpClient t = tcpClients[i];
-                        
-                        sendImg(t, image);
-                        
-                        
+                        swSender.Write("img|"+dt.Rows[index][dt.Columns[0]].ToString() );
                     }
                     else if (QuestionPack == "Câu hỏi phần sa hình")
                     {
-                        image = Image.FromFile("D:/UIT/HK4/NT106/Project/NT106_Group8/sourcecode/projectNT106/projectNT106/bin/Debug/Image_ThiLaiXe/sahinh/166.png");
-                        Thread thrd = new Thread(() =>
-                        {
-                            sendImg(tcpClients[i], image);
-                        });
-                        thrd.Start();
+                        swSender.Write("img|" + dt.Rows[index][dt.Columns[0]].ToString());
+
                     }
 
+                    swSender = null;
                 }
                 catch
                 {
@@ -368,84 +355,8 @@ namespace projectNT106
             MessageBox.Show(Room.infoUsers[index].getIDUser() + rank);
 
         }
-        public void SendQuestion()
-        {
-            string question = "";
-            foreach (DataColumn column in dt.Columns)
-            {
-                question += dt.Rows[index][column].ToString() + '|';
-            }
-            string dataQuestion = "que" + '|' + RoomID + '|' + CreatorID + '|'
-                                + index.ToString() + '|' + question;
-            if (QuestionPack != "Câu hỏi kiến thức luật")
-            {
-                dataQuestion += '|' + "img";
-            }
-            StreamWriter swSender;
-            TcpClient[] tcpClients = new TcpClient[Channel.htUsers.Count];
-            Channel.htUsers.Values.CopyTo(tcpClients, 0);
-            for (int i = 0; i < tcpClients.Length; i++)
-            {
-                try
-                {
-                    if (dataQuestion.Trim() == "" || tcpClients[i] == null)
-                    {
-                        continue;
-                    }
-                    swSender = new StreamWriter(tcpClients[i].GetStream());
-                    swSender.WriteLine(dataQuestion);
-                    swSender.Flush();
-                    swSender = null;
-
-                    Image image = null;
-                    if (QuestionPack == "Câu hỏi kiến thức luật")
-                    {
-                        image = null;
-                    }
-                    else if (QuestionPack == "Câu hỏi biển báo")
-                    {
-                        image = Image.FromFile("D:/UIT/HK4/NT106/Project/NT106_Group8/sourcecode/projectNT106/projectNT106/bin/Debug/Image_ThiLaiXe/bienbao/101.png");
-                    }
-                    else if (QuestionPack == "Câu hỏi sa hình")
-                    {
-                        image = Image.FromFile("D:/UIT/HK4/NT106/Project/NT106_Group8/sourcecode/projectNT106/projectNT106/bin/Debug/Image_ThiLaiXe/sahinh/166.png");
-
-                    }
-
-                }
-                catch
-                {
-                    MessageBox.Show("error");
-                }
-            }
-            index++; 
-        }
-        public void sendImg(TcpClient tcpClient, Image img)
-        {
-            Thread.Sleep(10);
-            try
-            {
-                Bitmap tImage = new Bitmap(img);
-                byte[] bStream = ImageToByteArray(tImage);
-
-                Socket s = tcpClient.Client;
-                s.Send(bStream, bStream.Length, SocketFlags.None);
-                s.Disconnect(true);
-                MessageBox.Show("1");
-            }
-            catch (SocketException e1)
-            {
-                Console.WriteLine("SocketException: " + e1);
-            }
-        }
-        public byte[] ImageToByteArray(Image imageIn)
-        {
-            using (var ms = new MemoryStream())
-            {
-                imageIn.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
-                return ms.ToArray();
-            }
-        }
+        
+        
 
         private void btnLock_Click(object sender, EventArgs e)
         {

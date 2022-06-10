@@ -60,7 +60,7 @@ namespace ProjectClient
         }
         private void UpdateQuestionSheet(string strMessage)
         {
-            MessageBox.Show("Update sheet: " + strMessage + "\r\n");
+            MessageBox.Show("Update sheet: " + strMessage + "/r/n");
         }
 
         public QuestionSheet(string respon)
@@ -165,11 +165,14 @@ namespace ProjectClient
                             {
                                 if (QuesContent[12] == "img")
                                 {
-                                    byte[] b = new byte[1024 * 1024 * 20];
-                                    Socket s = HomeClient.tcpServer.Client;                                    
-                                    int i = s.Receive(b);
-                                    Image img = byteArrayToImage(b);
-                                    ptbImage.Image = img;
+                                    Respon = srReceiver.ReadLine();
+                                    QuesContent = Respon.Split(new char[] { '|' });
+                                    if (QuesContent[0] == "img")
+                                    {
+                                        Image img = Image.FromFile("D:/UIT/HK4/NT106/Project/NT106_Group8/sourcecode/projectNT106/ProjectClient/bin/Debug/Image_ThiLaiXe/"+QuesContent[1]+".png");
+                                        ptbImage.Image = img;
+                                    }
+
                                 }
                             }
                             catch (Exception ex) { }
@@ -223,12 +226,7 @@ namespace ProjectClient
             }
 
         }
-        public Image byteArrayToImage(byte[] byteArrayIn)
-        {
-            MemoryStream ms = new MemoryStream(byteArrayIn);
-            Image returnImage = Image.FromStream(ms);
-            return returnImage;
-        }
+        
         private void AddQuestionList(int i, string ans)
         {
             QuestionList[i] = new Question();
