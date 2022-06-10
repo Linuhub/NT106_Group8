@@ -126,7 +126,7 @@ namespace projectNT106
             try
             {
                 ListViewItem item = new ListViewItem();
-                IPAddress ipAddr = IPAddress.Parse("127.0.0.1"); 
+                IPAddress ipAddr = IPAddress.Parse("192.168.46.227"); 
 
                 mainServer = new Channel(ipAddr);
                 Channel.StatusChanged += new StatusChangedEventHandler(mainServer_StatusChanged);
@@ -150,7 +150,7 @@ namespace projectNT106
 
         public int second = 0;
         public int showAnswerTime = 0;
-        int index = 0;
+        public static int index = 0;
 
         // Bắt đầu thi
         private void btnStart_Click(object sender, EventArgs e)
@@ -176,7 +176,6 @@ namespace projectNT106
                         SendQuestion();
                     }
                     second++;
-                    MessageBox.Show(second.ToString());
                     textBox2.Text = second.ToString();
                 }
                 else if (showAnswerTime != 5)
@@ -215,6 +214,10 @@ namespace projectNT106
             {
                 dataQuestion += '|' + "img";
             }
+            else
+            {
+                dataQuestion += '|' + "noImg";
+            }
             StreamWriter swSender;
             TcpClient[] tcpClients = new TcpClient[Channel.htUsers.Count];
             Channel.htUsers.Values.CopyTo(tcpClients, 0);
@@ -229,18 +232,6 @@ namespace projectNT106
                     swSender = new StreamWriter(tcpClients[i].GetStream());
                     swSender.WriteLine(dataQuestion);
                     swSender.Flush();
-                    index++;
-
-                    if (QuestionPack == "Câu hỏi biển báo")
-                    {
-                        swSender.Write("img|"+dt.Rows[index][dt.Columns[0]].ToString() );
-                    }
-                    else if (QuestionPack == "Câu hỏi phần sa hình")
-                    {
-                        swSender.Write("img|" + dt.Rows[index][dt.Columns[0]].ToString());
-
-                    }
-
                     swSender = null;
                 }
                 catch
@@ -249,6 +240,7 @@ namespace projectNT106
                 }
             }
 
+            index++;
         }
         // Xử lý kết quả
         public void showResult()
@@ -548,7 +540,7 @@ namespace projectNT106
             swSender.Close();
         }
 
-        public void sliptID(string message)
+        public void slpitID(string message)
         {
             string[] text = message.Split('|');
             instruction = text[0];
@@ -567,7 +559,7 @@ namespace projectNT106
             srReceiver = new System.IO.StreamReader(tcpClient.GetStream());
             swSender = new System.IO.StreamWriter(tcpClient.GetStream());      
             strResponse = srReceiver.ReadLine();
-            sliptID(strResponse);
+            slpitID(strResponse);
             if (instruction == "add")
             {
                 if (Room.IDRoomUser != Room.RoomID)
@@ -620,14 +612,14 @@ namespace projectNT106
                     }
                     else
                     {
-                        sliptID(strResponse);
+                        slpitID(strResponse);
                         if (instruction == "ans")
                         {
                             for (int i = 0; i < Channel.htConnections.Count; i++)
                             {
                                 if (Room.IDRoomUser == Room.infoUsers[i].getIDRoom() && Room.IDUserTemp == Room.infoUsers[i].getIDUser())
                                 {
-                                    Room.infoUsers[i].receiveUserAnswer(indexQues, timeAnswer);
+                                    Room.infoUsers[i].receiveUserAnswer(Room.index, timeAnswer);
                                 }
                             }
                         }

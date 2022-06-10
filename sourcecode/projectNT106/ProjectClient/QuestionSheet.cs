@@ -132,9 +132,9 @@ namespace ProjectClient
             {            
                 srReceiver = new StreamReader(HomeClient.tcpServer.GetStream());
                 string check = srReceiver.ReadLine();
+                string Respon = srReceiver.ReadLine();
                 while (HomeClient.Connected)
                 {
-                    string Respon = srReceiver.ReadLine();
                     if (Respon[0] != '1')
                     {
                         QuesContent = Respon.Split(new char[] { '|' });
@@ -161,21 +161,13 @@ namespace ProjectClient
                                 btnD.Enabled = false;
                             }
                             else btnD.Text = QuesContent[9];
-                            try
+                            
+                            if (QuesContent[12] == "img")
                             {
-                                if (QuesContent[12] == "img")
-                                {
-                                    Respon = srReceiver.ReadLine();
-                                    QuesContent = Respon.Split(new char[] { '|' });
-                                    if (QuesContent[0] == "img")
-                                    {
-                                        Image img = Image.FromFile("D:/UIT/HK4/NT106/Project/NT106_Group8/sourcecode/projectNT106/ProjectClient/bin/Debug/Image_ThiLaiXe/"+QuesContent[1]+".png");
-                                        ptbImage.Image = img;
-                                    }
-
-                                }
+                                Thread thr = new Thread(showImg);
+                                thr.Start();
                             }
-                            catch (Exception ex) { }
+                            
                         }
                         else if (QuesContent[0] == "rak")
                         {
@@ -212,12 +204,9 @@ namespace ProjectClient
                                 Rank3Result = Respon;
                             }
                         }
-                        else
-                        {
-                            continue;
-                        }
+                        
                     }
-                    
+                    Respon = srReceiver.ReadLine();
                 }
             }
             catch (Exception ex)
@@ -227,6 +216,11 @@ namespace ProjectClient
 
         }
         
+        public void showImg()
+        {
+            Image img = Image.FromFile("D:/UIT/HK4/NT106/Project/NT106_Group8/sourcecode/projectNT106/ProjectClient/bin/Debug/Image_ThiLaiXe/" + QuesContent[4] + ".png");
+            ptbImage.Image = img;
+        }
         private void AddQuestionList(int i, string ans)
         {
             QuestionList[i] = new Question();
