@@ -169,7 +169,6 @@ namespace ProjectClient
                                     int i = s.Receive(b);
                                     Image img = byteArrayToImage(b);
                                     ptbImage.Image = img;
-                                    srReceiver = null;
                                 }
                             }
                             catch (Exception ex) { }
