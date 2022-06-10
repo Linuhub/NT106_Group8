@@ -28,10 +28,11 @@ namespace ProjectClient
         private int counter = 10;
         public static Question[] QuestionList = new Question[20];
         private int i = -1;
-        public static string MyResult;
-        public static string Rank1Result;
-        public static string Rank2Result;
-        public static string Rank3Result;
+        public static string MyResult="";
+        public static string Rank1Result="";
+        public static string Rank2Result="";
+        public static string Rank3Result="";
+        public static int TotalRightAns=0;
         private void RunTimer()
         {
             aTimer = new System.Windows.Forms.Timer();
@@ -176,35 +177,41 @@ namespace ProjectClient
                         else if (QuesContent[0] == "rak")
                         {
                             btnResult.Enabled = true;
-                            MessageBox.Show(Respon);
-                            //if (QuesContent[2] == HomeClient.UserName)
-                            //{
-                            //    MyResult = Respon;
-                            //    if (QuesContent[4]=="1")
-                            //    {
-                            //        Rank1Result = Respon;
-                            //    }
-                            //    else if(QuesContent[4]=="2")
-                            //    {
-                            //        Rank2Result = Respon;
-                            //    }
-                            //}   
-                            //else if (QuesContent[4]=="1")
-                            //{
-                            //    Rank1Result = Respon;
-                            //}
-                            //else if (QuesContent[4] == "2")
-                            //{
-                            //    Rank2Result = Respon;
-                            //}
-                            //else if (QuesContent[4] == "3")
-                            //{
-                            //    Rank3Result = Respon;
-                            //}
+                            //MessageBox.Show(HomeClient.UserName + " rev:" + Respon);
+                            if (QuesContent[2] == HomeClient.UserName)
+                            {
+                                MyResult = Respon;
+                                //MessageBox.Show(HomeClient.UserName + " rev:" + MyResult);
+                                if (QuesContent[4] == "1")
+                                {
+                                    Rank1Result = Respon;
+                                    //MessageBox.Show(HomeClient.UserName + " rev:" + Rank1Result);
+                                }
+                                else if (QuesContent[4] == "2")
+                                {
+                                    Rank2Result = Respon;
+                                }
+                                else if (QuesContent[4] == "3")
+                                {
+                                    Rank3Result = Respon;
+                                }
+                            }
+                            else if (QuesContent[4] == "1")
+                            {
+                                Rank1Result = Respon;
+                            }
+                            else if (QuesContent[4] == "2")
+                            {
+                                Rank2Result = Respon;
+                            }
+                            else if (QuesContent[4] == "3")
+                            {
+                                Rank3Result = Respon;
+                            }
                         }
                         else
                         {
-                            MessageBox.Show(Respon);
+                            continue;
                         }
                     }
                     
@@ -262,6 +269,7 @@ namespace ProjectClient
                 swSender.WriteLine("ans" + '|' + txtRoomID.Text + '|' + txtUserID.Text + '|' + QuesContent[4] + '|' + (TimeElapsed / 1000).ToString());
                 swSender.Flush();
                 swSender = null;
+                TotalRightAns++;
                 return true;
             }
             else
