@@ -31,6 +31,10 @@ namespace ProjectClient
             txtB.Text = QuestionSheet.QuestionList[n].AnsB;
             txtC.Text = QuestionSheet.QuestionList[n].AnsC;
             txtD.Text = QuestionSheet.QuestionList[n].AnsD;
+            if(QuestionSheet.QuestionList[n].QuestionPic != "")
+            {
+                pictureBox1.Image = Image.FromFile(QuestionSheet.QuestionList[n].QuestionPic);
+            }
         }
         private void ResetColor()
         {
