@@ -103,7 +103,7 @@ namespace projectNT106
             ImageList imgs = new ImageList();
             imgs.ImageSize = new Size(25, 25);
 
-            paths = Directory.GetFiles("D:/UIT/HK4/NT106/Project/NT106_Group8/icon"); 
+            paths = Directory.GetFiles("D:/LapTrinhMangCB/DoAn/NT106_Group8/icon"); 
 
 
             try
@@ -126,7 +126,7 @@ namespace projectNT106
             try
             {
                 ListViewItem item = new ListViewItem();
-                IPAddress ipAddr = IPAddress.Parse("192.168.46.227"); 
+                IPAddress ipAddr = IPAddress.Parse("172.30.243.30"); 
 
                 mainServer = new Channel(ipAddr);
                 Channel.StatusChanged += new StatusChangedEventHandler(mainServer_StatusChanged);

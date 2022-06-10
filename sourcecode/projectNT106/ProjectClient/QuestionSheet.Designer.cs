@@ -141,10 +141,10 @@
             // 
             // ptbImage
             // 
-            this.ptbImage.Location = new System.Drawing.Point(443, 198);
+            this.ptbImage.Location = new System.Drawing.Point(421, 167);
             this.ptbImage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ptbImage.Name = "ptbImage";
-            this.ptbImage.Size = new System.Drawing.Size(399, 188);
+            this.ptbImage.Size = new System.Drawing.Size(457, 249);
             this.ptbImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ptbImage.TabIndex = 13;
             this.ptbImage.TabStop = false;
