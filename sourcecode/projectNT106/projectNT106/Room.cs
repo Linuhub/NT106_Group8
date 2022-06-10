@@ -103,7 +103,7 @@ namespace projectNT106
             ImageList imgs = new ImageList();
             imgs.ImageSize = new Size(25, 25);
 
-            paths = Directory.GetFiles("D:/UIT/HK4/NT106/Project/NT106_Group8/icon");
+            paths = Directory.GetFiles("D:/UIT/HK4/NT106/Project/NT106_Group8/icon"); 
 
 
             try
@@ -126,7 +126,7 @@ namespace projectNT106
             try
             {
                 ListViewItem item = new ListViewItem();
-                IPAddress ipAddr = IPAddress.Parse("127.0.0.1");
+                IPAddress ipAddr = IPAddress.Parse("127.0.0.1"); 
 
                 mainServer = new Channel(ipAddr);
                 Channel.StatusChanged += new StatusChangedEventHandler(mainServer_StatusChanged);
@@ -255,7 +255,6 @@ namespace projectNT106
         {
             int t = Channel.htUsers.Count;
             int[] ranking = new int[t];
-
             // Tính điểm cho từng thành viên
             for (int i = 0; i < t; i++)
             {
