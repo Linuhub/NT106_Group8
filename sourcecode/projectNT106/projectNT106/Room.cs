@@ -208,7 +208,6 @@ namespace projectNT106
         {
             int t = Channel.htUsers.Count;
             int[] ranking = new int[t];
-
             // Tính điểm cho từng thành viên
             for (int i = 0; i < t; i++)
             {
