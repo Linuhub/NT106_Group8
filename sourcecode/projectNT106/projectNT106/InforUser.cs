@@ -10,7 +10,7 @@ namespace projectNT106
     {
         private string IDUser;
         private string IDRoom;
-        private string avatar;
+        private int avatar;
         private int mark;
         private int rank;
         private double[] result = new double[21];
@@ -18,7 +18,6 @@ namespace projectNT106
         {
             IDRoom = idRoom;
             IDUser = idUser;
-            avatar = "";
             mark = 0;
             rank = 0;
         }
@@ -54,9 +53,9 @@ namespace projectNT106
                 }
             }
         }
-        public void setAvatar(string path)
+        public void setAvatar(int avt)
         {
-            avatar = path;
+            avatar = avt;
         }
         public void setRank(int topX)
         {
@@ -65,6 +64,10 @@ namespace projectNT106
         public int getRank()
         {
             return rank;
+        }
+        public int getAvt()
+        {
+            return avatar;
         }
     }
 }

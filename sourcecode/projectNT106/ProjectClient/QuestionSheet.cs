@@ -33,6 +33,7 @@ namespace ProjectClient
         public static string Rank2Result="";
         public static string Rank3Result="";
         public static int TotalRightAns=0;
+        private int avt = 0;
         private void RunTimer()
         {
             aTimer = new System.Windows.Forms.Timer();
@@ -132,6 +133,10 @@ namespace ProjectClient
             {            
                 srReceiver = new StreamReader(HomeClient.tcpServer.GetStream());
                 string check = srReceiver.ReadLine();
+                string[] addSuccess = check.Split(new char[] { '|' });
+                avt = int.Parse(addSuccess[1]);
+                ptbImage.Image = Image.FromFile("D:/UIT/HK4/NT106/Project/NT106_Group8/sourcecode/projectNT106/ProjectClient/bin/Debug/icon/icon" + avt.ToString() + ".png");
+                                
                 string Respon = srReceiver.ReadLine();
                 while (HomeClient.Connected)
                 {
@@ -385,6 +390,11 @@ namespace ProjectClient
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void ptbImage_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

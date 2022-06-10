@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.OleDb;
 using System.Drawing;
@@ -42,7 +43,7 @@ namespace projectNT106
             Random R = new Random();
             int icon = R.Next(1, 12);
             listView1.Items.Add("    " + mes, icon);
-            Room.infoUsers[Channel.htConnections.Count - 1].setAvatar(paths[icon]);
+            Room.infoUsers[Channel.htConnections.Count - 1].setAvatar(icon);
             this.txtNumMember.Text = Channel.htUsers.Count.ToString();
 
         }
@@ -51,6 +52,19 @@ namespace projectNT106
         {                     
             this.Invoke(new UpdateStatusCallback(this.UpdateStatus), new object[] { IDUserTemp });
         
+        }
+        void CreateCheckBoxGroup()
+        {
+            for (int i = 0; i < 20; i++)
+            {
+                CheckBox cb = new CheckBox();
+                cb.Text = (i + 1).ToString();
+                cb.Size = new Size(30, 30);
+                cb.TextAlign = ContentAlignment.MiddleCenter;
+                cb.Appearance = Appearance.Button;
+                flowLayoutPanel1.Controls.Add(cb);
+
+            }
         }
         private void Room_Load_1(object sender, EventArgs e)
         {
@@ -63,16 +77,7 @@ namespace projectNT106
 
             populate();
 
-            for (int i = 0; i < 20; i++)
-            {
-                CheckBox cb = new CheckBox();
-                cb.Text = (i + 1).ToString();
-                cb.Size = new Size(30, 30);
-                cb.TextAlign = ContentAlignment.MiddleCenter;
-                cb.Appearance = Appearance.Button;
-                flowLayoutPanel1.Controls.Add(cb);
-                
-            }
+            CreateCheckBoxGroup();
             
 
             // Đưa dữ liệu lên
@@ -126,7 +131,7 @@ namespace projectNT106
             try
             {
                 ListViewItem item = new ListViewItem();
-                IPAddress ipAddr = IPAddress.Parse("192.168.46.227"); 
+                IPAddress ipAddr = IPAddress.Parse("127.0.0.1"); 
 
                 mainServer = new Channel(ipAddr);
                 Channel.StatusChanged += new StatusChangedEventHandler(mainServer_StatusChanged);
@@ -187,7 +192,7 @@ namespace projectNT106
                 {
                     showAnswerTime = 0;
                     second = 0;
-                    if (index == 2)
+                    if (index == 5)
                     {
                         time.Stop();
                         MessageBox.Show("Finish!");
@@ -204,9 +209,22 @@ namespace projectNT106
         {
             
             string question = "";
+            List<int> listNumbers = new List<int>();
+            int number;
+            Random rand = new Random();
+            for (int i = 0; i < 6; i++)
+            {
+                do
+                {
+                    number = rand.Next(1, 49);
+                } while (listNumbers.Contains(number));
+                listNumbers.Add(number);
+                
+            }
+            int countNum = 0;
             foreach (DataColumn column in dt.Columns)
             {
-                question += dt.Rows[index][column].ToString() + '|';
+                question += dt.Rows[listNumbers[countNum++]][column].ToString() + '|';
             }
             string dataQuestion = "que" + '|' + RoomID + '|' + CreatorID + '|'
                                 + index.ToString() + '|' + question;
@@ -455,7 +473,7 @@ namespace projectNT106
                         continue;
                     }
                     swSenderSender = new StreamWriter(tcpClients[i].GetStream());
-                    swSenderSender.WriteLine(Message);
+                    swSenderSender.WriteLine(Message + '|' + Room.infoUsers[htUsers.Count].getAvt().ToString());
                     swSenderSender.Flush();
                     swSenderSender = null;
                 }
@@ -465,32 +483,7 @@ namespace projectNT106
                 }
             }
         }
-        //public static void SendMessage(string From, string Message)
-        //{
-        //    StreamWriter swSenderSender;
-        //    e = new StatusChangedEventArgs(From + ": " + Message);
-        //    OnStatusChanged(e);
-        //    TcpClient[] tcpClients = new TcpClient[Channel.htUsers.Count];
-        //    Channel.htUsers.Values.CopyTo(tcpClients, 0);
-        //    for (int i = 0; i < tcpClients.Length; i++)
-        //    {
-        //        try
-        //        {
-        //            if (Message.Trim() == "" || tcpClients[i] == null)
-        //            {
-        //                continue;
-        //            }
-        //            swSenderSender = new StreamWriter(tcpClients[i].GetStream());
-        //            swSenderSender.WriteLine(From + ": " + Message);
-        //            swSenderSender.Flush();
-        //            swSenderSender = null;
-        //        }
-        //        catch
-        //        {
-        //            RemoveUser(tcpClients[i]);
-        //        }
-        //    }
-        //}
+        
 
 
         public void StartListening()
