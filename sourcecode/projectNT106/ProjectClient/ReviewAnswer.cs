@@ -78,7 +78,7 @@ namespace ProjectClient
             {
                 txtC.BackColor = Color.Green;
             }
-            else if (QuestionSheet.QuestionList[n].RightAns == "Đáp án: B")
+            else if (QuestionSheet.QuestionList[n].RightAns == "Đáp án: D")
             {
                 txtD.BackColor = Color.Green;
             }
