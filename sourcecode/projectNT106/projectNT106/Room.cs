@@ -102,7 +102,6 @@ namespace projectNT106
             }
             dt = new DataTable();
             dar.Fill(dt);
-
         }
 
         private void populate()
