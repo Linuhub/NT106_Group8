@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.roundedPanel1 = new projectNT106.Graph.RoundedPanel();
-            this.button3 = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.btnStart = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -48,7 +47,6 @@
             // 
             this.roundedPanel1.Angle = 90F;
             this.roundedPanel1.BottomColor = System.Drawing.Color.Silver;
-            this.roundedPanel1.Controls.Add(this.button3);
             this.roundedPanel1.Controls.Add(this.textBox2);
             this.roundedPanel1.Controls.Add(this.btnStart);
             this.roundedPanel1.Controls.Add(this.button2);
@@ -64,22 +62,13 @@
             this.roundedPanel1.TabIndex = 0;
             this.roundedPanel1.TopColor = System.Drawing.Color.DarkSlateGray;
             // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(1042, 359);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(114, 34);
-            this.button3.TabIndex = 10;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.buttonX_Click);
-            // 
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(719, 56);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(100, 26);
             this.textBox2.TabIndex = 9;
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // btnStart
             // 
@@ -116,11 +105,11 @@
             this.btnLock.FlatAppearance.BorderSize = 0;
             this.btnLock.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLock.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnLock.Location = new System.Drawing.Point(929, 270);
+            this.btnLock.Location = new System.Drawing.Point(941, 269);
             this.btnLock.Name = "btnLock";
-            this.btnLock.Size = new System.Drawing.Size(61, 55);
+            this.btnLock.Size = new System.Drawing.Size(88, 55);
             this.btnLock.TabIndex = 5;
-            this.btnLock.Text = "Khóa";
+            this.btnLock.Text = "Lock";
             this.btnLock.UseVisualStyleBackColor = false;
             this.btnLock.Click += new System.EventHandler(this.btnLock_Click);
             // 
@@ -132,6 +121,7 @@
             this.txtNumMember.Name = "txtNumMember";
             this.txtNumMember.Size = new System.Drawing.Size(126, 38);
             this.txtNumMember.TabIndex = 4;
+            this.txtNumMember.TextChanged += new System.EventHandler(this.txtNumMember_TextChanged);
             // 
             // label2
             // 
@@ -145,6 +135,7 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Số người tham gia: ";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // panel1
             // 
@@ -153,6 +144,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(188, 41);
             this.panel1.TabIndex = 2;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // labelIDRoom
             // 
@@ -162,6 +154,7 @@
             this.labelIDRoom.Size = new System.Drawing.Size(118, 20);
             this.labelIDRoom.TabIndex = 0;
             this.labelIDRoom.Text = "ID phòng: abcd";
+            this.labelIDRoom.Click += new System.EventHandler(this.labelIDRoom_Click);
             // 
             // flowLayoutPanel1
             // 
@@ -184,6 +177,7 @@
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.SmallIcon;
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
             // Room
             // 
@@ -215,6 +209,5 @@
         private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button button3;
     }
 }

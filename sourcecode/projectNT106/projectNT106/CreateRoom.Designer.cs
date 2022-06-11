@@ -36,13 +36,9 @@
             this.txtRoomID = new System.Windows.Forms.TextBox();
             this.txtUserID = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.txtNumOfParticipant = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.gradientPanel1.SuspendLayout();
             this.roundedPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -54,7 +50,7 @@
             this.gradientPanel1.Controls.Add(this.roundedPanel1);
             this.gradientPanel1.Location = new System.Drawing.Point(-1, 0);
             this.gradientPanel1.Name = "gradientPanel1";
-            this.gradientPanel1.Size = new System.Drawing.Size(1376, 872);
+            this.gradientPanel1.Size = new System.Drawing.Size(735, 539);
             this.gradientPanel1.TabIndex = 0;
             this.gradientPanel1.TopColor = System.Drawing.Color.LightSkyBlue;
             this.gradientPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.gradientPanel1_Paint);
@@ -71,17 +67,13 @@
             this.roundedPanel1.Controls.Add(this.txtRoomID);
             this.roundedPanel1.Controls.Add(this.txtUserID);
             this.roundedPanel1.Controls.Add(this.label1);
-            this.roundedPanel1.Controls.Add(this.label6);
             this.roundedPanel1.Controls.Add(this.label2);
-            this.roundedPanel1.Controls.Add(this.textBox1);
             this.roundedPanel1.Controls.Add(this.label3);
-            this.roundedPanel1.Controls.Add(this.label7);
             this.roundedPanel1.Controls.Add(this.txtNumOfParticipant);
-            this.roundedPanel1.Controls.Add(this.textBox2);
             this.roundedPanel1.ForeColor = System.Drawing.Color.Black;
-            this.roundedPanel1.Location = new System.Drawing.Point(448, 116);
+            this.roundedPanel1.Location = new System.Drawing.Point(77, 42);
             this.roundedPanel1.Name = "roundedPanel1";
-            this.roundedPanel1.Size = new System.Drawing.Size(524, 443);
+            this.roundedPanel1.Size = new System.Drawing.Size(524, 386);
             this.roundedPanel1.TabIndex = 1;
             this.roundedPanel1.TopColor = System.Drawing.Color.Empty;
             // 
@@ -109,7 +101,7 @@
             this.btnCreate.BackColor = System.Drawing.Color.Gold;
             this.btnCreate.FlatAppearance.BorderSize = 0;
             this.btnCreate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCreate.Location = new System.Drawing.Point(209, 370);
+            this.btnCreate.Location = new System.Drawing.Point(210, 280);
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(121, 51);
             this.btnCreate.TabIndex = 7;
@@ -148,17 +140,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "ID phòng";
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(262, 265);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(13, 20);
-            this.label6.TabIndex = 6;
-            this.label6.Text = ":";
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -169,15 +150,6 @@
             this.label2.Size = new System.Drawing.Size(115, 20);
             this.label2.TabIndex = 1;
             this.label2.Text = "Số người tối đa";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(283, 262);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(47, 26);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.Text = "00";
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label3
             // 
@@ -190,18 +162,6 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Chọn gói câu hỏi";
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(54, 248);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(120, 40);
-            this.label7.TabIndex = 5;
-            this.label7.Text = "Thời gian tối đa \r\nmột câu";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // txtNumOfParticipant
             // 
             this.txtNumOfParticipant.Location = new System.Drawing.Point(209, 141);
@@ -211,20 +171,11 @@
             this.txtNumOfParticipant.TabIndex = 3;
             this.txtNumOfParticipant.Text = "10";
             // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(209, 262);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(47, 26);
-            this.textBox2.TabIndex = 0;
-            this.textBox2.Text = "01";
-            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // CreateRoom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1370, 852);
+            this.ClientSize = new System.Drawing.Size(700, 520);
             this.Controls.Add(this.gradientPanel1);
             this.Name = "CreateRoom";
             this.Text = "CreateRoom";
@@ -242,13 +193,9 @@
         private Graph.RoundedPanel roundedPanel1;
         private System.Windows.Forms.TextBox txtRoomID;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtNumOfParticipant;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button btnCreate;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtUserID;

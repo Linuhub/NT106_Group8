@@ -19,7 +19,9 @@ namespace projectNT106
         public static string IDUserTemp = "";
         private string CreatorID;
         private string QuestionPack;
+        public static int numParticipant;
         public static bool isFull = false;
+        public static bool isLock = false;
         String[] paths = { };
         public Channel mainServer;
         public OleDbConnection cnn;
@@ -29,14 +31,14 @@ namespace projectNT106
         public System.Timers.Timer time;
         public static InforUser[] infoUsers = new InforUser[10];
         private delegate void UpdateStatusCallback(string strMessage);
-        
 
-        public Room(string Room, string Creator, string quesPack)
+        public Room(string Room, string Creator, string quesPack, string NumParticipant)
         {
             InitializeComponent();
             RoomID = Room;
             CreatorID = Creator;
             QuestionPack = quesPack;
+            numParticipant = int.Parse(NumParticipant);
         }
         public void UpdateStatus(string mes)
         {
@@ -160,6 +162,11 @@ namespace projectNT106
         // Bắt đầu thi
         private void btnStart_Click(object sender, EventArgs e)
         {
+            if (Channel.htUsers.Count == 0)
+            {
+                MessageBox.Show("The room is empty!");
+                return;
+            }
             btnStart.Enabled = false;
             button2.Enabled = false;
             time = new System.Timers.Timer();
@@ -192,7 +199,7 @@ namespace projectNT106
                 {
                     showAnswerTime = 0;
                     second = 0;
-                    if (index == 5)
+                    if (index == 1)
                     {
                         time.Stop();
                         MessageBox.Show("Finish!");
@@ -203,7 +210,24 @@ namespace projectNT106
             }));
             
         }
-
+        void CheckCodeQuestion(ref int start, ref int end)
+        {
+            if (QuestionPack == "Câu hỏi kiến thức luật")
+            {
+                start = 0;
+                end = 99;
+            }
+            else if (QuestionPack == "Câu hỏi biển báo")
+            {
+                start = 100;
+                end = 164;
+            }
+            else
+            {
+                start = 165;
+                end = 199;
+            }
+        }
         // Gửi câu hỏi
         public void SendQuestion()
         {
@@ -211,20 +235,25 @@ namespace projectNT106
             string question = "";
             List<int> listNumbers = new List<int>();
             int number;
+            int startQuestion = 0;
+            int endQuestion = 0;
+
+            CheckCodeQuestion(ref startQuestion, ref endQuestion);
+            
             Random rand = new Random();
             for (int i = 0; i < 6; i++)
             {
                 do
                 {
-                    number = rand.Next(1, 49);
+                    number = rand.Next(startQuestion, endQuestion);
                 } while (listNumbers.Contains(number));
                 listNumbers.Add(number);
                 
             }
-            int countNum = 0;
             foreach (DataColumn column in dt.Columns)
             {
-                question += dt.Rows[listNumbers[countNum++]][column].ToString() + '|';
+                question += dt.Rows[listNumbers[index]][column].ToString() + '|';
+
             }
             string dataQuestion = "que" + '|' + RoomID + '|' + CreatorID + '|'
                                 + index.ToString() + '|' + question;
@@ -363,13 +392,19 @@ namespace projectNT106
             swSender = null;
             MessageBox.Show(Room.infoUsers[index].getIDUser() + rank);
 
-        }
-        
-        
-
+        }        
         private void btnLock_Click(object sender, EventArgs e)
         {
-            isFull = true;
+            if (!isLock)
+            {
+                isLock = true;
+                btnLock.Text = "Unlock";
+            } 
+            else
+            {
+                isLock = false;
+                btnLock.Text = "Lock";
+            }
         }
 
         private void buttonX_Click(object sender, EventArgs e)
@@ -377,6 +412,41 @@ namespace projectNT106
             string aqr = sender.ToString().Split(',')[1];
             string tre = aqr.Substring(7);
             MessageBox.Show(tre);
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtNumMember_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void labelIDRoom_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 
@@ -438,7 +508,10 @@ namespace projectNT106
                 }
             }
             SendAdminMessage(htConnections[tcpUser] + "");
-            
+            if (Room.numParticipant == Channel.htConnections.Count)
+            {
+                Room.isFull = true;
+            }
         }
         
         public static void RemoveUser(TcpClient tcpUser)
@@ -473,7 +546,7 @@ namespace projectNT106
                         continue;
                     }
                     swSenderSender = new StreamWriter(tcpClients[i].GetStream());
-                    swSenderSender.WriteLine(Message + '|' + Room.infoUsers[htUsers.Count].getAvt().ToString());
+                    swSenderSender.WriteLine(Message);
                     swSenderSender.Flush();
                     swSenderSender = null;
                 }
@@ -533,7 +606,7 @@ namespace projectNT106
             swSender.Close();
         }
 
-        public void slpitID(string message)
+        public void splitID(string message)
         {
             string[] text = message.Split('|');
             instruction = text[0];
@@ -552,7 +625,7 @@ namespace projectNT106
             srReceiver = new System.IO.StreamReader(tcpClient.GetStream());
             swSender = new System.IO.StreamWriter(tcpClient.GetStream());      
             strResponse = srReceiver.ReadLine();
-            slpitID(strResponse);
+            splitID(strResponse);
             if (instruction == "add")
             {
                 if (Room.IDRoomUser != Room.RoomID)
@@ -572,18 +645,25 @@ namespace projectNT106
                         _isExists = true;
                         return;
                     }
-                    else if (!Room.isFull)
+                    else if (Room.isLock)
                     {
-                        swSender.WriteLine("1");
+                        swSender.WriteLine("0|This room is lock.");
                         swSender.Flush();
-                        Channel.AddUser(tcpClient, Room.IDUserTemp);
+                        CloseConnection();
+                        return;
                     }
-                    else
+                    else if (Room.isFull)
                     {
                         swSender.WriteLine("0|This room is full.");
                         swSender.Flush();
                         CloseConnection();
                         return;
+                    }
+                    else
+                    {
+                        swSender.WriteLine("1");
+                        swSender.Flush();
+                        Channel.AddUser(tcpClient, Room.IDUserTemp);                        
                     }
                     
                 }
@@ -605,7 +685,7 @@ namespace projectNT106
                     }
                     else
                     {
-                        slpitID(strResponse);
+                        splitID(strResponse);
                         if (instruction == "ans")
                         {
                             for (int i = 0; i < Channel.htConnections.Count; i++)

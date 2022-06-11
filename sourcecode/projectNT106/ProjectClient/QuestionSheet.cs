@@ -133,9 +133,9 @@ namespace ProjectClient
             {            
                 srReceiver = new StreamReader(HomeClient.tcpServer.GetStream());
                 string check = srReceiver.ReadLine();
-                string[] addSuccess = check.Split(new char[] { '|' });
-                avt = int.Parse(addSuccess[1]);
-                ptbImage.Image = Image.FromFile("D:/UIT/HK4/NT106/Project/NT106_Group8/sourcecode/projectNT106/ProjectClient/bin/Debug/icon/icon" + avt.ToString() + ".png");
+                //string[] addSuccess = check.Split(new char[] { '|' });
+                //avt = int.Parse(addSuccess[1]);
+                //ptbImage.Image = Image.FromFile("D:/UIT/HK4/NT106/Project/NT106_Group8/sourcecode/projectNT106/ProjectClient/bin/Debug/icon/icon" + avt.ToString() + ".png");
                                 
                 string Respon = srReceiver.ReadLine();
                 while (HomeClient.Connected)
@@ -223,7 +223,7 @@ namespace ProjectClient
         
         public void showImg()
         {
-            Image img = Image.FromFile("D:/LapTrinhMangCB/DoAn/NT106_Group8/sourcecode/projectNT106/ProjectClient/bin/Debug/Image_ThiLaiXe/" + QuesContent[4] + ".png");
+            Image img = Image.FromFile("D:/UIT/HK4/NT106/Project/NT106_Group8/sourcecode/projectNT106/ProjectClient/bin/Debug/Image_ThiLaiXe/" + QuesContent[4] + ".png");
             ptbImage.Image = img;
         }
         private void AddQuestionList(int i, string ans)
@@ -238,7 +238,7 @@ namespace ProjectClient
             QuestionList[i].RightAns = QuesContent[10];
             if (QuesContent[12]=="img")
             {
-                QuestionList[i].QuestionPic= "D:/LapTrinhMangCB/DoAn/NT106_Group8/sourcecode/projectNT106/ProjectClient/bin/Debug/Image_ThiLaiXe/" + QuesContent[4] + ".png";
+                QuestionList[i].QuestionPic= "D:/UIT/HK4/NT106/Project/NT106_Group8/sourcecode/projectNT106/ProjectClient/bin/Debug/Image_ThiLaiXe/" + QuesContent[4] + ".png";
             }
         }
 
@@ -308,7 +308,7 @@ namespace ProjectClient
             {
                 btnC.BackColor = Color.Green;
             }
-            else if (QuesContent[10] == "Đáp án: B")
+            else if (QuesContent[10] == "Đáp án: D")
             {
                 btnD.BackColor = Color.Green;
             }
@@ -396,9 +396,6 @@ namespace ProjectClient
             this.Close();
         }
 
-        private void ptbImage_Click(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }

@@ -52,7 +52,7 @@ namespace projectNT106
             }
             else
             {
-                Form room = new Room(IDRoom, txtUserID.Text, cbQuestionPackage.Text);
+                Form room = new Room(IDRoom, txtUserID.Text, cbQuestionPackage.Text, txtNumOfParticipant.Text);
                 room.Show();
             }
         
