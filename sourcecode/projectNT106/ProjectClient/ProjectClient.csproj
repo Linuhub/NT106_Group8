@@ -62,12 +62,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Question.cs" />
-    <Compile Include="CreateRoom.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CreateRoom.Designer.cs">
-      <DependentUpon>CreateRoom.cs</DependentUpon>
-    </Compile>
     <Compile Include="Graph\GradientPanel.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -107,13 +101,9 @@
     <Compile Include="Revision.Designer.cs">
       <DependentUpon>Revision.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="CreateRoom.resx">
-      <DependentUpon>CreateRoom.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="HomeClient.resx">
       <DependentUpon>HomeClient.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="obj\Debug\ProjectClient.CreateRoom.resources" />
     <EmbeddedResource Include="obj\Debug\ProjectClient.HomeClient.resources" />
     <EmbeddedResource Include="obj\Debug\ProjectClient.Properties.Resources.resources" />
     <EmbeddedResource Include="obj\Debug\ProjectClient.QuestionSheet.resources" />

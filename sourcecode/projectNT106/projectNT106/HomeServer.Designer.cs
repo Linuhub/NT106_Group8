@@ -39,6 +39,7 @@
             // 
             // gradientPanel1
             // 
+            this.gradientPanel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.gradientPanel1.Angle = 90F;
             this.gradientPanel1.BottomColor = System.Drawing.Color.Transparent;
             this.gradientPanel1.Controls.Add(this.btnManageQuestionList);
@@ -54,6 +55,7 @@
             // 
             // btnManageQuestionList
             // 
+            this.btnManageQuestionList.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnManageQuestionList.BackColor = System.Drawing.Color.SteelBlue;
             this.btnManageQuestionList.FlatAppearance.BorderSize = 0;
             this.btnManageQuestionList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -68,6 +70,7 @@
             // 
             // label2
             // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Comic Sans MS", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -80,6 +83,7 @@
             // 
             // btnCreateRoom
             // 
+            this.btnCreateRoom.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnCreateRoom.BackColor = System.Drawing.Color.SteelBlue;
             this.btnCreateRoom.FlatAppearance.BorderSize = 0;
             this.btnCreateRoom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -94,6 +98,7 @@
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Showcard Gothic", 48F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

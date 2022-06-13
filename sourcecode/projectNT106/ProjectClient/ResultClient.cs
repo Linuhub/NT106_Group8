@@ -42,6 +42,7 @@ namespace ProjectClient
             }
             else
             {
+                ptbMyAvt.Image = Image.FromFile("D:/UIT/HK4/NT106/Project/NT106_Group8/sourcecode/projectNT106/ProjectClient/bin/Debug/icon/icon" + QuestionSheet.ReceivedAvt(QuestionSheet.myAvt) + ".png");
                 MyResultInfo = GetPlayerResult(QuestionSheet.MyResult);
                 txtMyPoint.Text = "Điểm\r\n" + MyResultInfo[3];
                 txtMyRank.Text = "Xếp hạng: " + MyResultInfo[4];
@@ -55,6 +56,7 @@ namespace ProjectClient
             }
             else
             {
+                ptbAvtTop1.Image = Image.FromFile("D:/UIT/HK4/NT106/Project/NT106_Group8/sourcecode/projectNT106/ProjectClient/bin/Debug/icon/icon" + QuestionSheet.ReceivedAvt(QuestionSheet.avtTop1) + ".png");
                 Rank1Info = GetPlayerResult(QuestionSheet.Rank1Result);
                 labelRank1ID.Text = Rank1Info[2];
                 labelRank1Point.Text = "Điểm: " + Rank1Info[3];
@@ -66,6 +68,7 @@ namespace ProjectClient
             }
             else
             {
+                ptbAvtTop2.Image = Image.FromFile("D:/UIT/HK4/NT106/Project/NT106_Group8/sourcecode/projectNT106/ProjectClient/bin/Debug/icon/icon" + QuestionSheet.ReceivedAvt(QuestionSheet.avtTop2) + ".png");
                 Rank2Info = GetPlayerResult(QuestionSheet.Rank2Result);
                 labelRank2ID.Text = Rank2Info[2];
                 labelRank2Point.Text = "Điểm: " + Rank2Info[3];
@@ -77,6 +80,7 @@ namespace ProjectClient
             }
             else
             {
+                ptbAvtTop3.Image = Image.FromFile("D:/UIT/HK4/NT106/Project/NT106_Group8/sourcecode/projectNT106/ProjectClient/bin/Debug/icon/icon" + QuestionSheet.ReceivedAvt(QuestionSheet.avtTop3) + ".png");
                 Rank3Info = GetPlayerResult(QuestionSheet.Rank3Result);
                 labelRank3ID.Text = Rank3Info[2];
                 labelRank3Point.Text = "Điểm: " + Rank3Info[3];

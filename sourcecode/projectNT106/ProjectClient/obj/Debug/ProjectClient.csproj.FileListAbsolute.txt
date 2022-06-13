@@ -7,7 +7,6 @@ D:\UIT\HK4\NT106\Project\NT106_Group8\sourcecode\projectNT106\ProjectClient\obj\
 D:\UIT\HK4\NT106\Project\NT106_Group8\sourcecode\projectNT106\ProjectClient\bin\Debug\ProjectClient.exe.config
 D:\UIT\HK4\NT106\Project\NT106_Group8\sourcecode\projectNT106\ProjectClient\bin\Debug\ProjectClient.exe
 D:\UIT\HK4\NT106\Project\NT106_Group8\sourcecode\projectNT106\ProjectClient\bin\Debug\ProjectClient.pdb
-D:\UIT\HK4\NT106\Project\NT106_Group8\sourcecode\projectNT106\ProjectClient\obj\Debug\ProjectClient.CreateRoom.resources
 D:\UIT\HK4\NT106\Project\NT106_Group8\sourcecode\projectNT106\ProjectClient\obj\Debug\ProjectClient.exe
 D:\UIT\HK4\NT106\Project\NT106_Group8\sourcecode\projectNT106\ProjectClient\obj\Debug\ProjectClient.pdb
 D:\UIT\HK4\NT106\Project\NT106_Group8\sourcecode\projectNT106\ProjectClient\obj\Debug\ProjectClient.QuestionSheet.resources

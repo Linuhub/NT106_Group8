@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Room));
             this.roundedPanel1 = new projectNT106.Graph.RoundedPanel();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.btnStart = new System.Windows.Forms.Button();
@@ -45,6 +46,7 @@
             // 
             // roundedPanel1
             // 
+            this.roundedPanel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.roundedPanel1.Angle = 90F;
             this.roundedPanel1.BottomColor = System.Drawing.Color.Silver;
             this.roundedPanel1.Controls.Add(this.textBox2);
@@ -183,6 +185,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1184, 528);
             this.Controls.Add(this.roundedPanel1);
             this.Name = "Room";

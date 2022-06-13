@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btn_Insert = new System.Windows.Forms.Button();
-            this.btn_Clear = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.tb_Dapandung = new System.Windows.Forms.TextBox();
@@ -57,32 +55,9 @@
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // btn_Insert
-            // 
-            this.btn_Insert.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.btn_Insert.Location = new System.Drawing.Point(1143, 602);
-            this.btn_Insert.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btn_Insert.Name = "btn_Insert";
-            this.btn_Insert.Size = new System.Drawing.Size(112, 50);
-            this.btn_Insert.TabIndex = 42;
-            this.btn_Insert.Text = "Insert";
-            this.btn_Insert.UseVisualStyleBackColor = true;
-            this.btn_Insert.Click += new System.EventHandler(this.btn_Insert_Click);
-            // 
-            // btn_Clear
-            // 
-            this.btn_Clear.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.btn_Clear.Location = new System.Drawing.Point(1004, 602);
-            this.btn_Clear.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btn_Clear.Name = "btn_Clear";
-            this.btn_Clear.Size = new System.Drawing.Size(112, 50);
-            this.btn_Clear.TabIndex = 41;
-            this.btn_Clear.Text = "Clear";
-            this.btn_Clear.UseVisualStyleBackColor = true;
-            this.btn_Clear.Click += new System.EventHandler(this.btn_Clear_Click);
-            // 
             // pictureBox1
             // 
+            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox1.Location = new System.Drawing.Point(845, 44);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -94,6 +69,7 @@
             // 
             // label4
             // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
             this.label4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label4.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -105,6 +81,7 @@
             // 
             // tb_Dapandung
             // 
+            this.tb_Dapandung.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tb_Dapandung.Location = new System.Drawing.Point(995, 561);
             this.tb_Dapandung.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tb_Dapandung.Name = "tb_Dapandung";
@@ -113,6 +90,7 @@
             // 
             // label11
             // 
+            this.label11.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label11.AutoSize = true;
             this.label11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label11.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -124,6 +102,7 @@
             // 
             // tb_Cauhoi
             // 
+            this.tb_Cauhoi.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tb_Cauhoi.Location = new System.Drawing.Point(995, 385);
             this.tb_Cauhoi.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tb_Cauhoi.Name = "tb_Cauhoi";
@@ -132,6 +111,7 @@
             // 
             // label10
             // 
+            this.label10.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label10.AutoSize = true;
             this.label10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label10.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -143,6 +123,7 @@
             // 
             // tb_DapanA
             // 
+            this.tb_DapanA.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tb_DapanA.Location = new System.Drawing.Point(995, 420);
             this.tb_DapanA.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tb_DapanA.Name = "tb_DapanA";
@@ -151,6 +132,7 @@
             // 
             // label9
             // 
+            this.label9.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label9.AutoSize = true;
             this.label9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label9.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -162,6 +144,7 @@
             // 
             // tb_DapanB
             // 
+            this.tb_DapanB.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tb_DapanB.Location = new System.Drawing.Point(995, 455);
             this.tb_DapanB.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tb_DapanB.Name = "tb_DapanB";
@@ -170,6 +153,7 @@
             // 
             // label8
             // 
+            this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label8.AutoSize = true;
             this.label8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label8.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -181,6 +165,7 @@
             // 
             // tb_DapanC
             // 
+            this.tb_DapanC.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tb_DapanC.Location = new System.Drawing.Point(995, 489);
             this.tb_DapanC.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tb_DapanC.Name = "tb_DapanC";
@@ -189,6 +174,7 @@
             // 
             // tb_DapanD
             // 
+            this.tb_DapanD.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tb_DapanD.Location = new System.Drawing.Point(995, 525);
             this.tb_DapanD.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tb_DapanD.Name = "tb_DapanD";
@@ -197,6 +183,7 @@
             // 
             // label3
             // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -208,8 +195,9 @@
             // 
             // tbn_Update
             // 
+            this.tbn_Update.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tbn_Update.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.tbn_Update.Location = new System.Drawing.Point(864, 602);
+            this.tbn_Update.Location = new System.Drawing.Point(1035, 602);
             this.tbn_Update.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbn_Update.Name = "tbn_Update";
             this.tbn_Update.Size = new System.Drawing.Size(112, 50);
@@ -220,6 +208,7 @@
             // 
             // tb_Stt
             // 
+            this.tb_Stt.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tb_Stt.Enabled = false;
             this.tb_Stt.Location = new System.Drawing.Point(995, 350);
             this.tb_Stt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -229,6 +218,7 @@
             // 
             // label2
             // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(114, 48);
             this.label2.Name = "label2";
@@ -238,6 +228,7 @@
             // 
             // comboBox1
             // 
+            this.comboBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.comboBox1.DropDownHeight = 100;
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
@@ -255,6 +246,7 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(28, 131);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -270,6 +262,7 @@
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(116, 93);
             this.label1.Name = "label1";
@@ -279,6 +272,7 @@
             // 
             // tb_macauhoi
             // 
+            this.tb_macauhoi.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tb_macauhoi.Location = new System.Drawing.Point(270, 89);
             this.tb_macauhoi.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tb_macauhoi.Name = "tb_macauhoi";
@@ -288,6 +282,7 @@
             // 
             // label7
             // 
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label7.AutoSize = true;
             this.label7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label7.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -299,8 +294,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.btn_Insert);
-            this.groupBox1.Controls.Add(this.btn_Clear);
+            this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.tb_Dapandung);
@@ -336,6 +330,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1372, 715);
             this.Controls.Add(this.groupBox1);
             this.Name = "QuestionSource";
@@ -351,8 +346,6 @@
         #endregion
 
         private GradientPanel gradientPanel1;
-        private System.Windows.Forms.Button btn_Insert;
-        private System.Windows.Forms.Button btn_Clear;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox tb_Dapandung;

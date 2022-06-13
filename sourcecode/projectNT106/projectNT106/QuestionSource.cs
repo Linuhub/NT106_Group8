@@ -114,39 +114,39 @@ namespace projectNT106
             else pictureBox1.ImageLocation = null;
         }
 
-        private void btn_Clear_Click(object sender, EventArgs e)
-        {
-            tb_Stt.Clear();
-            tb_Cauhoi.Clear();
-            tb_DapanA.Clear();
-            tb_DapanB.Clear();
-            tb_DapanC.Clear();
-            tb_DapanD.Clear();
-            tb_Dapandung.Clear();
-        }
+        //private void btn_Clear_Click(object sender, EventArgs e)
+        //{
+        //    tb_Stt.Clear();
+        //    tb_Cauhoi.Clear();
+        //    tb_DapanA.Clear();
+        //    tb_DapanB.Clear();
+        //    tb_DapanC.Clear();
+        //    tb_DapanD.Clear();
+        //    tb_Dapandung.Clear();
+        //}
 
         int LastNum = 201;
-        private void btn_Insert_Click(object sender, EventArgs e)
-        {
-            tb_Stt.Text = Convert.ToString(LastNum);
-            con = new OleDbConnection(cs);
-            string query = "INSERT INTO " + str2 + " ([STT], [Câu hỏi], [Đáp án A], [Đáp án B], [Đáp án C], [Đáp án D], [Đáp án đúng]) VALUES"
-                + "(@stt,@cauhoi,@dapanA,@dapanB,@dapanC,@dapanD,@dapandung)";
-            cmd = new OleDbCommand(query, con);
-            cmd.Parameters.AddWithValue("@stt", Convert.ToInt32(tb_Stt.Text));
-            cmd.Parameters.AddWithValue("@cauhoi", tb_Cauhoi.Text);
-            cmd.Parameters.AddWithValue("@dapanA", tb_DapanA.Text);
-            cmd.Parameters.AddWithValue("@dapanB", tb_DapanB.Text);
-            cmd.Parameters.AddWithValue("@dapanC", tb_DapanC.Text);
-            cmd.Parameters.AddWithValue("@dapanD", tb_DapanD.Text);
-            cmd.Parameters.AddWithValue("@dapandung", tb_Dapandung.Text);
-            con.Open();
-            cmd.ExecuteNonQuery();
-            con.Close();
-            MessageBox.Show("Insert Success.");
-            GetData();
-            LastNum++;
-        }
+        //private void btn_Insert_Click(object sender, EventArgs e)
+        //{
+        //    tb_Stt.Text = Convert.ToString(LastNum);
+        //    con = new OleDbConnection(cs);
+        //    string query = "INSERT INTO " + str2 + " ([STT], [Câu hỏi], [Đáp án A], [Đáp án B], [Đáp án C], [Đáp án D], [Đáp án đúng]) VALUES"
+        //        + "(@stt,@cauhoi,@dapanA,@dapanB,@dapanC,@dapanD,@dapandung)";
+        //    cmd = new OleDbCommand(query, con);
+        //    cmd.Parameters.AddWithValue("@stt", Convert.ToInt32(tb_Stt.Text));
+        //    cmd.Parameters.AddWithValue("@cauhoi", tb_Cauhoi.Text);
+        //    cmd.Parameters.AddWithValue("@dapanA", tb_DapanA.Text);
+        //    cmd.Parameters.AddWithValue("@dapanB", tb_DapanB.Text);
+        //    cmd.Parameters.AddWithValue("@dapanC", tb_DapanC.Text);
+        //    cmd.Parameters.AddWithValue("@dapanD", tb_DapanD.Text);
+        //    cmd.Parameters.AddWithValue("@dapandung", tb_Dapandung.Text);
+        //    con.Open();
+        //    cmd.ExecuteNonQuery();
+        //    con.Close();
+        //    MessageBox.Show("Insert Success.");
+        //    GetData();
+        //    LastNum++;
+        //}
 
         private void dataGridView1_CellEnter(object sender, DataGridViewCellEventArgs e)
         {

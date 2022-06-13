@@ -367,8 +367,10 @@ namespace projectNT106
                     {
                         if (Room.infoUsers[j].getRank() == i + 1)
                         {
-                            rankTopX = "rak" + '|' + RoomID + '|' + Room.infoUsers[j].getIDUser() + '|' +
-                                     Room.infoUsers[j].getMark().ToString() + '|' + Room.infoUsers[j].getRank().ToString();
+                            rankTopX = "rak" + '|' + RoomID + '|' + Room.infoUsers[j].getIDUser() + '|' +                                                                            
+                                        Room.infoUsers[j].getMark().ToString() + 
+                                        '|' + Room.infoUsers[j].getRank().ToString() +
+                                        Room.infoUsers[j].getAvt().ToString() ;
                             swSender.WriteLine(rankTopX);
                             swSender.Flush();
                             swSender = null;
@@ -510,7 +512,7 @@ namespace projectNT106
                     break;
                 }
             }
-            SendAdminMessage(htConnections[tcpUser] + "");
+            SendAdminMessage(htConnections[tcpUser] + "|");
             if (Room.numParticipant == Channel.htConnections.Count)
             {
                 Room.isFull = true;
@@ -549,6 +551,7 @@ namespace projectNT106
                         continue;
                     }
                     swSenderSender = new StreamWriter(tcpClients[i].GetStream());
+                    Message += Room.infoUsers[htConnections.Count - 1].getAvt().ToString();
                     swSenderSender.WriteLine(Message);
                     swSenderSender.Flush();
                     swSenderSender = null;

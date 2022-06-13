@@ -33,7 +33,10 @@ namespace ProjectClient
         public static string Rank2Result="";
         public static string Rank3Result="";
         public static int TotalRightAns=0;
-        private int avt = 0;
+        public static int myAvt = 0;
+        public static int avtTop1 = 0;
+        public static int avtTop2 = 0;
+        public static int avtTop3 = 0;
         private void RunTimer()
         {
             aTimer = new System.Windows.Forms.Timer();
@@ -127,15 +130,28 @@ namespace ProjectClient
             }
             return s;
         }
+        public static string ReceivedAvt(int avt)
+        {
+            avt++;
+            if (avt <= 9)
+            {
+                return "0" + avt.ToString();
+            }
+            else
+            {
+                return avt.ToString();
+            }            
+            
+        }
         private void ReceiveMessage()
         {
             try
             {            
                 srReceiver = new StreamReader(HomeClient.tcpServer.GetStream());
                 string check = srReceiver.ReadLine();
-                //string[] addSuccess = check.Split(new char[] { '|' });
-                //avt = int.Parse(addSuccess[1]);
-                //ptbImage.Image = Image.FromFile("D:/UIT/HK4/NT106/Project/NT106_Group8/sourcecode/projectNT106/ProjectClient/bin/Debug/icon/icon" + avt.ToString() + ".png");
+                string[] addSuccess = check.Split(new char[] { '|' });
+                myAvt = int.Parse(addSuccess[1]);
+                ptbImage.Image = Image.FromFile("D:/UIT/HK4/NT106/Project/NT106_Group8/sourcecode/projectNT106/ProjectClient/bin/Debug/icon/icon" + ReceivedAvt(myAvt) + ".png");
                                 
                 string Respon = srReceiver.ReadLine();
                 while (HomeClient.Connected)
@@ -185,27 +201,33 @@ namespace ProjectClient
                                 if (QuesContent[4] == "1")
                                 {
                                     Rank1Result = Respon;
+                                    avtTop1 = int.Parse(QuesContent[5]);
                                     //MessageBox.Show(HomeClient.UserName + " rev:" + Rank1Result);
                                 }
                                 else if (QuesContent[4] == "2")
                                 {
+                                    avtTop2 = int.Parse(QuesContent[5]);
                                     Rank2Result = Respon;
                                 }
                                 else if (QuesContent[4] == "3")
                                 {
+                                    avtTop3 = int.Parse(QuesContent[5]);
                                     Rank3Result = Respon;
                                 }
                             }
                             else if (QuesContent[4] == "1")
                             {
+                                avtTop1 = int.Parse(QuesContent[5]);
                                 Rank1Result = Respon;
                             }
                             else if (QuesContent[4] == "2")
                             {
+                                avtTop2 = int.Parse(QuesContent[5]);
                                 Rank2Result = Respon;
                             }
                             else if (QuesContent[4] == "3")
                             {
+                                avtTop3 = int.Parse(QuesContent[5]);
                                 Rank3Result = Respon;
                             }
                         }
