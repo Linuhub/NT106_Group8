@@ -40,6 +40,7 @@
             this.labelRank1ID = new System.Windows.Forms.Label();
             this.ptbAvtTop1 = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.ptbMyAvt = new System.Windows.Forms.PictureBox();
             this.label8 = new System.Windows.Forms.Label();
             this.txtMyRank = new System.Windows.Forms.TextBox();
             this.txtMyPoint = new System.Windows.Forms.TextBox();
@@ -59,7 +60,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.txtRoomID = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.ptbMyAvt = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbAvtTop3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -67,6 +67,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbAvtTop1)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbMyAvt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
@@ -74,7 +75,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             this.panel3.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbMyAvt)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox6
@@ -198,6 +198,17 @@
             this.groupBox1.Size = new System.Drawing.Size(746, 224);
             this.groupBox1.TabIndex = 36;
             this.groupBox1.TabStop = false;
+            // 
+            // ptbMyAvt
+            // 
+            this.ptbMyAvt.BackColor = System.Drawing.Color.Transparent;
+            this.ptbMyAvt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ptbMyAvt.Location = new System.Drawing.Point(30, 77);
+            this.ptbMyAvt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ptbMyAvt.Name = "ptbMyAvt";
+            this.ptbMyAvt.Size = new System.Drawing.Size(163, 118);
+            this.ptbMyAvt.TabIndex = 25;
+            this.ptbMyAvt.TabStop = false;
             // 
             // label8
             // 
@@ -406,17 +417,6 @@
             this.groupBox2.TabIndex = 37;
             this.groupBox2.TabStop = false;
             // 
-            // ptbMyAvt
-            // 
-            this.ptbMyAvt.BackColor = System.Drawing.Color.Transparent;
-            this.ptbMyAvt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ptbMyAvt.Location = new System.Drawing.Point(30, 77);
-            this.ptbMyAvt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.ptbMyAvt.Name = "ptbMyAvt";
-            this.ptbMyAvt.Size = new System.Drawing.Size(163, 118);
-            this.ptbMyAvt.TabIndex = 25;
-            this.ptbMyAvt.TabStop = false;
-            // 
             // ResultClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -439,6 +439,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.groupBox2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "ResultClient";
             this.Text = "ResultClient";
@@ -451,6 +452,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.ptbAvtTop1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbMyAvt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
@@ -459,7 +461,6 @@
             this.panel3.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbMyAvt)).EndInit();
             this.ResumeLayout(false);
 
         }

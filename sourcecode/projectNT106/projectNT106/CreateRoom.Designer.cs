@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CreateRoom));
             this.gradientPanel1 = new projectNT106.GradientPanel();
             this.roundedPanel1 = new projectNT106.Graph.RoundedPanel();
             this.cbQuestionPackage = new System.Windows.Forms.ComboBox();
@@ -192,6 +193,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(681, 520);
             this.Controls.Add(this.gradientPanel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CreateRoom";
             this.Text = "CreateRoom";
             this.Load += new System.EventHandler(this.CreateRoom_Load);

@@ -117,6 +117,7 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1368, 687);
             this.Controls.Add(this.gradientPanel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "HomeServer";
             this.Text = "HomeServer";
             this.Load += new System.EventHandler(this.HomeServer_Load);

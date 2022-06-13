@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Revision));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -35,11 +36,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tb_macauhoi = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtQuestion = new System.Windows.Forms.RichTextBox();
             this.txtD = new System.Windows.Forms.TextBox();
             this.txtC = new System.Windows.Forms.TextBox();
             this.txtB = new System.Windows.Forms.TextBox();
             this.txtA = new System.Windows.Forms.TextBox();
-            this.txtQuestion = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -47,6 +48,7 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox1.Location = new System.Drawing.Point(862, 363);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -58,6 +60,7 @@
             // 
             // label2
             // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(44, 47);
             this.label2.Name = "label2";
@@ -67,6 +70,7 @@
             // 
             // comboBox1
             // 
+            this.comboBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.comboBox1.DropDownHeight = 100;
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
@@ -84,6 +88,7 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(45, 131);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -98,6 +103,7 @@
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(46, 92);
             this.label1.Name = "label1";
@@ -107,6 +113,7 @@
             // 
             // tb_macauhoi
             // 
+            this.tb_macauhoi.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tb_macauhoi.Location = new System.Drawing.Point(214, 89);
             this.tb_macauhoi.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tb_macauhoi.Name = "tb_macauhoi";
@@ -116,6 +123,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.groupBox1.Controls.Add(this.txtQuestion);
             this.groupBox1.Controls.Add(this.txtD);
             this.groupBox1.Controls.Add(this.txtC);
@@ -137,8 +145,18 @@
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             // 
+            // txtQuestion
+            // 
+            this.txtQuestion.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtQuestion.Location = new System.Drawing.Point(862, 131);
+            this.txtQuestion.Name = "txtQuestion";
+            this.txtQuestion.Size = new System.Drawing.Size(677, 212);
+            this.txtQuestion.TabIndex = 45;
+            this.txtQuestion.Text = "";
+            // 
             // txtD
             // 
+            this.txtD.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtD.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtD.Location = new System.Drawing.Point(1214, 791);
             this.txtD.Multiline = true;
@@ -150,6 +168,7 @@
             // 
             // txtC
             // 
+            this.txtC.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtC.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtC.Location = new System.Drawing.Point(862, 791);
             this.txtC.Multiline = true;
@@ -161,6 +180,7 @@
             // 
             // txtB
             // 
+            this.txtB.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtB.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtB.Location = new System.Drawing.Point(1214, 641);
             this.txtB.Multiline = true;
@@ -172,6 +192,7 @@
             // 
             // txtA
             // 
+            this.txtA.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtA.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtA.Location = new System.Drawing.Point(862, 641);
             this.txtA.Multiline = true;
@@ -181,20 +202,14 @@
             this.txtA.Size = new System.Drawing.Size(325, 124);
             this.txtA.TabIndex = 41;
             // 
-            // txtQuestion
-            // 
-            this.txtQuestion.Location = new System.Drawing.Point(862, 131);
-            this.txtQuestion.Name = "txtQuestion";
-            this.txtQuestion.Size = new System.Drawing.Size(677, 212);
-            this.txtQuestion.TabIndex = 45;
-            this.txtQuestion.Text = "";
-            // 
             // Revision
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1578, 972);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Revision";
             this.Text = "Revision";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

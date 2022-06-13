@@ -189,6 +189,7 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1184, 528);
             this.Controls.Add(this.roundedPanel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Room";
             this.Text = "Room";
             this.Load += new System.EventHandler(this.Room_Load_1);
