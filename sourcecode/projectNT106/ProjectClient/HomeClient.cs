@@ -68,7 +68,7 @@ namespace ProjectClient
             try
             {
                 //ipAddr = IPAddress.Parse("192.168.46.227");
-                ipAddr = IPAddress.Parse("172.30.159.71");
+                ipAddr = IPAddress.Parse("192.168.46.227");
                 tcpServer = new TcpClient();
                 tcpServer.Connect(ipAddr, 80);
                 UserName = txtUserID.Text;

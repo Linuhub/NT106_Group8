@@ -132,7 +132,7 @@ namespace projectNT106
             try
             {
                 ListViewItem item = new ListViewItem();
-                IPAddress ipAddr = IPAddress.Parse("172.30.159.71"); 
+                IPAddress ipAddr = IPAddress.Parse("192.168.46.227"); 
 
                 mainServer = new Channel(ipAddr);
                 Channel.StatusChanged += new StatusChangedEventHandler(mainServer_StatusChanged);
@@ -180,7 +180,7 @@ namespace projectNT106
         {
             Invoke(new Action(() =>
             {
-                if (second != 10)
+                if (second != 30)
                 {
                     if (second == 0)
                     {
@@ -189,7 +189,7 @@ namespace projectNT106
                     second++;
                     textBox2.Text = second.ToString();
                 }
-                else if (showAnswerTime != 5)
+                else if (showAnswerTime != 3)
                 {
                     showAnswerTime++;
                     textBox2.Text = showAnswerTime.ToString();                 
@@ -198,7 +198,7 @@ namespace projectNT106
                 {
                     showAnswerTime = 0;
                     second = 0;
-                    if (index == 1)
+                    if (index == 20)
                     {
                         time.Stop();
                         MessageBox.Show("Finish!");
