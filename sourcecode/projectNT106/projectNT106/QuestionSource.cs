@@ -106,8 +106,11 @@ namespace projectNT106
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (Convert.ToInt32(tb_Stt.Text) < 201 || Convert.ToInt32(tb_Stt.Text) > 100)
-                pictureBox1.ImageLocation = @"D:\UIT\HK4\NT106\Project\NT106_Group8\sourcecode\projectNT106\projectNT106\bin\Debug\Image_ThiLaiXe\" + tb_Stt.Text + ".png";
+            if (Convert.ToInt32(tb_Stt.Text) < 201 && Convert.ToInt32(tb_Stt.Text) > 100)
+            {
+                Image img = Image.FromFile("D:/UIT/HK4/NT106/Project/NT106_Group8/sourcecode/projectNT106/ProjectClient/bin/Debug/Image_ThiLaiXe/" + tb_Stt.Text + ".png");
+                pictureBox1.Image = img;
+            }    
             else pictureBox1.ImageLocation = null;
         }
 

@@ -132,7 +132,7 @@ namespace projectNT106
             try
             {
                 ListViewItem item = new ListViewItem();
-                IPAddress ipAddr = IPAddress.Parse("127.0.0.1"); 
+                IPAddress ipAddr = IPAddress.Parse("172.30.159.71"); 
 
                 mainServer = new Channel(ipAddr);
                 Channel.StatusChanged += new StatusChangedEventHandler(mainServer_StatusChanged);
@@ -203,6 +203,8 @@ namespace projectNT106
                         time.Stop();
                         MessageBox.Show("Finish!");
                         showResult();
+                        Form finalRank = new RankingServer();
+                        finalRank.Show();
                     }
                 }
 
@@ -218,13 +220,13 @@ namespace projectNT106
             }
             else if (QuestionPack == "Câu hỏi biển báo")
             {
-                start = 100;
-                end = 164;
+                start = 0;
+                end = 64;
             }
             else
             {
-                start = 165;
-                end = 199;
+                start = 0;
+                end = 34;
             }
         }
         // Gửi câu hỏi
@@ -292,14 +294,15 @@ namespace projectNT106
         public void showResult()
         {
             int t = Channel.htUsers.Count;
-            int[] ranking = new int[t];
+            int[] scoreArr = new int[t];
+            
             // Tính điểm cho từng thành viên
             for (int i = 0; i < t; i++)
             {
                 try
                 {
                     Room.infoUsers[i].calculateMark();
-                    ranking[i] = int.Parse(Room.infoUsers[i].getMark());
+                    scoreArr[i] = Room.infoUsers[i].getMark();
                 }
                 catch (Exception ex) { }
             }
@@ -309,16 +312,16 @@ namespace projectNT106
             {
                 for (int j = i; j < t; j++)
                 {
-                    if (ranking[j] > ranking[i])
+                    if (scoreArr[j] > scoreArr[i])
                     {
-                        (ranking[i], ranking[j]) = (ranking[j], ranking[i]);
+                        (scoreArr[i], scoreArr[j]) = (scoreArr[j], scoreArr[i]);
                     }
                 }
             }
 
             for (int i = 0; i < t; i++)
             {
-                MessageBox.Show(ranking[i].ToString());
+                MessageBox.Show(scoreArr[i].ToString());
             }
 
             // Xếp hạng cho từng thành viên
@@ -326,13 +329,14 @@ namespace projectNT106
             {
                 for (int j = 0; j < t; j++)
                 {
-                    if (ranking[i] == int.Parse(Room.infoUsers[j].getMark()))
+                    if (Room.infoUsers[j].getRank() == 0 && scoreArr[i] == Room.infoUsers[j].getMark())
                     {
                         Room.infoUsers[j].setRank(i + 1);
                         break;
                     }
                 }
             }
+            
 
             for (int i = 0; i < Channel.htUsers.Count; i++)
             {

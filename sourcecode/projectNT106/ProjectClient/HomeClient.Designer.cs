@@ -32,7 +32,6 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btnRevision = new System.Windows.Forms.Button();
-            this.btnCreateRoom = new System.Windows.Forms.Button();
             this.btnEnterRoom = new System.Windows.Forms.Button();
             this.button = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -55,12 +54,11 @@
             // 
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.btnRevision);
-            this.groupBox1.Controls.Add(this.btnCreateRoom);
             this.groupBox1.Controls.Add(this.btnEnterRoom);
             this.groupBox1.Controls.Add(this.button);
-            this.groupBox1.Location = new System.Drawing.Point(345, 397);
+            this.groupBox1.Location = new System.Drawing.Point(443, 406);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(636, 169);
+            this.groupBox1.Size = new System.Drawing.Size(458, 169);
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             // 
@@ -77,23 +75,13 @@
             // btnRevision
             // 
             this.btnRevision.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.btnRevision.Location = new System.Drawing.Point(421, 49);
+            this.btnRevision.Location = new System.Drawing.Point(246, 49);
             this.btnRevision.Name = "btnRevision";
             this.btnRevision.Size = new System.Drawing.Size(193, 77);
             this.btnRevision.TabIndex = 12;
             this.btnRevision.Text = "Ôn tập";
             this.btnRevision.UseVisualStyleBackColor = false;
-            // 
-            // btnCreateRoom
-            // 
-            this.btnCreateRoom.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.btnCreateRoom.Location = new System.Drawing.Point(222, 49);
-            this.btnCreateRoom.Name = "btnCreateRoom";
-            this.btnCreateRoom.Size = new System.Drawing.Size(193, 77);
-            this.btnCreateRoom.TabIndex = 11;
-            this.btnCreateRoom.Text = "Tạo phòng";
-            this.btnCreateRoom.UseVisualStyleBackColor = false;
-            this.btnCreateRoom.Click += new System.EventHandler(this.btnCreateRoom_Click);
+            this.btnRevision.Click += new System.EventHandler(this.btnRevision_Click);
             // 
             // btnEnterRoom
             // 
@@ -245,7 +233,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnRevision;
-        private System.Windows.Forms.Button btnCreateRoom;
         private System.Windows.Forms.Button btnEnterRoom;
         private System.Windows.Forms.Button button;
         private System.Windows.Forms.Label label1;

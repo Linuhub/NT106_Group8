@@ -33,9 +33,9 @@ namespace projectNT106
         {
             return result[index];
         }
-        public string getMark()
+        public int getMark()
         {
-            return mark.ToString();
+            return mark;
         }
         public void receiveUserAnswer(int indexQuestion, double time)
         {

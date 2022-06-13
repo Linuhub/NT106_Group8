@@ -20,6 +20,57 @@ namespace projectNT106
         private void RankingServer_Load(object sender, EventArgs e)
         {
             listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+            
+            for (int i = 1; i <= Channel.htUsers.Count; i++)
+            {
+                for (int k = 0; k < Channel.htUsers.Count; k++)
+                {
+                    if (Room.infoUsers[k].getRank() == i)
+                    {
+                        
+                        ListViewItem item = new ListViewItem();
+                        item.Text = i.ToString();
+                        item.SubItems.Add(new ListViewItem.ListViewSubItem() { Text = Room.infoUsers[k].getIDUser() });
+                        item.SubItems.Add(new ListViewItem.ListViewSubItem() { Text = Room.infoUsers[k].getMark().ToString() });
+                        listView1.Items.Add(item);
+                    }
+                }
+            }
+
+
+            ptbTop1.Image = Image.FromFile("D:/UIT/HK4/NT106/Project/NT106_Group8/icon/icon" + ShowTop(1)+ ".png");
+            if (listView1.Items.Count == 1)
+            {
+                roundedPanel2.Hide();
+                roundedPanel3.Hide();
+            } 
+            else if (listView1.Items.Count == 2)
+            {
+                ptbTop2.Image = Image.FromFile("D:/UIT/HK4/NT106/Project/NT106_Group8/icon/icon" + ShowTop(2) + ".png");
+                roundedPanel3.Hide();
+            }
+            else
+            {
+                ptbTop3.Image = Image.FromFile("D:/UIT/HK4/NT106/Project/NT106_Group8/icon/icon" + ShowTop(3) + ".png");
+            }
+        }
+        string ShowTop(int topX)
+        {
+            for (int k = 0; k < Channel.htUsers.Count; k++)
+            {
+                if (Room.infoUsers[k].getRank() == topX)
+                {
+                    if (Room.infoUsers[k].getAvt() < 9)
+                    {
+                        return "0" + (Room.infoUsers[k].getAvt() + 1).ToString();
+                    }                
+                    else
+                    {
+                        return (Room.infoUsers[k].getAvt() + 1).ToString();
+                    }
+                }
+            }
+            return "0";
         }
 
         private void gradientPanel1_Paint(object sender, PaintEventArgs e)

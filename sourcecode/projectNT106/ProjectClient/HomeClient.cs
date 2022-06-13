@@ -41,14 +41,12 @@ namespace ProjectClient
         {
             if (!isEnterRoom)
             {
-                btnCreateRoom.Enabled = false;
                 btnRevision.Enabled = false;
                 groupBox3.Enabled = true;
                 isEnterRoom = true;
             }
             else
             {
-                btnCreateRoom.Enabled = true;
                 btnRevision.Enabled = true;
                 groupBox3.Enabled = false;
                 isEnterRoom = false;
@@ -75,7 +73,7 @@ namespace ProjectClient
             try
             {
                 //ipAddr = IPAddress.Parse("192.168.46.227");
-                ipAddr = IPAddress.Parse("127.0.0.1");
+                ipAddr = IPAddress.Parse("172.30.159.71");
                 tcpServer = new TcpClient();
                 tcpServer.Connect(ipAddr, 80);
                 UserName = txtUserID.Text;
@@ -145,6 +143,12 @@ namespace ProjectClient
             swSender.Close();
             srReceiver.Close();
             tcpServer.Close();
+        }
+
+        private void btnRevision_Click(object sender, EventArgs e)
+        {
+            Form revison = new Revision();
+            revison.Show();
         }
     }
 }
