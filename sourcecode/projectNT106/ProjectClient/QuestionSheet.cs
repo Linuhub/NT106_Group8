@@ -281,7 +281,7 @@ namespace ProjectClient
             progressBar1.Value = 0;
             timer.Stop();
             timer.Start();
-            counter = 10;
+            counter = 30;
             RunTimer();
         }
         private bool SendAnswer(string ans)

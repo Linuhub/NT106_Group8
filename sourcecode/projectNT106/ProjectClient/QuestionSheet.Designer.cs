@@ -91,10 +91,10 @@
             // 
             this.progressBar1.Location = new System.Drawing.Point(6, 525);
             this.progressBar1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.progressBar1.Maximum = 10000;
+            this.progressBar1.Maximum = 30000;
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(1452, 5);
-            this.progressBar1.Step = 17;
+            this.progressBar1.Step = 15;
             this.progressBar1.TabIndex = 7;
             // 
             // groupBox2
