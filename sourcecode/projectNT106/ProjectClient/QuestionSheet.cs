@@ -25,7 +25,7 @@ namespace ProjectClient
         private double TimeElapsed;
         bool _isBoxOptionOpen = false;
         private System.Windows.Forms.Timer aTimer;
-        private int counter = 10;
+        private int counter = 30;
         public static Question[] QuestionList = new Question[20];
         private int i = -1;
         public static string MyResult="";
@@ -71,7 +71,6 @@ namespace ProjectClient
         {
             InitializeComponent();
             cmt = respon;
-            ptbImage.Hide();
         }
         private void pictureBox1_Click(object sender, EventArgs e)
         {
@@ -154,7 +153,6 @@ namespace ProjectClient
                             
                             if (QuesContent[12] == "img")
                             {
-                                ptbImage.Show();
                                 Thread thr = new Thread(showImg);
                                 thr.Start();
                             }
@@ -164,7 +162,7 @@ namespace ProjectClient
                         {
                             btnResult.Enabled = true;
                             //MessageBox.Show(HomeClient.UserName + " rev:" + Respon);
-                            if (QuesContent[2] == HomeClient.UserName && MyResult != "")
+                            if (QuesContent[2] == HomeClient.UserName && MyResult == "")
                             {
                                 MyResult = Respon;
                                 //MessageBox.Show(HomeClient.UserName + " rev:" + MyResult);

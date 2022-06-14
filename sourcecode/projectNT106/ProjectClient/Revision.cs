@@ -75,6 +75,7 @@ namespace ProjectClient
             txtC.BackColor = SystemColors.ActiveCaption;
             txtD.BackColor = SystemColors.ActiveCaption;
         }
+
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             ResetAnswer();

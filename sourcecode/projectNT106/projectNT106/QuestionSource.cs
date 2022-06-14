@@ -135,11 +135,15 @@ namespace projectNT106
         string sourcePath = "";
         private void btnAddImg_Click(object sender, EventArgs e)
         {
-            OpenFileDialog ofd = new OpenFileDialog();
-            ofd.ShowDialog();            
-            sourcePath = ofd.FileName;
-            imgNew = Image.FromFile(ofd.FileName);            
+            try
+            {
+                OpenFileDialog ofd = new OpenFileDialog();
+                ofd.ShowDialog();            
+                sourcePath = ofd.FileName;
+                imgNew = Image.FromFile(ofd.FileName);          
 
+            }
+            catch { }
         }        
 
         private void dataGridView1_CellEnter(object sender, DataGridViewCellEventArgs e)

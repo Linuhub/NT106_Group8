@@ -47,7 +47,14 @@ namespace ProjectClient
         }
         private void ShowChoice()
         {
-            if (QuestionSheet.QuestionList[n].Choice == "Đáp án: A")
+            if (QuestionSheet.QuestionList[n].Choice == "")
+            {
+                txtA.BackColor = Color.Red;
+                txtB.BackColor = Color.Red;
+                txtC.BackColor = Color.Red;
+                txtD.BackColor = Color.Red;
+            }
+            else if (QuestionSheet.QuestionList[n].Choice == "Đáp án: A")
             {
                 txtA.BackColor = Color.Red;
             }

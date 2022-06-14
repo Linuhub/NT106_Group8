@@ -28,7 +28,8 @@ namespace ProjectClient
         private void btnInstruction_Click(object sender, EventArgs e)
         {
             Form review = new ReviewAnswer();
-            review.ShowDialog();
+            review.Show();
+            this.Visible = false;
         }
 
         private void ResultClient_Load(object sender, EventArgs e)

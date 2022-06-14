@@ -39,13 +39,13 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.txtIPServer = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.btnJoin = new System.Windows.Forms.Button();
             this.txtUserID = new System.Windows.Forms.TextBox();
             this.txtRoomID = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtIPServer = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -54,6 +54,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.btnRevision);
             this.groupBox1.Controls.Add(this.btnEnterRoom);
@@ -66,6 +67,7 @@
             // 
             // label3
             // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Location = new System.Drawing.Point(15, 15);
@@ -76,6 +78,7 @@
             // 
             // btnRevision
             // 
+            this.btnRevision.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnRevision.BackColor = System.Drawing.Color.LightSteelBlue;
             this.btnRevision.Location = new System.Drawing.Point(246, 49);
             this.btnRevision.Name = "btnRevision";
@@ -87,6 +90,7 @@
             // 
             // btnEnterRoom
             // 
+            this.btnEnterRoom.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnEnterRoom.BackColor = System.Drawing.Color.LightSteelBlue;
             this.btnEnterRoom.Location = new System.Drawing.Point(19, 49);
             this.btnEnterRoom.Name = "btnEnterRoom";
@@ -98,6 +102,7 @@
             // 
             // button
             // 
+            this.button.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button.BackColor = System.Drawing.Color.Transparent;
             this.button.Location = new System.Drawing.Point(28, 20);
             this.button.Name = "button";
@@ -107,6 +112,7 @@
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Segoe Script", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -118,6 +124,7 @@
             // 
             // label2
             // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe Script", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(302, 181);
@@ -128,6 +135,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.groupBox2.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.groupBox2.Controls.Add(this.pictureBox1);
             this.groupBox2.Controls.Add(this.label1);
@@ -140,6 +148,7 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(752, 49);
@@ -151,6 +160,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.groupBox3.Controls.Add(this.txtIPServer);
             this.groupBox3.Controls.Add(this.label6);
             this.groupBox3.Controls.Add(this.btnJoin);
@@ -165,8 +175,28 @@
             this.groupBox3.TabIndex = 11;
             this.groupBox3.TabStop = false;
             // 
+            // txtIPServer
+            // 
+            this.txtIPServer.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtIPServer.Location = new System.Drawing.Point(169, 25);
+            this.txtIPServer.Multiline = true;
+            this.txtIPServer.Name = "txtIPServer";
+            this.txtIPServer.Size = new System.Drawing.Size(140, 26);
+            this.txtIPServer.TabIndex = 11;
+            // 
+            // label6
+            // 
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(7, 31);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(121, 20);
+            this.label6.TabIndex = 10;
+            this.label6.Text = "Nhập IP server: ";
+            // 
             // btnJoin
             // 
+            this.btnJoin.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnJoin.BackColor = System.Drawing.Color.LightSkyBlue;
             this.btnJoin.Location = new System.Drawing.Point(335, 49);
             this.btnJoin.Name = "btnJoin";
@@ -178,22 +208,25 @@
             // 
             // txtUserID
             // 
+            this.txtUserID.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtUserID.Location = new System.Drawing.Point(169, 124);
             this.txtUserID.Multiline = true;
             this.txtUserID.Name = "txtUserID";
-            this.txtUserID.Size = new System.Drawing.Size(100, 26);
+            this.txtUserID.Size = new System.Drawing.Size(140, 26);
             this.txtUserID.TabIndex = 3;
             // 
             // txtRoomID
             // 
+            this.txtRoomID.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtRoomID.Location = new System.Drawing.Point(169, 76);
             this.txtRoomID.Multiline = true;
             this.txtRoomID.Name = "txtRoomID";
-            this.txtRoomID.Size = new System.Drawing.Size(100, 26);
+            this.txtRoomID.Size = new System.Drawing.Size(140, 26);
             this.txtRoomID.TabIndex = 2;
             // 
             // label5
             // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(7, 130);
             this.label5.Name = "label5";
@@ -203,29 +236,13 @@
             // 
             // label4
             // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(7, 82);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(121, 20);
             this.label4.TabIndex = 0;
             this.label4.Text = "Nhập ID phòng:";
-            // 
-            // txtIPServer
-            // 
-            this.txtIPServer.Location = new System.Drawing.Point(169, 25);
-            this.txtIPServer.Multiline = true;
-            this.txtIPServer.Name = "txtIPServer";
-            this.txtIPServer.Size = new System.Drawing.Size(100, 26);
-            this.txtIPServer.TabIndex = 11;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(7, 31);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(121, 20);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "Nhập IP server: ";
             // 
             // HomeClient
             // 

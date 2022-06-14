@@ -95,7 +95,7 @@
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(1452, 5);
             this.progressBar1.Step = 15;
-            this.progressBar1.TabIndex = 7;
+            this.progressBar1.TabIndex = 5;
             // 
             // groupBox2
             // 
@@ -135,12 +135,13 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Size = new System.Drawing.Size(1470, 848);
+            this.groupBox1.Size = new System.Drawing.Size(1470, 798);
             this.groupBox1.TabIndex = 16;
             this.groupBox1.TabStop = false;
             // 
             // ptbImage
             // 
+            this.ptbImage.BackColor = System.Drawing.Color.White;
             this.ptbImage.Location = new System.Drawing.Point(474, 209);
             this.ptbImage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ptbImage.Name = "ptbImage";
@@ -156,11 +157,11 @@
             this.groupBox3.Controls.Add(this.btnB);
             this.groupBox3.Controls.Add(this.btnC);
             this.groupBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBox3.Location = new System.Drawing.Point(6, 536);
+            this.groupBox3.Location = new System.Drawing.Point(6, 552);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox3.Size = new System.Drawing.Size(1454, 321);
+            this.groupBox3.Size = new System.Drawing.Size(1454, 217);
             this.groupBox3.TabIndex = 12;
             this.groupBox3.TabStop = false;
             // 
@@ -170,7 +171,7 @@
             this.btnA.FlatAppearance.BorderSize = 0;
             this.btnA.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnA.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnA.Location = new System.Drawing.Point(6, 94);
+            this.btnA.Location = new System.Drawing.Point(6, 49);
             this.btnA.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnA.Name = "btnA";
             this.btnA.Size = new System.Drawing.Size(308, 150);
@@ -185,7 +186,7 @@
             this.btnD.FlatAppearance.BorderSize = 0;
             this.btnD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnD.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnD.Location = new System.Drawing.Point(1118, 94);
+            this.btnD.Location = new System.Drawing.Point(1118, 49);
             this.btnD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnD.Name = "btnD";
             this.btnD.Size = new System.Drawing.Size(324, 150);
@@ -200,7 +201,7 @@
             this.btnB.FlatAppearance.BorderSize = 0;
             this.btnB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnB.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnB.Location = new System.Drawing.Point(392, 94);
+            this.btnB.Location = new System.Drawing.Point(392, 49);
             this.btnB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnB.Name = "btnB";
             this.btnB.Size = new System.Drawing.Size(308, 150);
@@ -215,7 +216,7 @@
             this.btnC.FlatAppearance.BorderSize = 0;
             this.btnC.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnC.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnC.Location = new System.Drawing.Point(765, 94);
+            this.btnC.Location = new System.Drawing.Point(765, 49);
             this.btnC.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnC.Name = "btnC";
             this.btnC.Size = new System.Drawing.Size(308, 150);
@@ -316,7 +317,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1498, 958);
+            this.ClientSize = new System.Drawing.Size(1498, 890);
             this.Controls.Add(this.LabelTimeLeft);
             this.Controls.Add(this.btnResult);
             this.Controls.Add(this.label3);

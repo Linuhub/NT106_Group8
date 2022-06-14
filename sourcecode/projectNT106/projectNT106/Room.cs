@@ -183,7 +183,7 @@ namespace projectNT106
         {
             Invoke(new Action(() =>
             {
-                if (second != 2)
+                if (second != 30)
                 {
                     if (second == 0)
                     {
@@ -202,7 +202,7 @@ namespace projectNT106
                 {
                     showAnswerTime = 0;
                     second = 0;
-                    if (index == 20)
+                    if (index == 1)
                     {
                         time.Stop();
                         MessageBox.Show("Finish!");
@@ -425,38 +425,7 @@ namespace projectNT106
             MessageBox.Show(tre);
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
 
-        }
-
-        private void txtNumMember_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        
-
-        private void labelIDRoom_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void roundedPanel1_Paint(object sender, PaintEventArgs e)
-        {
-            roundedPanel1.BottomColor = Color.Transparent;
-            roundedPanel1.TopColor = Color.LightBlue;
-        }
     }
 
     public class StatusChangedEventArgs : EventArgs

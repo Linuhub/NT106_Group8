@@ -32,10 +32,10 @@
             this.gradientPanel1 = new projectNT106.GradientPanel();
             this.roundedPanel1 = new projectNT106.Graph.RoundedPanel();
             this.cbQuestionPackage = new System.Windows.Forms.ComboBox();
+            this.txtIPLocal = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.btnCreate = new System.Windows.Forms.Button();
             this.txtRoomID = new System.Windows.Forms.TextBox();
-            this.txtIPLocal = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -54,7 +54,7 @@
             this.gradientPanel1.Controls.Add(this.roundedPanel1);
             this.gradientPanel1.Location = new System.Drawing.Point(-1, 0);
             this.gradientPanel1.Name = "gradientPanel1";
-            this.gradientPanel1.Size = new System.Drawing.Size(716, 539);
+            this.gradientPanel1.Size = new System.Drawing.Size(739, 539);
             this.gradientPanel1.TabIndex = 0;
             this.gradientPanel1.TopColor = System.Drawing.Color.LightSkyBlue;
             this.gradientPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.gradientPanel1_Paint);
@@ -80,7 +80,7 @@
             this.roundedPanel1.ForeColor = System.Drawing.Color.Black;
             this.roundedPanel1.Location = new System.Drawing.Point(87, 42);
             this.roundedPanel1.Name = "roundedPanel1";
-            this.roundedPanel1.Size = new System.Drawing.Size(505, 386);
+            this.roundedPanel1.Size = new System.Drawing.Size(528, 386);
             this.roundedPanel1.TabIndex = 1;
             this.roundedPanel1.TopColor = System.Drawing.Color.Empty;
             // 
@@ -88,10 +88,21 @@
             // 
             this.cbQuestionPackage.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cbQuestionPackage.FormattingEnabled = true;
-            this.cbQuestionPackage.Location = new System.Drawing.Point(199, 200);
+            this.cbQuestionPackage.Location = new System.Drawing.Point(211, 200);
             this.cbQuestionPackage.Name = "cbQuestionPackage";
             this.cbQuestionPackage.Size = new System.Drawing.Size(230, 28);
             this.cbQuestionPackage.TabIndex = 10;
+            // 
+            // txtIPLocal
+            // 
+            this.txtIPLocal.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtIPLocal.Enabled = false;
+            this.txtIPLocal.Location = new System.Drawing.Point(211, 40);
+            this.txtIPLocal.Multiline = true;
+            this.txtIPLocal.Name = "txtIPLocal";
+            this.txtIPLocal.Size = new System.Drawing.Size(230, 26);
+            this.txtIPLocal.TabIndex = 9;
+            this.txtIPLocal.Text = " ";
             // 
             // label4
             // 
@@ -99,7 +110,7 @@
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(36, 46);
+            this.label4.Location = new System.Drawing.Point(48, 46);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(157, 20);
             this.label4.TabIndex = 8;
@@ -111,7 +122,7 @@
             this.btnCreate.BackColor = System.Drawing.Color.Gold;
             this.btnCreate.FlatAppearance.BorderSize = 0;
             this.btnCreate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCreate.Location = new System.Drawing.Point(200, 280);
+            this.btnCreate.Location = new System.Drawing.Point(212, 280);
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(121, 51);
             this.btnCreate.TabIndex = 7;
@@ -124,22 +135,11 @@
             this.txtRoomID.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtRoomID.BackColor = System.Drawing.SystemColors.Window;
             this.txtRoomID.Enabled = false;
-            this.txtRoomID.Location = new System.Drawing.Point(200, 91);
+            this.txtRoomID.Location = new System.Drawing.Point(212, 91);
             this.txtRoomID.Multiline = true;
             this.txtRoomID.Name = "txtRoomID";
             this.txtRoomID.Size = new System.Drawing.Size(230, 26);
             this.txtRoomID.TabIndex = 2;
-            // 
-            // txtIPLocal
-            // 
-            this.txtIPLocal.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtIPLocal.Enabled = false;
-            this.txtIPLocal.Location = new System.Drawing.Point(199, 40);
-            this.txtIPLocal.Multiline = true;
-            this.txtIPLocal.Name = "txtIPLocal";
-            this.txtIPLocal.Size = new System.Drawing.Size(230, 26);
-            this.txtIPLocal.TabIndex = 9;
-            this.txtIPLocal.Text = " ";
             // 
             // label1
             // 
@@ -147,7 +147,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(37, 97);
+            this.label1.Location = new System.Drawing.Point(49, 97);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(75, 20);
             this.label1.TabIndex = 0;
@@ -159,7 +159,7 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(37, 147);
+            this.label2.Location = new System.Drawing.Point(49, 147);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(115, 20);
             this.label2.TabIndex = 1;
@@ -171,7 +171,7 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(38, 208);
+            this.label3.Location = new System.Drawing.Point(50, 208);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(127, 20);
             this.label3.TabIndex = 0;
@@ -180,7 +180,7 @@
             // txtNumOfParticipant
             // 
             this.txtNumOfParticipant.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtNumOfParticipant.Location = new System.Drawing.Point(199, 141);
+            this.txtNumOfParticipant.Location = new System.Drawing.Point(211, 141);
             this.txtNumOfParticipant.Multiline = true;
             this.txtNumOfParticipant.Name = "txtNumOfParticipant";
             this.txtNumOfParticipant.Size = new System.Drawing.Size(230, 26);

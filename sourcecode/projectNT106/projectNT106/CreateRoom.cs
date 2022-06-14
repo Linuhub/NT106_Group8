@@ -14,8 +14,7 @@ namespace projectNT106
     public partial class CreateRoom : Form
     {
         public static string IDRoom = "";
-        IPAddress[] ipAddress = Dns.GetHostAddresses(Dns.GetHostName());
-
+        public static IPAddress[] ipAddress = Dns.GetHostAddresses(Dns.GetHostName());
         static string RandomIDRoom()
         {
             string IDRoom = "";
@@ -57,6 +56,7 @@ namespace projectNT106
             {
                 Form room = new Room(ipAddress[ipAddress.Length - 1], IDRoom, cbQuestionPackage.Text, txtNumOfParticipant.Text);
                 room.Show();
+                this.Visible = false;
             }
         
         }
