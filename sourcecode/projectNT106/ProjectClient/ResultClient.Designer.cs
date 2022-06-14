@@ -81,10 +81,10 @@
             // 
             this.pictureBox6.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
-            this.pictureBox6.Location = new System.Drawing.Point(896, -28);
+            this.pictureBox6.Location = new System.Drawing.Point(882, -44);
             this.pictureBox6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(153, 131);
+            this.pictureBox6.Size = new System.Drawing.Size(192, 168);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox6.TabIndex = 30;
             this.pictureBox6.TabStop = false;
@@ -101,7 +101,7 @@
             // ptbAvtTop3
             // 
             this.ptbAvtTop3.BackColor = System.Drawing.Color.Transparent;
-            this.ptbAvtTop3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ptbAvtTop3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ptbAvtTop3.Location = new System.Drawing.Point(892, 128);
             this.ptbAvtTop3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ptbAvtTop3.Name = "ptbAvtTop3";
@@ -113,19 +113,19 @@
             // 
             this.pictureBox5.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(154, -20);
+            this.pictureBox5.Location = new System.Drawing.Point(127, -31);
             this.pictureBox5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(168, 122);
+            this.pictureBox5.Size = new System.Drawing.Size(218, 155);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox5.TabIndex = 31;
             this.pictureBox5.TabStop = false;
             // 
             // labelRank2ID
             // 
-            this.labelRank2ID.Location = new System.Drawing.Point(154, 239);
+            this.labelRank2ID.Location = new System.Drawing.Point(154, 248);
             this.labelRank2ID.Name = "labelRank2ID";
-            this.labelRank2ID.Size = new System.Drawing.Size(163, 46);
+            this.labelRank2ID.Size = new System.Drawing.Size(163, 38);
             this.labelRank2ID.TabIndex = 27;
             this.labelRank2ID.Text = "1210";
             this.labelRank2ID.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -133,8 +133,8 @@
             // ptbAvtTop2
             // 
             this.ptbAvtTop2.BackColor = System.Drawing.Color.Transparent;
-            this.ptbAvtTop2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ptbAvtTop2.Location = new System.Drawing.Point(154, 119);
+            this.ptbAvtTop2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ptbAvtTop2.Location = new System.Drawing.Point(158, 128);
             this.ptbAvtTop2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ptbAvtTop2.Name = "ptbAvtTop2";
             this.ptbAvtTop2.Size = new System.Drawing.Size(163, 118);
@@ -156,10 +156,10 @@
             // 
             this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(560, -1);
+            this.pictureBox4.Location = new System.Drawing.Point(534, -1);
             this.pictureBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(115, 88);
+            this.pictureBox4.Size = new System.Drawing.Size(163, 125);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox4.TabIndex = 32;
             this.pictureBox4.TabStop = false;
@@ -176,7 +176,7 @@
             // ptbAvtTop1
             // 
             this.ptbAvtTop1.BackColor = System.Drawing.Color.Transparent;
-            this.ptbAvtTop1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ptbAvtTop1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ptbAvtTop1.Location = new System.Drawing.Point(534, 128);
             this.ptbAvtTop1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ptbAvtTop1.Name = "ptbAvtTop1";
@@ -202,7 +202,7 @@
             // ptbMyAvt
             // 
             this.ptbMyAvt.BackColor = System.Drawing.Color.Transparent;
-            this.ptbMyAvt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ptbMyAvt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ptbMyAvt.Location = new System.Drawing.Point(30, 77);
             this.ptbMyAvt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ptbMyAvt.Name = "ptbMyAvt";
