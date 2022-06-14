@@ -51,8 +51,9 @@ namespace projectNT106
             Room.infoUsers[Channel.htConnections.Count - 1].setAvatar(icon);
             this.txtNumMember.Text = Channel.htUsers.Count.ToString();
 
-        }
-       
+        }       
+        
+
         public void mainServer_StatusChanged(object sender, StatusChangedEventArgs e)
         {                     
             this.Invoke(new UpdateStatusCallback(this.UpdateStatus), new object[] { IDUserTemp });

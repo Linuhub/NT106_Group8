@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Net;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -14,7 +15,7 @@ namespace projectNT106
     public partial class CreateRoom : Form
     {
         public static string IDRoom = "";
-        public static IPAddress[] ipAddress = Dns.GetHostAddresses(Dns.GetHostName());
+        public static IPAddress ipAddress;
         static string RandomIDRoom()
         {
             string IDRoom = "";
@@ -30,11 +31,24 @@ namespace projectNT106
 
             return IDRoom;
         }
-
+        public static string GetLocalIP()
+        {
+            var host = Dns.GetHostEntry(Dns.GetHostName());
+            foreach (var ip in host.AddressList)
+            {
+                if (ip.AddressFamily == AddressFamily.InterNetwork)
+                {
+                    return ip.ToString();
+                }
+            }
+            throw new Exception("No internet!");
+        }
         public CreateRoom()
         {
             InitializeComponent();
-            txtIPLocal.Text = ipAddress[ipAddress.Length - 1].ToString();
+
+            txtIPLocal.Text = GetLocalIP();
+            ipAddress = IPAddress.Parse(txtIPLocal.Text);
             IDRoom = RandomIDRoom();
             cbQuestionPackage.Items.Add("Câu hỏi kiến thức luật");
             cbQuestionPackage.Items.Add("Câu hỏi biển báo");
@@ -54,7 +68,7 @@ namespace projectNT106
             }
             else
             {
-                Form room = new Room(ipAddress[ipAddress.Length - 1], IDRoom, cbQuestionPackage.Text, txtNumOfParticipant.Text);
+                Form room = new Room(ipAddress, IDRoom, cbQuestionPackage.Text, txtNumOfParticipant.Text);
                 room.Show();
                 this.Close();
             }
