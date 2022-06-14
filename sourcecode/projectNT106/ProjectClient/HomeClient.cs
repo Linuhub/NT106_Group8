@@ -68,7 +68,11 @@ namespace ProjectClient
             try
             {
                 //ipAddr = IPAddress.Parse("192.168.46.227");
-                ipAddr = IPAddress.Parse("192.168.46.227");
+                if (!IPAddress.TryParse(txtIPServer.Text, out ipAddr))
+                {
+                    MessageBox.Show("IP server is incorrect!");
+                    return;
+                }
                 tcpServer = new TcpClient();
                 tcpServer.Connect(ipAddr, 80);
                 UserName = txtUserID.Text;
@@ -76,7 +80,6 @@ namespace ProjectClient
                 if (txtUserID.Text.Length == 0)
                 {
                     MessageBox.Show("User name is empty!");
-
                     return;
                 }
                 swSender = new StreamWriter(tcpServer.GetStream());

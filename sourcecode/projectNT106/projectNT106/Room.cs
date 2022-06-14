@@ -14,6 +14,7 @@ namespace projectNT106
 {
     public partial class Room : Form
     {
+        public IPAddress localIP;
         public static string RoomID;
         public static string IDRoomUser = "";
         public static string IDUserTemp = "";
@@ -23,6 +24,7 @@ namespace projectNT106
         public static bool isFull = false;
         public static bool isLock = false;
         String[] paths = { };
+        private CheckBox[] cbs = new CheckBox[20];
         public Channel mainServer;
         public OleDbConnection cnn;
         public OleDbDataAdapter dar;
@@ -32,11 +34,12 @@ namespace projectNT106
         public static InforUser[] infoUsers = new InforUser[10];
         private delegate void UpdateStatusCallback(string strMessage);
 
-        public Room(string Room, string Creator, string quesPack, string NumParticipant)
+        public Room(IPAddress IPLocal, string Room, string quesPack, string NumParticipant)
         {
             InitializeComponent();
+            localIP = IPLocal;
             RoomID = Room;
-            CreatorID = Creator;
+            CreatorID = "Server";
             QuestionPack = quesPack;
             numParticipant = int.Parse(NumParticipant);
         }
@@ -59,19 +62,21 @@ namespace projectNT106
         {
             for (int i = 0; i < 20; i++)
             {
-                CheckBox cb = new CheckBox();
-                cb.Text = (i + 1).ToString();
-                cb.Size = new Size(30, 30);
-                cb.TextAlign = ContentAlignment.MiddleCenter;
-                cb.Appearance = Appearance.Button;
-                flowLayoutPanel1.Controls.Add(cb);
-
+                cbs[i] = new CheckBox();
+                cbs[i].Text = (i + 1).ToString();
+                cbs[i].Size = new Size(30, 30);
+                cbs[i].TextAlign = ContentAlignment.MiddleCenter;
+                cbs[i].Appearance = Appearance.Button;
+                cbs[i].Enabled = false;
+                flowLayoutPanel1.Controls.Add(cbs[i]);
+                
             }
         }
         private void Room_Load_1(object sender, EventArgs e)
         {
 
-            labelIDRoom.Text = "ID Phòng: " + CreateRoom.IDRoom;
+            labelIDRoom.Text = "ID Phòng: " + RoomID;
+            labelIP.Text = "IP Server: " + localIP.ToString();
 
             listView1.View = View.Details;
 
@@ -131,10 +136,9 @@ namespace projectNT106
             // Tạo phòng
             try
             {
-                ListViewItem item = new ListViewItem();
-                IPAddress ipAddr = IPAddress.Parse("192.168.46.227"); 
-
-                mainServer = new Channel(ipAddr);
+                ListViewItem item = new ListViewItem();                
+                mainServer = new Channel(localIP);
+                
                 Channel.StatusChanged += new StatusChangedEventHandler(mainServer_StatusChanged);
                 mainServer.StartListening();
                 
@@ -146,8 +150,7 @@ namespace projectNT106
 
 
         }
-
-
+        
         private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
             flowLayoutPanel1.BackColor = Color.FromArgb(100, 0, 0, 0);
@@ -180,10 +183,11 @@ namespace projectNT106
         {
             Invoke(new Action(() =>
             {
-                if (second != 30)
+                if (second != 2)
                 {
                     if (second == 0)
                     {
+                        cbs[index].Checked = true;
                         SendQuestion();
                     }
                     second++;
@@ -242,7 +246,7 @@ namespace projectNT106
             CheckCodeQuestion(ref startQuestion, ref endQuestion);
             
             Random rand = new Random();
-            for (int i = 0; i < 6; i++)
+            for (int i = 0; i < 20; i++)
             {
                 do
                 {
@@ -368,8 +372,8 @@ namespace projectNT106
                         if (Room.infoUsers[j].getRank() == i + 1)
                         {
                             rankTopX = "rak" + '|' + RoomID + '|' + Room.infoUsers[j].getIDUser() + '|' +                                                                            
-                                        Room.infoUsers[j].getMark().ToString() + 
-                                        '|' + Room.infoUsers[j].getRank().ToString() +
+                                        Room.infoUsers[j].getMark().ToString() + '|' +
+                                        Room.infoUsers[j].getRank().ToString() + '|' +
                                         Room.infoUsers[j].getAvt().ToString() ;
                             swSender.WriteLine(rankTopX);
                             swSender.Flush();
@@ -391,7 +395,9 @@ namespace projectNT106
             Channel.htUsers.Values.CopyTo(tcpClients, 0);
             swSender = new StreamWriter(tcpClients[index].GetStream());
             string rank = "rak" + '|' + RoomID + '|' + Room.infoUsers[index].getIDUser() + '|' +
-                             Room.infoUsers[index].getMark().ToString() + '|' + Room.infoUsers[index].getRank().ToString();
+                             Room.infoUsers[index].getMark().ToString() + '|' + 
+                             Room.infoUsers[index].getRank().ToString() + '|' +
+                             Room.infoUsers[index].getAvt().ToString();
             swSender.WriteLine(rank);
             swSender.Flush();
             swSender = null;

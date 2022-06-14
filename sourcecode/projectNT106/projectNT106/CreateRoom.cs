@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -13,6 +14,7 @@ namespace projectNT106
     public partial class CreateRoom : Form
     {
         public static string IDRoom = "";
+        IPAddress[] ipAddress = Dns.GetHostAddresses(Dns.GetHostName());
 
         static string RandomIDRoom()
         {
@@ -33,6 +35,7 @@ namespace projectNT106
         public CreateRoom()
         {
             InitializeComponent();
+            txtIPLocal.Text = ipAddress[ipAddress.Length - 1].ToString();
             IDRoom = RandomIDRoom();
             cbQuestionPackage.Items.Add("Câu hỏi kiến thức luật");
             cbQuestionPackage.Items.Add("Câu hỏi biển báo");
@@ -52,7 +55,7 @@ namespace projectNT106
             }
             else
             {
-                Form room = new Room(IDRoom, txtUserID.Text, cbQuestionPackage.Text, txtNumOfParticipant.Text);
+                Form room = new Room(ipAddress[ipAddress.Length - 1], IDRoom, cbQuestionPackage.Text, txtNumOfParticipant.Text);
                 room.Show();
             }
         

@@ -71,7 +71,7 @@ namespace ProjectClient
         {
             InitializeComponent();
             cmt = respon;
-            //button1.Hide();
+            ptbImage.Hide();
         }
         private void pictureBox1_Click(object sender, EventArgs e)
         {
@@ -91,7 +91,6 @@ namespace ProjectClient
         {
             panel1.Hide();
             Form.CheckForIllegalCrossThreadCalls = false;
-            //this.Invoke(new HomeClient.UpdateLogCallback(this.UpdateQuestionSheet), new object[] { srReceiver.ReadLine() });
             txtQues = cmt;
             
             txtUserID.Text = HomeClient.UserName;
@@ -99,37 +98,7 @@ namespace ProjectClient
             thrMessaging = new Thread(ReceiveMessage);
             thrMessaging.Start();
         }
-        private static Socket ConnectSocket(string server, int port)
-        {
-            Socket s = null;
-            IPHostEntry hostEntry = null;
-
-            // Get host related information.
-            hostEntry = Dns.GetHostEntry(server);
-
-            // Loop through the AddressList to obtain the supported AddressFamily. This is to avoid
-            // an exception that occurs when the host IP Address is not compatible with the address family
-            // (typical in the IPv6 case).
-            foreach (IPAddress address in hostEntry.AddressList)
-            {
-                IPEndPoint ipe = new IPEndPoint(address, port);
-                Socket tempSocket =
-                    new Socket(ipe.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
-
-                tempSocket.Connect(ipe);
-
-                if (tempSocket.Connected)
-                {
-                    s = tempSocket;
-                    break;
-                }
-                else
-                {
-                    continue;
-                }
-            }
-            return s;
-        }
+       
         public static string ReceivedAvt(int avt)
         {
             avt++;
@@ -151,7 +120,7 @@ namespace ProjectClient
                 string check = srReceiver.ReadLine();
                 string[] addSuccess = check.Split(new char[] { '|' });
                 myAvt = int.Parse(addSuccess[1]);
-                ptbImage.Image = Image.FromFile("D:/UIT/HK4/NT106/Project/NT106_Group8/sourcecode/projectNT106/ProjectClient/bin/Debug/icon/icon" + ReceivedAvt(myAvt) + ".png");
+                //ptbImage.Image = Image.FromFile("D:/UIT/HK4/NT106/Project/NT106_Group8/sourcecode/projectNT106/ProjectClient/bin/Debug/icon/icon" + ReceivedAvt(myAvt) + ".png");
                                 
                 string Respon = srReceiver.ReadLine();
                 while (HomeClient.Connected)
@@ -185,6 +154,7 @@ namespace ProjectClient
                             
                             if (QuesContent[12] == "img")
                             {
+                                ptbImage.Show();
                                 Thread thr = new Thread(showImg);
                                 thr.Start();
                             }
@@ -194,7 +164,7 @@ namespace ProjectClient
                         {
                             btnResult.Enabled = true;
                             //MessageBox.Show(HomeClient.UserName + " rev:" + Respon);
-                            if (QuesContent[2] == HomeClient.UserName)
+                            if (QuesContent[2] == HomeClient.UserName && MyResult != "")
                             {
                                 MyResult = Respon;
                                 //MessageBox.Show(HomeClient.UserName + " rev:" + MyResult);

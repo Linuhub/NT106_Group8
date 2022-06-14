@@ -37,6 +37,7 @@
             this.txtNumMember = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.labelIP = new System.Windows.Forms.Label();
             this.labelIDRoom = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.listView1 = new System.Windows.Forms.ListView();
@@ -66,7 +67,7 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(719, 56);
+            this.textBox2.Location = new System.Drawing.Point(625, 56);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(100, 26);
             this.textBox2.TabIndex = 9;
@@ -141,21 +142,31 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.labelIP);
             this.panel1.Controls.Add(this.labelIDRoom);
-            this.panel1.Location = new System.Drawing.Point(977, 56);
+            this.panel1.Location = new System.Drawing.Point(977, 41);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(188, 41);
+            this.panel1.Size = new System.Drawing.Size(188, 67);
             this.panel1.TabIndex = 2;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // labelIP
+            // 
+            this.labelIP.AutoSize = true;
+            this.labelIP.Location = new System.Drawing.Point(21, 38);
+            this.labelIP.Name = "labelIP";
+            this.labelIP.Size = new System.Drawing.Size(75, 20);
+            this.labelIP.TabIndex = 10;
+            this.labelIP.Text = "IP server:";
             // 
             // labelIDRoom
             // 
             this.labelIDRoom.AutoSize = true;
             this.labelIDRoom.Location = new System.Drawing.Point(21, 11);
             this.labelIDRoom.Name = "labelIDRoom";
-            this.labelIDRoom.Size = new System.Drawing.Size(118, 20);
+            this.labelIDRoom.Size = new System.Drawing.Size(79, 20);
             this.labelIDRoom.TabIndex = 0;
-            this.labelIDRoom.Text = "ID phòng: abcd";
+            this.labelIDRoom.Text = "ID phòng:";
             this.labelIDRoom.Click += new System.EventHandler(this.labelIDRoom_Click);
             // 
             // flowLayoutPanel1
@@ -214,5 +225,6 @@
         private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label labelIP;
     }
 }

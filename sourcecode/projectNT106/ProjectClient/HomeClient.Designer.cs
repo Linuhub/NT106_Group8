@@ -44,6 +44,8 @@
             this.txtRoomID = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.txtIPServer = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -149,15 +151,17 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.txtIPServer);
+            this.groupBox3.Controls.Add(this.label6);
             this.groupBox3.Controls.Add(this.btnJoin);
             this.groupBox3.Controls.Add(this.txtUserID);
             this.groupBox3.Controls.Add(this.txtRoomID);
             this.groupBox3.Controls.Add(this.label5);
             this.groupBox3.Controls.Add(this.label4);
             this.groupBox3.Enabled = false;
-            this.groupBox3.Location = new System.Drawing.Point(443, 594);
+            this.groupBox3.Location = new System.Drawing.Point(443, 576);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(458, 133);
+            this.groupBox3.Size = new System.Drawing.Size(458, 165);
             this.groupBox3.TabIndex = 11;
             this.groupBox3.TabStop = false;
             // 
@@ -174,7 +178,7 @@
             // 
             // txtUserID
             // 
-            this.txtUserID.Location = new System.Drawing.Point(168, 82);
+            this.txtUserID.Location = new System.Drawing.Point(169, 124);
             this.txtUserID.Multiline = true;
             this.txtUserID.Name = "txtUserID";
             this.txtUserID.Size = new System.Drawing.Size(100, 26);
@@ -182,7 +186,7 @@
             // 
             // txtRoomID
             // 
-            this.txtRoomID.Location = new System.Drawing.Point(168, 34);
+            this.txtRoomID.Location = new System.Drawing.Point(169, 76);
             this.txtRoomID.Multiline = true;
             this.txtRoomID.Name = "txtRoomID";
             this.txtRoomID.Size = new System.Drawing.Size(100, 26);
@@ -191,7 +195,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 88);
+            this.label5.Location = new System.Drawing.Point(7, 130);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(148, 20);
             this.label5.TabIndex = 1;
@@ -200,11 +204,28 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 40);
+            this.label4.Location = new System.Drawing.Point(7, 82);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(121, 20);
             this.label4.TabIndex = 0;
             this.label4.Text = "Nhập ID phòng:";
+            // 
+            // txtIPServer
+            // 
+            this.txtIPServer.Location = new System.Drawing.Point(169, 25);
+            this.txtIPServer.Multiline = true;
+            this.txtIPServer.Name = "txtIPServer";
+            this.txtIPServer.Size = new System.Drawing.Size(100, 26);
+            this.txtIPServer.TabIndex = 11;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(7, 31);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(121, 20);
+            this.label6.TabIndex = 10;
+            this.label6.Text = "Nhập IP server: ";
             // 
             // HomeClient
             // 
@@ -246,5 +267,7 @@
         private System.Windows.Forms.TextBox txtRoomID;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtIPServer;
+        private System.Windows.Forms.Label label6;
     }
 }

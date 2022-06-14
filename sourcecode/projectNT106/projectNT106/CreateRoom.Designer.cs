@@ -35,7 +35,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.btnCreate = new System.Windows.Forms.Button();
             this.txtRoomID = new System.Windows.Forms.TextBox();
-            this.txtUserID = new System.Windows.Forms.TextBox();
+            this.txtIPLocal = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -69,10 +69,10 @@
             this.roundedPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.roundedPanel1.BottomColor = System.Drawing.Color.Empty;
             this.roundedPanel1.Controls.Add(this.cbQuestionPackage);
+            this.roundedPanel1.Controls.Add(this.txtIPLocal);
             this.roundedPanel1.Controls.Add(this.label4);
             this.roundedPanel1.Controls.Add(this.btnCreate);
             this.roundedPanel1.Controls.Add(this.txtRoomID);
-            this.roundedPanel1.Controls.Add(this.txtUserID);
             this.roundedPanel1.Controls.Add(this.label1);
             this.roundedPanel1.Controls.Add(this.label2);
             this.roundedPanel1.Controls.Add(this.label3);
@@ -99,11 +99,11 @@
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(37, 97);
+            this.label4.Location = new System.Drawing.Point(36, 46);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(96, 20);
+            this.label4.Size = new System.Drawing.Size(157, 20);
             this.label4.TabIndex = 8;
-            this.label4.Text = "ID người tạo";
+            this.label4.Text = "Địa chỉ IP của server:";
             // 
             // btnCreate
             // 
@@ -124,22 +124,22 @@
             this.txtRoomID.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtRoomID.BackColor = System.Drawing.SystemColors.Window;
             this.txtRoomID.Enabled = false;
-            this.txtRoomID.Location = new System.Drawing.Point(200, 37);
+            this.txtRoomID.Location = new System.Drawing.Point(200, 91);
             this.txtRoomID.Multiline = true;
             this.txtRoomID.Name = "txtRoomID";
             this.txtRoomID.Size = new System.Drawing.Size(230, 26);
             this.txtRoomID.TabIndex = 2;
             // 
-            // txtUserID
+            // txtIPLocal
             // 
-            this.txtUserID.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtUserID.Enabled = false;
-            this.txtUserID.Location = new System.Drawing.Point(199, 91);
-            this.txtUserID.Multiline = true;
-            this.txtUserID.Name = "txtUserID";
-            this.txtUserID.Size = new System.Drawing.Size(230, 26);
-            this.txtUserID.TabIndex = 9;
-            this.txtUserID.Text = " ";
+            this.txtIPLocal.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtIPLocal.Enabled = false;
+            this.txtIPLocal.Location = new System.Drawing.Point(199, 40);
+            this.txtIPLocal.Multiline = true;
+            this.txtIPLocal.Name = "txtIPLocal";
+            this.txtIPLocal.Size = new System.Drawing.Size(230, 26);
+            this.txtIPLocal.TabIndex = 9;
+            this.txtIPLocal.Text = " ";
             // 
             // label1
             // 
@@ -147,7 +147,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(38, 43);
+            this.label1.Location = new System.Drawing.Point(37, 97);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(75, 20);
             this.label1.TabIndex = 0;
@@ -215,7 +215,7 @@
         private System.Windows.Forms.TextBox txtNumOfParticipant;
         private System.Windows.Forms.Button btnCreate;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtUserID;
+        private System.Windows.Forms.TextBox txtIPLocal;
         private System.Windows.Forms.ComboBox cbQuestionPackage;
     }
 }

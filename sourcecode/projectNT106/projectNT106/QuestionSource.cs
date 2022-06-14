@@ -4,6 +4,8 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.OleDb;
 using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,6 +18,7 @@ namespace projectNT106
         public QuestionSource()
         {
             InitializeComponent();
+            btnAddImg.Hide();
         }
 
         string cs = @"Provider = Microsoft.ACE.OLEDB.12.0; Data Source = D:\UIT\HK4\NT106\Project\NT106_Group8\sourcecode\projectNT106\projectNT106\bin\Debug\DeThiLaiXe_3Part.mdb";
@@ -85,68 +88,59 @@ namespace projectNT106
         private void tbn_Update_Click(object sender, EventArgs e)
         {
             con = new OleDbConnection(cs);
-            string query = "UPDATE " + str2
-                + " SET [Câu hỏi] = @cauhoi, [Đáp án A] = @dapanA, [Đáp án B] = @dapanB, [Đáp án C] = @dapanC, [Đáp án D] = @dapanD, [Đáp án đúng] = @dapandung"
-                + " WHERE [STT] = @stt";
-
-            cmd = new OleDbCommand(query, con);
-            cmd.Parameters.AddWithValue("@cauhoi", tb_Cauhoi.Text);
-            cmd.Parameters.AddWithValue("@dapanA", tb_DapanA.Text);
-            cmd.Parameters.AddWithValue("@dapanB", tb_DapanB.Text);
-            cmd.Parameters.AddWithValue("@dapanC", tb_DapanC.Text);
-            cmd.Parameters.AddWithValue("@dapanD", tb_DapanD.Text);
-            cmd.Parameters.AddWithValue("@dapandung", tb_Dapandung.Text);
-            cmd.Parameters.AddWithValue("@stt", Convert.ToInt32(tb_Stt.Text));
             con.Open();
+            string query = "UPDATE " + str2
+                + " SET [Câu hỏi] = \"" + tb_Cauhoi.Text
+                + "\", [Đáp án A] = \"" + tb_DapanA.Text
+                + "\", [Đáp án B] = \"" + tb_DapanB.Text
+                + "\", [Đáp án C] = \"" + tb_DapanC.Text
+                + "\", [Đáp án D] = \"" + tb_DapanD.Text
+                + "\", [Đáp án đúng] = \"" + tb_Dapandung.Text
+                + "\" WHERE [STT] = \"" + tb_Stt.Text + "\"";
+
+            cmd = new OleDbCommand();     
+            cmd.Connection = con;
+            cmd.CommandText = query;
             cmd.ExecuteNonQuery();
             con.Close();
+
+            // Lưu ảnh
+            try
+            {
+                string path = "D:/UIT/HK4/NT106/Project/NT106_Group8/sourcecode/projectNT106/projectNT106/bin/Debug/Image_ThiLaiXe/" + tb_Stt.Text + ".png";
+                pictureBox1.Image.Dispose();
+                File.Delete(path);
+                File.Copy(sourcePath, path);
+            }
+            catch (Exception ex) { }
+
             MessageBox.Show("Update Success.");
             GetData();
         }
-
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (Convert.ToInt32(tb_Stt.Text) < 201 && Convert.ToInt32(tb_Stt.Text) > 100)
             {
-                Image img = Image.FromFile("D:/UIT/HK4/NT106/Project/NT106_Group8/sourcecode/projectNT106/ProjectClient/bin/Debug/Image_ThiLaiXe/" + tb_Stt.Text + ".png");
+                Image img = Image.FromFile("D:/UIT/HK4/NT106/Project/NT106_Group8/sourcecode/projectNT106/projectNT106/bin/Debug/Image_ThiLaiXe/" + tb_Stt.Text + ".png");
                 pictureBox1.Image = img;
-            }    
-            else pictureBox1.ImageLocation = null;
+                btnAddImg.Show();
+            }
+            else
+            {
+                pictureBox1.Image = Image.FromFile("D:/UIT/HK4/NT106/Project/NT106_Group8/img/source.png");
+            }
         }
-
-        //private void btn_Clear_Click(object sender, EventArgs e)
-        //{
-        //    tb_Stt.Clear();
-        //    tb_Cauhoi.Clear();
-        //    tb_DapanA.Clear();
-        //    tb_DapanB.Clear();
-        //    tb_DapanC.Clear();
-        //    tb_DapanD.Clear();
-        //    tb_Dapandung.Clear();
-        //}
-
         int LastNum = 201;
-        //private void btn_Insert_Click(object sender, EventArgs e)
-        //{
-        //    tb_Stt.Text = Convert.ToString(LastNum);
-        //    con = new OleDbConnection(cs);
-        //    string query = "INSERT INTO " + str2 + " ([STT], [Câu hỏi], [Đáp án A], [Đáp án B], [Đáp án C], [Đáp án D], [Đáp án đúng]) VALUES"
-        //        + "(@stt,@cauhoi,@dapanA,@dapanB,@dapanC,@dapanD,@dapandung)";
-        //    cmd = new OleDbCommand(query, con);
-        //    cmd.Parameters.AddWithValue("@stt", Convert.ToInt32(tb_Stt.Text));
-        //    cmd.Parameters.AddWithValue("@cauhoi", tb_Cauhoi.Text);
-        //    cmd.Parameters.AddWithValue("@dapanA", tb_DapanA.Text);
-        //    cmd.Parameters.AddWithValue("@dapanB", tb_DapanB.Text);
-        //    cmd.Parameters.AddWithValue("@dapanC", tb_DapanC.Text);
-        //    cmd.Parameters.AddWithValue("@dapanD", tb_DapanD.Text);
-        //    cmd.Parameters.AddWithValue("@dapandung", tb_Dapandung.Text);
-        //    con.Open();
-        //    cmd.ExecuteNonQuery();
-        //    con.Close();
-        //    MessageBox.Show("Insert Success.");
-        //    GetData();
-        //    LastNum++;
-        //}
+        Image imgNew;
+        string sourcePath = "";
+        private void btnAddImg_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.ShowDialog();            
+            sourcePath = ofd.FileName;
+            imgNew = Image.FromFile(ofd.FileName);            
+
+        }        
 
         private void dataGridView1_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
