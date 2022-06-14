@@ -440,10 +440,7 @@ namespace projectNT106
 
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+        
 
         private void labelIDRoom_Click(object sender, EventArgs e)
         {
@@ -455,9 +452,10 @@ namespace projectNT106
 
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void roundedPanel1_Paint(object sender, PaintEventArgs e)
         {
-
+            roundedPanel1.BottomColor = Color.Transparent;
+            roundedPanel1.TopColor = Color.LightBlue;
         }
     }
 

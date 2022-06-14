@@ -36,34 +36,36 @@
             this.btnLock = new projectNT106.Graph.CircularButton();
             this.txtNumMember = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.labelIP = new System.Windows.Forms.Label();
-            this.labelIDRoom = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.listView1 = new System.Windows.Forms.ListView();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.labelIP = new System.Windows.Forms.Label();
+            this.labelIDRoom = new System.Windows.Forms.Label();
             this.roundedPanel1.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // roundedPanel1
             // 
             this.roundedPanel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.roundedPanel1.Angle = 90F;
-            this.roundedPanel1.BottomColor = System.Drawing.Color.Silver;
+            this.roundedPanel1.BackColor = System.Drawing.Color.Transparent;
+            this.roundedPanel1.BottomColor = System.Drawing.Color.Transparent;
+            this.roundedPanel1.Controls.Add(this.groupBox1);
             this.roundedPanel1.Controls.Add(this.textBox2);
             this.roundedPanel1.Controls.Add(this.btnStart);
             this.roundedPanel1.Controls.Add(this.button2);
             this.roundedPanel1.Controls.Add(this.btnLock);
             this.roundedPanel1.Controls.Add(this.txtNumMember);
             this.roundedPanel1.Controls.Add(this.label2);
-            this.roundedPanel1.Controls.Add(this.panel1);
             this.roundedPanel1.Controls.Add(this.flowLayoutPanel1);
             this.roundedPanel1.Controls.Add(this.listView1);
-            this.roundedPanel1.Location = new System.Drawing.Point(0, -29);
+            this.roundedPanel1.Location = new System.Drawing.Point(0, -37);
             this.roundedPanel1.Name = "roundedPanel1";
-            this.roundedPanel1.Size = new System.Drawing.Size(1186, 578);
+            this.roundedPanel1.Size = new System.Drawing.Size(1194, 586);
             this.roundedPanel1.TabIndex = 0;
-            this.roundedPanel1.TopColor = System.Drawing.Color.DarkSlateGray;
+            this.roundedPanel1.TopColor = System.Drawing.Color.LightBlue;
+            this.roundedPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.roundedPanel1_Paint);
             // 
             // textBox2
             // 
@@ -134,40 +136,11 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Location = new System.Drawing.Point(621, 277);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(154, 38);
+            this.label2.Size = new System.Drawing.Size(162, 46);
             this.label2.TabIndex = 3;
             this.label2.Text = "Số người tham gia: ";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label2.Click += new System.EventHandler(this.label2_Click);
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.labelIP);
-            this.panel1.Controls.Add(this.labelIDRoom);
-            this.panel1.Location = new System.Drawing.Point(977, 41);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(188, 67);
-            this.panel1.TabIndex = 2;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
-            // 
-            // labelIP
-            // 
-            this.labelIP.AutoSize = true;
-            this.labelIP.Location = new System.Drawing.Point(21, 38);
-            this.labelIP.Name = "labelIP";
-            this.labelIP.Size = new System.Drawing.Size(75, 20);
-            this.labelIP.TabIndex = 10;
-            this.labelIP.Text = "IP server:";
-            // 
-            // labelIDRoom
-            // 
-            this.labelIDRoom.AutoSize = true;
-            this.labelIDRoom.Location = new System.Drawing.Point(21, 11);
-            this.labelIDRoom.Name = "labelIDRoom";
-            this.labelIDRoom.Size = new System.Drawing.Size(79, 20);
-            this.labelIDRoom.TabIndex = 0;
-            this.labelIDRoom.Text = "ID phòng:";
-            this.labelIDRoom.Click += new System.EventHandler(this.labelIDRoom_Click);
             // 
             // flowLayoutPanel1
             // 
@@ -192,6 +165,36 @@
             this.listView1.View = System.Windows.Forms.View.SmallIcon;
             this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.labelIP);
+            this.groupBox1.Controls.Add(this.labelIDRoom);
+            this.groupBox1.Location = new System.Drawing.Point(898, 41);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(254, 67);
+            this.groupBox1.TabIndex = 10;
+            this.groupBox1.TabStop = false;
+            // 
+            // labelIP
+            // 
+            this.labelIP.AutoSize = true;
+            this.labelIP.BackColor = System.Drawing.Color.Transparent;
+            this.labelIP.Location = new System.Drawing.Point(11, 37);
+            this.labelIP.Name = "labelIP";
+            this.labelIP.Size = new System.Drawing.Size(75, 20);
+            this.labelIP.TabIndex = 12;
+            this.labelIP.Text = "IP server:";
+            // 
+            // labelIDRoom
+            // 
+            this.labelIDRoom.AutoSize = true;
+            this.labelIDRoom.BackColor = System.Drawing.Color.Transparent;
+            this.labelIDRoom.Location = new System.Drawing.Point(11, 17);
+            this.labelIDRoom.Name = "labelIDRoom";
+            this.labelIDRoom.Size = new System.Drawing.Size(79, 20);
+            this.labelIDRoom.TabIndex = 11;
+            this.labelIDRoom.Text = "ID phòng:";
+            // 
             // Room
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -206,8 +209,8 @@
             this.Load += new System.EventHandler(this.Room_Load_1);
             this.roundedPanel1.ResumeLayout(false);
             this.roundedPanel1.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -218,13 +221,13 @@
         private System.Windows.Forms.TextBox txtNumMember;
         private System.Windows.Forms.Label label2;
         private Graph.CircularButton btnLock;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label labelIDRoom;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label labelIP;
+        private System.Windows.Forms.Label labelIDRoom;
     }
 }
