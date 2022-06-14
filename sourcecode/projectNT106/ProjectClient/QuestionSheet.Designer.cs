@@ -72,6 +72,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.Goldenrod;
             this.label1.Location = new System.Drawing.Point(6, 31);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(106, 20);
@@ -80,7 +81,7 @@
             // 
             // txtRoomID
             // 
-            this.txtRoomID.Location = new System.Drawing.Point(381, 25);
+            this.txtRoomID.Location = new System.Drawing.Point(368, 28);
             this.txtRoomID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtRoomID.Name = "txtRoomID";
             this.txtRoomID.ReadOnly = true;
@@ -99,6 +100,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.BackColor = System.Drawing.Color.Transparent;
             this.groupBox2.Controls.Add(this.txtRoomID);
             this.groupBox2.Controls.Add(this.txtUserID);
             this.groupBox2.Controls.Add(this.label2);
@@ -114,7 +116,8 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(261, 28);
+            this.label2.ForeColor = System.Drawing.Color.Goldenrod;
+            this.label2.Location = new System.Drawing.Point(279, 31);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(83, 20);
             this.label2.TabIndex = 15;
@@ -127,10 +130,12 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
             this.groupBox1.Controls.Add(this.ptbImage);
             this.groupBox1.Controls.Add(this.groupBox3);
             this.groupBox1.Controls.Add(this.progressBar1);
             this.groupBox1.Controls.Add(this.txtQuestion);
+            this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox1.Location = new System.Drawing.Point(12, 98);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
@@ -201,7 +206,7 @@
             this.btnB.FlatAppearance.BorderSize = 0;
             this.btnB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnB.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnB.Location = new System.Drawing.Point(392, 49);
+            this.btnB.Location = new System.Drawing.Point(387, 49);
             this.btnB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnB.Name = "btnB";
             this.btnB.Size = new System.Drawing.Size(308, 150);
@@ -260,9 +265,9 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.btnInstruction);
             this.panel1.Controls.Add(this.btnExit);
-            this.panel1.Location = new System.Drawing.Point(18, 54);
+            this.panel1.Controls.Add(this.btnInstruction);
+            this.panel1.Location = new System.Drawing.Point(18, 52);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(201, 91);
@@ -270,7 +275,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.BackColor = System.Drawing.Color.SaddleBrown;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(3, 0);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -284,8 +289,10 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label3.Location = new System.Drawing.Point(670, 39);
+            this.label3.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label3.Location = new System.Drawing.Point(751, 42);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(176, 25);
             this.label3.TabIndex = 21;
@@ -293,20 +300,25 @@
             // 
             // btnResult
             // 
+            this.btnResult.BackColor = System.Drawing.Color.Green;
             this.btnResult.Enabled = false;
-            this.btnResult.Location = new System.Drawing.Point(410, 35);
+            this.btnResult.FlatAppearance.BorderSize = 0;
+            this.btnResult.Location = new System.Drawing.Point(478, 29);
             this.btnResult.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnResult.Name = "btnResult";
-            this.btnResult.Size = new System.Drawing.Size(187, 38);
+            this.btnResult.Size = new System.Drawing.Size(155, 40);
             this.btnResult.TabIndex = 24;
             this.btnResult.Text = "Xem kết quả";
+            this.btnResult.UseVisualStyleBackColor = false;
             this.btnResult.Click += new System.EventHandler(this.btnResult_Click);
             // 
             // LabelTimeLeft
             // 
             this.LabelTimeLeft.AutoSize = true;
+            this.LabelTimeLeft.BackColor = System.Drawing.Color.Transparent;
             this.LabelTimeLeft.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.LabelTimeLeft.Location = new System.Drawing.Point(864, 36);
+            this.LabelTimeLeft.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.LabelTimeLeft.Location = new System.Drawing.Point(945, 39);
             this.LabelTimeLeft.Name = "LabelTimeLeft";
             this.LabelTimeLeft.Size = new System.Drawing.Size(26, 29);
             this.LabelTimeLeft.TabIndex = 23;
@@ -317,6 +329,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1498, 890);
             this.Controls.Add(this.LabelTimeLeft);
             this.Controls.Add(this.btnResult);
@@ -325,6 +339,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.pictureBox1);
+            this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "QuestionSheet";

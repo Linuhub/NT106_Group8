@@ -36,6 +36,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tb_macauhoi = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnAddImg = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
             this.tb_Dapandung = new System.Windows.Forms.TextBox();
@@ -50,9 +51,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.tb_DapanD = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.tb_Stt = new System.Windows.Forms.TextBox();
             this.tbn_Update = new System.Windows.Forms.Button();
-            this.btnAddImg = new System.Windows.Forms.Button();
+            this.tb_Stt = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -153,13 +153,25 @@
             this.groupBox1.Controls.Add(this.tb_macauhoi);
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(12, 11);
+            this.groupBox1.Location = new System.Drawing.Point(19, 11);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Size = new System.Drawing.Size(1341, 687);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
+            // 
+            // btnAddImg
+            // 
+            this.btnAddImg.BackColor = System.Drawing.Color.Transparent;
+            this.btnAddImg.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAddImg.BackgroundImage")));
+            this.btnAddImg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnAddImg.Location = new System.Drawing.Point(857, 58);
+            this.btnAddImg.Name = "btnAddImg";
+            this.btnAddImg.Size = new System.Drawing.Size(36, 31);
+            this.btnAddImg.TabIndex = 42;
+            this.btnAddImg.UseVisualStyleBackColor = false;
+            this.btnAddImg.Click += new System.EventHandler(this.btnAddImg_Click);
             // 
             // groupBox2
             // 
@@ -324,6 +336,19 @@
             this.label3.TabIndex = 42;
             this.label3.Text = "STT:";
             // 
+            // tbn_Update
+            // 
+            this.tbn_Update.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tbn_Update.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.tbn_Update.Location = new System.Drawing.Point(196, 288);
+            this.tbn_Update.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tbn_Update.Name = "tbn_Update";
+            this.tbn_Update.Size = new System.Drawing.Size(112, 50);
+            this.tbn_Update.TabIndex = 41;
+            this.tbn_Update.Text = "Cập nhật";
+            this.tbn_Update.UseVisualStyleBackColor = true;
+            this.tbn_Update.Click += new System.EventHandler(this.tbn_Update_Click);
+            // 
             // tb_Stt
             // 
             this.tb_Stt.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -334,31 +359,6 @@
             this.tb_Stt.Size = new System.Drawing.Size(260, 28);
             this.tb_Stt.TabIndex = 40;
             // 
-            // tbn_Update
-            // 
-            this.tbn_Update.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tbn_Update.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.tbn_Update.Location = new System.Drawing.Point(196, 288);
-            this.tbn_Update.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tbn_Update.Name = "tbn_Update";
-            this.tbn_Update.Size = new System.Drawing.Size(112, 50);
-            this.tbn_Update.TabIndex = 41;
-            this.tbn_Update.Text = "Update";
-            this.tbn_Update.UseVisualStyleBackColor = true;
-            this.tbn_Update.Click += new System.EventHandler(this.tbn_Update_Click);
-            // 
-            // btnAddImg
-            // 
-            this.btnAddImg.BackColor = System.Drawing.Color.Transparent;
-            this.btnAddImg.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAddImg.BackgroundImage")));
-            this.btnAddImg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnAddImg.Location = new System.Drawing.Point(857, 58);
-            this.btnAddImg.Name = "btnAddImg";
-            this.btnAddImg.Size = new System.Drawing.Size(36, 31);
-            this.btnAddImg.TabIndex = 42;
-            this.btnAddImg.UseVisualStyleBackColor = false;
-            this.btnAddImg.Click += new System.EventHandler(this.btnAddImg_Click);
-            // 
             // QuestionSource
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -366,7 +366,7 @@
             this.BackColor = System.Drawing.Color.PaleTurquoise;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1372, 715);
+            this.ClientSize = new System.Drawing.Size(1372, 689);
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "QuestionSource";

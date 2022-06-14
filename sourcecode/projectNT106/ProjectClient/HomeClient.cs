@@ -67,7 +67,6 @@ namespace ProjectClient
         {
             try
             {
-                //ipAddr = IPAddress.Parse("192.168.46.227");
                 if (!IPAddress.TryParse(txtIPServer.Text, out ipAddr))
                 {
                     MessageBox.Show("IP server is incorrect!");

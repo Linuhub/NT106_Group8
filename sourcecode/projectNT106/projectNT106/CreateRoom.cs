@@ -56,7 +56,7 @@ namespace projectNT106
             {
                 Form room = new Room(ipAddress[ipAddress.Length - 1], IDRoom, cbQuestionPackage.Text, txtNumOfParticipant.Text);
                 room.Show();
-                this.Visible = false;
+                this.Close();
             }
         
         }

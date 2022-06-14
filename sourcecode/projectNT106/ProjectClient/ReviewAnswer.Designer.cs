@@ -233,7 +233,7 @@
             this.flowLayoutPanel1.Controls.Add(this.btn19);
             this.flowLayoutPanel1.Controls.Add(this.btn20);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(34, 8);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(10);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(1036, 60);
             this.flowLayoutPanel1.TabIndex = 25;
@@ -502,6 +502,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightCyan;
             this.ClientSize = new System.Drawing.Size(1424, 759);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.button2);

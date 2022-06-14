@@ -19,9 +19,10 @@ namespace projectNT106
         {
             InitializeComponent();
             btnAddImg.Hide();
+            
         }
 
-        string cs = @"Provider = Microsoft.ACE.OLEDB.12.0; Data Source = D:\UIT\HK4\NT106\Project\NT106_Group8\sourcecode\projectNT106\projectNT106\bin\Debug\DeThiLaiXe_3Part.mdb";
+        string cs = @"Provider = Microsoft.ACE.OLEDB.12.0; Data Source = " + Application.StartupPath +"\\DeThiLaiXe_3Part.mdb";
         OleDbConnection con;
         OleDbDataAdapter da;
         DataTable dt;
@@ -107,7 +108,7 @@ namespace projectNT106
             // Lưu ảnh
             try
             {
-                string path = "D:/UIT/HK4/NT106/Project/NT106_Group8/sourcecode/projectNT106/projectNT106/bin/Debug/Image_ThiLaiXe/" + tb_Stt.Text + ".png";
+                string path = Application.StartupPath + "\\Image_ThiLaiXe/" + tb_Stt.Text + ".png";
                 pictureBox1.Image.Dispose();
                 File.Delete(path);
                 File.Copy(sourcePath, path);
@@ -121,13 +122,13 @@ namespace projectNT106
         {
             if (Convert.ToInt32(tb_Stt.Text) < 201 && Convert.ToInt32(tb_Stt.Text) > 100)
             {
-                Image img = Image.FromFile("D:/UIT/HK4/NT106/Project/NT106_Group8/sourcecode/projectNT106/projectNT106/bin/Debug/Image_ThiLaiXe/" + tb_Stt.Text + ".png");
+                Image img = Image.FromFile(Application.StartupPath + "\\Image_ThiLaiXe/" + tb_Stt.Text + ".png");
                 pictureBox1.Image = img;
                 btnAddImg.Show();
             }
             else
             {
-                pictureBox1.Image = Image.FromFile("D:/UIT/HK4/NT106/Project/NT106_Group8/img/source.png");
+                pictureBox1.Image = Image.FromFile(Application.StartupPath + "\\img/source.png");
             }
         }
         int LastNum = 201;
@@ -144,7 +145,9 @@ namespace projectNT106
 
             }
             catch { }
-        }        
+        }
+        
+        
 
         private void dataGridView1_CellEnter(object sender, DataGridViewCellEventArgs e)
         {

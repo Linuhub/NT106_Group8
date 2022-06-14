@@ -17,8 +17,7 @@ namespace ProjectClient
         {
             InitializeComponent();
         }
-        //D:\UIT\HK4\NT106\Project\NT106_Group8\sourcecode\projectNT106\ProjectClient\bin\Debug
-        string cs = @"Provider = Microsoft.ACE.OLEDB.12.0; Data Source = D:\UIT\HK4\NT106\Project\NT106_Group8\sourcecode\projectNT106\ProjectClient\bin\Debug\DeThiLaiXe_3Part.mdb";
+        string cs = @"Provider = Microsoft.ACE.OLEDB.12.0; Data Source = " + Application.StartupPath + "\\DeThiLaiXe_3Part.mdb";
         OleDbConnection con;
         OleDbDataAdapter da;
         DataTable dt;
@@ -105,7 +104,7 @@ namespace ProjectClient
 
             if (Convert.ToInt32(indexQues) < 201 && Convert.ToInt32(indexQues) > 100)
             {
-                Image img = Image.FromFile("D:/UIT/HK4/NT106/Project/NT106_Group8/sourcecode/projectNT106/ProjectClient/bin/Debug/Image_ThiLaiXe/" + indexQues + ".png");
+                Image img = Image.FromFile(Application.StartupPath + "\\Image_ThiLaiXe/" + indexQues + ".png");
                 pictureBox1.Image = img;
             }
             else pictureBox1.ImageLocation = null;

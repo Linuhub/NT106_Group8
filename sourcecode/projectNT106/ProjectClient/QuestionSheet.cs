@@ -56,8 +56,15 @@ namespace ProjectClient
             counter--;
 
             if (counter == 0)
-
+            {
                 aTimer.Stop();
+                btnA.Enabled = false;
+                btnB.Enabled = false;
+                btnC.Enabled = false;
+                btnD.Enabled = false;
+                
+            }    
+
 
             LabelTimeLeft.Text = counter.ToString();
 
@@ -71,6 +78,7 @@ namespace ProjectClient
         {
             InitializeComponent();
             cmt = respon;
+            btnResult.Enabled = false;  
         }
         private void pictureBox1_Click(object sender, EventArgs e)
         {
@@ -119,7 +127,6 @@ namespace ProjectClient
                 string check = srReceiver.ReadLine();
                 string[] addSuccess = check.Split(new char[] { '|' });
                 myAvt = int.Parse(addSuccess[1]);
-                //ptbImage.Image = Image.FromFile("D:/UIT/HK4/NT106/Project/NT106_Group8/sourcecode/projectNT106/ProjectClient/bin/Debug/icon/icon" + ReceivedAvt(myAvt) + ".png");
                                 
                 string Respon = srReceiver.ReadLine();
                 while (HomeClient.Connected)
@@ -134,8 +141,9 @@ namespace ProjectClient
                             {
                                 ResetTimer(timer1);
                             }));
-
-                            txtQuestion.Text = QuesContent[5];
+                            int indx = int.Parse(QuesContent[3]) + 1;
+                            txtQuestion.Text = "Câu số " + indx.ToString();
+                            txtQuestion.Text += ": " + QuesContent[5].Substring(12);
                             btnA.Text = QuesContent[6];
                             btnB.Text = QuesContent[7];
                             if (QuesContent[8] == "")
@@ -160,6 +168,7 @@ namespace ProjectClient
                         }
                         else if (QuesContent[0] == "rak")
                         {
+                            btnResult.BackColor = Color.Green;
                             btnResult.Enabled = true;
                             //MessageBox.Show(HomeClient.UserName + " rev:" + Respon);
                             if (QuesContent[2] == HomeClient.UserName && MyResult == "")
@@ -213,7 +222,7 @@ namespace ProjectClient
         
         public void showImg()
         {
-            Image img = Image.FromFile("D:/UIT/HK4/NT106/Project/NT106_Group8/sourcecode/projectNT106/ProjectClient/bin/Debug/Image_ThiLaiXe/" + QuesContent[4] + ".png");
+            Image img = Image.FromFile(Application.StartupPath + "\\Image_ThiLaiXe/" + QuesContent[4] + ".png");
             ptbImage.Image = img;
         }
         private void AddQuestionList(int i, string ans)
@@ -228,7 +237,7 @@ namespace ProjectClient
             QuestionList[i].RightAns = QuesContent[10];
             if (QuesContent[12]=="img")
             {
-                QuestionList[i].QuestionPic= "D:/UIT/HK4/NT106/Project/NT106_Group8/sourcecode/projectNT106/ProjectClient/bin/Debug/Image_ThiLaiXe/" + QuesContent[4] + ".png";
+                QuestionList[i].QuestionPic= Application.StartupPath + "\\Image_ThiLaiXe/" + QuesContent[4] + ".png";
             }
         }
 

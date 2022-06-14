@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -37,8 +38,8 @@ namespace projectNT106
                 }
             }
 
-
-            ptbTop1.Image = Image.FromFile("D:/UIT/HK4/NT106/Project/NT106_Group8/icon/icon" + ShowTop(1)+ ".png");
+            
+            ptbTop1.Image = Image.FromFile(Application.StartupPath + "\\icon/icon" + ShowTop(1)+ ".png");
             if (listView1.Items.Count == 1)
             {
                 roundedPanel2.Hide();
@@ -46,12 +47,12 @@ namespace projectNT106
             } 
             else if (listView1.Items.Count == 2)
             {
-                ptbTop2.Image = Image.FromFile("D:/UIT/HK4/NT106/Project/NT106_Group8/icon/icon" + ShowTop(2) + ".png");
+                ptbTop2.Image = Image.FromFile(Application.StartupPath + "\\icon/icon" + ShowTop(2) + ".png");
                 roundedPanel3.Hide();
             }
             else
             {
-                ptbTop3.Image = Image.FromFile("D:/UIT/HK4/NT106/Project/NT106_Group8/icon/icon" + ShowTop(3) + ".png");
+                ptbTop3.Image = Image.FromFile(Application.StartupPath + "\\icon/icon" + ShowTop(3) + ".png");
             }
         }
         string ShowTop(int topX)
@@ -83,6 +84,18 @@ namespace projectNT106
         {
             Form creatroom = new CreateRoom();
             creatroom.Show();
+            this.Close();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            TcpClient[] tcpClients = new TcpClient[Channel.htUsers.Count];
+            Channel.htUsers.Values.CopyTo(tcpClients, 0);
+            for (int i = 0; i < Channel.htUsers.Count; i++)
+            {
+                Channel.RemoveUser(tcpClients[i]);
+            }
+            this.Close();
         }
     }
 }

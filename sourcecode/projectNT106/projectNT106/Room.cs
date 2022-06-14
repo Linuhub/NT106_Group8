@@ -114,7 +114,7 @@ namespace projectNT106
             ImageList imgs = new ImageList();
             imgs.ImageSize = new Size(25, 25);
 
-            paths = Directory.GetFiles("D:/UIT/HK4/NT106/Project/NT106_Group8/icon"); 
+            paths = Directory.GetFiles(Application.StartupPath + "\\icon"); 
 
 
             try
@@ -170,7 +170,7 @@ namespace projectNT106
                 return;
             }
             btnStart.Enabled = false;
-            button2.Enabled = false;
+            btnExit.Enabled = false;
             time = new System.Timers.Timer();
             time.Interval = 1000; //1s
             time.Elapsed += OnTimeEvent;
@@ -205,10 +205,10 @@ namespace projectNT106
                     if (index == 1)
                     {
                         time.Stop();
-                        MessageBox.Show("Finish!");
                         showResult();
                         Form finalRank = new RankingServer();
                         finalRank.Show();
+                        this.Close();
                     }
                 }
 
@@ -323,10 +323,6 @@ namespace projectNT106
                 }
             }
 
-            for (int i = 0; i < t; i++)
-            {
-                MessageBox.Show(scoreArr[i].ToString());
-            }
 
             // Xếp hạng cho từng thành viên
             for (int i = 0; i < t; i++)
@@ -420,9 +416,13 @@ namespace projectNT106
 
         private void buttonX_Click(object sender, EventArgs e)
         {
-            string aqr = sender.ToString().Split(',')[1];
-            string tre = aqr.Substring(7);
-            MessageBox.Show(tre);
+            TcpClient[] tcpClients = new TcpClient[Channel.htUsers.Count];
+            Channel.htUsers.Values.CopyTo(tcpClients, 0);
+            for (int i = 0; i < Channel.htUsers.Count; i++)
+            {
+                Channel.RemoveUser(tcpClients[i]);
+            }
+            this.Close();
         }
 
 

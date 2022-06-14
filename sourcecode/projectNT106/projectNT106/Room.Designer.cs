@@ -33,7 +33,7 @@
             this.labelIDRoom = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.btnStart = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
             this.txtNumMember = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
@@ -43,6 +43,7 @@
             // 
             // labelIP
             // 
+            this.labelIP.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelIP.AutoSize = true;
             this.labelIP.BackColor = System.Drawing.Color.Transparent;
             this.labelIP.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -54,6 +55,7 @@
             // 
             // labelIDRoom
             // 
+            this.labelIDRoom.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelIDRoom.AutoSize = true;
             this.labelIDRoom.BackColor = System.Drawing.Color.Transparent;
             this.labelIDRoom.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -88,19 +90,19 @@
             // 
             // button2
             // 
-            this.button2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button2.BackColor = System.Drawing.Color.Firebrick;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button2.Location = new System.Drawing.Point(985, 418);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(178, 86);
-            this.button2.TabIndex = 16;
-            this.button2.Text = "Thoát";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.buttonX_Click);
+            this.btnExit.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnExit.BackColor = System.Drawing.Color.Firebrick;
+            this.btnExit.FlatAppearance.BorderSize = 0;
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExit.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnExit.Location = new System.Drawing.Point(985, 418);
+            this.btnExit.Name = "button2";
+            this.btnExit.Size = new System.Drawing.Size(178, 86);
+            this.btnExit.TabIndex = 16;
+            this.btnExit.Text = "Thoát";
+            this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.buttonX_Click);
             // 
             // txtNumMember
             // 
@@ -176,7 +178,7 @@
             this.Controls.Add(this.labelIDRoom);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.btnStart);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnLock);
             this.Controls.Add(this.txtNumMember);
             this.Controls.Add(this.label2);
@@ -196,7 +198,7 @@
         private System.Windows.Forms.Label labelIDRoom;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button btnStart;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnExit;
         private Graph.CircularButton btnLock;
         private System.Windows.Forms.TextBox txtNumMember;
         private System.Windows.Forms.Label label2;
