@@ -259,6 +259,7 @@
             this.btnInstruction.TabIndex = 0;
             this.btnInstruction.Text = "Hướng dẫn";
             this.btnInstruction.UseVisualStyleBackColor = true;
+            this.btnInstruction.Click += new System.EventHandler(this.btnInstruction_Click);
             // 
             // btnExit
             // 

@@ -25,7 +25,7 @@ namespace ProjectClient
         private double TimeElapsed;
         bool _isBoxOptionOpen = false;
         private System.Windows.Forms.Timer aTimer;
-        private int counter = 30;
+        private int counter = 20;
         public static Question[] QuestionList = new Question[20];
         private int i = -1;
         public static string MyResult="";
@@ -397,6 +397,10 @@ namespace ProjectClient
             this.Close();
         }
 
-        
+        private void btnInstruction_Click(object sender, EventArgs e)
+        {
+            Form instruction = new Instruction();
+            instruction.Show();
+        }
     }
 }

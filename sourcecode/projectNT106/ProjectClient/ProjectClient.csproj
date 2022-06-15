@@ -61,6 +61,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Instruction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Instruction.Designer.cs">
+      <DependentUpon>Instruction.cs</DependentUpon>
+    </Compile>
     <Compile Include="Question.cs" />
     <Compile Include="Graph\GradientPanel.cs">
       <SubType>Component</SubType>
@@ -103,6 +109,9 @@
     </Compile>
     <EmbeddedResource Include="HomeClient.resx">
       <DependentUpon>HomeClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Instruction.resx">
+      <DependentUpon>Instruction.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="obj\Debug\ProjectClient.HomeClient.resources" />
     <EmbeddedResource Include="obj\Debug\ProjectClient.Properties.Resources.resources" />

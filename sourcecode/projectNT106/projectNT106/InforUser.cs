@@ -48,7 +48,7 @@ namespace projectNT106
             {
                 if (result[i] > 0)
                 {
-                    mark += 1000 - (int)(result[i] / 30 * 1000);
+                    mark += 1000 - (int)(result[i] / 20 * 1000);
 
                 }
             }

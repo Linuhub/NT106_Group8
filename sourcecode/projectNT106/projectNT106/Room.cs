@@ -184,7 +184,7 @@ namespace projectNT106
         {
             Invoke(new Action(() =>
             {
-                if (second != 30)
+                if (second != 20)
                 {
                     if (second == 0)
                     {
@@ -203,7 +203,7 @@ namespace projectNT106
                 {
                     showAnswerTime = 0;
                     second = 0;
-                    if (index == 2)
+                    if (index == 20)
                     {
                         time.Stop();
                         showResult();
@@ -375,7 +375,6 @@ namespace projectNT106
                             swSender.WriteLine(rankTopX);
                             swSender.Flush();
                             swSender = null;
-                            MessageBox.Show(Room.infoUsers[index].getIDUser() + rankTopX);
                             break;
                         }
 
@@ -398,7 +397,6 @@ namespace projectNT106
             swSender.WriteLine(rank);
             swSender.Flush();
             swSender = null;
-            MessageBox.Show(Room.infoUsers[index].getIDUser() + rank);
 
         }        
         private void btnLock_Click(object sender, EventArgs e)
