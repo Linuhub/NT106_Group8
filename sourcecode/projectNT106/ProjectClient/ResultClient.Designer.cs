@@ -83,6 +83,7 @@
             // 
             // pictureBox6
             // 
+            this.pictureBox6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox6.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
             this.pictureBox6.Location = new System.Drawing.Point(873, -44);
@@ -95,6 +96,7 @@
             // 
             // labelRank3ID
             // 
+            this.labelRank3ID.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelRank3ID.Location = new System.Drawing.Point(892, 248);
             this.labelRank3ID.Name = "labelRank3ID";
             this.labelRank3ID.Size = new System.Drawing.Size(163, 46);
@@ -104,6 +106,7 @@
             // 
             // ptbAvtTop3
             // 
+            this.ptbAvtTop3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.ptbAvtTop3.BackColor = System.Drawing.Color.Transparent;
             this.ptbAvtTop3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ptbAvtTop3.Location = new System.Drawing.Point(892, 128);
@@ -116,6 +119,7 @@
             // 
             // pictureBox5
             // 
+            this.pictureBox5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox5.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
             this.pictureBox5.Location = new System.Drawing.Point(127, -31);
@@ -128,6 +132,7 @@
             // 
             // labelRank2ID
             // 
+            this.labelRank2ID.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelRank2ID.Location = new System.Drawing.Point(154, 248);
             this.labelRank2ID.Name = "labelRank2ID";
             this.labelRank2ID.Size = new System.Drawing.Size(163, 38);
@@ -137,6 +142,7 @@
             // 
             // ptbAvtTop2
             // 
+            this.ptbAvtTop2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.ptbAvtTop2.BackColor = System.Drawing.Color.Transparent;
             this.ptbAvtTop2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ptbAvtTop2.Location = new System.Drawing.Point(158, 128);
@@ -149,6 +155,7 @@
             // 
             // labelRank2Point
             // 
+            this.labelRank2Point.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelRank2Point.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelRank2Point.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.labelRank2Point.Location = new System.Drawing.Point(63, 34);
@@ -160,6 +167,7 @@
             // 
             // pictureBox4
             // 
+            this.pictureBox4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
             this.pictureBox4.Location = new System.Drawing.Point(534, -1);
@@ -172,6 +180,7 @@
             // 
             // labelRank1ID
             // 
+            this.labelRank1ID.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelRank1ID.Location = new System.Drawing.Point(534, 248);
             this.labelRank1ID.Name = "labelRank1ID";
             this.labelRank1ID.Size = new System.Drawing.Size(163, 46);
@@ -181,6 +190,7 @@
             // 
             // ptbAvtTop1
             // 
+            this.ptbAvtTop1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.ptbAvtTop1.BackColor = System.Drawing.Color.Transparent;
             this.ptbAvtTop1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ptbAvtTop1.Location = new System.Drawing.Point(534, 128);
@@ -193,6 +203,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.groupBox1.Controls.Add(this.ptbMyAvt);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.txtMyRank);
@@ -208,6 +219,7 @@
             // 
             // ptbMyAvt
             // 
+            this.ptbMyAvt.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.ptbMyAvt.BackColor = System.Drawing.Color.Transparent;
             this.ptbMyAvt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ptbMyAvt.Location = new System.Drawing.Point(30, 77);
@@ -220,6 +232,7 @@
             // 
             // label8
             // 
+            this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(222, 20);
@@ -230,6 +243,7 @@
             // 
             // txtMyRank
             // 
+            this.txtMyRank.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtMyRank.Location = new System.Drawing.Point(423, 139);
             this.txtMyRank.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtMyRank.Multiline = true;
@@ -240,6 +254,7 @@
             // 
             // txtMyPoint
             // 
+            this.txtMyPoint.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtMyPoint.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.txtMyPoint.Location = new System.Drawing.Point(214, 77);
             this.txtMyPoint.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -252,6 +267,7 @@
             // 
             // txtTotalRightAns
             // 
+            this.txtTotalRightAns.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtTotalRightAns.Location = new System.Drawing.Point(423, 77);
             this.txtTotalRightAns.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtTotalRightAns.Multiline = true;
@@ -262,6 +278,7 @@
             // 
             // pictureBox7
             // 
+            this.pictureBox7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
             this.pictureBox7.Location = new System.Drawing.Point(26, -58);
             this.pictureBox7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -273,6 +290,7 @@
             // 
             // panel1
             // 
+            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel1.Controls.Add(this.labelRank2Point);
@@ -285,6 +303,7 @@
             // 
             // labelRank1Point
             // 
+            this.labelRank1Point.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelRank1Point.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelRank1Point.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.labelRank1Point.Location = new System.Drawing.Point(73, 29);
@@ -296,6 +315,7 @@
             // 
             // pictureBox8
             // 
+            this.pictureBox8.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
             this.pictureBox8.Location = new System.Drawing.Point(38, -58);
             this.pictureBox8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -307,6 +327,7 @@
             // 
             // panel2
             // 
+            this.panel2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel2.BackColor = System.Drawing.Color.Transparent;
             this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel2.Controls.Add(this.labelRank1Point);
@@ -319,6 +340,7 @@
             // 
             // labelRank3Point
             // 
+            this.labelRank3Point.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelRank3Point.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelRank3Point.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.labelRank3Point.Location = new System.Drawing.Point(63, 34);
@@ -330,6 +352,7 @@
             // 
             // pictureBox9
             // 
+            this.pictureBox9.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox9.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox9.Image")));
             this.pictureBox9.Location = new System.Drawing.Point(26, -58);
             this.pictureBox9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -341,6 +364,7 @@
             // 
             // btnInstruction
             // 
+            this.btnInstruction.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnInstruction.BackColor = System.Drawing.Color.LightSkyBlue;
             this.btnInstruction.Location = new System.Drawing.Point(849, 718);
             this.btnInstruction.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -353,6 +377,7 @@
             // 
             // button1
             // 
+            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button1.BackColor = System.Drawing.Color.LightCoral;
             this.button1.Location = new System.Drawing.Point(993, 718);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -365,6 +390,7 @@
             // 
             // panel3
             // 
+            this.panel3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel3.BackColor = System.Drawing.Color.Transparent;
             this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel3.Controls.Add(this.labelRank3Point);
@@ -377,6 +403,7 @@
             // 
             // txtUserID
             // 
+            this.txtUserID.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtUserID.Location = new System.Drawing.Point(133, 16);
             this.txtUserID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtUserID.Name = "txtUserID";
@@ -386,6 +413,7 @@
             // 
             // label7
             // 
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(29, 58);
             this.label7.Name = "label7";
@@ -395,6 +423,7 @@
             // 
             // label9
             // 
+            this.label9.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(6, 22);
             this.label9.Name = "label9";
@@ -404,6 +433,7 @@
             // 
             // txtRoomID
             // 
+            this.txtRoomID.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtRoomID.Location = new System.Drawing.Point(133, 51);
             this.txtRoomID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtRoomID.Name = "txtRoomID";
@@ -413,6 +443,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.groupBox2.Controls.Add(this.txtUserID);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.label9);
@@ -427,6 +458,7 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(1170, 580);
             this.pictureBox1.Name = "pictureBox1";
@@ -437,6 +469,7 @@
             // 
             // pictureBox2
             // 
+            this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(1181, 179);
             this.pictureBox2.Name = "pictureBox2";

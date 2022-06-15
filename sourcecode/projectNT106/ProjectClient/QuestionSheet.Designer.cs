@@ -72,6 +72,7 @@
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.Goldenrod;
             this.label1.Location = new System.Drawing.Point(6, 31);
@@ -102,6 +103,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.groupBox2.BackColor = System.Drawing.Color.Transparent;
             this.groupBox2.Controls.Add(this.txtRoomID);
             this.groupBox2.Controls.Add(this.txtUserID);
@@ -132,6 +134,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
             this.groupBox1.Controls.Add(this.ptbImage);
             this.groupBox1.Controls.Add(this.groupBox3);
@@ -159,6 +162,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.groupBox3.Controls.Add(this.btnA);
             this.groupBox3.Controls.Add(this.btnD);
             this.groupBox3.Controls.Add(this.btnB);
@@ -247,7 +251,7 @@
             // 
             // btnInstruction
             // 
-            this.btnInstruction.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnInstruction.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnInstruction.Location = new System.Drawing.Point(0, 0);
             this.btnInstruction.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnInstruction.Name = "btnInstruction";
@@ -258,7 +262,7 @@
             // 
             // btnExit
             // 
-            this.btnExit.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnExit.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnExit.Location = new System.Drawing.Point(0, 43);
             this.btnExit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnExit.Name = "btnExit";
@@ -280,6 +284,7 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox1.BackColor = System.Drawing.Color.SaddleBrown;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(3, 0);
@@ -293,6 +298,7 @@
             // 
             // label3
             // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
@@ -305,6 +311,7 @@
             // 
             // btnResult
             // 
+            this.btnResult.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnResult.BackColor = System.Drawing.Color.Green;
             this.btnResult.Enabled = false;
             this.btnResult.FlatAppearance.BorderSize = 0;

@@ -70,6 +70,7 @@
             // 
             // panel2
             // 
+            this.panel2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Controls.Add(this.btnPrev);
             this.panel2.Controls.Add(this.btnNext);
@@ -86,6 +87,7 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox1.Location = new System.Drawing.Point(400, 174);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox1.Name = "pictureBox1";
@@ -96,6 +98,7 @@
             // 
             // btnPrev
             // 
+            this.btnPrev.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnPrev.BackColor = System.Drawing.Color.Transparent;
             this.btnPrev.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnPrev.BackgroundImage")));
             this.btnPrev.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -112,6 +115,7 @@
             // 
             // btnNext
             // 
+            this.btnNext.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnNext.BackColor = System.Drawing.Color.Transparent;
             this.btnNext.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnNext.BackgroundImage")));
             this.btnNext.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -128,6 +132,7 @@
             // 
             // txtB
             // 
+            this.txtB.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtB.BackColor = System.Drawing.Color.Gainsboro;
             this.txtB.Location = new System.Drawing.Point(387, 505);
             this.txtB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -138,6 +143,7 @@
             // 
             // txtC
             // 
+            this.txtC.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtC.BackColor = System.Drawing.Color.Gainsboro;
             this.txtC.Location = new System.Drawing.Point(720, 505);
             this.txtC.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -148,6 +154,7 @@
             // 
             // txtD
             // 
+            this.txtD.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtD.BackColor = System.Drawing.Color.Salmon;
             this.txtD.Location = new System.Drawing.Point(1050, 505);
             this.txtD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -158,6 +165,7 @@
             // 
             // txtA
             // 
+            this.txtA.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtA.BackColor = System.Drawing.Color.PaleGreen;
             this.txtA.Location = new System.Drawing.Point(55, 505);
             this.txtA.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -168,6 +176,7 @@
             // 
             // txtQues
             // 
+            this.txtQues.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtQues.Location = new System.Drawing.Point(37, 2);
             this.txtQues.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtQues.Multiline = true;
@@ -177,6 +186,7 @@
             // 
             // button2
             // 
+            this.button2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button2.BackColor = System.Drawing.Color.Firebrick;
             this.button2.FlatAppearance.BorderSize = 0;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -193,6 +203,7 @@
             // 
             // panel1
             // 
+            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(1083, 14);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -202,6 +213,7 @@
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(19, 6);
             this.label1.Name = "label1";
@@ -211,6 +223,7 @@
             // 
             // flowLayoutPanel1
             // 
+            this.flowLayoutPanel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.flowLayoutPanel1.BackColor = System.Drawing.Color.Silver;
             this.flowLayoutPanel1.Controls.Add(this.btn1);
             this.flowLayoutPanel1.Controls.Add(this.btn2);
@@ -240,6 +253,7 @@
             // 
             // btn1
             // 
+            this.btn1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btn1.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.btn1.Location = new System.Drawing.Point(3, 4);
@@ -253,6 +267,7 @@
             // 
             // btn2
             // 
+            this.btn2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btn2.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.btn2.Location = new System.Drawing.Point(54, 4);
@@ -266,6 +281,7 @@
             // 
             // btn3
             // 
+            this.btn3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn3.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btn3.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.btn3.Location = new System.Drawing.Point(105, 4);
@@ -279,6 +295,7 @@
             // 
             // btn4
             // 
+            this.btn4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn4.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btn4.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.btn4.Location = new System.Drawing.Point(156, 4);
@@ -292,6 +309,7 @@
             // 
             // btn5
             // 
+            this.btn5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn5.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btn5.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.btn5.Location = new System.Drawing.Point(207, 4);
@@ -305,6 +323,7 @@
             // 
             // btn6
             // 
+            this.btn6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn6.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btn6.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.btn6.Location = new System.Drawing.Point(258, 4);
@@ -318,6 +337,7 @@
             // 
             // btn7
             // 
+            this.btn7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn7.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btn7.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.btn7.Location = new System.Drawing.Point(309, 4);
@@ -331,6 +351,7 @@
             // 
             // btn8
             // 
+            this.btn8.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn8.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btn8.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.btn8.Location = new System.Drawing.Point(360, 4);
@@ -344,6 +365,7 @@
             // 
             // btn9
             // 
+            this.btn9.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn9.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btn9.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.btn9.Location = new System.Drawing.Point(411, 4);
@@ -357,6 +379,7 @@
             // 
             // btn10
             // 
+            this.btn10.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn10.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btn10.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.btn10.Location = new System.Drawing.Point(462, 4);
@@ -370,6 +393,7 @@
             // 
             // btn11
             // 
+            this.btn11.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn11.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btn11.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.btn11.Location = new System.Drawing.Point(513, 4);
@@ -383,6 +407,7 @@
             // 
             // btn12
             // 
+            this.btn12.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn12.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btn12.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.btn12.Location = new System.Drawing.Point(564, 4);
@@ -396,6 +421,7 @@
             // 
             // btn13
             // 
+            this.btn13.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn13.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btn13.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.btn13.Location = new System.Drawing.Point(615, 4);
@@ -409,6 +435,7 @@
             // 
             // btn14
             // 
+            this.btn14.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn14.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btn14.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.btn14.Location = new System.Drawing.Point(666, 4);
@@ -422,6 +449,7 @@
             // 
             // btn15
             // 
+            this.btn15.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn15.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btn15.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.btn15.Location = new System.Drawing.Point(717, 4);
@@ -435,6 +463,7 @@
             // 
             // btn16
             // 
+            this.btn16.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn16.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btn16.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.btn16.Location = new System.Drawing.Point(768, 4);
@@ -448,6 +477,7 @@
             // 
             // btn17
             // 
+            this.btn17.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn17.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btn17.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.btn17.Location = new System.Drawing.Point(819, 4);
@@ -461,6 +491,7 @@
             // 
             // btn18
             // 
+            this.btn18.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn18.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btn18.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.btn18.Location = new System.Drawing.Point(870, 4);
@@ -474,6 +505,7 @@
             // 
             // btn19
             // 
+            this.btn19.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn19.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btn19.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.btn19.Location = new System.Drawing.Point(921, 4);
@@ -487,6 +519,7 @@
             // 
             // btn20
             // 
+            this.btn20.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn20.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btn20.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.btn20.Location = new System.Drawing.Point(972, 4);
