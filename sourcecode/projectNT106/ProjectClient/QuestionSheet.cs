@@ -37,6 +37,10 @@ namespace ProjectClient
         public static int avtTop1 = 0;
         public static int avtTop2 = 0;
         public static int avtTop3 = 0;
+        private bool btnAClicked=false;
+        private bool btnBClicked=false;
+        private bool btnCClicked=false;
+        private bool btnDClicked=false;
         private void RunTimer()
         {
             aTimer = new System.Windows.Forms.Timer();
@@ -52,22 +56,23 @@ namespace ProjectClient
         private void aTimer_Tick(object sender, EventArgs e)
 
         {
-
             counter--;
-
             if (counter == 0)
             {
                 aTimer.Stop();
                 btnA.Enabled = false;
                 btnB.Enabled = false;
                 btnC.Enabled = false;
-                btnD.Enabled = false;
-                
+                btnD.Enabled = false;             
             }    
-
-
             LabelTimeLeft.Text = counter.ToString();
-
+            if (counter == 0 && btnAClicked == false && btnBClicked == false && btnCClicked == false && btnDClicked == false)
+            {
+                string ans = "";
+                i++;
+                AddQuestionList(i, ans);
+                SendAnswer(ans);
+            }
         }
         private void UpdateQuestionSheet(string strMessage)
         {
@@ -96,12 +101,8 @@ namespace ProjectClient
 
         private void QuestionSheet_Load_1(object sender, EventArgs e)
         {
-            panel1.Hide();
-            label3.Hide();
-            LabelTimeLeft.Hide();
             Form.CheckForIllegalCrossThreadCalls = false;
-            txtQues = cmt;
-            
+            txtQues = cmt;         
             txtUserID.Text = HomeClient.UserName;
             txtRoomID.Text = HomeClient.RoomID;
             thrMessaging = new Thread(ReceiveMessage);
@@ -252,20 +253,18 @@ namespace ProjectClient
         private void timer1_Tick_1(object sender, EventArgs e)
         {
             TimeElapsed = TimeElapsed + 15;
-            progressBar1.PerformStep();
         }
         private void ResetTimer(System.Windows.Forms.Timer timer)
         {
             TimeElapsed = 0;
-            progressBar1.Value = 0;
             timer.Stop();
             timer.Start();
-            counter = 30;
+            counter = 20;
             RunTimer();
         }
         private bool SendAnswer(string ans)
         {
-            if (ans == QuesContent[10] && (progressBar1.Value < progressBar1.Maximum))
+            if (ans == QuesContent[10] && (counter>0))
             {
                 swSender = new StreamWriter(HomeClient.tcpServer.GetStream());
                 swSender.WriteLine("ans" + '|' + txtRoomID.Text + '|' + txtUserID.Text + '|' + QuesContent[4] + '|' + (TimeElapsed / 1000).ToString());
@@ -290,6 +289,10 @@ namespace ProjectClient
             btnB.Enabled = true;
             btnC.Enabled = true;
             btnD.Enabled = true;
+            btnAClicked = false;
+            btnBClicked = false;
+            btnCClicked = false;
+            btnDClicked = false;
             btnA.BackColor = SystemColors.ActiveCaption;
             btnB.BackColor = SystemColors.ActiveCaption;
             btnC.BackColor = SystemColors.ActiveCaption;
@@ -316,6 +319,7 @@ namespace ProjectClient
         }
         private void btnA_Click(object sender, EventArgs e)
         {
+            btnAClicked = true;
             //txtUserID, roomID, stt câu hỏi ,thời gian trả lời câu đó (đúng thì số dương, sai thì 0)
             btnA.BackColor = Color.Green;
             btnA.Enabled = false;
@@ -335,6 +339,7 @@ namespace ProjectClient
 
         private void btnB_Click(object sender, EventArgs e)
         {
+            btnBClicked = true;
             btnB.BackColor = Color.Green;
             btnA.Enabled = false;
             btnB.Enabled = false;
@@ -353,6 +358,7 @@ namespace ProjectClient
 
         private void btnC_Click(object sender, EventArgs e)
         {
+            btnCClicked = true;
             btnA.Enabled = false;
             btnB.Enabled = false;
             btnC.Enabled = false;
@@ -370,6 +376,7 @@ namespace ProjectClient
 
         private void btnD_Click(object sender, EventArgs e)
         {
+            btnDClicked = true;
             btnD.BackColor = Color.Green;
             btnA.Enabled = false;
             btnB.Enabled = false;

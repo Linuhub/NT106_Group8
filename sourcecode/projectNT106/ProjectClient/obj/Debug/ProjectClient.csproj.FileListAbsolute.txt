@@ -16,7 +16,6 @@ D:\LapTrinhMangCB\DoAn\NT106_Group8\sourcecode\projectNT106\ProjectClient\bin\De
 D:\LapTrinhMangCB\DoAn\NT106_Group8\sourcecode\projectNT106\ProjectClient\bin\Debug\ProjectClient.exe
 D:\LapTrinhMangCB\DoAn\NT106_Group8\sourcecode\projectNT106\ProjectClient\bin\Debug\ProjectClient.pdb
 D:\LapTrinhMangCB\DoAn\NT106_Group8\sourcecode\projectNT106\ProjectClient\obj\Debug\ProjectClient.csproj.AssemblyReference.cache
-D:\LapTrinhMangCB\DoAn\NT106_Group8\sourcecode\projectNT106\ProjectClient\obj\Debug\ProjectClient.CreateRoom.resources
 D:\LapTrinhMangCB\DoAn\NT106_Group8\sourcecode\projectNT106\ProjectClient\obj\Debug\ProjectClient.HomeClient.resources
 D:\LapTrinhMangCB\DoAn\NT106_Group8\sourcecode\projectNT106\ProjectClient\obj\Debug\ProjectClient.Properties.Resources.resources
 D:\LapTrinhMangCB\DoAn\NT106_Group8\sourcecode\projectNT106\ProjectClient\obj\Debug\ProjectClient.QuestionSheet.resources
@@ -28,3 +27,5 @@ D:\LapTrinhMangCB\DoAn\NT106_Group8\sourcecode\projectNT106\ProjectClient\obj\De
 D:\LapTrinhMangCB\DoAn\NT106_Group8\sourcecode\projectNT106\ProjectClient\obj\Debug\ProjectClient.pdb
 D:\UIT\HK4\NT106\Project\NT106_Group8\sourcecode\projectNT106\ProjectClient\obj\Debug\ProjectClient.Revision.resources
 D:\UIT\HK4\NT106\Project\NT106_Group8\sourcecode\projectNT106\ProjectClient\obj\Debug\ProjectClient.Instruction.resources
+D:\LapTrinhMangCB\DoAn\NT106_Group8\sourcecode\projectNT106\ProjectClient\obj\Debug\ProjectClient.Instruction.resources
+D:\LapTrinhMangCB\DoAn\NT106_Group8\sourcecode\projectNT106\ProjectClient\obj\Debug\ProjectClient.Revision.resources
