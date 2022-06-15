@@ -303,7 +303,7 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label3.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label3.Location = new System.Drawing.Point(724, 42);
+            this.label3.Location = new System.Drawing.Point(687, 44);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(176, 25);
             this.label3.TabIndex = 21;
@@ -330,7 +330,7 @@
             this.LabelTimeLeft.BackColor = System.Drawing.Color.Transparent;
             this.LabelTimeLeft.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.LabelTimeLeft.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.LabelTimeLeft.Location = new System.Drawing.Point(906, 38);
+            this.LabelTimeLeft.Location = new System.Drawing.Point(869, 42);
             this.LabelTimeLeft.Name = "LabelTimeLeft";
             this.LabelTimeLeft.Size = new System.Drawing.Size(26, 29);
             this.LabelTimeLeft.TabIndex = 23;

@@ -203,7 +203,7 @@ namespace projectNT106
                 {
                     showAnswerTime = 0;
                     second = 0;
-                    if (index == 5)
+                    if (index == 2)
                     {
                         time.Stop();
                         showResult();

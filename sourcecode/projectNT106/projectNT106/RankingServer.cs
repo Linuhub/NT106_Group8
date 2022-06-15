@@ -52,6 +52,7 @@ namespace projectNT106
             }
             else
             {
+                ptbTop2.Image = Image.FromFile(Application.StartupPath + "\\icon/icon" + ShowTop(2) + ".png");
                 ptbTop3.Image = Image.FromFile(Application.StartupPath + "\\icon/icon" + ShowTop(3) + ".png");
             }
         }

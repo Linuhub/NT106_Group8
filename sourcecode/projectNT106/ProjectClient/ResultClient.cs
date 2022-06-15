@@ -44,7 +44,7 @@ namespace ProjectClient
             {
                 ptbMyAvt.Image = Image.FromFile(Application.StartupPath + "\\icon/icon" + QuestionSheet.ReceivedAvt(QuestionSheet.myAvt) + ".png");
                 MyResultInfo = GetPlayerResult(QuestionSheet.MyResult);
-                txtMyPoint.Text = "Điểm\r\n" + MyResultInfo[3];
+                txtMyPoint.Text = "\r\nĐiểm\r\n" + MyResultInfo[3];
                 txtMyRank.Text = "Xếp hạng: " + MyResultInfo[4];
                 txtTotalRightAns.Text = "Số câu đúng: " + QuestionSheet.TotalRightAns;
             }        

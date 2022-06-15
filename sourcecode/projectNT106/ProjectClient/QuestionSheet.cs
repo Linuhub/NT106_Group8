@@ -97,6 +97,8 @@ namespace ProjectClient
         private void QuestionSheet_Load_1(object sender, EventArgs e)
         {
             panel1.Hide();
+            label3.Hide();
+            LabelTimeLeft.Hide();
             Form.CheckForIllegalCrossThreadCalls = false;
             txtQues = cmt;
             
