@@ -25,7 +25,7 @@ namespace projectNT106
         public static bool isLock = false;
         String[] paths = { };
         private CheckBox[] cbs = new CheckBox[20];
-        public Channel mainServer;
+        public static Channel mainServer;
         public OleDbConnection cnn;
         public OleDbDataAdapter dar;
         public DataTable dt;
@@ -203,7 +203,7 @@ namespace projectNT106
                 {
                     showAnswerTime = 0;
                     second = 0;
-                    if (index == 1)
+                    if (index == 5)
                     {
                         time.Stop();
                         showResult();
@@ -423,6 +423,7 @@ namespace projectNT106
             {
                 Channel.RemoveUser(tcpClients[i]);
             }
+            mainServer.DeleteChannel();
             this.Close();
         }
 
@@ -463,6 +464,12 @@ namespace projectNT106
         public Channel(IPAddress address)
         {
             ipAddress = address;
+        }
+        public void DeleteChannel()
+        {
+            tlsClient.Stop();
+            ServRunning = false;
+            thrListener.Abort();
         }
         private Thread thrListener;
         private TcpListener tlsClient;

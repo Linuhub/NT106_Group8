@@ -110,6 +110,7 @@
             this.ptbAvtTop3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ptbAvtTop3.Name = "ptbAvtTop3";
             this.ptbAvtTop3.Size = new System.Drawing.Size(163, 118);
+            this.ptbAvtTop3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ptbAvtTop3.TabIndex = 22;
             this.ptbAvtTop3.TabStop = false;
             // 
@@ -142,6 +143,7 @@
             this.ptbAvtTop2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ptbAvtTop2.Name = "ptbAvtTop2";
             this.ptbAvtTop2.Size = new System.Drawing.Size(163, 118);
+            this.ptbAvtTop2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ptbAvtTop2.TabIndex = 23;
             this.ptbAvtTop2.TabStop = false;
             // 
@@ -185,6 +187,7 @@
             this.ptbAvtTop1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ptbAvtTop1.Name = "ptbAvtTop1";
             this.ptbAvtTop1.Size = new System.Drawing.Size(163, 118);
+            this.ptbAvtTop1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ptbAvtTop1.TabIndex = 24;
             this.ptbAvtTop1.TabStop = false;
             // 
@@ -211,6 +214,7 @@
             this.ptbMyAvt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ptbMyAvt.Name = "ptbMyAvt";
             this.ptbMyAvt.Size = new System.Drawing.Size(163, 118);
+            this.ptbMyAvt.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ptbMyAvt.TabIndex = 25;
             this.ptbMyAvt.TabStop = false;
             // 

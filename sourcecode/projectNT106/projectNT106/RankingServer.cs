@@ -84,6 +84,13 @@ namespace projectNT106
         {
             Form creatroom = new CreateRoom();
             creatroom.Show();
+            TcpClient[] tcpClients = new TcpClient[Channel.htUsers.Count];
+            Channel.htUsers.Values.CopyTo(tcpClients, 0);
+            for (int i = 0; i < Channel.htUsers.Count; i++)
+            {
+                Channel.RemoveUser(tcpClients[i]);
+            }
+            Room.mainServer.DeleteChannel();
             this.Close();
         }
 

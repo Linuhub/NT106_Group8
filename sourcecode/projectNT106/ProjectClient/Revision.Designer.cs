@@ -41,6 +41,7 @@
             this.txtC = new System.Windows.Forms.TextBox();
             this.txtB = new System.Windows.Forms.TextBox();
             this.txtA = new System.Windows.Forms.TextBox();
+            this.btnExit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -128,6 +129,7 @@
             this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.groupBox1.AutoSize = true;
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox1.Controls.Add(this.btnExit);
             this.groupBox1.Controls.Add(this.txtQuestion);
             this.groupBox1.Controls.Add(this.txtD);
             this.groupBox1.Controls.Add(this.txtC);
@@ -202,6 +204,16 @@
             this.txtA.Size = new System.Drawing.Size(325, 124);
             this.txtA.TabIndex = 41;
             // 
+            // btnExit
+            // 
+            this.btnExit.Location = new System.Drawing.Point(1329, 20);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(125, 55);
+            this.btnExit.TabIndex = 46;
+            this.btnExit.Text = "Thoát";
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
             // Revision
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -237,5 +249,6 @@
         private System.Windows.Forms.TextBox txtB;
         private System.Windows.Forms.TextBox txtA;
         private System.Windows.Forms.RichTextBox txtQuestion;
+        private System.Windows.Forms.Button btnExit;
     }
 }

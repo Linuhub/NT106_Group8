@@ -15,7 +15,8 @@ namespace projectNT106
     public partial class CreateRoom : Form
     {
         public static string IDRoom = "";
-        public static IPAddress ipAddress;
+        IPAddress[] ipAddress = Dns.GetHostAddresses(Dns.GetHostName());
+        IPAddress ipLocal;
         static string RandomIDRoom()
         {
             string IDRoom = "";
@@ -31,24 +32,17 @@ namespace projectNT106
 
             return IDRoom;
         }
-        public static string GetLocalIP()
-        {
-            var host = Dns.GetHostEntry(Dns.GetHostName());
-            foreach (var ip in host.AddressList)
-            {
-                if (ip.AddressFamily == AddressFamily.InterNetwork)
-                {
-                    return ip.ToString();
-                }
-            }
-            throw new Exception("No internet!");
-        }
+        
         public CreateRoom()
         {
             InitializeComponent();
 
-            txtIPLocal.Text = GetLocalIP();
-            ipAddress = IPAddress.Parse(txtIPLocal.Text);
+            ipLocal = ipAddress[ipAddress.Length - 1];
+            if (!(ipLocal.AddressFamily == AddressFamily.InterNetwork))
+            {
+                ipLocal = ipAddress[ipAddress.Length - 2];
+            }
+            txtIPLocal.Text = ipLocal.ToString();
             IDRoom = RandomIDRoom();
             cbQuestionPackage.Items.Add("Câu hỏi kiến thức luật");
             cbQuestionPackage.Items.Add("Câu hỏi biển báo");
@@ -68,7 +62,7 @@ namespace projectNT106
             }
             else
             {
-                Form room = new Room(ipAddress, IDRoom, cbQuestionPackage.Text, txtNumOfParticipant.Text);
+                Form room = new Room(ipLocal, IDRoom, cbQuestionPackage.Text, txtNumOfParticipant.Text);
                 room.Show();
                 this.Close();
             }

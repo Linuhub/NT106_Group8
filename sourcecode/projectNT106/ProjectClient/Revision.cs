@@ -75,6 +75,11 @@ namespace ProjectClient
             txtD.BackColor = SystemColors.ActiveCaption;
         }
 
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             ResetAnswer();

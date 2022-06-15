@@ -44,11 +44,11 @@ namespace projectNT106
         }
         public void calculateMark()
         {
-            for (int i = 1; i <= 5; i++)
+            for (int i = 1; i <= 20; i++)
             {
                 if (result[i] > 0)
                 {
-                    mark += 100 - (int)(result[i] / 10 * 100);
+                    mark += 1000 - (int)(result[i] / 30 * 1000);
 
                 }
             }

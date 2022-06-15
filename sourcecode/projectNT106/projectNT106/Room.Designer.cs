@@ -45,7 +45,7 @@
             // 
             this.labelIP.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelIP.AutoSize = true;
-            this.labelIP.BackColor = System.Drawing.Color.Transparent;
+            this.labelIP.BackColor = System.Drawing.Color.SlateGray;
             this.labelIP.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.labelIP.Location = new System.Drawing.Point(948, 44);
             this.labelIP.Name = "labelIP";
@@ -57,7 +57,7 @@
             // 
             this.labelIDRoom.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelIDRoom.AutoSize = true;
-            this.labelIDRoom.BackColor = System.Drawing.Color.Transparent;
+            this.labelIDRoom.BackColor = System.Drawing.Color.SlateGray;
             this.labelIDRoom.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.labelIDRoom.Location = new System.Drawing.Point(948, 14);
             this.labelIDRoom.Name = "labelIDRoom";
@@ -88,7 +88,7 @@
             this.btnStart.UseVisualStyleBackColor = false;
             this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
-            // button2
+            // btnExit
             // 
             this.btnExit.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnExit.BackColor = System.Drawing.Color.Firebrick;
@@ -97,7 +97,7 @@
             this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnExit.Location = new System.Drawing.Point(985, 418);
-            this.btnExit.Name = "button2";
+            this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(178, 86);
             this.btnExit.TabIndex = 16;
             this.btnExit.Text = "Thoát";

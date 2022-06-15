@@ -62,6 +62,7 @@
             // 
             // txtUserID
             // 
+            this.txtUserID.Enabled = false;
             this.txtUserID.Location = new System.Drawing.Point(129, 28);
             this.txtUserID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtUserID.Name = "txtUserID";
@@ -81,6 +82,7 @@
             // 
             // txtRoomID
             // 
+            this.txtRoomID.Enabled = false;
             this.txtRoomID.Location = new System.Drawing.Point(368, 28);
             this.txtRoomID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtRoomID.Name = "txtRoomID";
@@ -232,11 +234,14 @@
             // 
             // txtQuestion
             // 
+            this.txtQuestion.BackColor = System.Drawing.SystemColors.Window;
+            this.txtQuestion.Enabled = false;
             this.txtQuestion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtQuestion.Location = new System.Drawing.Point(2, 29);
             this.txtQuestion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtQuestion.Multiline = true;
             this.txtQuestion.Name = "txtQuestion";
+            this.txtQuestion.ReadOnly = true;
             this.txtQuestion.Size = new System.Drawing.Size(1454, 502);
             this.txtQuestion.TabIndex = 0;
             // 
@@ -292,7 +297,7 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label3.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label3.Location = new System.Drawing.Point(751, 42);
+            this.label3.Location = new System.Drawing.Point(724, 42);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(176, 25);
             this.label3.TabIndex = 21;
@@ -318,7 +323,7 @@
             this.LabelTimeLeft.BackColor = System.Drawing.Color.Transparent;
             this.LabelTimeLeft.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.LabelTimeLeft.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.LabelTimeLeft.Location = new System.Drawing.Point(945, 39);
+            this.LabelTimeLeft.Location = new System.Drawing.Point(906, 38);
             this.LabelTimeLeft.Name = "LabelTimeLeft";
             this.LabelTimeLeft.Size = new System.Drawing.Size(26, 29);
             this.LabelTimeLeft.TabIndex = 23;
@@ -328,6 +333,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;

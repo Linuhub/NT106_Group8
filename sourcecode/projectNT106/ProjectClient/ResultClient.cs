@@ -29,7 +29,6 @@ namespace ProjectClient
         {
             Form review = new ReviewAnswer();
             review.Show();
-            this.Visible = false;
         }
 
         private void ResultClient_Load(object sender, EventArgs e)
