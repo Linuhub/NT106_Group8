@@ -73,7 +73,7 @@ namespace ProjectClient
                     return;
                 }
                 tcpServer = new TcpClient();
-                tcpServer.Connect(ipAddr, 80);
+                tcpServer.Connect(ipAddr, 8080);
                 UserName = txtUserID.Text;
                 RoomID = txtRoomID.Text;
                 if (txtUserID.Text.Length == 0)

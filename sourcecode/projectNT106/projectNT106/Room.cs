@@ -547,7 +547,7 @@ namespace projectNT106
         public void StartListening()
         {
             IPAddress ipaLocal = ipAddress;
-            tlsClient = new TcpListener(ipaLocal, 80);
+            tlsClient = new TcpListener(ipaLocal, 8080);
             tlsClient.Start();
             ServRunning = true;
             thrListener = new Thread(KeepListening);
